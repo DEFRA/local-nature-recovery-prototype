@@ -4,7 +4,71 @@
   Blank page
 {% endblock %}
 
+{% block beforeContent %}
+  <a href="grants" class="govuk-back-link">Back</a>
+{% endblock %}
+
+
+
 {% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      Results
+    </h1>
+
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+
+  <form action="{{ thisPage }}" method="POST" role="form">
+
+    <div class="govuk-grid-column-one-third">
+      <h3 class="govuk-heading-s">Filters</h3>
+    </div>
+
+
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">{{ grantList.length }} grants</th>
+          <th scope="col" class="govuk-table__header">Type</th>
+        </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+        {% if grantList.length === 0 %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" colspan="2">No results found</td>
+
+        </tr>
+        {% else %}
+
+          {% for i in range(0, grantList.length) -%}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="grant-details?grant={{ grantList[i] }}">{{ data.import.grants[grantList[i]].code }} {{ data.import.grants[grantList[i]].title }}</a></td>
+            <td class="govuk-table__cell">{{ data.import.grants[grantList[i]].type }}</td>
+          </tr>
+          {%- endfor %}
+
+        {% endif %}
+
+        </tbody>
+      </table>
+
+
+    </div>
+
+  </form>
+</div>
 
 
 {% endblock %}
