@@ -1,0 +1,2166 @@
+{
+  "grants": [
+    {
+      "code": "AB1",
+      "title": "Nectar flower mix",
+      "payment": "£511",
+      "unit": "per ha",
+      "use": "Arable land, Uplands, Water Quality, Pollinators and Wildlife",
+      "type": "Option",
+      "summary": "This option provides areas of flowering plants to boost essential food sources for beneficial pollinators.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/nectar-flower-mix-ab1"
+    },
+    {
+      "code": "AB10",
+      "title": "Unharvested cereal headland",
+      "payment": "£640",
+      "unit": "per ha",
+      "use": "Arable land, Uplands",
+      "type": "Option",
+      "summary": "This option will provide an important food source for farmland birds throughout the year; insects in the summer and both grain and seeding arable plants in winter.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/unharvested-cereal-headland-ab10"
+    },
+    {
+      "code": "AB11",
+      "title": "Cultivated areas for arable plants",
+      "payment": "£532",
+      "unit": "per ha",
+      "use": "Arable land, Uplands, Pollinators and wildlife",
+      "type": "Option",
+      "summary": "This option will create uncropped, cultivated areas for a wide range of scarce and declining arable plants, provide areas of less densely vegetated ground for insects and other invertebrates, and summer foraging habitats for declining farmland birds.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/cultivated-areas-for-arable-plants-ab11"
+    },
+    {
+      "code": "AB12",
+      "title": "Supplementary winter feeding for farmland birds",
+      "payment": "£632",
+      "unit": "per tonne for every 2 ha",
+      "use": "Arable land, Uplands",
+      "type": "Option",
+      "summary": "This option will provide important food resources for farmland birds in late winter and early spring on arable land and mixed farms by supplementing grown winter bird food with spread seed, once the sown resources have been depleted and before natural food resources become available again in late spring.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/supplementary-winter-feeding-for-farmland-birds-ab12"
+    },
+    {
+      "code": "AB13",
+      "title": "Brassica fodder crop",
+      "payment": "£100",
+      "unit": "per ha",
+      "use": "Arable land, Uplands",
+      "type": "Option",
+      "summary": "This option provides foraging sites for seed-eating birds in pastoral areas where broad-leaved plants can persist in the crop and set seed.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/brassica-fodder-crop-ab13"
+    },
+    {
+      "code": "AB14",
+      "title": "Harvested low input cereal",
+      "payment": "£266",
+      "unit": "per ha",
+      "use": "Arable land, Uplands",
+      "type": "Option",
+      "summary": "This option will deliver an open-structured cereal crop to provide summer foraging sites for declining and localised farmland birds and habitat for brown hare, rare arable plants and pollinator species, such as bees and beneficial insects.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/harvested-low-input-cereal-ab14"
+    },
+    {
+      "code": "AB15",
+      "title": "Two year sown legume fallow",
+      "payment": "£522",
+      "unit": "per ha",
+      "use": "Arable land, Uplands, Water quality, Pollinators and wildlife ",
+      "type": "Option",
+      "summary": "This option will provide food for farmland wildlife, such as pollen and nectar for pollinators, and invertebrate chick food for farmland birds. It will also offer a rotational reduction of blackgrass.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/two-year-sown-legume-fallow-ab15"
+    },
+    {
+      "code": "AB16",
+      "title": "Autumn sown bumblebird mix",
+      "payment": "£550",
+      "unit": "per ha",
+      "use": "Arable land, Uplands, Pollinators and wildlife ",
+      "type": "Option",
+      "summary": "This option will provide important food resources for farmland birds and a range of nectar feeding insects, including butterflies and bumblebees on arable land and mixed farms.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/autumn-sown-bumblebird-mix-ab16"
+    },
+    {
+      "code": "AB2",
+      "title": "Basic overwinter stubble",
+      "payment": "£84",
+      "unit": "per ha",
+      "use": "Arable land, Uplands",
+      "type": "Option",
+      "summary": "This option creates a winter food source for seed-eating birds, which feed on spilt grain and the seeds of broad-leaved weeds. It also creates a foraging habitat for brown hare.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/basic-overwinter-stubble-ab2"
+    },
+    {
+      "code": "AB3",
+      "title": "Beetle banks",
+      "payment": "£573",
+      "unit": "per ha",
+      "use": "Arable land, Uplands, Water quality, Pollinators and wildlife",
+      "type": "Option",
+      "summary": "This option provides nesting and foraging habitats for insects (including those that feed on crop pests), bumblebees, small mammals and some farmland birds",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/beetle-banks-ab3"
+    },
+    {
+      "code": "AB4",
+      "title": "Skylark plots",
+      "payment": "£18",
+      "unit": "£9 per plot, minimum 2 plots per hectare",
+      "use": "Arable land, Uplands, Pollinators and wildlife ",
+      "type": "Option",
+      "summary": "This option provides skylarks with suitable access to nesting habitats in winter cereal crops throughout their breeding season.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/skylark-plots-ab4"
+    },
+    {
+      "code": "AB5",
+      "title": "Nesting plots for lapwing and stone curlew",
+      "payment": "£524",
+      "unit": "per ha",
+      "use": "Arable land, Uplands, Water quality, Pollinators and wildlife ",
+      "type": "Option",
+      "summary": "This option provides nesting sites for lapwing on arable land. The plots can also benefit other declining farmland birds, brown hare and some important arable plants.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/nesting-plots-for-lapwing-and-stone-curlew-ab5"
+    },
+    {
+      "code": "AB6",
+      "title": "Enhanced overwinter stubble",
+      "payment": "£436",
+      "unit": "per ha",
+      "use": "Arable land, Uplands, Pollinators and wildlife",
+      "type": "Option",
+      "summary": "This option provides important winter food sources for seed-eating birds, spring and summer foraging and nesting habitat for other farmland birds and undisturbed habitat for other farmland wildlife including many pollinators.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/enhanced-overwinter-stubble-ab6"
+    },
+    {
+      "code": "AB7",
+      "title": "Whole crop cereals",
+      "payment": "£495",
+      "unit": "per ha",
+      "use": "Arable land, Uplands, Pollinators and wildlife ",
+      "type": "Option",
+      "summary": "This option will provide a valuable seed source in grass-dominated areas, from any unripe spilt grain after harvest and from the stubble in winter. It also delivers resource protection benefits when compared to maize.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/whole-crop-cereals-ab7"
+    },
+    {
+      "code": "AB8",
+      "title": "Flower-rich margins and plots",
+      "payment": "£539",
+      "unit": "per ha",
+      "use": "Arable land, Uplands, Pollinators and wildlife ",
+      "type": "Option",
+      "summary": "This option creates flower-rich grass margins or plots that provide important habitat and foraging sites for invertebrates (including wild pollinators) and birds.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/flower-rich-margins-and-plots-ab8"
+    },
+    {
+      "code": "AB9",
+      "title": "Winter bird food",
+      "payment": "£640",
+      "unit": "per ha",
+      "use": "Arable land, Uplands, Pollinators and wildlife ",
+      "type": "Option",
+      "summary": "This option provides important food resources for farmland birds, especially in autumn and winter.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/winter-bird-food-ab9"
+    },
+    {
+      "code": "AC1",
+      "title": "Access capital items ",
+      "payment": "Up to 100% of actual costs",
+      "use": "Educational access, Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "AC2",
+      "title": "Countryside educational access visits accreditation ",
+      "payment": "£175",
+      "unit": "once per agreement",
+      "use": "Educational access, Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "BE1",
+      "title": "Protection of in-field trees on arable land",
+      "payment": "£420",
+      "unit": "per ha",
+      "use": "Arable land, Trees (non-woodland), Uplands ",
+      "type": "Option",
+      "summary": "If successful there will be trees protected from agricultural operations and kept as important features in the local landscape. Tree roots will be protected from damage by cultivations with a grass fertiliser free buffer. Undisturbed standing and fallen deadwood will act as an invertebrate habitat.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/protection-of-in-field-trees-on-arable-land-be1"
+    },
+    {
+      "code": "BE2",
+      "title": "Protection of in-field trees on intensive grassland",
+      "payment": "£190",
+      "unit": "per ha",
+      "use": "Grassland, Trees (non-woodland), Uplands ",
+      "type": "Option",
+      "summary": "If successful there will be trees protected from agricultural operations and kept as important features in the local landscape. Tree roots will be protected from damage by cultivations and a grass fertiliser free buffer. Undisturbed standing and fallen deadwood will act as an invertebrate habitat.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/protection-of-in-field-trees-on-intensive-grassland-be2"
+    },
+    {
+      "code": "BE3",
+      "title": "Management of hedgerows",
+      "payment": "£8",
+      "unit": "per 100m for 1 side of a hedge",
+      "use": "Boundaries, Priority habitats, Uplands, Pollinators and wildlife ",
+      "type": "Option",
+      "summary": "This option increases the availability of blossom for invertebrates. By allowing fruit and berries to ripen it creates food for over-wintering birds. This option will also improve the structure and longevity of hedgerows.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/management-of-hedgerows-be3"
+    },
+    {
+      "code": "BE4",
+      "title": "Management of traditional orchards",
+      "payment": "£212",
+      "unit": "per ha",
+      "use": "Priority habitats, Trees (non-woodland), Uplands ",
+      "type": "Option",
+      "summary": "If successful there will be a well-managed traditional orchard with a range of healthy young and old trees. This includes established grass, tall bushy hedges, scrub and tall herb vegetation abundant with invertebrates, birds and wildflowers.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/management-of-traditional-orchards-be4"
+    },
+    {
+      "code": "BE5",
+      "title": "Creation of traditional orchards",
+      "payment": "£281",
+      "unit": "per ha",
+      "use": "Priority habitats, Trees (non-woodland), Uplands ",
+      "type": "Option"
+    },
+    {
+      "code": "BE6",
+      "title": "Veteran tree surgery",
+      "payment": "£221",
+      "unit": "per veteran tree",
+      "use": "Priority habitats, Trees (non-woodland), Uplands ",
+      "type": "Option"
+    },
+    {
+      "code": "BE7",
+      "title": "Supplement for restorative pruning of fruit trees",
+      "payment": "£62",
+      "unit": "per tree",
+      "use": "Priority habitats, Trees (non-woodland), Uplands ",
+      "type": "Supplement",
+      "summary": "If successful there will be restored mature fruit trees with undisturbed standing and fallen deadwood providing a habitat for a wide range of invertebrates.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/supplement-for-restorative-pruning-of-fruit-trees-be7"
+    },
+    {
+      "code": "BN1",
+      "title": "Stone-faced bank repair",
+      "payment": "£31",
+      "unit": "per m",
+      "use": "Boundaries, Uplands ",
+      "type": "Capital Item",
+      "summary": "If successful there will be a rebuilt length of stone-faced bank.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/stone-faced-bank-repair-bn1"
+    },
+    {
+      "code": "BN10",
+      "title": "Hedgerow supplement - top binding and staking",
+      "payment": "£3.40",
+      "unit": "per m",
+      "use": "Boundaries, Priority habitats, Uplands ",
+      "type": "Capital Item",
+      "summary": "If successful there will be lengths of hedgerow rejuvenated with new growth to form a continuous hedge.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/hedgerow-supplement-top-binding-and-staking-bn10"
+    },
+    {
+      "code": "BN11",
+      "title": "Planting new hedges",
+      "payment": "£11.60",
+      "unit": "per m",
+      "use": "Boundaries, Priority habitats, Uplands ",
+      "type": "Capital Item",
+      "summary": "If successful there will be new lengths of hedgerow planted with locally occurring native species.  ",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/planting-new-hedges-bn11"
+    },
+    {
+      "code": "BN12",
+      "title": "Stone wall restoration",
+      "payment": "£25",
+      "unit": "per m",
+      "use": "Boundaries, Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "If successful there will be a rebuilt stone wall which will help to control livestock and conserve traditional landscapes.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/stone-wall-restoration-bn12"
+    },
+    {
+      "code": "BN13",
+      "title": "Stone wall supplement - top wiring",
+      "payment": "£3.60",
+      "unit": "per m",
+      "use": "Boundaries, Uplands, Water quality, Woodland ",
+      "type": "Capital Item",
+      "summary": "If successful there will be a rebuilt stone wall with top-wiring which will help to control livestock and conserve traditional landscapes.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/stone-wall-supplement-top-wiring-bn13"
+    },
+    {
+      "code": "BN14",
+      "title": "Stone wall supplement - stone from quarry",
+      "payment": "£44",
+      "unit": "per m",
+      "use": "Boundaries, Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "If successful there will be a rebuilt stone wall on sites where there was insufficient re-usable stone on the farm.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/stone-wall-supplement-stone-from-quarry-bn14"
+    },
+    {
+      "code": "BN2",
+      "title": "Stone-faced bank restoration",
+      "payment": "£86",
+      "unit": "per m",
+      "use": "Boundaries, Uplands ",
+      "type": "Capital Item",
+      "summary": "If successful there will be a rebuilt length of stone-faced bank.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/stone-faced-bank-restoration-bn2"
+    },
+    {
+      "code": "BN3",
+      "title": "Earth bank creation",
+      "payment": "£13.50",
+      "unit": "per m",
+      "use": "Boundaries, Uplands ",
+      "type": "Capital Item",
+      "summary": "If successful there will be a new length of earth bank which will conserve and enhance landscape character and provide a valuable wildlife habitat.  ",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/earth-bank-creation-bn3"
+    },
+    {
+      "code": "BN4",
+      "title": "Earth bank restoration",
+      "payment": "£7",
+      "unit": "per m",
+      "use": "Boundaries, Uplands ",
+      "type": "Capital Item",
+      "summary": "If successful there will be a length of rebuilt earth bank which will conserve and enhance landscape character and provide a valuable wildlife habitat.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/earth-bank-restoration-bn4"
+    },
+    {
+      "code": "BN5",
+      "title": "Hedgerow laying",
+      "payment": "£9.40",
+      "unit": "per m",
+      "use": "Boundaries, Priority habitats, Uplands ",
+      "type": "Capital Item",
+      "summary": "If successful there will be lengths of hedgerow rejuvenated with new growth to form a continuous hedge.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/hedgerow-laying-bn5"
+    },
+    {
+      "code": "BN6",
+      "title": "Hedgerow coppicing",
+      "payment": "£4",
+      "unit": "per m",
+      "use": "Boundaries, Priority habitats, Uplands ",
+      "type": "Capital Item",
+      "summary": "If successful there will be lengths of hedgerow rejuvenated with new growth to form a continuous hedge",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/hedgerow-coppicing-bn6"
+    },
+    {
+      "code": "BN7",
+      "title": "Hedgerow gapping-up",
+      "payment": "£9.50",
+      "unit": "per m",
+      "use": "Boundaries, Priority habitats, Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "If successful there will be lengths of hedgerow with gaps planted up to create a continuous length of hedge.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/hedgerow-gapping-up-bn7"
+    },
+    {
+      "code": "BN8",
+      "title": "Hedgerow supplement - casting up",
+      "payment": "£3",
+      "unit": "per m",
+      "use": "Boundaries, Priority habitats, Uplands ",
+      "type": "Capital Item",
+      "summary": "If successful there will be lengths of hedgerow which have been re-profiled and had slipped soil replaced.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/hedgerow-supplement-casting-up-bn8"
+    },
+    {
+      "code": "BN9",
+      "title": "Hedgerow supplement - substantial pre-work ",
+      "payment": "£4.10",
+      "unit": "per m",
+      "use": "Boundaries, Priority habitats, Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "CT1",
+      "title": "Management of coastal sand dunes and vegetated shingle ",
+      "payment": "£217",
+      "unit": "per ha",
+      "use": "Coast, Priority habitats ",
+      "type": "Option"
+    },
+    {
+      "code": "CT2",
+      "title": "Creation of coastal sand dunes and vegetated shingle on arable land and improved grassland ",
+      "payment": "£314",
+      "unit": "per ha",
+      "use": "Coast, Priority habitats ",
+      "type": "Option"
+    },
+    {
+      "code": "CT3",
+      "title": "Management of coastal saltmarsh ",
+      "payment": "£77",
+      "unit": "per ha",
+      "use": "Coast, Priority habitats ",
+      "type": "Option"
+    },
+    {
+      "code": "CT4 ",
+      "title": "Creation of inter-tidal and saline habitat on arable land ",
+      "payment": "£442",
+      "unit": "per ha",
+      "use": "Coast, Flood risk, Priority habitats ",
+      "type": "Option"
+    },
+    {
+      "code": "CT5",
+      "title": "Creation of inter-tidal and saline habitat by non-intervention ",
+      "payment": "£271",
+      "unit": "per ha",
+      "use": "Coast, Priority habitats ",
+      "type": "Option"
+    },
+    {
+      "code": "CT6",
+      "title": "Coastal vegetation management supplement ",
+      "payment": "£117",
+      "unit": "per ha",
+      "use": "Coast, Priority habitats ",
+      "type": "Supplement"
+    },
+    {
+      "code": "CT7",
+      "title": "Creation of inter-tidal and saline habitat on intensive grassland ",
+      "payment": "£276",
+      "unit": "per ha",
+      "use": "Coast, Flood risk, Priority habitats ",
+      "type": "Option"
+    },
+    {
+      "code": "ED1",
+      "title": "Educational Access",
+      "payment": "£290",
+      "unit": "per visit",
+      "type": "Option",
+      "summary": "This options lets school pupils visit the farm for educational experiences and allows for care farming visits.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/educational-access-ed1"
+    },
+    {
+      "code": "FG1",
+      "title": "Fencing",
+      "payment": "£4",
+      "unit": "per m",
+      "use": "Grassland, Livestock management, Priority habitats, Uplands, Water quality, Woodland ",
+      "type": "Capital Item",
+      "summary": "If successful this item will help control livestock and protect environmental features. It will also help to manage habitats.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/fencing-fg1"
+    },
+    {
+      "code": "FG10",
+      "title": "Temporary deer fencing ",
+      "payment": "£5.20",
+      "unit": "per m",
+      "use": "Uplands, Woodland ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "FG11",
+      "title": "Deer exclosure plot",
+      "payment": "£136",
+      "unit": "per unit (exclosure plot)",
+      "use": "Uplands, Woodland ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "FG12",
+      "title": "Wooden field gate",
+      "payment": "£390",
+      "unit": "per gate",
+      "use": "Grassland, Livestock management, Priority habitats, Uplands, Woodland ",
+      "type": "Capital Item",
+      "summary": "This item helps stock management, or will stop livestock from getting into an area where they may cause damage, such as a historic or archaeological feature. This will stockproof ditch crossing points by linking the gate to the ditch edge.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/wooden-field-gate-fg12"
+    },
+    {
+      "code": "FG14",
+      "title": "Badger gate",
+      "payment": "£135",
+      "unit": "per gate",
+      "use": "Livestock management, Uplands, Woodland ",
+      "type": "Capital Item",
+      "summary": "This item allows badgers to pass freely through the fence to reduce the damage they cause to fence lines (which were themselves installed to benefit habitats through appropriate grazing).",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/badger-gate-fg14"
+    },
+    {
+      "code": "FG15",
+      "title": "Water gates",
+      "payment": "£240",
+      "unit": "per gate",
+      "use": "Livestock management, Uplands, Water quality, Woodland ",
+      "type": "Capital Item",
+      "summary": "This item will prevent livestock from entering watercourse channels. It will also stop livestock from trampling waterside banks and will leave bankside vegetation lush and unbroken by livestock paths.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/water-gates-fg15"
+    },
+    {
+      "code": "FG2",
+      "title": "Sheep netting",
+      "payment": "£4.90",
+      "unit": "per m",
+      "use": "Grassland, Livestock management, Priority habitats, Uplands, Water quality, Woodland ",
+      "type": "Capital Item",
+      "summary": "If successful there this item will protect environmental features from livestock. It will also help manage habitats.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/sheep-netting-fg2"
+    },
+    {
+      "code": "FG3",
+      "title": "Permanent electric fencing",
+      "payment": "£4.90",
+      "unit": "per m",
+      "use": "Grassland, Livestock management, Priority habitats, Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "If successful this item will help control livestock and protect environmental features. It will also help to manage habitats.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/permanent-electric-fencing-fg3"
+    },
+    {
+      "code": "FG4",
+      "title": "Rabbit fencing supplement",
+      "payment": "£2.50",
+      "unit": "per m",
+      "use": "Grassland, Livestock management, Priority habitats, Uplands, Water quality, Woodland ",
+      "type": "Capital Item",
+      "summary": "This item helps control rabbits, protects environmental features and helps to manage habitats.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/rabbit-fencing-supplement-fg4"
+    },
+    {
+      "code": "FG5",
+      "title": "Fencing supplement - difficult sites",
+      "payment": "£1.24",
+      "unit": "per m",
+      "use": "Grassland, Livestock management, Priority habitats, Uplands, Woodland ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "FG7",
+      "title": "Anti-predator combination fencing",
+      "payment": "£11.10",
+      "unit": "per m",
+      "use": "Coast, Grassland, Priority habitats, Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "FG8",
+      "title": "Anti-predator temporary electric fencing ",
+      "payment": "£2.85",
+      "unit": "per m",
+      "use": "Coast, Grassland, Priority habitats, Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "FG9",
+      "title": "Deer fencing",
+      "payment": "£7.20",
+      "unit": "per m",
+      "use": "Uplands, Woodland ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "FM1",
+      "title": "Management of geodiversity features ",
+      "payment": "Up to 100% of actual costs",
+      "use": "Uplands",
+      "type": "Capital Item"
+    },
+    {
+      "code": "FM2",
+      "title": "Major preparatory works for priority habitats (creation and restoration) and priority species ",
+      "payment": "Up to 100% of actual costs",
+      "use": "Priority habitats, Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "FY1",
+      "title": "Deer high seat ",
+      "payment": "£300",
+      "unit": "per unit",
+      "use": "Uplands, Woodland ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "FY2",
+      "title": "Woodland infrastructure",
+      "payment": "40% of actual costs",
+      "use": "Uplands, Woodland ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "GS1",
+      "title": "Take small areas out of management",
+      "payment": "£365",
+      "unit": "per ha",
+      "use": "Grassland, Uplands, Water quality, Pollinators and wildlife ",
+      "type": "Option",
+      "summary": "This option creates a year-round habitat and food for a range of wildlife. If successful there will be tall grass tussocks with abundant flowering plants during the summer and dead seed heads throughout the winter.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/take-field-corners-out-of-management-gs1"
+    },
+    {
+      "code": "GS10",
+      "title": "Management of grassland for wintering waders and wildfowl",
+      "payment": "£157",
+      "unit": "per ha",
+      "use": "Grassland, Uplands ",
+      "type": "Option",
+      "summary": "It will provide habitat in wet grassland for wintering wildfowl and wading birds. Fields will have wet areas throughout the winter, attracting wading birds and wildfowl, which will be able to feed and roost undisturbed.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/management-of-wet-grassland-for-wintering-waders-and-wildfowl-gs10"
+    },
+    {
+      "code": "GS11",
+      "title": "Creation of wet grassland for breeding waders ",
+      "payment": "£406",
+      "unit": "per ha",
+      "use": "Grassland, Uplands ",
+      "type": "Option"
+    },
+    {
+      "code": "GS12",
+      "title": "Creation of wet grassland for wintering waders and wildfowl ",
+      "payment": "£310",
+      "unit": "per ha",
+      "use": "Grassland, Uplands ",
+      "type": "Option"
+    },
+    {
+      "code": "GS13",
+      "title": "Management of grassland for target features ",
+      "payment": "£90",
+      "unit": "per ha",
+      "use": "Grassland, Uplands ",
+      "type": "Option"
+    },
+    {
+      "code": "GS14",
+      "title": "Creation of grassland for target features ",
+      "payment": "£253",
+      "unit": "per ha",
+      "use": "Grassland, Uplands ",
+      "type": "Option"
+    },
+    {
+      "code": "GS15",
+      "title": "Hay making supplement",
+      "payment": "£85",
+      "unit": "per ha",
+      "use": "Grassland, Uplands ",
+      "type": "Supplement",
+      "summary": "This supplement allows a crop of herb-rich hay to be grown and harvested, which will lead to wildflowers and grasses blossoming and setting seed. This will help to conserve many of the plants in the meadow and provide pollen and nectar for bees and other insects.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/haymaking-supplement-gs15"
+    },
+    {
+      "code": "GS16",
+      "title": "Rush infestation control supplement",
+      "payment": "£73",
+      "unit": "per ha",
+      "use": "Grassland, Uplands ",
+      "type": "Supplement",
+      "summary": "This supplement is a short-term incentive to reduce rush cover in parcels with heavy infestations. It will help prevent the loss of botanically rich grasslands or provide nesting areas for breeding wading birds. The rush cover on the site will reduce to below 30%.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/rush-infestation-control-supplement-gs16"
+    },
+    {
+      "code": "GS17",
+      "title": "Lenient grazing supplement",
+      "payment": "£44",
+      "unit": "per ha",
+      "use": "Grassland, Uplands, Pollinators and wildlife ",
+      "type": "Supplement",
+      "summary": "This supplement provides the critical spring and summer invertebrate food needed by species such as yellowhammers.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/lenient-grazing-supplement-gs17"
+    },
+    {
+      "code": "GS2",
+      "title": "Permanent grassland with very low inputs (outside SDAs)",
+      "payment": "£95",
+      "unit": "per ha",
+      "use": "Grassland, Water quality, Pollinators and wildlife ",
+      "type": "Option",
+      "summary": "If successful there will be more flowering grass and wildflower species, varied structures offering nectar and shelter for invertebrates and increased food supply for birds",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/permanent-grassland-with-very-low-inputs-outside-sdas-gs2"
+    },
+    {
+      "code": "GS3",
+      "title": "Ryegrass seed-set as winter food for birds",
+      "payment": "£331",
+      "unit": "per ha",
+      "use": "Grassland, Uplands, Pollinators and wildlife ",
+      "type": "Option",
+      "summary": "This option will lead to an abundance of ryegrass seed in the autumn, providing food for many birds (including yellowhammers and other buntings, gamebirds such as grey partridge, and skylarks) until late winter.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/ryegrass-seed-set-as-winter-food-for-birds-gs3"
+    },
+    {
+      "code": "GS4",
+      "title": "Legume and herb-rich swards",
+      "payment": "£309",
+      "unit": "per ha",
+      "use": "Grassland, Uplands, Pollinators and wildlife ",
+      "type": "Option",
+      "summary": "This option will produce a vigorous sward with abundant legumes and herbs suitable for productive cattle and sheep. It will also provide habitat and food for invertebrates, including crop pollinators, and improve soil structure and water infiltration.  This option doesnâ€™t use nitrogen fertilisers, which contribute to climate change.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/legume-and-herb-rich-swards-gs4"
+    },
+    {
+      "code": "GS5",
+      "title": "Permanent grassland with very low inputs in SDAs",
+      "payment": "£16",
+      "unit": "per ha",
+      "use": "Grassland, Uplands, Water quality ",
+      "type": "Option",
+      "summary": "If successful there will be more flowering grass and wildflower species, varied structures offering nectar and shelter for invertebrates and increased numbers of ground-nesting and feeding birds (particularly waders such as lapwing and snipe)",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/permanent-grassland-with-very-low-inputs-in-sdas-gs5"
+    },
+    {
+      "code": "GS6",
+      "title": "Management of species rich grassland",
+      "payment": "£182",
+      "unit": "per ha",
+      "use": "Grassland, Priority habitats ",
+      "type": "Option",
+      "summary": "It will maintain and enhance priority grasslands. It will increase the number and frequency of important plant species, with most wildflowers in bloom over the summer. Many other priority species, such as bumblebees, butterflies, birds or bats, will benefit, and buried archaeological features will not be disturbed.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/management-of-species-rich-grassland-gs6"
+    },
+    {
+      "code": "GS7",
+      "title": "Restoration towards species-rich grassland ",
+      "payment": "£145",
+      "unit": "per ha",
+      "use": "Grassland, Priority habitats, Uplands ",
+      "type": "Option"
+    },
+    {
+      "code": "GS8 ",
+      "title": "Creation of species-rich grassland ",
+      "payment": "£267",
+      "unit": "per ha",
+      "use": "Grassland, Priority habitats, Uplands ",
+      "type": "Option"
+    },
+    {
+      "code": "GS9",
+      "title": "Management of grassland for breeding waders",
+      "payment": "£264",
+      "unit": "per ha",
+      "use": "Grassland, Uplands ",
+      "type": "Option",
+      "summary": "It will provide habitat in wet grassland for breeding wading birds. Fields will have wet areas and suitable sward conditions throughout the winter and spring and into the early summer. Waders will be able to nest and, in most years, successfully fledge their young.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/management-of-wet-grassland-for-breeding-waders-gs9"
+    },
+    {
+      "code": "HE1",
+      "title": "Historic and archaeological feature protection ",
+      "payment": "Up to 100% of actual costs",
+      "use": "Educational access, Historic environment, Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "HE3",
+      "title": "Removal of eyesore ",
+      "payment": "£290",
+      "unit": "per item",
+      "use": "Coast, Grassland, Historic environment, Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "HS1",
+      "title": "Maintenance of weatherproof traditional farm buildings",
+      "payment": "£3.25",
+      "unit": "per m2",
+      "use": "Educational access, Historic environment, Uplands ",
+      "type": "Option",
+      "summary": "This option will help to maintain traditional farm buildings, using traditional methods and materials. This will also enhance the local landscape and preserve places for wildlife.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/maintenance-of-weatherproof-traditional-farm-buildings-hs1"
+    },
+    {
+      "code": "HS2",
+      "title": "Take historic and archaeological features out of cultivation",
+      "payment": "£425",
+      "unit": "per ha",
+      "use": "Arable land, Historic environment, Uplands, Water quality ",
+      "type": "Option",
+      "summary": "This option will protect historic and archaeological features from damaging cultivation practices. Depending on land use and location this option may also reduce diffuse pollution and reduce soil erosion",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/take-historic-and-archaeological-features-out-of-cultivation-hs2"
+    },
+    {
+      "code": "HS3",
+      "title": "Reduced-depth, non-inversion cultivation on historic and archaeological features",
+      "payment": "£79",
+      "unit": "per ha",
+      "use": "Arable land, Historic environment, Uplands ",
+      "type": "Option",
+      "summary": "This option will reduce damage to historic and archaeological features under cultivation by using non-inversion (minimum tillage) machinery and shallower cultivation depths.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/reduced-depth-non-inversion-cultivation-on-historic-and-archaeological-features-hs3"
+    },
+    {
+      "code": "HS4",
+      "title": "Scrub control on historic and archaeological features",
+      "payment": "£137",
+      "unit": "per ha",
+      "use": "Grassland, Historic environment, Uplands ",
+      "type": "Option",
+      "summary": "This option will reduce the risk of root damage to historic and archaeological features by permanently removing the majority of scrub from them.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/scrub-control-on-historic-and-archaeological-features-hs4"
+    },
+    {
+      "code": "HS5",
+      "title": "Management of historic and archaeological features on grassland",
+      "payment": "£30",
+      "unit": "per ha",
+      "use": "Educational access, Grassland, Historic environment, Uplands ",
+      "type": "Option",
+      "summary": "This option will maintain permanent grassland on historic and archaeological features. By maintaining these features the character of the farm will be conserved and Englandâ€™s heritage protected for future generations.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/management-of-historic-and-archaeological-features-on-grassland-hs5"
+    },
+    {
+      "code": "HS6",
+      "title": "Maintenance of designed/engineered water bodies",
+      "payment": "£440",
+      "unit": "per ha",
+      "use": "Educational access, Grassland, Historic environment, Uplands ",
+      "type": "Option",
+      "summary": "This option protects the banks and associated historic built water-control features of designed or engineered historic water bodies. It maintains or strengthens the role of these features in water quality management.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/maintenance-of-designed-engineered-water-bodies-hs6"
+    },
+    {
+      "code": "HS7",
+      "title": "Management of historic water meadows through traditional irrigation ",
+      "payment": "£440",
+      "unit": "per ha",
+      "use": "Educational access, Grassland, Historic environment, Uplands ",
+      "type": "Option"
+    },
+    {
+      "code": "HS8",
+      "title": "Maintenance of weatherproof traditional farm buildings in remote areas",
+      "payment": "£6.73",
+      "unit": "per m2",
+      "use": "Educational access, Historic environment, Uplands ",
+      "type": "Option",
+      "summary": "This option will help to maintain traditional farm buildings, using traditional methods and materials. This will also enhance the local landscape and preserve places for wildlife.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/maintenance-of-weatherproof-traditional-farm-buildings-in-remote-areas-hs8"
+    },
+    {
+      "code": "HS9",
+      "title": "Restricted depth crop establishment to protect archaeology under an arable rotation",
+      "payment": "£174",
+      "unit": "per ha",
+      "use": "Arable land, Historic environment, Uplands ",
+      "type": "Option",
+      "summary": "This option reduces the risk of damage to historic and archaeological features on arable land, particularly where subtle earthwork remains survive.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/restricted-depth-crop-establishment-to-protect-archaeology-under-an-arable-rotation-hs9"
+    },
+    {
+      "code": "LH1",
+      "title": "Management of lowland heathland ",
+      "payment": "£274",
+      "unit": "per ha",
+      "use": "Priority habitats",
+      "type": "Option"
+    },
+    {
+      "code": "LH2",
+      "title": "Restoration of forestry and woodland to lowland heathland ",
+      "payment": "£184",
+      "unit": "per ha",
+      "use": "Priority habitats",
+      "type": "Option"
+    },
+    {
+      "code": "LH3",
+      "title": "Creation of heathland from arable or improved grassland ",
+      "payment": "£517",
+      "unit": "per ha",
+      "use": "Priority habitats",
+      "type": "Option"
+    },
+    {
+      "code": "LV1",
+      "title": "Cattle grid",
+      "payment": "£835",
+      "unit": "per item",
+      "use": "Grassland, Livestock management, Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "LV2",
+      "title": "Livestock handling facilities ",
+      "payment": "Up to 80% of actual costs",
+      "use": "Grassland, Livestock management, Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "LV3",
+      "title": "Hard bases for livestock drinkers",
+      "payment": "£110",
+      "unit": "per base",
+      "use": "Livestock management, Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will provide hard bases where livestock can stand when drinking. This will reduce the risk of runoff and water pollution from mobilised sediments and organic manures.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/hard-bases-for-livestock-drinkers-lv3"
+    },
+    {
+      "code": "LV4",
+      "title": "Hard bases for livestock feeders",
+      "payment": "£170",
+      "unit": "per base",
+      "use": "Livestock management, Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will provide hard bases where livestock can stand when feeding. This will reduce the risk of runoff and water pollution from mobilised sediments and organic manures.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/hard-bases-for-livestock-feeders-lv4"
+    },
+    {
+      "code": "LV5",
+      "title": "Pasture pumps and associated pipework",
+      "payment": "£220",
+      "unit": "per pump",
+      "use": "Livestock management, Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will provide livestock with an alternative to drinking from watercourses. It will reduce bank erosion, sediment pollution and the faecal contamination of watercourses.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/pasture-pumps-and-associated-pipework-lv5"
+    },
+    {
+      "code": "LV6",
+      "title": "Ram pumps and associated pipework",
+      "payment": "£1,480",
+      "unit": "per pump",
+      "use": "Livestock management, Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will provide livestock with an alternative to drinking from watercourses. It will reduce bank erosion, sediment pollution and the faecal contamination of watercourses.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/ram-pumps-and-associated-pipework-lv6"
+    },
+    {
+      "code": "LV7",
+      "title": "Livestock troughs",
+      "payment": "£110",
+      "unit": "per trough",
+      "use": "Livestock management, Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will provide livestock with an alternative to drinking from watercourses and ponds. It will reduce bank erosion, sediment pollution and the faecal contamination of watercourses.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/livestock-troughs-lv7"
+    },
+    {
+      "code": "LV8",
+      "title": "Pipework associated with livestock troughs",
+      "payment": "£2.65",
+      "unit": "per m",
+      "use": "Livestock management, Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will provide livestock with an alternative to drinking from watercourses. It will reduce bank erosion, sediment pollution and the faecal contamination of watercourses.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/pipework-associated-with-livestock-troughs-lv8"
+    },
+    {
+      "code": "OP1",
+      "title": "Overwintered stubble",
+      "payment": "£116",
+      "unit": "per ha",
+      "use": "Arable land, Organic land, Uplands ",
+      "type": "Option",
+      "summary": "This option creates a winter food source for seed-eating birds, which feed on spilt grain and the seeds of broad-leaved weeds, and a foraging habitat for brown hare. If successful there will be an increase in the number of farmland birds using the overwinter stubble.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/overwintered-stubble-op1"
+    },
+    {
+      "code": "OP2",
+      "title": "Wild bird seed mixture",
+      "payment": "£640",
+      "unit": "per ha",
+      "use": "Arable land, Organic land, Uplands ",
+      "type": "Option",
+      "summary": "This option provides a valuable year-round habitat and food for farmland wildlife such as pollinators and farmland birds. If successful there should be an increase in important food resources for farmland birds, especially in winter and early spring.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/wild-bird-seed-mixture-op2"
+    },
+    {
+      "code": "OP3",
+      "title": "Supplementary feeding for farmland birds",
+      "payment": "£494",
+      "unit": "per tonne for every 2 ha",
+      "use": "Arable land, Organic land, Uplands ",
+      "type": "Option",
+      "summary": "This option provides important food sources for farmland birds in late winter and early spring. It supplements grown winter bird food on arable and mixed farms with spread seed, such as  cereal, oilseed and specialised grains. It gives the birds food through the â€˜hungry gapâ€™ (the late winter period when seed is in short supply) and as they enter the breeding season.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/supplementary-feeding-for-farmland-birds-op3"
+    },
+    {
+      "code": "OP4",
+      "title": "Multi species ley",
+      "payment": "£115",
+      "unit": "per ha",
+      "use": "Arable land, Organic land, Uplands ",
+      "type": "Option",
+      "summary": "This option provides a valuable year-round habitat and food for farmland wildlife such as pollinators and farmland birds.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/multi-species-ley-op4"
+    },
+    {
+      "code": "OP5",
+      "title": "Undersown cereal",
+      "payment": "£86",
+      "unit": "per ha",
+      "use": "Arable land, Organic land, Uplands ",
+      "type": "Option",
+      "summary": "This option creates a habitat that benefits animals including invertebrates and birds that forage within the undersown cereal crop.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/undersown-cereal-op5"
+    },
+    {
+      "code": "OT1",
+      "title": "Organic land management - improved permanent grassland",
+      "payment": "£40",
+      "unit": "per ha",
+      "use": "Grassland, Organic land, Uplands ",
+      "type": "Option",
+      "summary": "This option maintains land under organic management, providing a wide range of environmental and public benefits.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/organic-land-management-improved-permanent-grassland-ot1"
+    },
+    {
+      "code": "OT2",
+      "title": "Organic land management - unimproved permanent grassland",
+      "payment": "£20",
+      "unit": "per ha",
+      "use": "Grassland, Organic land, Uplands ",
+      "type": "Option",
+      "summary": "This option maintains unimproved grassland under organic management, providing a wide range of environmental and public benefits.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/organic-land-management-unimproved-permanent-grassland-ot2"
+    },
+    {
+      "code": "OT3",
+      "title": "Organic land management - rotational land",
+      "payment": "£65",
+      "unit": "per ha",
+      "use": "Arable land, Organic land, Uplands ",
+      "type": "Option",
+      "summary": "This option maintains rotational land under organic management, providing a wide range of environmental and public benefits.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/organic-land-management-rotational-land-ot3"
+    },
+    {
+      "code": "OT4",
+      "title": "Organic land management - horticulture",
+      "payment": "£200",
+      "unit": "per ha",
+      "use": "Organic land, Uplands ",
+      "type": "Option",
+      "summary": "This option maintains land under organic management, providing a wide range of environmental and public benefits. ",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/organic-land-management-horticulture-ot4"
+    },
+    {
+      "code": "OT5",
+      "title": "Organic land management - top fruit",
+      "payment": "£300",
+      "unit": "per ha",
+      "use": "Organic land, Trees (non-woodland), Uplands ",
+      "type": "Option",
+      "summary": "This option maintains top fruit orchards under organic management, providing a range of environmental and public benefits.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/organic-land-management-top-fruit-ot5"
+    },
+    {
+      "code": "OT6",
+      "title": "Organic land management - enclosed rough grazing",
+      "payment": "£8",
+      "unit": "per ha",
+      "use": "Organic land, Uplands ",
+      "type": "Option",
+      "summary": "This option maintains organic management of enclosed rough grazing parcels no greater than 15ha within the SDA and above the moorland line. ",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/organic-land-management-enclosed-rough-grazing-ot6"
+    },
+    {
+      "code": "PA1",
+      "title": "Implementation Plan",
+      "payment": "£1,100",
+      "unit": "per plan",
+      "use": "Flood risk, Priority habitats, Uplands, Water quality ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "PA2",
+      "title": "Feasibility Study ",
+      "payment": "Up to 100% of actual costs",
+      "use": "Flood risk, Priority habitats, Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "PA3",
+      "title": "Woodland management plan",
+      "payment": "£20 or £10",
+      "unit": "per ha (£20 for first 100ha, £10 thereafter)",
+      "use": "Priority habitats, Uplands, Woodland ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "RP1",
+      "title": "Resurfacing of gateways",
+      "payment": "£92",
+      "unit": "per gateway",
+      "use": "Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will provide a strengthened surface at the field gateway. This will reduce ponding on either side of the gateways caused by soil compaction. If successful there will be reduced surface runoff, soil erosion and risk of diffuse water pollution.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/resurfacing-of-gateways-rp1"
+    },
+    {
+      "code": "RP10",
+      "title": "Silt filtration dams or seepage barriers",
+      "payment": "£75",
+      "unit": "per unit (dam / barrier)",
+      "use": "Flood risk, Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will create a silt filtration barriers or seepage barrier. This will slow the movement of water in ditches, to allow pollutants to settle out which will help improve water quality and may reduce downstream flooding.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/silt-filtration-dams-or-seepage-barriers-rp10"
+    },
+    {
+      "code": "RP11",
+      "title": "Swales",
+      "payment": "£5.95",
+      "unit": "per m2",
+      "use": "Flood risk, Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will create a swale (channel) to collect surface runoff water or lightly contaminated water from farmyards or tracks. The collected water is conveyed to a watercourse or stored to infiltrate into the ground.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/swales-rp11"
+    },
+    {
+      "code": "RP12",
+      "title": "Check dams",
+      "payment": "£42",
+      "unit": "per dam",
+      "use": "Flood risk, Uplands, Water quality, Woodland ",
+      "type": "Capital Item",
+      "summary": "This item will create dams (check dams or woody debris dams in woodland) that slow the movement of water in small natural streams and ditches. They will slow surface water, allow sediment and other pollutants to settle out, helping to improve water quality and reduce downstream flooding.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/check-dams-rp12"
+    },
+    {
+      "code": "RP13",
+      "title": "Yard - underground drainage pipework",
+      "payment": "£5.50",
+      "unit": "per m",
+      "use": "Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will improve existing outdoor yards to reduce the risk of runoff and water pollution.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/yard-underground-drainage-pipework-rp13"
+    },
+    {
+      "code": "RP14",
+      "title": "Yard inspection pit",
+      "payment": "£200",
+      "unit": "per unit (pit)",
+      "use": "Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will improve existing outdoor yards to reduce the risk of runoff and water pollution.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/yard-inspection-pit-rp14"
+    },
+    {
+      "code": "RP15",
+      "title": "Concrete yard renewal",
+      "payment": "£27.14",
+      "unit": "per m2",
+      "use": "Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item improve or upgrade existing outdoor (uncovered) yard drainage to reduce foul drainage volumes, run-off and risk of water pollution.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/concrete-yard-renewal-rp15"
+    },
+    {
+      "code": "RP16",
+      "title": "Rainwater goods",
+      "payment": "£11.40",
+      "unit": "per m",
+      "use": "Flood risk, Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will provide new guttering and downpipes (rainwater goods). This will prevent the discharge of clean water onto fouled yard areas which will help reduce risk of water pollution.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/rainwater-goods-rp16"
+    },
+    {
+      "code": "RP17",
+      "title": "Storage tanks underground",
+      "payment": "£350",
+      "unit": "per m3",
+      "use": "Flood risk, Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will provide an underground storage tank to collect and contain rainwater. This will help to clean and dirty water separate. This will provide free clean water,that may be suitable to use for a number of tasks around the farm such as yard washing, instead of wasting potable water supplies.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/storage-tanks-underground-rp17"
+    },
+    {
+      "code": "RP18",
+      "title": "Above ground tanks",
+      "payment": "£100",
+      "unit": "per m3",
+      "use": "Flood risk, Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will provide an above ground storage tank to collect and contain rainwater. This will help to clean and dirty water separate. This will provide free clean water, that may be suitable to use for a number of tasks around the farm such as yard washing, instead of wasting potable water supplies.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/above-ground-tanks-rp18"
+    },
+    {
+      "code": "RP19",
+      "title": "First flush rainwater diverters and downpipe filters",
+      "payment": "£125",
+      "unit": "per unit (diverter/filter)",
+      "use": "Flood risk, Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item diverts and filters potentially contaminated roof water to keep leaves, debris and other contaminants out of diverters, clean water drains and water storage tanks. This will help provide clean water, that can be used for a number of tasks around the farm such as yard washing, instead of wasting potable water supplies.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/first-flush-rainwater-diverters-and-downpipe-filters-rp19"
+    },
+    {
+      "code": "RP2",
+      "title": "Gateway relocation",
+      "payment": "£340",
+      "unit": "per gateway",
+      "use": "Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will relocate the gateway to a suitable location where it will not act as a pathway for water runoff. This will prevent polluted surface water from leaving fields through gateways and help to reduce risk of soil erosion and diffuse pollution.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/gateway-relocation-rp2"
+    },
+    {
+      "code": "RP20",
+      "title": "Relocation of sheep dips and pens",
+      "payment": "£3,675",
+      "unit": "per unit (dip/pen)",
+      "use": "Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will install replacement sheep dips in new locations. Pollution from sheep dips can cause damage to people and aquatic wildlife. Relocating sheep dips can help reduce risk of diffuse water pollution.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/relocation-of-sheep-dips-and-pens-rp20"
+    },
+    {
+      "code": "RP21",
+      "title": "Relocation of sheep pens only",
+      "payment": "£1,830",
+      "unit": "per unit (pen)",
+      "use": "Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will install new sheep dipping pens in new locations. Pollution from sheep dips can cause damage to people and aquatic wildlife. Relocating sheep dips and pens can help reduce risk of diffuse water pollution.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/relocation-of-sheep-pens-only-rp21"
+    },
+    {
+      "code": "RP22",
+      "title": "Sheep dip drainage aprons and sumps",
+      "payment": "£18.25",
+      "unit": "per m2",
+      "use": "Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will install new sheep dip drainage apron and sump in new locations. Pollution from sheep dips can cause damage to people and aquatic wildlife. Relocating sheep dips and pens can help reduce risk of diffuse water pollution.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/sheep-dip-drainage-aprons-and-sumps-rp22"
+    },
+    {
+      "code": "RP23",
+      "title": "Installation of livestock drinking troughs (in draining pens for freshly dipped sheep)",
+      "payment": "£68",
+      "unit": "per unit (trough)",
+      "use": "Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will install new livestock drinking troughs in relocated sheep dip facilities. Pollution from sheep dips can cause damage to people and aquatic wildlife. Relocating sheep dips and pens can help reduce risk of diffuse water pollution.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/installation-of-livestock-drinking-troughs-in-draining-pens-for-freshly-dipped-sheep-rp23"
+    },
+    {
+      "code": "RP24",
+      "title": "Lined biobed plus pesticide loading and washdown area",
+      "payment": "£118",
+      "unit": "per m2",
+      "use": "Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will contain and collect sprayer and applicator washings and degrade them in a biobed. This will help prevent pesticides from entering drains or water bodies, which will help reduce the risk of water pollution.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/lined-biobed-plus-pesticide-loading-and-washdown-area-rp24"
+    },
+    {
+      "code": "RP25",
+      "title": "Lined biobed with existing washdown area",
+      "payment": "£77",
+      "unit": "per m2",
+      "use": "Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will create a lined biobed to treat the pesticide residues that arise from pesticide handling activities. This will help prevent pesticides from entering drains or water bodies, which will help reduce the risk of water pollution.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/lined-biobed-with-existing-washdown-area-rp25"
+    },
+    {
+      "code": "RP26",
+      "title": "Biofilters",
+      "payment": "£990",
+      "unit": "per unit (biofolter)",
+      "use": "Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will create a biofiler to degrade pesticide residues that arise from pesticide handling activities. This will help prevent pesticides from entering drains or water bodies, which will help reduce the risk of water pollution.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/biofilters-rp26"
+    },
+    {
+      "code": "RP27",
+      "title": "Sprayer or applicator load and washdown area",
+      "payment": "£40",
+      "unit": "per m2",
+      "use": "Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will contain and collect washings from sprayers or applicators. These will then be degraded in a biofilter or biobed, which will help reduce the risk of water pollution.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/sprayer-or-applicator-load-and-washdown-area-rp27"
+    },
+    {
+      "code": "RP28",
+      "title": "Roofing (sprayer washdown area, manure storage area, livestock gathering area, slurry stores, silage stores)",
+      "payment": "£62",
+      "unit": "per m2",
+      "use": "Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will provide new roofing to reduce water pollution by preventing rainfall from getting into sprayer washdown areas, manure storage areas, livestock gathering areas and slurry and silage stores",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/roofing-sprayer-washdown-area-manure-storage-area-livestock-gathering-area-slurry-stores-silage-stores-rp28"
+    },
+    {
+      "code": "RP29",
+      "title": "Self supporting covers for slurry stores",
+      "payment": "£30.50",
+      "unit": "per m2",
+      "use": "Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will provide a self-supporting cover to an existing circular slurry store. This will stop rainwater from entering slurry stores and reduce the volume of dirty water that needs to be stored and spread.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/self-supporting-covers-for-slurry-stores-rp29"
+    },
+    {
+      "code": "RP3",
+      "title": "Watercourse crossings",
+      "payment": "£300",
+      "unit": "per crossing",
+      "use": "Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "The crossings will provide a watercourse crossing for livestock and machinery. This will reduce the disturbance to the watercourse which will help reduce sedimentation.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/watercourse-crossings-rp3"
+    },
+    {
+      "code": "RP30",
+      "title": "Floating covers for slurry stores and lagoons",
+      "payment": "£5.60",
+      "unit": "per m2",
+      "use": "Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will provide a floating cover for slurry stores and lagoons. This will help reduce the volume of dirty water that needs to be stored and spread.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/floating-covers-for-slurry-stores-and-lagoons-rp30"
+    },
+    {
+      "code": "RP31",
+      "title": "Equipment to disrupt tramlines in arable areas ",
+      "payment": "£1,500",
+      "unit": "per machine",
+      "use": "Flood risk, Uplands, Water quality ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "RP32",
+      "title": "Small leaky woody dams ",
+      "payment": "£461.39",
+      "unit": "per dam",
+      "use": "Flood risk, Woodland ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "RP33",
+      "title": "Large leaky woody dams ",
+      "payment": "£764.42",
+      "unit": "per dam",
+      "use": "Flood risk, Woodland ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "RP4",
+      "title": "Livestock and machinery hardcore tracks",
+      "payment": "£33",
+      "unit": "per m",
+      "use": "Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will construct a new farm track to reduce soil compaction and erosion caused by livestock and machinery. The new track will also help reduce channelling of surface runoff and the risk of sediment and other pollutants entering a watercourse.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/livestock-and-machinery-hardcore-tracks-rp4"
+    },
+    {
+      "code": "RP5",
+      "title": "Cross drains",
+      "payment": "£245",
+      "unit": "per drain",
+      "use": "Flood risk, Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will provide a drain to intercept and conduct surface runoff away from farm tracks and yards. The drain will help reduce channelling of surface runoff and the risk of sediment and other pollution entering a watercourse.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/cross-drains-rp5"
+    },
+    {
+      "code": "RP6",
+      "title": "Installation of piped culverts in ditches",
+      "payment": "£340",
+      "unit": "per culvert",
+      "use": "Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This watercourse crossing will provide access for farm machinery or livestock.  This will reduce the disturbance to the watercourse which will help reduce sedimentation and bacterial levels in the water.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/installation-of-piped-culverts-in-ditches-rp6"
+    },
+    {
+      "code": "RP7",
+      "title": "Sediment ponds and traps",
+      "payment": "£10",
+      "unit": "per m2",
+      "use": "Flood risk, Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will create a sediment pond or trap. This will provide an area where muddy run-off from field or tracks is allowed to pond so sediment will settle out. This will help reduce the risk of sediment and other pollutants entering a nearby watercourse.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/sediment-ponds-and-traps-rp7"
+    },
+    {
+      "code": "RP8",
+      "title": "Constructed wetlands for the treatment of pollution ",
+      "payment": "50% of costs",
+      "use": "Flood risk, Uplands, Water quality ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "RP9",
+      "title": "Earth banks and soil bunds",
+      "payment": "£155",
+      "unit": "per unit (100m of bund)",
+      "use": "Flood risk, Uplands, Water quality ",
+      "type": "Capital Item",
+      "summary": "This item will create an earth bank or soil bund. This can be used to slow the movement of water, slow flows during high rainfall and control water levels to aid habitat creation and restoration.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/earth-banks-and-soil-bunds-rp9"
+    },
+    {
+      "code": "SB1",
+      "title": "Scrub control and felling diseased trees ",
+      "payment": "Variable, see: https://www.gov.uk/countryside-stewardship-grants/scrub-control-and-felling-diseased-trees-sb1",
+      "use": "Priority habitats, Uplands, Vegetation control, Woodland ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "SB2",
+      "title": "Scrub control - difficult sites ",
+      "payment": "Up to 80% of actual costs",
+      "use": "Uplands, Vegetation control ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "SB3",
+      "title": "Tree removal",
+      "payment": "£144",
+      "unit": "per tree",
+      "use": "Priority habitats, Uplands, Vegetation control ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "SB6",
+      "title": "Rhododendron control ",
+      "payment": "Variable see: https://www.gov.uk/countryside-stewardship-grants/rhododendron-control-sb6",
+      "use": "Priority habitats, Uplands, Vegetation control, Woodland ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "SP1",
+      "title": "Difficult sites supplement ",
+      "payment": "£62",
+      "unit": "per ha",
+      "use": "Livestock management, Priority habitats, Uplands ",
+      "type": "Supplement"
+    },
+    {
+      "code": "SP2",
+      "title": "Raised water level supplement ",
+      "payment": "£127",
+      "unit": "per ha",
+      "use": "Priority habitats, Uplands ",
+      "type": "Supplement"
+    },
+    {
+      "code": "SP3",
+      "title": "Bracken control supplement ",
+      "payment": "£153",
+      "unit": "per ha",
+      "use": "Priority habitats, Uplands, Vegetation control ",
+      "type": "Supplement"
+    },
+    {
+      "code": "SP4",
+      "title": "Control of invasive plant species supplement",
+      "payment": "£324",
+      "unit": "per ha",
+      "use": "Priority habitats, Uplands, Vegetation control ",
+      "type": "Supplement"
+    },
+    {
+      "code": "SP5",
+      "title": "Shepherding supplement",
+      "payment": "£7",
+      "unit": "per ha",
+      "use": "Livestock management, Priority habitats, Uplands ",
+      "type": "Supplement"
+    },
+    {
+      "code": "SP6",
+      "title": "Cattle grazing supplement",
+      "payment": "£45",
+      "unit": "per ha",
+      "use": "Livestock management, Priority habitats, Uplands ",
+      "type": "Supplement",
+      "summary": "This can only be used in combination with a land management option where cattle grazing is appropriate for delivering the aims of the option.  If successful there should be: a more varied sward structure, which will increase wildlife diversity; better control of scrub, bracken and coarse vegetation and better grazing of wet areas and difficult sites such as steep slopes ",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/cattle-grazing-supplement-sp6"
+    },
+    {
+      "code": "SP7 ",
+      "title": "Introduction of cattle grazing on the Isles of Scilly ",
+      "payment": "£279",
+      "unit": "per ha",
+      "use": "Livestock management, Priority habitats ",
+      "type": "Supplement"
+    },
+    {
+      "code": "SP8",
+      "title": "Native breeds at risk supplement",
+      "payment": "£94",
+      "unit": "per ha",
+      "use": "Flood risk, Livestock management, Priority habitats, Uplands ",
+      "type": "Supplement"
+    },
+    {
+      "code": "SP9",
+      "title": "Threatened species supplement",
+      "payment": "£120",
+      "unit": "per ha",
+      "use": "Flood risk, Priority habitats, Uplands ",
+      "type": "Supplement",
+      "summary": "This supplement in conjunction with associated options is being targeted at enhancing populations of corn bunting and brown hairstreak in mid tier",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/threatened-species-supplement-sp9"
+    },
+    {
+      "code": "SP10",
+      "title": "Administration of group managed agreements supplement ",
+      "payment": "£6",
+      "unit": "per ha",
+      "use": "Priority habitats, Uplands ",
+      "type": "Supplement"
+    },
+    {
+      "code": "SW1",
+      "title": "4m to 6m buffer strip on cultivated land",
+      "payment": "£353",
+      "unit": "per ha",
+      "use": "Arable land, Uplands, Water quality ",
+      "type": "Option",
+      "summary": "This option will establish a permanent grass buffer strip that may provide new habitat, protect existing landscape features, and improve water quality.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/4m-to-6m-buffer-strip-on-cultivated-land-sw1"
+    },
+    {
+      "code": "SW10",
+      "title": "Seasonal livestock removal on grassland in SDAs next to streams, rivers and lakes",
+      "payment": "£36",
+      "unit": "per ha",
+      "use": "Flood risk, Grassland, Uplands, Water quality ",
+      "type": "Option",
+      "summary": "This option will remove livestock at particular times of the year from fields adjacent to a watercourse that are prone to waterlogging, compaction or poaching. This option will help enhance water quality by reducing the input of nutrients and sediment to streams, rivers and lakes caused by surface run-off and the leaching of nutrients from adjacent farmland.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/seasonal-livestock-removal-on-grassland-in-sdas-next-to-streams-rivers-and-lakes-sw10"
+    },
+    {
+      "code": "SW11",
+      "title": "Riparian management strip",
+      "payment": "£440",
+      "unit": "per ha",
+      "use": "Flood risk, Grassland, Uplands, Water quality ",
+      "type": "Option",
+      "summary": "This option will prevent livestock access to the watercourse and provide a buffer strip. This will help reduce bankside erosion and the transport of pollutants to the watercourse. It will also provide habitat for wildlife and form links between other habitats. It may also as the scrub develops help to shade and cool the watercourse.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/riparian-management-strip-sw11"
+    },
+    {
+      "code": "SW12",
+      "title": "Making space for water",
+      "payment": "£640",
+      "unit": "per ha",
+      "use": "Flood risk, Priority habitats, Uplands ",
+      "type": "Option"
+    },
+    {
+      "code": "SW13",
+      "title": "Very low nitrogen inputs to groundwaters ",
+      "payment": "£251",
+      "unit": "per ha",
+      "use": "Grassland, Uplands, Water quality",
+      "type": "Option"
+    },
+    {
+      "code": "SW14",
+      "title": "Nil fertiliser supplement",
+      "payment": "£131",
+      "unit": "per ha",
+      "use": "Uplands, Water quality ",
+      "type": "Supplement",
+      "summary": "This supplement with help to reduce the risk of nitrate loss to ground and surface water by reducing nutrient inputs to zero.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/nil-fertiliser-supplement-sw14"
+    },
+    {
+      "code": "SW15",
+      "title": "Flood mitigation on arable reversion to grassland",
+      "payment": "£488",
+      "unit": "per ha",
+      "use": "Arable land, Flood risk, Grassland, Water quality ",
+      "type": "Option"
+    },
+    {
+      "code": "SW16",
+      "title": "Flood mitigation on permanent grassland ",
+      "payment": "£256",
+      "unit": "per ha",
+      "use": "Flood risk, Grassland, Water quality ",
+      "type": "Option"
+    },
+    {
+      "code": "SW2",
+      "title": "4m to 6m buffer strip on intensive grassland",
+      "payment": "£170",
+      "unit": "per ha",
+      "use": " Grassland, Uplands, Water quality ",
+      "type": "Option",
+      "summary": "This option will provide new habitat, and protect existing landscape features.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/4m-to-6m-buffer-strip-on-intensive-grassland-sw2"
+    },
+    {
+      "code": "SW3",
+      "title": "In-field grass strips",
+      "payment": "£557",
+      "unit": "per ha",
+      "use": "Arable land, Uplands, Water quality ",
+      "type": "Option",
+      "summary": "This option will establish permanent grass areas or strips. This will help reduce the quantity of sediment, nutrients and pesticides transported through surface runoff water, both within fields and from field to field.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/in-field-grass-strips-sw3"
+    },
+    {
+      "code": "SW4",
+      "title": "12m to 24m watercourse buffer strip on cultivated land",
+      "payment": "£512",
+      "unit": "per ha",
+      "use": "Arable land, Uplands, Water quality ",
+      "type": "Option",
+      "summary": "This option will establish a permanent grass buffer. This will help reduce the risk of potential pollutants, such as sediment, pesticides and nutrients (mainly phosphate), being transported to watercourses in surface water runoff. It may also provide habitat for wildlife, and form links between other habitats.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/12m-to-24m-watercourse-buffer-strip-on-cultivated-land-sw4"
+    },
+    {
+      "code": "SW5",
+      "title": "Enhanced management of maize crops",
+      "payment": "£133",
+      "unit": "per ha",
+      "use": "Arable land, Uplands, Water quality ",
+      "type": "Option",
+      "summary": "This option will reduce the risk of soil erosion and surface runoff in fields where maize is grown. It will slow runoff water before it builds to a damaging flow, and remove sediment, organic material, nutrients and chemicals carried in the water.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/enhanced-management-of-maize-crops-sw5"
+    },
+    {
+      "code": "SW6",
+      "title": "Winter cover crops",
+      "payment": "£114",
+      "unit": "per ha",
+      "use": "Arable land, Uplands, Water quality ",
+      "type": "Option",
+      "summary": "This option will establish cover crops to reduce nitrate leaching on land that would normally be left bare or down to stubbles during winter. It may also reduce the risk of potential pollutants, such as sediment and nutrients, being carried to neighbouring watercourses.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/winter-cover-crops-sw6"
+    },
+    {
+      "code": "SW7",
+      "title": "Arable reversion to grassland with low fertiliser input",
+      "payment": "£311",
+      "unit": "per ha",
+      "use": "Arable land, Uplands, Water quality ",
+      "type": "Option",
+      "summary": "This option will establish a dense grass sward in arable fields that are at risk of soil erosion or surface runoff. This will stabilise the soil, reduce nutrient losses, and buffer sensitive habitats such as, designated aquatic habitats. It will also reduce surface runoff, which may help to reduce the risk of flooding.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/arable-reversion-to-grassland-with-low-fertiliser-input-sw7"
+    },
+    {
+      "code": "SW8",
+      "title": "Management of intensive grassland adjacent to a watercourse",
+      "payment": "£202",
+      "unit": "per ha",
+      "use": "Grassland, Uplands, Water quality ",
+      "type": "Option",
+      "summary": "This option will reduce stocking density and fertiliser inputs on improved grassland.  This will help reduce soil compaction, surface run-off and risk of diffuse pollution to the watercourse. Reducing surface runoff may help to reduce the risk of flooding. The option may also reduce the risk of nitrate loss to ground and surface water if it is used with SW14 - Nil fertiliser supplement.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/management-of-intensive-grassland-adjacent-to-a-watercourse-sw8"
+    },
+    {
+      "code": "SW9",
+      "title": "Seasonal livestock removal on intensive grassland",
+      "payment": "£88",
+      "unit": "per ha",
+      "use": "Grassland, Uplands, Water quality ",
+      "type": "Option",
+      "summary": "This option will remove livestock at particular times of the year from fields adjacent to a watercourse that are prone to waterlogging, compaction or poaching. This will help improve soil structure, reduce surface runoff and risk of diffuse pollution to the watercourse. Reducing surface runoff may help to reduce the risk of flooding.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/seasonal-livestock-removal-on-intensive-grassland-sw9"
+    },
+    {
+      "code": "TE1",
+      "title": "Planting standard hedgerow tree",
+      "payment": "£8.80",
+      "unit": "per tree",
+      "use": "Boundaries, Trees (non-woodland), Uplands ",
+      "type": "Capital Item",
+      "summary": "If successful there will be a newly planted standard hedgerow tree.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/planting-standard-hedgerow-tree-te1"
+    },
+    {
+      "code": "TE10",
+      "title": "Coppicing bankside trees",
+      "payment": "£52",
+      "unit": "per tree",
+      "use": "Trees (non-woodland), Uplands ",
+      "type": "Capital Item",
+      "summary": "Bankside habitat will benefit by restorative coppicing of overgrown trees, either by coppicing to ground level and allowing the cut stool to regrow or by singling of an overgrown coppice stool where a single stem is selected and allowed to grow on to a mature tree.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/coppicing-bankside-trees-te10"
+    },
+    {
+      "code": "TE11",
+      "title": "Tree surgery",
+      "payment": "£96.50 or £200",
+      "unit": "per tree",
+      "use": "Trees (non-woodland), Uplands ",
+      "type": "Capital Item",
+      "summary": "Use this item to maintain and enhance the character of the landscape by managing and/or restoring mature trees, to prolong their lives, and maintain their wildlife and/or historic value.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/tree-surgery-te11"
+    },
+    {
+      "code": "TE12",
+      "title": "Stump grinding ",
+      "payment": "£24",
+      "unit": "per stump",
+      "use": "Priority habitats, Trees (non-woodland), Uplands, Vegetation control ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "TE13",
+      "title": "Creation of dead wood habitat on trees",
+      "payment": "£175",
+      "unit": "per tree",
+      "use": "Priority habitats, Trees (non-woodland), Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "TE14",
+      "title": "Identification of orchard fruit tree varieties ",
+      "payment": "£29",
+      "unit": "per variety",
+      "use": "Priority habitats, Trees (non-woodland), Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "TE3",
+      "title": "Planting fruit trees",
+      "payment": "£22.50",
+      "unit": "per tree",
+      "use": "Priority habitats, Trees (non-woodland), Uplands ",
+      "type": "Capital Item",
+      "summary": "If successful new fruit trees will be established in traditional orchards and hedgerows.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/planting-fruit-trees-te3"
+    },
+    {
+      "code": "TE4",
+      "title": "Supply and plant a tree",
+      "payment": "£1.28",
+      "unit": "per tree",
+      "use": "Trees (non-woodland), Uplands, Woodland ",
+      "type": "Capital Item",
+      "summary": "It will help create a range of environmental and social benefits; supports wildlife, particularly when new woodland links habitats or creates a protective buffer; reduces the risk of floods, improve water quality and prevents soil erosion; is resilient and can adapt to climate change; enhances the landscape.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/supply-and-plant-tree-te4"
+    },
+    {
+      "code": "TE4",
+      "title": "Supply and plant tree ",
+      "payment": "£1.28",
+      "unit": "per tree",
+      "use": "Trees (non-woodland), Uplands, Woodland ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "TE5",
+      "title": "Supplement for use of individual tree-shelters",
+      "payment": "£1.60",
+      "unit": "per unit",
+      "use": "Trees (non-woodland), Uplands, Woodland ",
+      "type": "Capital Item",
+      "summary": "It provides tree shelters to protect young, establishing trees from damage by browsing animals.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/supplement-for-use-of-individual-tree-shelters-te5"
+    },
+    {
+      "code": "TE5",
+      "title": "Supplement for use of individual tree-shelters ",
+      "payment": "£1.60",
+      "unit": "per unit (tree shelter)",
+      "use": "Trees (non-woodland), Uplands, Woodland ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "TE6",
+      "title": "Tree guard (tube and mesh)",
+      "payment": "£4",
+      "unit": "per guard",
+      "use": "Trees (non-woodland), Uplands ",
+      "type": "Capital Item",
+      "summary": "If successful this item will protect trees from damage caused by grazing animals and wild animals.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/tree-guard-tube-and-mesh-te6"
+    },
+    {
+      "code": "TE7",
+      "title": "Tree guard (wood post and rail)",
+      "payment": "£59.50",
+      "unit": "per guard",
+      "use": "Priority habitats, Trees (non-woodland), Uplands ",
+      "type": "Capital Item",
+      "summary": "If successful this item will protect trees from damage caused by grazing animals and wild animals.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/tree-guard-wood-post-and-rail-te7"
+    },
+    {
+      "code": "TE8",
+      "title": "Tree guard (wood post and wire)",
+      "payment": "£84",
+      "unit": "per guard",
+      "use": "Priority habitats, Trees (non-woodland), Uplands ",
+      "type": "Capital Item",
+      "summary": "If successful this item will protect trees from damage caused by grazing animals and wild animals.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/tree-guard-wood-post-and-wire-te8"
+    },
+    {
+      "code": "TE9",
+      "title": "Parkland tree guard - welded steel ",
+      "payment": "£170",
+      "unit": "per tree",
+      "use": "Priority habitats, Trees (non-woodland), Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "UP1",
+      "title": "Enclosed rough grazing",
+      "payment": "£39",
+      "unit": "per ha",
+      "use": "Uplands",
+      "type": "Option",
+      "summary": "This option maintains and enhances areas of enclosed rough grazing land within an upland farming system. This land contains extensive areas of moorland vegetation but it does not meet moorland priority habitat status over the majority of the parcel.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/enclosed-rough-grazing-up1"
+    },
+    {
+      "code": "UP2",
+      "title": "Management of rough grazing for birds",
+      "payment": "£88",
+      "unit": "per ha",
+      "use": "Priority habitats, Uplands ",
+      "type": "Option",
+      "summary": "This option is for restoring or maintaining upland bird populations. These are normally breeding waders such as lapwing, snipe, redshank, curlew and golden plover, but may also include yellow wagtail, black grouse or other priority species.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/management-of-rough-grazing-for-birds-up2"
+    },
+    {
+      "code": "UP3",
+      "title": "Management of moorland ",
+      "payment": "£43",
+      "unit": "per ha",
+      "use": "Priority habitats, Uplands ",
+      "type": "Option"
+    },
+    {
+      "code": "UP4",
+      "title": "Management of moorland vegetation supplement ",
+      "payment": "£10",
+      "unit": "per ha",
+      "use": "Priority habitats, Uplands ",
+      "type": "Supplement"
+    },
+    {
+      "code": "UP5",
+      "title": "Moorland re-wetting supplement",
+      "payment": "£18",
+      "unit": "per ha",
+      "use": "Priority habitats, Uplands ",
+      "type": "Supplement"
+    },
+    {
+      "code": "UP6",
+      "title": "Upland livestock exclusion supplement ",
+      "payment": "£16",
+      "unit": "per ha",
+      "use": "Priority habitats, Uplands ",
+      "type": "Supplement"
+    },
+    {
+      "code": "WB1",
+      "title": "Small wildlife box",
+      "payment": "£28.50",
+      "unit": "per box",
+      "use": "Uplands, Pollinators and wildlife ",
+      "type": "Capital Item",
+      "summary": "This item provides artificial nesting, roosting and hibernation sites for specific mammals, birds and invertebrates.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/small-wildlife-box-wb1"
+    },
+    {
+      "code": "WB2",
+      "title": "Medium wildlife box",
+      "payment": "£39",
+      "unit": "per box",
+      "use": "Uplands, Pollinators and wildlife ",
+      "type": "Capital Item",
+      "summary": "This item provides artificial nesting, roosting and hibernation sites for specific mammals and birds. This includes tree sparrow and targeted bat species.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/medium-wildlife-box-wb2"
+    },
+    {
+      "code": "WB3",
+      "title": "Large wildlife box",
+      "payment": "£100",
+      "unit": "per box",
+      "use": "Uplands, Pollinators and wildlife ",
+      "type": "Capital Item",
+      "summary": "This item provides artificial nesting and roosting sites for large birds, in particular barn owls and kestrels.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/large-wildlife-box-wb3"
+    },
+    {
+      "code": "WD1",
+      "title": "Woodland creation - maintenance payments ",
+      "payment": "£200",
+      "unit": "per ha",
+      "use": "Uplands, Water quality, Woodland ",
+      "type": "Option"
+    },
+    {
+      "code": "WD2 ",
+      "title": "Woodland improvement",
+      "payment": "£100",
+      "unit": "per ha",
+      "use": "Uplands, Woodland ",
+      "type": "Option"
+    },
+    {
+      "code": "WD3",
+      "title": "Woodland edges on arable land",
+      "payment": "£323",
+      "unit": "per ha",
+      "use": "Arable land, Uplands, Woodland ",
+      "type": "Option",
+      "summary": "This option allows a scrub and grass mosaic to develop on the strip of land adjacent to woodland. If successful a scrub and grass mosaic will have developed through natural regeneration between the arable land and existing woodland. New woodland edge habitat will have been created resulting in an increase in birds, invertebrates, small mammals and other wildlife.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/woodland-edges-on-arable-land-wd3"
+    },
+    {
+      "code": "WD4",
+      "title": "Management of wood pasture and parkland",
+      "payment": "£46",
+      "unit": "per ha",
+      "use": " Historic environment, Priority habitats, Uplands, Woodland ",
+      "type": "Option",
+      "summary": "This option will maintain existing lowland wood pasture and parkland on sites that still support mature and veteran trees.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/management-of-wood-pasture-and-parkland-wd4"
+    },
+    {
+      "code": "WD5",
+      "title": "Restoration of wood pasture and parkland ",
+      "payment": "£244",
+      "unit": "per ha",
+      "use": "Historic environment, Priority habitats, Uplands, Woodland ",
+      "type": "Option"
+    },
+    {
+      "code": "WD6",
+      "title": "Creation of wood pasture",
+      "payment": "£409",
+      "unit": "per ha",
+      "use": "Priority habitats, Uplands, Woodland ",
+      "type": "Option"
+    },
+    {
+      "code": "WD7",
+      "title": "Management of successional areas and scrub",
+      "payment": "£74",
+      "unit": "per ha",
+      "use": "Priority habitats, Uplands ",
+      "type": "Option",
+      "summary": "This option enhances habitats for a wide range of wildlife and improves the quality of the woodland edge. It also helps prevent soil erosion and holds back water to reduce downstream flood risks.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/management-of-successional-areas-and-scrub-wd7"
+    },
+    {
+      "code": "WD7",
+      "title": "Management of successional areas and scrub ",
+      "payment": "£74",
+      "unit": "per ha ",
+      "use": "Priority habitats, Uplands ",
+      "type": "Option"
+    },
+    {
+      "code": "WD8",
+      "title": "Creation of successional areas and scrub ",
+      "payment": "£87",
+      "unit": "per ha",
+      "use": "Flood risk, Priority habitats, Uplands ",
+      "type": "Option"
+    },
+    {
+      "code": "WD9",
+      "title": "Livestock exclusion supplement - scrub and successional areas",
+      "payment": "£121",
+      "unit": "per ha",
+      "use": "Flood risk, Priority habitats, Uplands ",
+      "type": "Supplement",
+      "summary": "This supplement will help scrub to develop through natural regeneration.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/livestock-exclusion-supplement-scrub-and-successional-areas-wd9"
+    },
+    {
+      "code": "WN1",
+      "title": "Grip blocking drainage channels ",
+      "payment": "£14.80",
+      "unit": "per block",
+      "use": "Flood risk, Priority habitats, Uplands, Water quality ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "WN10",
+      "title": "Construction of water penning structures ",
+      "payment": "Up to 100% of actual costs",
+      "use": "Flood risk, Priority habitats, Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "WN2",
+      "title": "Creation of scrapes and gutters ",
+      "payment": "£2.80",
+      "unit": "per m2",
+      "use": "Flood risk, Grassland, Priority habitats, Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "WN3",
+      "title": "Ditch, dyke and rhine restoration ",
+      "payment": "£7.30",
+      "unit": "per m",
+      "use": "Flood risk, Grassland, Priority habitats, Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "WN4",
+      "title": "Ditch, dyke and rhine creation ",
+      "payment": "£8.40",
+      "unit": "per m",
+      "use": "Flood risk, Grassland, Priority habitats, Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "WN5",
+      "title": "Pond management (first 100 sq m)",
+      "payment": "£270",
+      "unit": "per pond ",
+      "use": "Priority habitats, Uplands ",
+      "type": "Capital Item",
+      "summary": "This item will create networks or complexes of at least 3 ponds and restore the wildlife value of ponds that have become degraded.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/pond-management-first-100-sq-m-wn5"
+    },
+    {
+      "code": "WN6",
+      "title": "Pond management (areas more than 100 sq m)",
+      "payment": "£170",
+      "unit": "per 100m2",
+      "use": "Priority habitats, Uplands ",
+      "type": "Capital Item",
+      "summary": "This item will create networks or complexes of at least 3 ponds and restore the wildlife value of ponds that have become degraded.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/pond-management-areas-more-than-100-sq-m-wn6"
+    },
+    {
+      "code": "WN7",
+      "title": "Restoration of large water bodies ",
+      "payment": "Up to 100% of actual costs",
+      "use": "Priority habitats, Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "WN8",
+      "title": "Timber Sluice",
+      "payment": "£315",
+      "unit": "per sluice",
+      "use": "Grassland, Priority habitats, Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "WN9",
+      "title": "Brick, stone or concrete sluice ",
+      "payment": "£2,480",
+      "unit": "per sluice",
+      "use": "Grassland, Priority habitats, Uplands ",
+      "type": "Capital Item"
+    },
+    {
+      "code": "WT1",
+      "title": "Buffering in-field ponds and ditches in improved grassland",
+      "payment": "£201",
+      "unit": "per ha",
+      "use": "Grassland, Uplands, Water quality, Pollinators and wildlife ",
+      "type": "Option",
+      "summary": "This option will protect ponds and high value ditches from nutrient leaching and runoff. This will maintain and enhance water quality and wildlife.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/buffering-in-field-ponds-and-ditches-in-improved-grassland-wt1"
+    },
+    {
+      "code": "WT10",
+      "title": "Management of lowland raised bog ",
+      "payment": "£164",
+      "unit": "per ha",
+      "use": "Flood risk, Priority habitats, Uplands ",
+      "type": "Option"
+    },
+    {
+      "code": "WT11",
+      "title": "Wetland cutting supplement ",
+      "payment": "£440",
+      "unit": "per ha",
+      "use": "Priority habitats, Uplands ",
+      "type": "Supplement"
+    },
+    {
+      "code": "WT12",
+      "title": "Wetland grazing supplement ",
+      "payment": "£304",
+      "unit": "per ha",
+      "use": "Priority habitats, Uplands ",
+      "type": "Supplement"
+    },
+    {
+      "code": "WT2",
+      "title": "Buffering in-field ponds and ditches on arable land",
+      "payment": "£501",
+      "unit": "per ha",
+      "use": "Arable land, Uplands, Water quality, Pollinators and wildlife ",
+      "type": "Option",
+      "summary": "This option will protect ponds and high value ditches from nutrient leaching and runoff. This will maintain and enhance water quality and wildlife.  ",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/buffering-in-field-ponds-and-ditches-on-arable-land-wt2"
+    },
+    {
+      "code": "WT3",
+      "title": "Management of ditches of high environmental value ",
+      "payment": "£37",
+      "unit": "per 100m",
+      "use": "Flood risk, Priority habitats, Uplands ",
+      "type": "Option",
+      "summary": "It will manage ditches of high environmental value that support target species of plants, birds, mammals and invertebrates. It will also manage ditches that are essential to carrying out the wet grassland and wetland options.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/management-of-ditches-of-high-environmental-value-wt3"
+    },
+    {
+      "code": "WT4",
+      "title": " Pond management – first 100 sq m ",
+      "payment": "£103",
+      "unit": "per pond ",
+      "use": "Priority habitats, Uplands ",
+      "type": "Option"
+    },
+    {
+      "code": "WT5",
+      "title": "Pond management (areas more than 100 sq m) ",
+      "payment": "£183",
+      "unit": "per pond ",
+      "use": "Priority habitats, Uplands ",
+      "type": "Option"
+    },
+    {
+      "code": "WT6",
+      "title": "Management of reedbed ",
+      "payment": "£78",
+      "unit": "per ha",
+      "use": "Flood risk, Priority habitats, Uplands ",
+      "type": "Option"
+    },
+    {
+      "code": "WT7",
+      "title": "Creation of reedbed ",
+      "payment": "£323",
+      "unit": "per ha",
+      "use": "Flood risk, Priority habitats, Uplands ",
+      "type": "Option"
+    },
+    {
+      "code": "WT8",
+      "title": "Management of fen ",
+      "payment": "£39",
+      "unit": "per ha",
+      "use": "Flood risk, Priority habitats, Uplands ",
+      "type": "Option"
+    },
+    {
+      "code": "WT9",
+      "title": "Creation of fen ",
+      "payment": "£446",
+      "unit": "per ha",
+      "use": "Flood risk, Priority habitats, Uplands ",
+      "type": "Option"
+    }
+  ]
+}
