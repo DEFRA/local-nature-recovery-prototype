@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="index">Back</a>
+  <a class="govuk-back-link" href="start">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -34,7 +34,7 @@
         <span class="govuk-!-font-size-36 govuk-!-font-weight-bold govuk-!-margin-top-2 govuk-!-margin-bottom-2" style="display: block;">{{ optionCount }}</span>
         <span class="govuk-body">options</span>
       </p>
-      <a href="search-results" role="button" draggable="false" class="govuk-button  govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">See all options</a>
+      <a href="search-results?type=Option" role="button" draggable="false" class="govuk-button  govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">See all options</a>
     </div>
   </div>
 
@@ -42,10 +42,10 @@
     <div style="background-color: #f0f0f0; padding: 1.5em">
       <h3 class="govuk-heading-m">Capital items</h3>
       <p class="govuk-body">There are currently:
-        <span class="govuk-!-font-size-36 govuk-!-font-weight-bold govuk-!-margin-top-2 govuk-!-margin-bottom-2" style="display: block;">115</span>
+        <span class="govuk-!-font-size-36 govuk-!-font-weight-bold govuk-!-margin-top-2 govuk-!-margin-bottom-2" style="display: block;">{{ capitalCount }}</span>
         <span class="govuk-body">capital items</span>
       </p>
-      <a href="search-results" role="button" draggable="false" class="govuk-button  govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">See all capital items</a>
+      <a href="search-results?type=Capital%20Item" role="button" draggable="false" class="govuk-button  govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">See all capital items</a>
     </div>
   </div>
 
@@ -53,10 +53,10 @@
     <div style="background-color: #f0f0f0; padding: 1.5em">
       <h3 class="govuk-heading-m">Supplements</h3>
       <p class="govuk-body">There are currently:
-        <span class="govuk-!-font-size-36 govuk-!-font-weight-bold govuk-!-margin-top-2 govuk-!-margin-bottom-2" style="display: block;">22</span>
+        <span class="govuk-!-font-size-36 govuk-!-font-weight-bold govuk-!-margin-top-2 govuk-!-margin-bottom-2" style="display: block;">{{ supplementCount }}</span>
         <span class="govuk-body">supplements</span>
       </p>
-      <a href="search-results" role="button" draggable="false" class="govuk-button  govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">See all supplements</a>
+      <a href="search-results?type=Supplement" role="button" draggable="false" class="govuk-button  govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">See all supplements</a>
     </div>
   </div>
 </div>
