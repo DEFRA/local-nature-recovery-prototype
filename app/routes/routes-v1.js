@@ -79,7 +79,15 @@ router.get('/options-choice/*/grant-details', function (req, res) {
 // filter grant list
 router.post('/options-choice/*/search-results', function (req, res) {
   console.log('mitesh submitted form');
-  //console.log(grantList);
+
+  // grab the grant type selected
+  var type = req.body.type;
+
+  // load all grants
+
+  // create new grant list array or grab existing
+
+  // find grants of selected type(s) and add to grant list
 })
 
 // Add item to plan
