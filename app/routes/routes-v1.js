@@ -80,10 +80,17 @@ router.get('/options-choice/*/grant-details', function (req, res) {
 router.post("/options-choice/*/grant-details", function (req, res) {
   let prototype = req.session.data['prototype']
   grantNum = prototype.grantNum // pulls the value from the button
-  console.log(req.session.data.grantNum)
+
+  // get the object
+  var grants = req.session.data['import'].grants
+  var grantType = grants[grantNum].type
 
   let plan = req.session.data['plan'] || [] // set up if doesn't exist
-  plan.push(grantNum) // add to the array
+  let planNum = plan.length
+  let grantItem = [planNum, grantNum,grantType,0,false] // build an array of the plan items
+
+  prototype.planNum = planNum
+  plan.push(grantItem) // add to the array
   req.session.data['prototype'] = prototype // write back these values into the session data
   req.session.data['plan'] = plan
   console.log(plan)
@@ -94,13 +101,13 @@ router.post("/options-choice/*/grant-details", function (req, res) {
 // show the grant details page
 router.get('/options-choice/*/configure', function (req, res) {
   let prototype = req.session.data['prototype']
-  grantNum = prototype.grantNum
+  planNum = prototype.planNum
 
   // grab the query parameter from url and override if it exists
-  if (req.query.grant) {
-    grantNum = req.query.grant
+  if (req.query.planNum) {
+    var planNum = req.query.planNum
   }
-  prototype.grantNum = grantNum
+  prototype.planNum = planNum
 
   // find the right version to render
   let version = req.session.data['prototype'].version
@@ -112,9 +119,13 @@ router.get('/options-choice/*/configure', function (req, res) {
 router.post("/options-choice/*/configure", function (req, res) {
   let prototype = req.session.data['prototype']
   units = req.session.data.units // pulls the value from the button
-  grantNum = prototype.grantNum // pulls the value from the button
-  let plan = req.session.data['plan'] || [] // set up if doesn't exist
-  // plan.push(grantNum) // add to the array
+  planNum = prototype.planNum // pulls the value from the button
+
+  let plan = req.session.data['plan'] || [] // set up if it doesn't exist
+
+  plan[planNum].splice(3, 1, units)
+  plan[planNum].splice(4, 1, true)
+
   req.session.data['plan'] = plan
 
   res.redirect('plan')
@@ -123,15 +134,26 @@ router.post("/options-choice/*/configure", function (req, res) {
 // Create array of search results
 router.get('/options-choice/*/plan', function (req, res) {
   // get the object
-  var grants = req.session.data['import'].grants
+  let grants = req.session.data['import'].grants
+  let plan = req.session.data['plan']
   grantNum = req.session.data['prototype'].grantNum
+
+  // start the counters on 0
+  var completedCount = 0
+
+  for(i = 0; i < plan.length; i++) {
+    if (plan[i][4] === true) {
+      completedCount++
+    }
+  }
+
   // find the right version to render
   let version = req.session.data['prototype'].version
   return res.render(version + '/plan', {
-    'grantNum': grantNum
+    'grantNum': grantNum,
+    'completedCount': completedCount
   })
 })
-
 
 
 

@@ -11,16 +11,16 @@
 
 {% block content %}
 
+<p>{{ data.plan }}</p>
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
         Your plan
       </h1>
 
-      <p>{{ data.plan[0] }}</p>
-
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 3 of 8 sections.</p>
+      <p class="govuk-body govuk-!-margin-bottom-7">You have completed {{ completedCount}} of 8 sections.</p>
 
       <ol class="app-task-list">
         <li>
@@ -36,16 +36,22 @@
             {% else %}
 
               {% for i in range(0, data.plan.length) -%}
-              <li class="app-task-list__item">
-                <span class="app-task-list__task-name">
-                  <a href="configure?grant={{ data.plan[i] }} " aria-describedby="completion-status">
-                    {{ data.import.grants[data.plan[i]].code }} {{ data.import.grants[data.plan[i]].title }}
+                {% if data.plan[i][2] === 'Option' %}
+                  <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                      <a href="configure?planNum={{ i }} " aria-describedby="completion-status">
+                        {{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}
 
-                    {{ data.import.grants[1].code }} {{ data.import.grants[data.plan[i]].title }}
-                  </a>
-                </span>
-                <strong class="govuk-tag app-task-list__tag" id="completion-status">Completed</strong>
-              </li>
+                        {{ data.import.grants[i][1].code }} {{ data.import.grants[data.plan[i][1]].title }}
+                      </a>
+                    </span>
+                    {% if data.plan[i][4] === true %}
+                      <strong class="govuk-tag app-task-list__tag" id="completion-status">Completed</strong>
+                    {% else %}
+                      <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">Not complete</strong>
+                    {% endif %}
+                  </li>
+                {% endif %}
               {%- endfor %}
 
             {% endif %}
@@ -58,56 +64,60 @@
             <span class="app-task-list__section-number">2. </span> Capital items
           </h2>
           <ul class="app-task-list__items">
+
+            {% for i in range(0, data.plan.length) -%}
+            {% if data.plan[i][2] === 'Capital Item' %}
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="#" aria-describedby="company-information-status">
-                  Company information
+                <a href="configure?planNum={{ i }} " aria-describedby="completion-status">
+                  {{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}
+
+                  {{ data.import.grants[i][1].code }} {{ data.import.grants[data.plan[i][1]].title }}
                 </a>
               </span>
-              <strong class="govuk-tag app-task-list__tag" id="company-information-status">Completed</strong>
+              {% if data.plan[i][4] === true %}
+                <strong class="govuk-tag app-task-list__tag" id="completion-status">Completed</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">Not complete</strong>
+              {% endif %}
             </li>
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a href="#" aria-describedby="contact-details-status">
-                  Your contact details
-                </a>
-              </span>
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">In progress</strong>
-            </li>
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a href="#" aria-describedby="list-convictions-status">
-                  List convictions
-                </a>
-              </span>
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
-            </li>
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                Provide financial evidence
-              </span>
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="financial-evidence-status">Cannot start yet</strong>
-            </li>
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                Give medical information
-              </span>
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="medical-information-status">Cannot start yet</strong>
-            </li>
+            {% endif %}
+            {%- endfor %}
+
           </ul>
         </li>
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">3. </span> Apply
+            <span class="app-task-list__section-number">3. </span> Supplements
           </h2>
           <ul class="app-task-list__items">
+            {% if grantList.length === 0 %}
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell" colspan="2">No results found</td>
+            </tr>
+            {% else %}
+
+            {% for i in range(0, data.plan.length) -%}
+            {% if data.plan[i][2] === 'Supplement' %}
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                Submit and pay
+                <a href="configure?planNum={{ i }} " aria-describedby="completion-status">
+                  {{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}
+
+                  {{ data.import.grants[i][1].code }} {{ data.import.grants[data.plan[i][1]].title }}
+                </a>
               </span>
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
+              {% if data.plan[i][4] === true %}
+                <strong class="govuk-tag app-task-list__tag" id="completion-status">Completed</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">Not complete</strong>
+              {% endif %}
             </li>
+            {% endif %}
+            {%- endfor %}
+
+            {% endif %}
           </ul>
         </li>
       </ol>
