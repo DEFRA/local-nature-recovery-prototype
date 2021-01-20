@@ -134,9 +134,9 @@ router.post("/options-choice/*/configure", function (req, res) {
 // Create array of search results
 router.get('/options-choice/*/plan', function (req, res) {
   // get the object
-  let grants = req.session.data['import'].grants
   let plan = req.session.data['plan']
   grantNum = req.session.data['prototype'].grantNum
+  planNum = req.session.data['prototype'].planNum
 
   // start the counters on 0
   var completedCount = 0
@@ -151,6 +151,7 @@ router.get('/options-choice/*/plan', function (req, res) {
   let version = req.session.data['prototype'].version
   return res.render(version + '/plan', {
     'grantNum': grantNum,
+    'planNum': planNum,
     'completedCount': completedCount
   })
 })
