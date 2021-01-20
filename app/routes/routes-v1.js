@@ -54,7 +54,8 @@ router.get('/options-choice/*/search-results', function (req, res) {
   // find the right version to render
   let version = req.session.data['prototype'].version
   return res.render(version + '/search-results', {
-    'grantList': grantList
+    'grantList': grantList,
+    'type': type
   })
 })
 
@@ -73,6 +74,12 @@ router.get('/options-choice/*/grant-details', function (req, res) {
   let version = req.session.data['prototype'].version
   req.session.data['prototype'] = prototype // write back these values into the session data
   return res.render(version + '/grant-details')
+})
+
+// filter grant list
+router.post('/options-choice/*/search-results', function (req, res) {
+  console.log('mitesh submitted form');
+  //console.log(grantList);
 })
 
 // Add item to plan
