@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="configure?grantNum={{ grantNum }}">Back</a>
+  <a class="govuk-back-link" href="configure?planNum={{ planNum }}">Back</a>
 {% endblock %}
 
 
@@ -14,20 +14,25 @@
 <p>{{ data.plan }}</p>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">
         Your plan
       </h1>
 
+      {% if data.plan.length === completedCount %}
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application complete</h2>
+      {% else %}
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-      <p class="govuk-body govuk-!-margin-bottom-7">You have completed {{ completedCount}} of 8 sections.</p>
+      {% endif %}
+      <p class="govuk-body govuk-!-margin-bottom-7">You have completed {{ completedCount}} of {{ data.plan.length }} sections.</p>
 
       <ol class="app-task-list">
         <li>
           <h2 class="app-task-list__section">
             <span class="app-task-list__section-number">1. </span> Options
           </h2>
-          <ul class="app-task-list__items">
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
 
             {% if grantList.length === 0 %}
             <tr class="govuk-table__row">
@@ -37,24 +42,26 @@
 
               {% for i in range(0, data.plan.length) -%}
                 {% if data.plan[i][2] === 'Option' %}
-                  <li class="app-task-list__item">
-                    <span class="app-task-list__task-name">
-                      <a href="configure?planNum={{ i }} " aria-describedby="completion-status">
-                        {{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}
 
-                        {{ data.import.grants[i][1].code }} {{ data.import.grants[data.plan[i][1]].title }}
-                      </a>
-                    </span>
-                    {% if data.plan[i][4] === true %}
+                  <tr class="govuk-table__row">
+                    <td scope="row" class="govuk-table__cell" style="width:50%"><a href="configure?planNum={{ i }}">{{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}</a></td>
+                    <td class="govuk-table__cell" style="text-align:right">{{ data.import.grants[data.plan[i][1]].payment }}</td>
+                    <td class="govuk-table__cell">
+                      {% if data.plan[i][4] === true %}
                       <strong class="govuk-tag app-task-list__tag" id="completion-status">Completed</strong>
-                    {% else %}
+                      {% else %}
                       <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">Not complete</strong>
-                    {% endif %}
-                  </li>
+                      {% endif %}
+                    </td>
+                  </tr>
+
                 {% endif %}
               {%- endfor %}
 
             {% endif %}
+
+            </tbody>
+          </table>
 
           </ul>
         </li>
@@ -63,35 +70,47 @@
           <h2 class="app-task-list__section">
             <span class="app-task-list__section-number">2. </span> Capital items
           </h2>
-          <ul class="app-task-list__items">
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+
+            {% if grantList.length === 0 %}
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell" colspan="2">No results found</td>
+            </tr>
+            {% else %}
 
             {% for i in range(0, data.plan.length) -%}
             {% if data.plan[i][2] === 'Capital Item' %}
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a href="configure?planNum={{ i }} " aria-describedby="completion-status">
-                  {{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}
 
-                  {{ data.import.grants[i][1].code }} {{ data.import.grants[data.plan[i][1]].title }}
-                </a>
-              </span>
-              {% if data.plan[i][4] === true %}
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell" style="width:50%"><a href="configure?planNum={{ i }}">{{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}</a></td>
+              <td class="govuk-table__cell" style="text-align:right">{{ data.import.grants[data.plan[i][1]].payment }}</td>
+              <td class="govuk-table__cell">
+                {% if data.plan[i][4] === true %}
                 <strong class="govuk-tag app-task-list__tag" id="completion-status">Completed</strong>
-              {% else %}
+                {% else %}
                 <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">Not complete</strong>
-              {% endif %}
-            </li>
+                {% endif %}
+              </td>
+            </tr>
+
             {% endif %}
             {%- endfor %}
 
-          </ul>
+            {% endif %}
+
+            </tbody>
+          </table>
         </li>
 
         <li>
           <h2 class="app-task-list__section">
             <span class="app-task-list__section-number">3. </span> Supplements
           </h2>
-          <ul class="app-task-list__items">
+
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+
             {% if grantList.length === 0 %}
             <tr class="govuk-table__row">
               <td scope="row" class="govuk-table__cell" colspan="2">No results found</td>
@@ -100,25 +119,26 @@
 
             {% for i in range(0, data.plan.length) -%}
             {% if data.plan[i][2] === 'Supplement' %}
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a href="configure?planNum={{ i }} " aria-describedby="completion-status">
-                  {{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}
 
-                  {{ data.import.grants[i][1].code }} {{ data.import.grants[data.plan[i][1]].title }}
-                </a>
-              </span>
-              {% if data.plan[i][4] === true %}
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell" style="width:50%"><a href="configure?planNum={{ i }}">{{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}</a></td>
+              <td class="govuk-table__cell" style="text-align:right">{{ data.import.grants[data.plan[i][1]].payment }}</td>
+              <td class="govuk-table__cell">
+                {% if data.plan[i][4] === true %}
                 <strong class="govuk-tag app-task-list__tag" id="completion-status">Completed</strong>
-              {% else %}
+                {% else %}
                 <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">Not complete</strong>
-              {% endif %}
-            </li>
+                {% endif %}
+              </td>
+            </tr>
+
             {% endif %}
             {%- endfor %}
 
             {% endif %}
-          </ul>
+
+            </tbody>
+          </table>
         </li>
       </ol>
     </div>
