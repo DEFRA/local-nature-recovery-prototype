@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-
 const fs = require('fs-extra') // needed to import the json data
 
 //Gather up totals for the boxes on the grants page
