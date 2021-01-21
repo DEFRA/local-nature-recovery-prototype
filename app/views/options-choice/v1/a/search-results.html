@@ -31,6 +31,40 @@
     <div class="govuk-grid-column-one-third">
       <h3 class="govuk-heading-s">Filters</h3>
       
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Grant Type
+            </h1>
+          </legend>
+          <div id="fType-hint" class="govuk-hint">
+            Select all that apply.
+          </div>
+          <div class="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="fType-1" name="fType[]" type="checkbox" value="Option">
+              <label class="govuk-label govuk-checkboxes__label" for="fType">
+                Option
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="fType-2" name="fType[]" type="checkbox" value="Capital Item">
+              <label class="govuk-label govuk-checkboxes__label" for="fType-2">
+                Capital Item
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="fType-3" name="fType[]" type="checkbox" value="Supplement">
+              <label class="govuk-label govuk-checkboxes__label" for="fType-3">
+                Supplement
+              </label>
+            </div>
+          </div>
+      
+        </fieldset>
+      </div>
+
       <input type="text" name="type" value="{{ type }}">
       <button type="submit" class="govuk-button" name="grantNum" value="3">Test Submit of Form</button>
     </div>

@@ -80,9 +80,13 @@ router.get('/options-choice/*/grant-details', function (req, res) {
 router.post('/options-choice/*/search-results', function (req, res) {
   console.log('mitesh submitted form');
 
-  // grab the grant type selected
+  // grab the initial grant type selected
   var type = req.body.type;
 
+  // grab filter type selected
+  var fType = req.body.fType
+  console.log("filter type: "+ fType);
+  var x='';
   // load all grants
 
   // create new grant list array or grab existing
