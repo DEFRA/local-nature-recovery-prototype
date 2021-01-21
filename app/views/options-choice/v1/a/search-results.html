@@ -31,33 +31,41 @@
     <div class="govuk-grid-column-one-third">
       <h3 class="govuk-heading-s">Filters</h3>
       
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-fieldset__heading">
-              Grant Type
-            </h1>
-          </legend>
-
-          <div id="fType-hint" class="govuk-hint">
-            Select all that apply.
+      <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                Grant Type
+              </span>
+            </h2>
           </div>
-          <div class="govuk-checkboxes">
-            {% for index,type in fTypes %}
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="fType-{{index}}" name="fType[]" type="checkbox" value="{{type}}">
-              <label class="govuk-label govuk-checkboxes__label" for="fType-{{index}}">
-                {{type}}
-              </label>
+          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                <div id="fType-hint" class="govuk-hint">
+                  Select all that apply.
+                </div>
+                <div class="govuk-checkboxes">
+                  {% for index,type in fTypes %}
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="fType-{{index}}" name="fType[]" type="checkbox" value="{{type}}">
+                    <label class="govuk-label govuk-checkboxes__label" for="fType-{{index}}">
+                      {{type}}
+                    </label>
+                  </div>
+                  {% endfor%}
+                </div>
+            
+              </fieldset>
             </div>
-            {% endfor%}
-          </div>
       
-        </fieldset>
+            <input type="text" name="type" value="{{ type }}">
+            <button type="submit" class="govuk-button" name="grantNum" value="3">Test Submit of Form</button>
+          </div>
+        </div>
+        
       </div>
-
-      <input type="text" name="type" value="{{ type }}">
-      <button type="submit" class="govuk-button" name="grantNum" value="3">Test Submit of Form</button>
     </div>
 
 

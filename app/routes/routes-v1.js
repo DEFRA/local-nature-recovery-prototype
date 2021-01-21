@@ -41,8 +41,6 @@ router.get('/options-choice/*/search-results', function (req, res) {
   // grab the query parameter from url
   var type = req.query.type
 
-  var fTypes = req.session.data['import'].objTypeFilters
-
   // create new or grab existing array
   let grantList = req.session.data['grantList'] || []
 
@@ -53,9 +51,11 @@ router.get('/options-choice/*/search-results', function (req, res) {
     }
   }
 
+  // ### Get Filter Data ### 
   // get Grant Types Filter
   objTypeFilters = getObjTypesFilter();
-
+  // ### Get Filter Data ### 
+  
   // find the right version to render
   let version = req.session.data['prototype'].version
   return res.render(version + '/search-results', {
@@ -84,12 +84,18 @@ router.get('/options-choice/*/grant-details', function (req, res) {
 
 // filter grant list
 router.post('/options-choice/*/search-results', function (req, res) {
+  
+  // ### Get Filter Data ### 
+  // get Grant Types Filter
+  objTypeFilters = getObjTypesFilter();
+  // ### Get Filter Data ### 
+
   console.log('mitesh submitted form');
 
   // grab the initial grant type(s) selected
   var type = req.body.type;
 
-  // grab filter type selected
+  // grab filter type selected (array).
   var fType = req.body.fType
   console.log('fType:' + fType);
 
@@ -100,10 +106,13 @@ router.post('/options-choice/*/search-results', function (req, res) {
   let grantList = req.session.data['grantList'] || []
 
   // find grants of selected type(s) and add to grant list
+    
 
   // find the right version to render
   let version = req.session.data['prototype'].version
-  return res.render(version +'/search-results', {})
+  return res.render(version +'/search-results', {
+    'fTypes': objTypeFilters
+  })
 })
 
 // Add item to plan
