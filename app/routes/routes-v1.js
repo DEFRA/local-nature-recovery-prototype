@@ -85,13 +85,17 @@ router.post('/options-choice/*/search-results', function (req, res) {
 
   // grab filter type selected
   var fType = req.body.fType
-  console.log("filter type: "+ fType);
-  var x='';
+  console.log('fType:' + fType);
+
   // load all grants
 
   // create new grant list array or grab existing
 
   // find grants of selected type(s) and add to grant list
+
+  // find the right version to render
+  let version = req.session.data['prototype'].version
+  return res.render(version +'/search-results', {})
 })
 
 // Add item to plan
