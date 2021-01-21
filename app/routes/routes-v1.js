@@ -41,6 +41,8 @@ router.get('/options-choice/*/search-results', function (req, res) {
   // grab the query parameter from url
   var type = req.query.type
 
+  var fTypes = req.session.data['import'].objTypeFilters
+
   // create new or grab existing array
   let grantList = req.session.data['grantList'] || []
 
@@ -51,11 +53,15 @@ router.get('/options-choice/*/search-results', function (req, res) {
     }
   }
 
+  // get Grant Types Filter
+  objTypeFilters = getObjTypesFilter();
+
   // find the right version to render
   let version = req.session.data['prototype'].version
   return res.render(version + '/search-results', {
     'grantList': grantList,
-    'type': type
+    'type': type,
+    'fTypes': objTypeFilters
   })
 })
 
@@ -80,7 +86,7 @@ router.get('/options-choice/*/grant-details', function (req, res) {
 router.post('/options-choice/*/search-results', function (req, res) {
   console.log('mitesh submitted form');
 
-  // grab the initial grant type selected
+  // grab the initial grant type(s) selected
   var type = req.body.type;
 
   // grab filter type selected
@@ -88,8 +94,10 @@ router.post('/options-choice/*/search-results', function (req, res) {
   console.log('fType:' + fType);
 
   // load all grants
+  var grants = req.session.data['import'].grants
 
-  // create new grant list array or grab existing
+  // create new grant list to display (or grab existing
+  let grantList = req.session.data['grantList'] || []
 
   // find grants of selected type(s) and add to grant list
 
@@ -201,6 +209,17 @@ function dataImport(req, res, next) {
     console.log('data retrieved')
   }
   next()
+}
+
+function getObjTypesFilter(){
+  // setup Filter Types
+  var objTypeFilters = {
+    '1': 'Option',
+    '2': 'Capital Item',
+    '3': 'Supplement'
+  };
+
+  return objTypeFilters;
 }
 
 // router.get('/*', dataImport)

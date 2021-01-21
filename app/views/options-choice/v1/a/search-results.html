@@ -38,28 +38,19 @@
               Grant Type
             </h1>
           </legend>
+
           <div id="fType-hint" class="govuk-hint">
             Select all that apply.
           </div>
           <div class="govuk-checkboxes">
+            {% for index,type in fTypes %}
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="fType-1" name="fType[]" type="checkbox" value="Option">
-              <label class="govuk-label govuk-checkboxes__label" for="fType">
-                Option
+              <input class="govuk-checkboxes__input" id="fType-{{index}}" name="fType[]" type="checkbox" value="{{type}}">
+              <label class="govuk-label govuk-checkboxes__label" for="fType-{{index}}">
+                {{type}}
               </label>
             </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="fType-2" name="fType[]" type="checkbox" value="Capital Item">
-              <label class="govuk-label govuk-checkboxes__label" for="fType-2">
-                Capital Item
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="fType-3" name="fType[]" type="checkbox" value="Supplement">
-              <label class="govuk-label govuk-checkboxes__label" for="fType-3">
-                Supplement
-              </label>
-            </div>
+            {% endfor%}
           </div>
       
         </fieldset>
