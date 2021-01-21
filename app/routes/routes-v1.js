@@ -105,8 +105,7 @@ router.post('/options-choice/*/search-results', function (req, res) {
   // create new grant list to display (or grab existing
   let grantList = req.session.data['grantList'] || []
 
-  // find grants of selected type(s) and add to grant list
-    
+  // find grants of selected type(s) and add to grant list    
 
   // find the right version to render
   let version = req.session.data['prototype'].version

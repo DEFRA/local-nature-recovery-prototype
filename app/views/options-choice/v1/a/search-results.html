@@ -47,11 +47,11 @@
                   Select all that apply.
                 </div>
                 <div class="govuk-checkboxes">
-                  {% for index,type in fTypes %}
+                  {% for index,ftype in fTypes %}
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="fType-{{index}}" name="fType[]" type="checkbox" value="{{type}}">
+                    <input {% if ftype==type %} checked {% endif %} class="govuk-checkboxes__input" id="fType-{{index}}" name="fType[]" type="checkbox" value="{{ftype}}">
                     <label class="govuk-label govuk-checkboxes__label" for="fType-{{index}}">
-                      {{type}}
+                      {{ftype}}
                     </label>
                   </div>
                   {% endfor%}
