@@ -6,6 +6,7 @@
 
 {% block beforeContent %}
   <a href="grants" class="govuk-back-link">Back</a>
+
 {% endblock %}
 
 
@@ -23,6 +24,7 @@
   </div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="govuk-grid-row">
 
@@ -49,9 +51,8 @@
                 <div class="govuk-checkboxes">
                   {% for index,ftype in fTypes %}
                   <div class="govuk-checkboxes__item">
-                    
                     <!-- This will have to be an inner FOR-LOOP checking for grantType Filters -->
-                    <input {% if ftype==type %} checked {% endif %} class="govuk-checkboxes__input" id="fType-{{index}}" name="fType[]" type="checkbox" value="{{ftype}}">
+                    <input class="govuk-checkboxes__input" id="fType-{{index}}" name="fType[]" type="checkbox" value="{{ftype}}">
                     <label class="govuk-label govuk-checkboxes__label" for="fType-{{index}}">
                       {{ftype}}
                     </label>

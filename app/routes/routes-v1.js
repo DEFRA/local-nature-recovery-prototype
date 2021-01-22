@@ -2,6 +2,9 @@ const express = require('express')
 const router = express.Router()
 const fs = require('fs-extra') // needed to import the json data
 
+var nunjucks  = require('nunjucks');
+var env = nunjucks.configure();
+
 //Gather up totals for the boxes on the grants page
 router.get('/options-choice/*/grants', function (req, res) {
 
@@ -96,7 +99,7 @@ router.post('/options-choice/*/search-results', function (req, res) {
   var type = req.body.type;
 
   //### grab filter type selected (array).
-  var aFType = req.body.fType
+  var aFTypeChecked = req.body.fType
 
   // load all grants
   var grants = req.session.data['import'].grants
@@ -107,12 +110,13 @@ router.post('/options-choice/*/search-results', function (req, res) {
     //loop grants
     for(g = 0; g < grants.length; g++) {
       // loop fType
-      for(f = 0; f < aFType.length; f++)
+      for(f = 0; f < aFTypeChecked.length; f++)
       {
         // if grants.type == fType, add to grantList
-        console.log("title"+ grants[g].title +"grant type:"+ grants[g].type.toLowerCase() +" : fTypes:"+ aFType[f].toLowerCase());
-        if(grants[g].type.toLowerCase() == aFType[f].toLowerCase()) {
+        console.log("title"+ grants[g].title +"grant type:"+ grants[g].type.toLowerCase() +" : fTypes:"+ aFTypeChecked[f].toLowerCase());
+        if(grants[g].type.toLowerCase() == aFTypeChecked[f].toLowerCase()) {
           grantList.push(g)
+          aFTypeChecked.checked='checked'
         }
       }
     }
@@ -123,6 +127,7 @@ router.post('/options-choice/*/search-results', function (req, res) {
   return res.render(version +'/search-results', {
     'fTypes': objTypeFilters,
     'grantList': grantList,
+    'aFTypeChecked': aFTypeChecked
   })
 })
 
