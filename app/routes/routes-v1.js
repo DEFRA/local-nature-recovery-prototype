@@ -85,32 +85,44 @@ router.get('/options-choice/*/grant-details', function (req, res) {
 // filter grant list
 router.post('/options-choice/*/search-results', function (req, res) {
   
-  // ### Get Filter Data ### 
+  // --- Get Filter Data --- //
   // get Grant Types Filter
   objTypeFilters = getObjTypesFilter();
-  // ### Get Filter Data ### 
+  // --- End Get Filter Data --- //
 
-  console.log('mitesh submitted form');
+  console.log('mitesh submitted form--------');
 
   // grab the initial grant type(s) selected
   var type = req.body.type;
 
-  // grab filter type selected (array).
-  var fType = req.body.fType
-  console.log('fType:' + fType);
+  //### grab filter type selected (array).
+  var aFType = req.body.fType
 
   // load all grants
   var grants = req.session.data['import'].grants
-
-  // create new grant list to display (or grab existing
+  // create new grant list to display (or grab existing)
   let grantList = req.session.data['grantList'] || []
 
-  // find grants of selected type(s) and add to grant list    
+  //### find grants of selected type(s) and add to grantList  
+    //loop grants
+    for(g = 0; g < grants.length; g++) {
+      // loop fType
+      for(f = 0; f < aFType.length; f++)
+      {
+        // if grants.type == fType, add to grantList
+        console.log("title"+ grants[g].title +"grant type:"+ grants[g].type.toLowerCase() +" : fTypes:"+ aFType[f].toLowerCase());
+        if(grants[g].type.toLowerCase() == aFType[f].toLowerCase()) {
+          grantList.push(g)
+        }
+      }
+    }
+
 
   // find the right version to render
   let version = req.session.data['prototype'].version
   return res.render(version +'/search-results', {
-    'fTypes': objTypeFilters
+    'fTypes': objTypeFilters,
+    'grantList': grantList,
   })
 })
 
@@ -219,6 +231,9 @@ function dataImport(req, res, next) {
   next()
 }
 
+// Get Data for Filters  ----------------------------------------------------
+
+// return Grant Types
 function getObjTypesFilter(){
   // setup Filter Types
   var objTypeFilters = {

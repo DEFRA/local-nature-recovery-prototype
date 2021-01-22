@@ -49,6 +49,8 @@
                 <div class="govuk-checkboxes">
                   {% for index,ftype in fTypes %}
                   <div class="govuk-checkboxes__item">
+                    
+                    <!-- This will have to be an inner FOR-LOOP checking for grantType Filters -->
                     <input {% if ftype==type %} checked {% endif %} class="govuk-checkboxes__input" id="fType-{{index}}" name="fType[]" type="checkbox" value="{{ftype}}">
                     <label class="govuk-label govuk-checkboxes__label" for="fType-{{index}}">
                       {{ftype}}
@@ -71,7 +73,7 @@
 
 
     <div class="govuk-grid-column-two-thirds">
-
+      ### Trail of items selected. Remove button (deselects checkboxes) ###
       <table class="govuk-table">
         <thead class="govuk-table__head">
         <tr class="govuk-table__row">
