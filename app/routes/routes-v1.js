@@ -121,13 +121,37 @@ router.post('/options-choice/*/search-results', function (req, res) {
       }
     }
 
+    // render Grant Type checkboxes selected (if any)
+    var strCheckboxes ='### NEW VERSION ###';
+    var checked='';
+    for(index in objTypeFilters) {
+      checked='';
+      for(f =0; f< aFTypeChecked.length; f++) {
+        if(objTypeFilters[index] == aFTypeChecked[f])
+        {
+          console.log('---'+aFTypeChecked[f]);
+          checked='checked';
+          break;
+        }
+      }
+
+      strCheckboxes = strCheckboxes + ' \
+      <div class="govuk-checkboxes__item"> \
+      <input '+ checked +' class="govuk-checkboxes__input" id="fType-'+ index +'" name="fType[]" type="checkbox" value="'+ objTypeFilters[index] +'"> \
+      <label class="govuk-label govuk-checkboxes__label" for="fType-'+ index +'"> \
+        '+ objTypeFilters[index] +' \
+      </label> \
+    </div> \
+      ';
+    }
 
   // find the right version to render
   let version = req.session.data['prototype'].version
   return res.render(version +'/search-results', {
     'fTypes': objTypeFilters,
     'grantList': grantList,
-    'aFTypeChecked': aFTypeChecked
+    'aFTypeChecked': aFTypeChecked,
+    'strCheckboxes': strCheckboxes
   })
 })
 
