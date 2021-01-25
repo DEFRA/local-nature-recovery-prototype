@@ -71,8 +71,8 @@ router.get('/options-choice/*/search-results', function (req, res) {
   // --- Get Filter Data --- //
   aTypeFilters = getTypesFilter();
   
-  // Display Filter Checkbox & Maintain State
-  strGTInput = renderCheckboxIncState(gtChecked, aTypeFilters, "");
+  // Render Filter Checkbox
+  strGTInput = renderCheckboxIncState(gtChecked, aTypeFilters, "fType");
 
   // create new or grab existing array
   let grantList = req.session.data['grantList'] || []
@@ -84,7 +84,6 @@ router.get('/options-choice/*/search-results', function (req, res) {
     }
   }
 
-  
   // find the right version to render
   let version = req.session.data['prototype'].version
   return res.render(version + '/search-results', {
@@ -103,37 +102,37 @@ router.post('/options-choice/*/search-results', function (req, res) {
   let grantList = req.session.data['grantList'] || []
   
   //### grab filter type selected (array).
-  var gtChecked = [] //grant type
+  var gtChecked = [] // Grant Type Selection
   if(typeof(req.body.fType) !== 'undefined' || null) {
     gtChecked =req.body.fType;
   }
+  // Land Use Selection
 
   // --- Get Filter Data --- //
-  aTypeFilters = getTypesFilter();
-  
+  gtFilters = getTypesFilter();
+  // ### Get Land Use
+
   // Display Filter Checkbox & Maintain State
-  strGTInput = renderCheckboxIncState(gtChecked, aTypeFilters, "");
-  
-  //### find grants of selected type(s) and add to grantList  
-  
-    //loop grants
-    for(g = 0; g < grants.length; g++) {
-      // loop fType
-      for(f = 0; f < gtChecked.length; f++)
-      {
-        // if grants.type == fType, add to grantList
-        if(grants[g].type.toLowerCase() == gtChecked[f].toLowerCase()) {
-          grantList.push(g)
-          gtChecked.checked='checked'
-        }
+  strGTInput = renderCheckboxIncState(gtChecked, gtFilters, "fType");
+  strLUInput = ''//renderCheckboxIncState(gtChecked, gtFilters, "fType");
+
+  // find grants of selected type(s) and add to grantList    
+  for(g = 0; g < grants.length; g++) {
+    // loop fType
+    for(f = 0; f < gtChecked.length; f++)
+    {
+      // if grants.type == fType, add to grantList
+      if(grants[g].type.toLowerCase() == gtChecked[f].toLowerCase()) {
+        grantList.push(g)
+        gtChecked.checked='checked'
       }
     }
-  
+  }
 
   // find the right version to render
   let version = req.session.data['prototype'].version
   return res.render(version +'/search-results', {
-    'fTypes': aTypeFilters,
+    'fTypes': gtFilters,
     'grantList': grantList,
     'aFTypeChecked': gtChecked,
     'strGTInput': strGTInput
@@ -266,8 +265,8 @@ function renderCheckboxIncState(selected, filter, name) {
     }
     strInput = strInput + ' \
     <div class="govuk-checkboxes__item"> \
-    <input onchange="this.form.submit()" '+ checked +' class="govuk-checkboxes__input" id="fType-'+ s +'" name="fType[]" type="checkbox" value="'+ filter[t] +'"> \
-    <label class="govuk-label govuk-checkboxes__label" for="fType-'+ t +'"> \
+    <input onchange="this.form.submit()" '+ checked +' class="govuk-checkboxes__input" id="'+ name +'-'+ s +'" name="'+ name +'[]" type="checkbox" value="'+ filter[t] +'"> \
+    <label class="govuk-label govuk-checkboxes__label" for="'+ name +'-'+ t +'"> \
       '+ filter[t] +' \
     </label> \
   </div> \
