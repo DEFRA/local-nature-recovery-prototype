@@ -93,8 +93,6 @@ router.post('/options-choice/*/search-results', function (req, res) {
   objTypeFilters = getObjTypesFilter();
   // --- End Get Filter Data --- //
 
-  console.log('mitesh submitted form--------');
-
   // grab the initial grant type(s) selected
   var type = req.body.type;
 
@@ -113,7 +111,6 @@ router.post('/options-choice/*/search-results', function (req, res) {
       for(f = 0; f < aFTypeChecked.length; f++)
       {
         // if grants.type == fType, add to grantList
-        console.log("title"+ grants[g].title +"grant type:"+ grants[g].type.toLowerCase() +" : fTypes:"+ aFTypeChecked[f].toLowerCase());
         if(grants[g].type.toLowerCase() == aFTypeChecked[f].toLowerCase()) {
           grantList.push(g)
           aFTypeChecked.checked='checked'
@@ -122,7 +119,7 @@ router.post('/options-choice/*/search-results', function (req, res) {
     }
 
     // render Grant Type checkboxes selected (if any)
-    var strCheckboxes ='### NEW VERSION ###';
+    var strCheckboxes ='';
     var checked='';
     for(index in objTypeFilters) {
       checked='';
@@ -137,7 +134,7 @@ router.post('/options-choice/*/search-results', function (req, res) {
 
       strCheckboxes = strCheckboxes + ' \
       <div class="govuk-checkboxes__item"> \
-      <input '+ checked +' class="govuk-checkboxes__input" id="fType-'+ index +'" name="fType[]" type="checkbox" value="'+ objTypeFilters[index] +'"> \
+      <input onchange="this.form.submit()" '+ checked +' class="govuk-checkboxes__input" id="fType-'+ index +'" name="fType[]" type="checkbox" value="'+ objTypeFilters[index] +'"> \
       <label class="govuk-label govuk-checkboxes__label" for="fType-'+ index +'"> \
         '+ objTypeFilters[index] +' \
       </label> \
@@ -262,7 +259,7 @@ function dataImport(req, res, next) {
 
 // Get Data for Filters  ----------------------------------------------------
 
-// return Grant Types
+// return Grant Types (NEEDS CONVERTING TO ARRAY)
 function getObjTypesFilter(){
   // setup Filter Types
   var objTypeFilters = {

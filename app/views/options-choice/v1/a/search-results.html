@@ -32,8 +32,6 @@
 
     <div class="govuk-grid-column-one-third">
       <h3 class="govuk-heading-s">Filters</h3>
-
-      {{strCheckboxes | safe}}
       
       <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
         <div class="govuk-accordion__section ">
@@ -51,15 +49,7 @@
                   Select all that apply.
                 </div>
                 <div class="govuk-checkboxes">
-                  {% for index,ftype in fTypes %}
-                  <div class="govuk-checkboxes__item">
-                    <!-- This will have to be an inner FOR-LOOP checking for grantType Filters -->
-                    <input class="govuk-checkboxes__input" id="fType-{{index}}" name="fType[]" type="checkbox" value="{{ftype}}">
-                    <label class="govuk-label govuk-checkboxes__label" for="fType-{{index}}">
-                      {{ftype}}
-                    </label>
-                  </div>
-                  {% endfor%}
+                  {{strCheckboxes | safe}}
                 </div>
             
               </fieldset>
