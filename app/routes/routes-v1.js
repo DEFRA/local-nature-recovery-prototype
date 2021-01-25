@@ -64,15 +64,17 @@ router.get('/options-choice/*/search-results', function (req, res) {
   if( typeof(type) !== 'undefined') {
     gtChecked.push(type)
   }
-  if( typeof(req.body.fType) !== 'undefined') {
-    gtChecked = req.body.fType
+  if( typeof(req.body.fGrantType) !== 'undefined') {
+    gtChecked = req.body.fGrantType
   }
   
   // --- Get Filter Data --- //
-  aTypeFilters = getTypesFilter();
+  gtFilters = getTypesFilter(); // Grant Type
+  luFilters = getLandUseFilter(); // Land Use
   
   // Render Filter Checkbox
-  strGTInput = renderCheckboxIncState(gtChecked, aTypeFilters, "fType");
+  strGTInput = renderCheckboxIncState(gtChecked, gtFilters, "fGrantType");
+  strLUInput = renderCheckboxIncState([], luFilters, "fLandUse");
 
   // create new or grab existing array
   let grantList = req.session.data['grantList'] || []
@@ -89,7 +91,8 @@ router.get('/options-choice/*/search-results', function (req, res) {
   return res.render(version + '/search-results', {
     'grantList': grantList,
     'type': type,
-    'strGTInput': strGTInput
+    'strGTInput': strGTInput,
+    'strLUInput': strLUInput
   })
 })
 
@@ -103,30 +106,35 @@ router.post('/options-choice/*/search-results', function (req, res) {
   
   //### grab filter type selected (array).
   var gtChecked = [] // Grant Type Selection
-  if(typeof(req.body.fType) !== 'undefined' || null) {
-    gtChecked =req.body.fType;
+  if(typeof(req.body.fGrantType) !== 'undefined' || null) {
+    gtChecked =req.body.fGrantType;
   }
-  // Land Use Selection
+  var luChecked = [] // Land Use Selection
+  if(typeof(req.body.fLandUse) !== 'undefined' || null) {
+    luChecked =req.body.fLandUse;
+  }
 
   // --- Get Filter Data --- //
-  gtFilters = getTypesFilter();
-  // ### Get Land Use
+  gtFilters = getTypesFilter(); // Grant Type
+  luFilters = getLandUseFilter(); // Land Use
 
   // Display Filter Checkbox & Maintain State
-  strGTInput = renderCheckboxIncState(gtChecked, gtFilters, "fType");
-  strLUInput = ''//renderCheckboxIncState(gtChecked, gtFilters, "fType");
+  strGTInput = renderCheckboxIncState(gtChecked, gtFilters, "fGrantType");
+  strLUInput = renderCheckboxIncState(luChecked, luFilters, "fLandUse");
 
   // find grants of selected type(s) and add to grantList    
   for(g = 0; g < grants.length; g++) {
-    // loop fType
-    for(f = 0; f < gtChecked.length; f++)
+    // loop Grant Type
+    for(gt = 0; gt < gtChecked.length; gt++)
     {
       // if grants.type == fType, add to grantList
-      if(grants[g].type.toLowerCase() == gtChecked[f].toLowerCase()) {
+      if(grants[g].type.toLowerCase() == gtChecked[gt].toLowerCase()) {
         grantList.push(g)
         gtChecked.checked='checked'
       }
     }
+
+    // loop Land Use
   }
 
   // find the right version to render
@@ -135,7 +143,8 @@ router.post('/options-choice/*/search-results', function (req, res) {
     'fTypes': gtFilters,
     'grantList': grantList,
     'aFTypeChecked': gtChecked,
-    'strGTInput': strGTInput
+    'strGTInput': strGTInput,
+    'strLUInput': strLUInput
   })
 })
 
@@ -244,9 +253,13 @@ function dataImport(req, res, next) {
 
 // Get Data for Filters  ----------------------------------------------------
 
-// return Grant Types (NEEDS CONVERTING TO ARRAY)
+// return Grant Types
 function getTypesFilter(){
   var aTypeFilters =['Option', 'Capital Item','Supplement'];
+  return aTypeFilters;
+}
+function getLandUseFilter(){
+  var aTypeFilters =['Flood risk', 'Grassland','Uplands','Water quality','Priority habitats','Arable land'];
   return aTypeFilters;
 }
 
