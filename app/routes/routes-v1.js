@@ -60,7 +60,7 @@ router.get('/options-choice/*/search-results', function (req, res) {
 
   // grab the query parameter from url or form depending how we got here
   var type = req.query.type
-  var gtChecked =[]; //gt filter from body
+  var gtChecked =[]; //gt filter from body, init
   if( typeof(type) !== 'undefined') {
     gtChecked.push(type)
   }
@@ -103,7 +103,10 @@ router.post('/options-choice/*/search-results', function (req, res) {
   let grantList = req.session.data['grantList'] || []
   
   //### grab filter type selected (array).
-  var gtChecked = req.body.fType //grant type
+  var gtChecked = [] //grant type
+  if(typeof(req.body.fType) !== 'undefined' || null) {
+    gtChecked =req.body.fType;
+  }
 
   // --- Get Filter Data --- //
   aTypeFilters = getTypesFilter();
@@ -249,13 +252,13 @@ function getTypesFilter(){
 }
 
 // render Filter Checkbox & Maintain State
-function renderCheckboxIncState(selected, filters, name) {
+function renderCheckboxIncState(selected, filter, name) {
   var strInput ='';
   var checked='';
-  for(t=0; t < filters.length; t++) {
+  for(t=0; t < filter.length; t++) {
     checked='';
-    for(f=0; f< selected.length; f++) {
-      if(filters[t] == selected[f])
+    for(s=0; s< selected.length; s++) {
+      if(filter[t] == selected[s])
       {
         checked='checked';
         break;
@@ -263,9 +266,9 @@ function renderCheckboxIncState(selected, filters, name) {
     }
     strInput = strInput + ' \
     <div class="govuk-checkboxes__item"> \
-    <input onchange="this.form.submit()" '+ checked +' class="govuk-checkboxes__input" id="fType-'+ t +'" name="fType[]" type="checkbox" value="'+ filters[t] +'"> \
+    <input onchange="this.form.submit()" '+ checked +' class="govuk-checkboxes__input" id="fType-'+ s +'" name="fType[]" type="checkbox" value="'+ filter[t] +'"> \
     <label class="govuk-label govuk-checkboxes__label" for="fType-'+ t +'"> \
-      '+ filters[t] +' \
+      '+ filter[t] +' \
     </label> \
   </div> \
     ';
