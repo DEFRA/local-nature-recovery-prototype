@@ -65,7 +65,7 @@ router.get('/options-choice/*/search-results', function (req, res) {
     gtChecked.push(type)
   }
   if( typeof(req.body.fGrantType) !== 'undefined') {
-    gtChecked = req.body.fGrantType
+    gtChecked = req.body.f_grant_type
   }
   
   // --- Get Filter Data --- //
@@ -73,8 +73,8 @@ router.get('/options-choice/*/search-results', function (req, res) {
   luFilters = getLandUseFilter(); // Land Use
   
   // Render Filter Checkbox
-  strGTInput = renderCheckboxIncState(gtChecked, gtFilters, "fGrantType");
-  strLUInput = renderCheckboxIncState([], luFilters, "fLandUse");
+  strGTInput = renderCheckboxIncState(gtChecked, gtFilters, "f_grant_type");
+  strLUInput = renderCheckboxIncState([], luFilters, "f_grant_type");
 
   // create new or grab existing array
   let grantList = req.session.data['grantList'] || []
@@ -104,14 +104,14 @@ router.post('/options-choice/*/search-results', function (req, res) {
   // create new grant list to display (or grab existing)
   let grantList = req.session.data['grantList'] || []
   
-  //### grab filter type selected (array).
-  var gtChecked = [] // Grant Type Selection
-  if(typeof(req.body.fGrantType) !== 'undefined' || null) {
-    gtChecked =req.body.fGrantType;
+  // grab filters selected
+  var gtChecked = [] // Grant Type selection
+  if(typeof(req.body.f_grant_type) !== 'undefined' || null) {
+    gtChecked =req.body.f_grant_type;
   }
-  var luChecked = [] // Land Use Selection
-  if(typeof(req.body.fLandUse) !== 'undefined' || null) {
-    luChecked =req.body.fLandUse;
+  var luChecked = [] // Land Use selection
+  if(typeof(req.body.f_land_use) !== 'undefined' || null) {
+    luChecked =req.body.f_land_use;
   }
 
   // --- Get Filter Data --- //
@@ -119,22 +119,34 @@ router.post('/options-choice/*/search-results', function (req, res) {
   luFilters = getLandUseFilter(); // Land Use
 
   // Display Filter Checkbox & Maintain State
-  strGTInput = renderCheckboxIncState(gtChecked, gtFilters, "fGrantType");
-  strLUInput = renderCheckboxIncState(luChecked, luFilters, "fLandUse");
+  strGTInput = renderCheckboxIncState(gtChecked, gtFilters, "f_grant_type");
+  strLUInput = renderCheckboxIncState(luChecked, luFilters, "f_land_use");
 
-  // find grants of selected type(s) and add to grantList    
+  // find grants for selected filters and add to grantList    
+  var pushGrant=false; // add to grantlist if true
   for(g = 0; g < grants.length; g++) {
-    // loop Grant Type
+    
+    pushGrant=false;
+    // loop Grant Type and check filter
     for(gt = 0; gt < gtChecked.length; gt++)
     {
-      // if grants.type == fType, add to grantList
       if(grants[g].type.toLowerCase() == gtChecked[gt].toLowerCase()) {
-        grantList.push(g)
         gtChecked.checked='checked'
+        pushGrant=true;
       }
     }
 
-    // loop Land Use
+    // loop Land Use and check filter
+    var grants_use = grants[g].use.split(',').map(item => item.trim().toLowerCase());
+    var foundone = findOne(grants_use,luChecked);
+    if(foundone) {
+      luChecked.checked='checked' 
+      pushGrant=true;
+    }
+    
+    if(pushGrant) {
+      grantList.push(g)
+    }
   }
 
   // find the right version to render
@@ -259,7 +271,7 @@ function getTypesFilter(){
   return aTypeFilters;
 }
 function getLandUseFilter(){
-  var aTypeFilters =['Flood risk', 'Grassland','Uplands','Water quality','Priority habitats','Arable land'];
+  var aTypeFilters =['Flood risk', 'Grassland','Uplands','Water Quality','Priority habitats','Arable land', 'Pollinators and Wildlife'];
   return aTypeFilters;
 }
 
@@ -270,7 +282,7 @@ function renderCheckboxIncState(selected, filter, name) {
   for(t=0; t < filter.length; t++) {
     checked='';
     for(s=0; s< selected.length; s++) {
-      if(filter[t] == selected[s])
+      if(filter[t].trim().toLowerCase() == selected[s].trim().toLowerCase())
       {
         checked='checked';
         break;
@@ -278,8 +290,8 @@ function renderCheckboxIncState(selected, filter, name) {
     }
     strInput = strInput + ' \
     <div class="govuk-checkboxes__item"> \
-    <input onchange="this.form.submit()" '+ checked +' class="govuk-checkboxes__input" id="'+ name +'-'+ s +'" name="'+ name +'[]" type="checkbox" value="'+ filter[t] +'"> \
-    <label class="govuk-label govuk-checkboxes__label" for="'+ name +'-'+ t +'"> \
+    <input onchange="this.form.submit()" '+ checked +' class="govuk-checkboxes__input" id="'+ name.trim().toLowerCase() +'-'+ s +'" name="'+ name.trim().toLowerCase() +'[]" type="checkbox" value="'+ filter[t].trim().toLowerCase() +'"> \
+    <label class="govuk-label govuk-checkboxes__label" for="'+ name.trim().toLowerCase() +'-'+ t +'"> \
       '+ filter[t] +' \
     </label> \
   </div> \
@@ -287,6 +299,21 @@ function renderCheckboxIncState(selected, filter, name) {
   }
   return strInput;
 }
+
+
+
+/**
+   * @description determine if an array contains one or more items from another array.
+   * @param {array} haystack the array to search.
+   * @param {array} arr the array providing items to check for in the haystack.
+   * @return {boolean} true|false if haystack contains at least one item from arr.
+   */
+  var findOne = function (haystack, arr) {
+    return arr.some(function (v) {
+        return haystack.indexOf(v) >= 0;
+    });
+  };
+
 
 // router.get('/*', dataImport)
 router.get('/', dataImport) // the homepage will delete the session data and re-import it
