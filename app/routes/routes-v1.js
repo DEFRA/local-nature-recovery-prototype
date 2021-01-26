@@ -74,7 +74,7 @@ router.get('/options-choice/*/search-results', function (req, res) {
   
   // Render Filter Checkbox
   strGTInput = renderCheckboxIncState(gtChecked, gtFilters, "f_grant_type");
-  strLUInput = renderCheckboxIncState([], luFilters, "f_grant_type");
+  strLUInput = renderCheckboxIncState("f_land_use", luFilters, "f_land_use");
 
   // create new or grab existing array
   let grantList = req.session.data['grantList'] || []
