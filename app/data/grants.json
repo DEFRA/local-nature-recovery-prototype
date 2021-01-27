@@ -3,8 +3,12 @@
     {
       "code": "AB1",
       "title": "Nectar flower mix",
-      "payment": "£511",
-      "unit": "per ha",
+      "payment": "511",
+      "measure": "hectare,hectares",
+      "unit": "ha",
+      "calc": "multiply",
+      "multiplier": "1",
+      "label": "What's the size of your land in hectares (ha)",
       "use": "Arable land, Uplands, Water Quality, Pollinators and Wildlife",
       "type": "Option",
       "summary": "This option provides areas of flowering plants to boost essential food sources for beneficial pollinators.",
@@ -13,32 +17,41 @@
     {
       "code": "AB10",
       "title": "Unharvested cereal headland",
-      "payment": "£640",
-      "unit": "per ha",
+      "payment": "640",
+      "measure": "hectare,hectares",
+      "unit": "ha",
+      "calc": "multiply",
+      "multiplier": "1",
       "use": "Arable land, Uplands",
       "type": "Option",
       "summary": "This option will provide an important food source for farmland birds throughout the year; insects in the summer and both grain and seeding arable plants in winter.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/unharvested-cereal-headland-ab10"
     },
     {
-      "code": "AB11",
-      "title": "Cultivated areas for arable plants",
-      "payment": "£532",
-      "unit": "per ha",
-      "use": "Arable land, Uplands, Pollinators and wildlife",
+      "code": "BN2",
+      "title": "Stone-faced bank restoration",
+      "payment": "86",
+      "measure": "meter, meters",
+      "unit": "m",
+      "calc": "multiply",
+      "multiplier": "1",
+      "use": "Boundaries, Uplands ",
       "type": "Capital Item",
-      "summary": "This option will create uncropped, cultivated areas for a wide range of scarce and declining arable plants, provide areas of less densely vegetated ground for insects and other invertebrates, and summer foraging habitats for declining farmland birds.",
-      "url": "https://www.gov.uk/countryside-stewardship-grants/cultivated-areas-for-arable-plants-ab11"
+      "summary": "If successful there will be a rebuilt length of stone-faced bank.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/stone-faced-bank-restoration-bn2"
     },
     {
-      "code": "AB12",
-      "title": "Supplementary winter feeding for farmland birds",
-      "payment": "£632",
-      "unit": "per tonne for every 2 ha",
-      "use": "Arable land, Uplands",
+      "code": "GS15",
+      "title": "Hay making supplement",
+      "payment": "85",
+      "measure": "hectare, hectares",
+      "unit": "ha",
+      "calc": "multiply",
+      "multiplier": "1",
+      "use": "Grassland, Uplands ",
       "type": "Supplement",
-      "summary": "This option will provide important food resources for farmland birds in late winter and early spring on arable land and mixed farms by supplementing grown winter bird food with spread seed, once the sown resources have been depleted and before natural food resources become available again in late spring.",
-      "url": "https://www.gov.uk/countryside-stewardship-grants/supplementary-winter-feeding-for-farmland-birds-ab12"
+      "summary": "This supplement allows a crop of herb-rich hay to be grown and harvested, which will lead to wildflowers and grasses blossoming and setting seed. This will help to conserve many of the plants in the meadow and provide pollen and nectar for bees and other insects.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/haymaking-supplement-gs15"
     }
   ]
 }

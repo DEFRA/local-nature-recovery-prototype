@@ -34,7 +34,7 @@
           </tr>
           <tr class="govuk-table__row">
             <td scope="row" class="govuk-table__cell">Funding</td>
-            <td class="govuk-table__cell">{{ data.import.grants[data.prototype.grantNum].payment }} {{ data.import.grants[data.prototype.grantNum].unit }}</td>
+            <td class="govuk-table__cell">&pound;{{ data.import.grants[data.prototype.grantNum].payment }} per {{ unit }}</td>
           </tr>
           </tbody>
         </table>
@@ -43,7 +43,7 @@
 
         <button type="submit" class="govuk-button" name="grantNum" value="3">Add this grant to my plan</button>
 
-        <p><a href="{{ data.import.grants[data.prototype.grantNum].url }}" target="_blank">Find out about eligibility and requirements for {{ data.import.grants[grantNum].title }}. (Opens in a new window)</a>.</p>
+        <p><a href="{{ data.import.grants[data.prototype.grantNum].url }}" target="_blank">Find out about eligibility and requirements for {{ data.import.grants[data.prototype.grantNum].title }}. (Opens in a new window)</a>.</p>
 
       </form>
 

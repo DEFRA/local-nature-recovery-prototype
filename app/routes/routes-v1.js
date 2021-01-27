@@ -2,12 +2,11 @@ const express = require('express')
 const router = express.Router()
 const fs = require('fs-extra') // needed to import the json data
 
-var nunjucks  = require('nunjucks');
-var env = nunjucks.configure();
+var nunjucks  = require('nunjucks')
+var env = nunjucks.configure()
 
 //Gather up totals for the boxes on the grants page
 router.get('/options-choice/*/grants', function (req, res) {
-
   // count how many grants of each type
   var grants = req.session.data['import'].grants // get the object
 
@@ -33,23 +32,6 @@ router.get('/options-choice/*/grants', function (req, res) {
     'capitalCount': capitalCount,
     'supplementCount': supplementCount
   })
-})
-
-// show the grant details page
-router.get('/options-choice/*/grant-details', function (req, res) {
-  let prototype = req.session.data['prototype']
-
-  // get the object
-  var grants = req.session.data['import'].grants
-
-  // grab the query parameter from url
-  var grantNum = req.query.grant
-  prototype.grantNum = grantNum
-
-  // find the right version to render
-  let version = req.session.data['prototype'].version
-  req.session.data['prototype'] = prototype // write back these values into the session data
-  return res.render(version + '/grant-details')
 })
 
 // Create array of search results
@@ -98,7 +80,7 @@ router.get('/options-choice/*/search-results', function (req, res) {
 
 // filter grant list
 router.post('/options-choice/*/search-results', function (req, res) {
-  
+
   // load all grants
   var grants = req.session.data['import'].grants
   // create new grant list to display (or grab existing)
@@ -160,6 +142,32 @@ router.post('/options-choice/*/search-results', function (req, res) {
   })
 })
 
+// show the grant details page
+router.get('/options-choice/*/grant-details', function (req, res) {
+  let prototype = req.session.data['prototype']
+  console.log('hello')
+  // get the object
+  var grants = req.session.data['import'].grants
+
+  // grab the query parameter from url
+  var grantNum = req.query.grant
+  prototype.grantNum = grantNum
+
+  let unit = grants[grantNum].measure
+
+  unit = unit.split(',')
+
+  console.log(unit)
+
+  // find the right version to render
+  let version = req.session.data['prototype'].version
+  req.session.data['prototype'] = prototype // write back these values into the session data
+  return res.render(version + '/grant-details', {
+    'unit': unit[0]
+  })
+})
+
+
 // Add item to plan
 router.post("/options-choice/*/grant-details", function (req, res) {
   let prototype = req.session.data['prototype']
@@ -196,7 +204,10 @@ router.get('/options-choice/*/configure', function (req, res) {
   // find the right version to render
   let version = req.session.data['prototype'].version
   req.session.data['prototype'] = prototype // write back these values into the session data
-  return res.render(version + '/configure')
+  return res.render(version + '/configure', {
+    'grantNum': grantNum
+  })
+
 })
 
 // configure item
@@ -251,7 +262,7 @@ function loadJSONFromFile(fileName, path = 'app/data/') {
 
 function dataImport(req, res, next) {
   if (!req.session.data['import']) {
-    console.log('loading in data');
+    console.log('loading in data file')
     // pull in JSON data file
     delete req.session.data['import']
     let grantsFile = 'grants.json'
