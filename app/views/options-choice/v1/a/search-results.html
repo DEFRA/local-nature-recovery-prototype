@@ -50,7 +50,7 @@
                 <div id="fType-hint" class="govuk-hint">
                   Select all that apply.
                 </div>
-                <div class="govuk-checkboxes">
+                <div class="govuk-checkboxes govuk-checkboxes--small">
                   {{strGTInput | safe}}
                 </div>
               </fieldset>
@@ -72,7 +72,7 @@
                 <div id="fType-hint" class="govuk-hint">
                   Select all that apply.
                 </div>
-                <div class="govuk-checkboxes">
+                <div class="govuk-checkboxes govuk-checkboxes--small">
                   {{strLUInput | safe}}
                 </div>
               </fieldset>
@@ -90,7 +90,7 @@
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">{{ grantList.length }} grants</th>
           <th scope="col" class="govuk-table__header">Type</th>
-          <th scope="col" class="govuk-table__header">Use</th>
+<!--          <th scope="col" class="govuk-table__header">Use</th>-->
         </tr>
         </thead>
         <tbody class="govuk-table__body">
@@ -105,7 +105,7 @@
           <tr class="govuk-table__row">
             <td scope="row" class="govuk-table__cell"><a href="grant-details?grant={{ grantList[i] }}">{{ data.import.grants[grantList[i]].code }} {{ data.import.grants[grantList[i]].title }}</a></td>
             <td class="govuk-table__cell">{{ data.import.grants[grantList[i]].type }}</td>
-            <td class="govuk-table__cell">{{ data.import.grants[grantList[i]].use }}</td>
+<!--            <td class="govuk-table__cell">{{ data.import.grants[grantList[i]].use }}</td>-->
           </tr>
           {%- endfor %}
 
