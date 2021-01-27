@@ -122,32 +122,47 @@ router.post('/options-choice/*/search-results', function (req, res) {
   strGTInput = renderCheckboxIncState(gtChecked, gtFilters, "f_grant_type");
   strLUInput = renderCheckboxIncState(luChecked, luFilters, "f_land_use");
 
-  // find grants for selected filters and add to grantList    
-  var pushGrant=false; // add to grantlist if true
+  // (1/3). find grants for selected 'Land Use' filters and add to grantList  
   for(g = 0; g < grants.length; g++) {
-    
-    pushGrant=false;
-    // loop Grant Type and check filter
-    for(gt = 0; gt < gtChecked.length; gt++)
-    {
-      if(grants[g].type.toLowerCase() == gtChecked[gt].toLowerCase()) {
-        gtChecked.checked='checked'
-        pushGrant=true;
-      }
-    }
 
-    // loop Land Use and check filter
     var grants_use = grants[g].use.split(',').map(item => item.trim().toLowerCase());
     var foundone = findOne(grants_use,luChecked);
     if(foundone) {
       luChecked.checked='checked' 
-      pushGrant=true;
-    }
-    
-    if(pushGrant) {
       grantList.push(g)
     }
   }
+
+  // (2/3). Remove all grants that are not part of selected GrantType
+  console.log('-----')
+  for(gl = 0; gl < grantList.length; gl++) {
+    console.log('gl:'+ grants[grantList[gl]].type.toLowerCase() + ' - '+grants[grantList[gl]].code +' - '+ grants[grantList[gl]].type.toLowerCase() +' - '+ grants[grantList[gl]].use)
+
+    if(gtChecked.includes(grants[grantList[gl]].type.toLowerCase()))
+    {
+      // keep in GrantList
+      console.log('keeps');
+    } else {
+      // remove from GrantList
+      console.log('REM: '+ grants[grantList[gl]].type);
+      grantList.splice(gl,1);
+      gl=gl-1
+    }
+  }
+
+  // (3/3). if NO LandUse is selected then simply add all grants for GrantType Selected
+  if(luChecked.length<=0) {
+    // find grants of each type and add index to the array
+    for(i = 0; i < grants.length; i++) {
+      for(gt = 0; gt < gtChecked.length; gt++)
+      {
+        if (grants[i].type.trim().toLowerCase() == gtChecked[gt]) {
+          grantList.push(i)
+        }
+      }
+    }
+  }
+    
 
   // find the right version to render
   let version = req.session.data['prototype'].version
