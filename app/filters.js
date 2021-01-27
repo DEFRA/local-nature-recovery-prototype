@@ -38,6 +38,13 @@ module.exports = function (env) {
 
   ------------------------------------------------------------------ */
 
+  var format = require('d3-format')
+  var commaFormatter = format.format(',')
+
+  filters.toMoney = function(str) {
+    return commaFormatter(str)
+  }
+
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
   ------------------------------------------------------------------ */

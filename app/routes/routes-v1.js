@@ -3,7 +3,9 @@ const router = express.Router()
 const fs = require('fs-extra') // needed to import the json data
 
 var nunjucks  = require('nunjucks')
+var commaFilter = require('nunjucks-comma-filter')
 var env = nunjucks.configure()
+env.addFilter('comma', commaFilter)
 
 //Gather up totals for the boxes on the grants page
 router.get('/options-choice/*/grants', function (req, res) {
