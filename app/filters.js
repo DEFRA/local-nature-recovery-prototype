@@ -38,8 +38,17 @@ module.exports = function (env) {
 
   ------------------------------------------------------------------ */
 
-  var format = require('d3-format')
-  var commaFormatter = format.format(',')
+  // Create a formatter for the currency
+
+  var d3 = require('d3-format')
+  locale = d3.localeFormat({
+    "decimal": ".",
+    "thousands": ",",
+    "grouping": [3],
+    "currency": ["£", ""]
+  })
+
+  var commaFormatter = locale.format("($,.2f")
 
   filters.toMoney = function(str) {
     return commaFormatter(str)
