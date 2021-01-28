@@ -45,7 +45,7 @@
           </tr>
           <tr class="govuk-table__row">
             <td scope="row" class="govuk-table__cell" style="border-bottom: none;">Funding</td>
-            <td class="govuk-table__cell" style="border-bottom: none;">&pound;{{ data.import.grants[data.prototype.grantNum].payment }} per {{ unit }}</td>
+            <td class="govuk-table__cell" style="border-bottom: none;">{{ data.import.grants[data.prototype.grantNum].payment | toMoney }} per {{ unit }}</td>
           </tr>
           </tbody>
         </table>
