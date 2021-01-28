@@ -5,6 +5,7 @@ const fs = require('fs-extra') // needed to import the json data
 var nunjucks  = require('nunjucks')
 var env = nunjucks.configure()
 
+
 //Gather up totals for the boxes on the grants page
 router.get('/options-choice/*/grants', function (req, res) {
   // count how many grants of each type
@@ -68,6 +69,13 @@ router.get('/options-choice/*/search-results', function (req, res) {
     }
   }
 
+  // if No GrantType selected, display all GrantTypes
+  if(type==='undefined' || type ==null) {
+    for(i = 0; i < grants.length; i++) {
+      grantList.push(i)
+    }
+  }
+
   // find the right version to render
   let version = req.session.data['prototype'].version
   return res.render(version + '/search-results', {
@@ -104,7 +112,7 @@ router.post('/options-choice/*/search-results', function (req, res) {
   strGTInput = renderCheckboxIncState(gtChecked, gtFilters, "f_grant_type");
   strLUInput = renderCheckboxIncState(luChecked, luFilters, "f_land_use");
 
-  // (1/3). find grants for selected 'Land Use' filters and add to grantList  
+  // (1/4). find grants for selected 'Land Use' filters and add to grantList  
   for(g = 0; g < grants.length; g++) {
 
     var grants_use = grants[g].use.split(',').map(item => item.trim().toLowerCase());
@@ -115,7 +123,7 @@ router.post('/options-choice/*/search-results', function (req, res) {
     }
   }
 
-  // (2/3). Remove all grants that are not part of selected GrantType
+  // (2/4). Remove all grants that are not part of selected GrantType
   console.log('-----')
   for(gl = 0; gl < grantList.length; gl++) {
     console.log('gl:'+ grants[grantList[gl]].type.toLowerCase() + ' - '+grants[grantList[gl]].code +' - '+ grants[grantList[gl]].type.toLowerCase() +' - '+ grants[grantList[gl]].use)
@@ -132,7 +140,7 @@ router.post('/options-choice/*/search-results', function (req, res) {
     }
   }
 
-  // (3/3). if NO LandUse is selected then simply add all grants for GrantType Selected
+  // (3/4). if NO LandUse is selected then simply add all grants for GrantType Selected
   if(luChecked.length<=0) {
     // find grants of each type and add index to the array
     for(i = 0; i < grants.length; i++) {
@@ -142,6 +150,13 @@ router.post('/options-choice/*/search-results', function (req, res) {
           grantList.push(i)
         }
       }
+    }
+  }
+
+  // (4/4). if No GrantType selected, display all GrantTypes
+  if(gtChecked.length ===0) {
+    for(i = 0; i < grants.length; i++) {
+      grantList.push(i)
     }
   }
     
@@ -243,6 +258,7 @@ router.post("/options-choice/*/configure", function (req, res) {
 
 // Create array of search results
 router.get('/options-choice/*/plan', function (req, res) {
+
   // get the object
   let plan = req.session.data['plan']
   grantNum = req.session.data['prototype'].grantNum
@@ -325,8 +341,6 @@ function renderCheckboxIncState(selected, filter, name) {
   }
   return strInput;
 }
-
-
 
 /**
  * @description determine if an array contains one or more items from another array.

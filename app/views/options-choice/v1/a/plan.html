@@ -45,6 +45,8 @@
             {% set optionSubtotal = 0 %}
             {% set optionSubtotalMonth = 0 %}
 
+            {% set optionEndTotal = 0 %}
+
             {% for i in range(0, data.plan.length) -%}
                 {% if data.plan[i][2] === 'Option' %}
 
@@ -54,9 +56,10 @@
 
                   <tr class="govuk-table__row">
                     <td scope="row" class="govuk-table__cell" style="width:50%"><a href="configure?planNum={{ i }}">{{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}</a></td>
-                    <td class="govuk-table__cell" style="text-align:right">{{ data.import.grants[data.plan[i][1]].payment | toMoney }} &times {{ data.plan[i][3] or 0 }}{{ data.import.grants[data.plan[i][1]].unit }} &equals; {{ optionTotal[i] | toMoney }}</td>
+                    <td class="govuk-table__cell" style="text-align:right">{{ data.import.grants[data.plan[i][1]].payment | toMoney }} &times {{ data.plan[i][3] or 0 }}{{ data.import.grants[data.plan[i][1]].unit }} &equals;  {{ optionTotal[i] | toMoney }}</td>
                     <td class="govuk-table__cell">
                       {% if data.plan[i][4] === true %}
+                      {% set optionEndTotal = optionEndTotal + optionTotal[i] %}
                       <strong class="govuk-tag app-task-list__tag" id="completion-status">Configured</strong>
                       {% else %}
                       <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">Not configured</strong>
@@ -71,7 +74,7 @@
 
             <tr class="govuk-table__row">
               <td scope="row" class="govuk-table__cell" style="width:50%">&nbsp;</td>
-              <td class="govuk-table__cell" style="text-align:right"><strong>Yearly total of {{ optionSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ optionSubtotalMonth | toMoney }}</strong></td>
+              <td class="govuk-table__cell" style="text-align:right"><strong>Yearly payment &equals; {{ optionSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ optionEndTotal | toMoney }}</strong></td>
               <td class="govuk-table__cell">&nbsp;
               </td>
             </tr>
