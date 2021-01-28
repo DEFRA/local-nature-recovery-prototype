@@ -41,6 +41,7 @@
             </tr>
             {% else %}
 
+            {% set optionCount = 0 %}
             {% set optionTotal = [] %}
             {% set optionSubtotal = 0 %}
             {% set optionSubtotalMonth = 0 %}
@@ -51,15 +52,15 @@
                 {% if data.plan[i][2] === 'Option' %}
 
                 {% set optionTotal = (optionTotal.push(data.import.grants[data.plan[i][1]].payment * data.plan[i][3]), optionTotal) %}
-                {% set optionSubtotal = optionSubtotal + optionTotal[i] %}
+                {% set optionSubtotal = optionSubtotal + optionTotal[optionCount] %}
                 {% set optionSubtotalMonth = optionSubtotal / 12 %}
 
                   <tr class="govuk-table__row">
                     <td scope="row" class="govuk-table__cell" style="width:50%"><a href="configure?planNum={{ i }}">{{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}</a></td>
-                    <td class="govuk-table__cell" style="text-align:right">{{ data.import.grants[data.plan[i][1]].payment | toMoney }} &times {{ data.plan[i][3] or 0 }}{{ data.import.grants[data.plan[i][1]].unit }} &equals;  {{ optionTotal[i] | toMoney }}</td>
+                    <td class="govuk-table__cell" style="text-align:right">{{ data.import.grants[data.plan[i][1]].payment | toMoney }} &times {{ data.plan[i][3] or 0 }}{{ data.import.grants[data.plan[i][1]].unit }} &equals;  {{ optionTotal[optionCount] | toMoney }}</td>
                     <td class="govuk-table__cell">
                       {% if data.plan[i][4] === true %}
-                      {% set optionEndTotal = optionEndTotal + optionTotal[i] %}
+                      {% set optionEndTotal = optionEndTotal + optionTotal[optionCount] %}
                       <strong class="govuk-tag app-task-list__tag" id="completion-status">Configured</strong>
                       {% else %}
                       <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">Not configured</strong>
@@ -67,14 +68,17 @@
                     </td>
                   </tr>
 
+                {% set optionCount = optionCount +1 %}
+
                 {% endif %}
+
               {%- endfor %}
 
-            <p>optionTotal {{ optionTotal }}</p>
+
 
             <tr class="govuk-table__row">
               <td scope="row" class="govuk-table__cell" style="width:50%">&nbsp;</td>
-              <td class="govuk-table__cell" style="text-align:right"><strong>Yearly payment &equals; {{ optionSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ optionEndTotal | toMoney }}</strong></td>
+              <td class="govuk-table__cell" style="text-align:right"><strong>Yearly payment &equals; {{ optionSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ optionSubtotalMonth | toMoney }}</strong></td>
               <td class="govuk-table__cell">&nbsp;
               </td>
             </tr>
@@ -92,6 +96,7 @@
            Capital items
           </h2>
           <p class="govuk-hint">One-off payment</p>
+
           <table class="govuk-table">
             <tbody class="govuk-table__body">
 
@@ -101,23 +106,44 @@
             </tr>
             {% else %}
 
-            {% for i in range(0, data.plan.length) -%}
-            {% if data.plan[i][2] === 'Capital Item' %}
+            {% set capitalCount = 0 %}
+            {% set capitalTotal = [] %}
+            {% set capitalSubtotal = 0 %}
+            {% set capitalSubtotalMonth = 0 %}
 
-            <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell" style="width:50%"><a href="configure?planNum={{ i }}">{{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}</a></td>
-              <td class="govuk-table__cell" style="text-align:right">{{ data.import.grants[data.plan[i][1]].payment }}</td>
-              <td class="govuk-table__cell">
-                {% if data.plan[i][4] === true %}
-                <strong class="govuk-tag app-task-list__tag" id="completion-status">Completed</strong>
-                {% else %}
-                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">Not complete</strong>
-                {% endif %}
-              </td>
-            </tr>
+            {% set capitalEndTotal = 0 %}
+
+            {% for i in range(0, data.plan.length) -%}
+              {% if data.plan[i][2] === 'Capital Item' %}
+
+              {% set capitalTotal = (capitalTotal.push(data.import.grants[data.plan[i][1]].payment * data.plan[i][3]), capitalTotal) %}
+              {% set capitalSubtotal = capitalSubtotal + capitalTotal[capitalCount] %}
+
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:50%"><a href="configure?planNum={{ i }}">{{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}</a></td>
+                <td class="govuk-table__cell" style="text-align:right">{{ data.import.grants[data.plan[i][1]].payment | toMoney }} &times {{ data.plan[i][3] or 0 }}{{ data.import.grants[data.plan[i][1]].unit }} &equals; {{ capitalTotal[capitalCount] | toMoney }}</td>
+                <td class="govuk-table__cell">
+                  {% if data.plan[i][4] === true %}
+                  {% set capitalEndTotal = capitalEndTotal + capitalTotal[i] %}
+                  <strong class="govuk-tag app-task-list__tag" id="completion-status">Completed</strong>
+                  {% else %}
+                  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">Not complete</strong>
+                  {% endif %}
+                </td>
+              </tr>
+
+              {% set capitalCount = capitalCount + 1 %}
 
             {% endif %}
+
+
             {%- endfor %}
+
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell" style="width:50%">&nbsp;</td>
+              <td class="govuk-table__cell" style="text-align:right"><strong>One-off payment of {{ capitalSubtotal | toMoney }}</strong></td>
+              <td class="govuk-table__cell">&nbsp;</td>
+            </tr>
 
             {% endif %}
 
@@ -139,14 +165,26 @@
             </tr>
             {% else %}
 
+            {% set supplementCount = 0 %}
+            {% set supplementTotal = [] %}
+            {% set supplementSubtotal = 0 %}
+            {% set supplementSubtotalMonth = 0 %}
+
+            {% set supplementEndTotal = 0 %}
+
             {% for i in range(0, data.plan.length) -%}
-            {% if data.plan[i][2] === 'Supplement' %}
+              {% if data.plan[i][2] === 'Supplement' %}
+
+              {% set supplementTotal = (supplementTotal.push(data.import.grants[data.plan[i][1]].payment * data.plan[i][3]), supplementTotal) %}
+              {% set supplementSubtotal = supplementSubtotal + supplementTotal[supplementCount] %}
+
 
             <tr class="govuk-table__row">
               <td scope="row" class="govuk-table__cell" style="width:50%"><a href="configure?planNum={{ i }}">{{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}</a></td>
-              <td class="govuk-table__cell" style="text-align:right">{{ data.import.grants[data.plan[i][1]].payment }}</td>
+              <td class="govuk-table__cell" style="text-align:right">{{ data.import.grants[data.plan[i][1]].payment | toMoney }} &times {{ data.plan[i][3] or 0 }}{{ data.import.grants[data.plan[i][1]].unit }} &equals; {{ supplementTotal[supplementCount] | toMoney }}</td>
               <td class="govuk-table__cell">
                 {% if data.plan[i][4] === true %}
+                {% set supplementEndTotal = supplementEndTotal + supplementTotal[i] %}
                 <strong class="govuk-tag app-task-list__tag" id="completion-status">Completed</strong>
                 {% else %}
                 <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">Not complete</strong>
@@ -154,8 +192,18 @@
               </td>
             </tr>
 
+            {% set supplementCount = supplementCount + 1 %}
+
             {% endif %}
             {%- endfor %}
+
+            {% set supplementSubtotalMonth = supplementSubtotal / 12 %}
+
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell" style="width:50%">&nbsp;</td>
+              <td class="govuk-table__cell" style="text-align:right"><strong>Yearly payment &equals; {{ supplementSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ supplementSubtotalMonth | toMoney }}</strong></td>
+              <td class="govuk-table__cell">&nbsp;</td>
+            </tr>
 
             {% endif %}
 
