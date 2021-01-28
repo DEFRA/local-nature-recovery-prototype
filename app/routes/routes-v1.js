@@ -5,6 +5,7 @@ const fs = require('fs-extra') // needed to import the json data
 var nunjucks  = require('nunjucks')
 var env = nunjucks.configure()
 
+
 //Gather up totals for the boxes on the grants page
 router.get('/options-choice/*/grants', function (req, res) {
   // count how many grants of each type
@@ -257,6 +258,7 @@ router.post("/options-choice/*/configure", function (req, res) {
 
 // Create array of search results
 router.get('/options-choice/*/plan', function (req, res) {
+
   // get the object
   let plan = req.session.data['plan']
   grantNum = req.session.data['prototype'].grantNum
@@ -339,8 +341,6 @@ function renderCheckboxIncState(selected, filter, name) {
   }
   return strInput;
 }
-
-
 
 /**
  * @description determine if an array contains one or more items from another array.
