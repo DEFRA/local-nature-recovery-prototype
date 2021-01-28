@@ -15,17 +15,15 @@
       "url": "https://www.gov.uk/countryside-stewardship-grants/nectar-flower-mix-ab1"
     },
     {
-      "code": "AB10",
-      "title": "Unharvested cereal headland",
-      "payment": "640",
-      "measure": "hectare,hectares",
-      "unit": "ha",
+      "code": "BE6",
+      "title": "Veteran tree surgery",
+      "payment": "221",
+      "measure": "veteran trees",
       "calc": "multiply",
       "multiplier": "1",
-      "use": "Arable land, Uplands",
+      "use": "Priority habitats, Trees (non-woodland), Uplands ",
       "type": "Option",
-      "summary": "This option will provide an important food source for farmland birds throughout the year; insects in the summer and both grain and seeding arable plants in winter.",
-      "url": "https://www.gov.uk/countryside-stewardship-grants/unharvested-cereal-headland-ab10"
+      "summary": "It reduces the rate of loss of veteran trees by carrying out specialist tree surgery to extend their lifespan.\r\n\r\nIf successful, veteran trees at risk of collapse will be stabilised, resulting in the continuation of:living trees with standing deadwood\r\ntrees forming distinctive features in the landscape\r\ntrees providing valuable habitat\r\nareas under tree canopies free from scrub, soil compaction, or anything which threatens the tree’s longevity"
     },
     {
       "code": "BN2",
