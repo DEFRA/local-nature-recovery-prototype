@@ -61,7 +61,6 @@
                         <input type="hidden" name="planNum" value="{{ i }}" />
                         <button class="govuk-button" data-module="govuk-button">Delete</button>
                       </form>
-                    </form>
                     </td>
                     <td scope="row" class="govuk-table__cell" style="width:50%">
                       <a href="configure?planNum={{ i }}">{{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}</a>
@@ -133,7 +132,6 @@
                     <input type="hidden" name="planNum" value="{{ i }}" />
                     <button class="govuk-button" data-module="govuk-button">Delete</button>
                   </form>
-                </form>
                 </td>
                 <td scope="row" class="govuk-table__cell" style="width:50%"><a href="configure?planNum={{ i }}">{{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}</a></td>
                 <td class="govuk-table__cell" style="text-align:right">{{ data.import.grants[data.plan[i][1]].payment | toMoney }} &times {{ data.plan[i][3] or 0 }}{{ data.import.grants[data.plan[i][1]].unit }} &equals; {{ capitalTotal[capitalCount] | toMoney }}</td>
@@ -196,6 +194,12 @@
 
 
             <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">
+                <form action="{{ thisPage }}" method="POST" role="form">
+                  <input type="hidden" name="planNum" value="{{ i }}" />
+                  <button class="govuk-button" data-module="govuk-button">Delete</button>
+                </form>
+              </td>
               <td scope="row" class="govuk-table__cell" style="width:50%"><a href="configure?planNum={{ i }}">{{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}</a></td>
               <td class="govuk-table__cell" style="text-align:right">{{ data.import.grants[data.plan[i][1]].payment | toMoney }} &times {{ data.plan[i][3] or 0 }}{{ data.import.grants[data.plan[i][1]].unit }} &equals; {{ supplementTotal[supplementCount] | toMoney }}</td>
               <td class="govuk-table__cell">
@@ -216,6 +220,7 @@
             {% set supplementSubtotalMonth = supplementSubtotal / 12 %}
 
             <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">&nbsp;</td>
               <td scope="row" class="govuk-table__cell" style="width:50%">&nbsp;</td>
               <td class="govuk-table__cell" style="text-align:right"><strong>Yearly payment &equals; {{ supplementSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ supplementSubtotalMonth | toMoney }}</strong></td>
               <td class="govuk-table__cell">&nbsp;</td>
