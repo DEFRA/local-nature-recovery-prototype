@@ -11,8 +11,6 @@
 
 {% block content %}
 
-<p>{{ data.plan }}</p>
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">
@@ -20,9 +18,9 @@
       </h1>
 
       {% if data.plan.length === completedCount %}
-      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application complete</h2>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Application complete</h2>
       {% else %}
-      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Application incomplete</h2>
       {% endif %}
       <p class="govuk-body govuk-!-margin-bottom-7">You have configured {{ completedCount}} of {{ data.plan.length }} grants.</p>
 
@@ -86,10 +84,8 @@
 
             <tr class="govuk-table__row">
               <td scope="row" class="govuk-table__cell">&nbsp;</td>
-              <td scope="row" class="govuk-table__cell" style="width:50%">&nbsp;</td>
-              <td class="govuk-table__cell" style="text-align:right"><strong>Yearly payment &equals; {{ optionSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ optionSubtotalMonth | toMoney }}</strong></td>
-              <td class="govuk-table__cell">&nbsp;
-              </td>
+              <td scope="row" class="govuk-table__cell" colspan="2" style="text-align:right"><strong>Yearly payment &equals; {{ optionSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ optionSubtotalMonth | toMoney }}</strong></td>
+              <td class="govuk-table__cell">&nbsp;</td>
             </tr>
 
             {% endif %}
@@ -155,8 +151,7 @@
 
             <tr class="govuk-table__row">
               <td scope="row" class="govuk-table__cell">&nbsp;</td>
-              <td scope="row" class="govuk-table__cell" style="width:50%">&nbsp;</td>
-              <td class="govuk-table__cell" style="text-align:right"><strong>One-off payment of {{ capitalSubtotal | toMoney }}</strong></td>
+              <td scope="row" class="govuk-table__cell" colspan="2" style="text-align:right"><strong>One-off payment of {{ capitalSubtotal | toMoney }}</strong></td>
               <td class="govuk-table__cell">&nbsp;</td>
             </tr>
 
@@ -222,8 +217,7 @@
 
             <tr class="govuk-table__row">
               <td scope="row" class="govuk-table__cell">&nbsp;</td>
-              <td scope="row" class="govuk-table__cell" style="width:50%">&nbsp;</td>
-              <td class="govuk-table__cell" style="text-align:right"><strong>Yearly payment &equals; {{ supplementSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ supplementSubtotalMonth | toMoney }}</strong></td>
+              <td scope="row" class="govuk-table__cell" colspan="2" style="text-align:right"><strong>Yearly payment &equals; {{ supplementSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ supplementSubtotalMonth | toMoney }}</strong></td>
               <td class="govuk-table__cell">&nbsp;</td>
             </tr>
 
@@ -233,8 +227,7 @@
             </tr>
             <tr>
               <td scope="row" class="govuk-table__cell">&nbsp;</td>
-              <td scope="row" class="govuk-table__cell" style="width:50%">&nbsp;</td>
-              <td class="govuk-table__cell" style="text-align:right"><button class="govuk-button govuk-button--secondary" data-module="govuk-button">Download Plan</button></td>
+              <td scope="row" class="govuk-table__cell" colspan="2" style="text-align:right"><button class="govuk-button govuk-button--secondary" data-module="govuk-button">Download Plan</button></td>
               <td class="govuk-table__cell">&nbsp;</td>
             </tr>
             </tbody>
