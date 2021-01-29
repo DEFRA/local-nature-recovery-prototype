@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Enter the CPH number
+{% endblock %}
+
+{% block beforeContent %}
+  <a href="location" class="govuk-back-link">Go Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="land-use" method="get" role="form">
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="cph">
+            Enter the CPH number
+          </label>
+          </h1>
+
+          <div id="cph-hint" class="govuk-hint">
+            If you have more than one number, enter the most central one.
+          </div>
+
+          <input class="govuk-input govuk-input--width-10" id="cph" name="cph" type="text" spellcheck="false" aria-describedby="cph-hint" pattern="[0-9]*" inputmode="numeric" value="{{ data['postcode']}}">
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+<!--        <p><a href="plan">Skip and configure later</a></p>-->
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
