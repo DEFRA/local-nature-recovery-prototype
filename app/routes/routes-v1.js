@@ -282,6 +282,33 @@ router.get('/options-choice/*/plan', function (req, res) {
   })
 })
 
+// delete item from plan 
+router.post('/options-choice/*/plan', function (req, res) {
+   // get the object
+   let plan = req.session.data['plan']
+   grantNum = req.session.data['prototype'].grantNum
+   planNum = req.session.data['prototype'].planNum
+ 
+   // start the counters on 0
+   var completedCount = 0
+ 
+   for(i = 0; i < plan.length; i++) {
+     if (plan[i][4] === true) {
+       completedCount++
+     }
+   }
+
+   // remove from plan
+   plan.splice(req.body.planNum, 1);
+ 
+   // find the right version to render
+   let version = req.session.data['prototype'].version
+   return res.render(version + '/plan', {
+     'grantNum': grantNum,
+     'planNum': planNum,
+     'completedCount': completedCount
+   })
+})
 
 // Load JSON data from file ----------------------------------------------------
 
