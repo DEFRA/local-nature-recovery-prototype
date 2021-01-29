@@ -6,6 +6,30 @@ var nunjucks  = require('nunjucks')
 var env = nunjucks.configure()
 
 
+// filter grant list
+router.post('/options-choice/*/location', function (req, res) {
+
+  const location = req.session.data['location']
+
+  if (location === 'postcode') {
+    res.redirect('postcode')
+  } else if (location === 'cph') {
+    res.redirect('cph-number')
+  } else if (location === 'sbi') {
+    res.redirect('sbi-number')
+  } else {
+    res.redirect('map')
+  }
+})
+
+// land use checkboxes
+router.post('/options-choice/*/land-use', function (req, res) {
+
+  const location = req.session.data['location']
+
+  res.redirect('search-results')
+})
+
 //Gather up totals for the boxes on the grants page
 router.get('/options-choice/*/grants', function (req, res) {
   // count how many grants of each type
