@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Drop a pin on your land
+{% endblock %}
+
+{% block head %}
+{% include "includes/head.html" %}
+
+<!--<link rel="stylesheet" href="https://openlayers.org/en/v3.19.1/css/ol.css" type="text/css">-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css" type="text/css">
+<style>
+  .map {
+    height: 500px;
+    width: 100%;
+  }
+</style>
+<script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
+{% endblock %}
+
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="start">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Drop a pin on your land
+      </h1>
+
+      <p>Find your land by entering a place name or postcode.</p>
+
+      <section aria-labelledby="flood-warning-area" role="region">
+        <div class="map" id="map"></div>
+      </section>
+
+      <a href="land-use" role="button" draggable="false" class="govuk-button"  data-module="govuk-button">Continue</a>
+
+    </div>
+  </div>
+
+
+{% endblock %}
+
+{% block pageScripts %}
+
+<!-- Open layers -->
+<!-- Below is for visual and interaction reference only -->
+<!-- Will need to be converted to production code -->
+
+<script type="text/javascript">
+
+  var layerOpacity = 1, selectedBdrWidth = 10, resolution;
+
+  const map = new ol.Map({
+    // interactions: defaultInteractions().extend([new Drag()]),
+    layers: [
+      new ol.layer.Tile({
+        source: new ol.source.OSM()
+      }),
+    ],
+    target: 'map',
+    view: new ol.View({
+      center: ol.proj.fromLonLat([-1.98221629139491,53.7296721399487]),
+      zoom: 6,
+    }),
+  });
+
+</script>
+
+<!-- / Visual and interaction reference -->
+<!-- / Open layers -->
+{% endblock %}
