@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ data.import.grants[data.prototype.grantNum].title }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a href="javascript:history.back()" class="govuk-back-link">Go Back</a>
+{% endblock %}
+
+{% block content %}
+
+<form action="{{ thisPage }}" method="POST" role="form">
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {{ data.import.grants[data.prototype.grantNum].title }}
+      </h1>
+
+      <p>{{ data.import.grants[data.prototype.grantNum].summary }}</p>
+
+
+      <p><a href="{{ data.import.grants[data.prototype.grantNum].url }}" target="_blank">Find out about eligibility and requirements for {{ data.import.grants[data.prototype.grantNum].title }}. (Opens in a new window)</a>.</p>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <div style="background-color: #f0f0f0; padding: 1.5em 1.5em 0.01em; margin-bottom: 1em">
+
+        <h3 class="govuk-heading-m">Grant details</h3>
+
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">Grant type</td>
+            <td class="govuk-table__cell">{{ data.import.grants[data.prototype.grantNum].type }}</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">Land use</td>
+            <td class="govuk-table__cell">{{ data.import.grants[data.prototype.grantNum].use }}</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="border-bottom: none;">Funding</td>
+            <td class="govuk-table__cell" style="border-bottom: none;">{{ data.import.grants[data.prototype.grantNum].payment | toMoney }} per {{ unit }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <input type="hidden" name="grantNum" value="{{ data.prototype.grantNum }}">
+
+    <button type="submit" class="govuk-button" name="grantNum" value="3" style="margin-bottom: 3em">Add this grant to my plan</button>
+  </div>
+
+</div>
+
+</form>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-s">4 related options</h2>
+    <hr>
+
+    <table class="govuk-table">
+      <tbody class="govuk-table__body">
+
+    {% for i in range(0, 4) -%}
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">{{ data.import.grants[i].code }} {{ data.import.grants[i].title }}</td>
+      <td class="govuk-table__cell"><a href="grant-details?grant={{ i }}">view</a></td>
+    </tr>
+    {%- endfor %}
+
+    </tbody>
+    </table>
+
+  </div>
+
+</div>
+
+{% endblock %}

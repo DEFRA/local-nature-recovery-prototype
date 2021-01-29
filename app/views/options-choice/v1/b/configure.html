@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Configure your grant
+{% endblock %}
+
+{% block beforeContent %}
+  <a href="javascript:history.back()" class="govuk-back-link">Go Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-xl">{{ data.import.grants[data.plan[data.prototype.planNum][1]].title }}</span>
+      <h1 class="govuk-heading-xl">Configure your grant</h1>
+
+      <form action="{{ thisPage }}" method="POST" role="form">
+
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="units">
+            {% if data.import.grants[data.plan[data.prototype.planNum][1]].label %}
+              {{ data.import.grants[data.plan[data.prototype.planNum][1]].label }}
+            {% else %}
+              What is the size of your land in hectares (ha)
+            {% endif %}
+
+          </label>
+
+          {% if data.import.grants[data.plan[data.prototype.planNum][1]].hint %}
+            <div id="event-name-hint" class="govuk-hint">
+              {{ data.import.grants[data.plan[data.prototype.planNum][1]].hint }}
+            </div>
+          {% endif %}
+
+          <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="units" name="units" type="text" spellcheck="false">
+
+            {% if data.import.grants[data.plan[data.prototype.planNum][1]].unit %}
+              <div class="govuk-input__suffix" aria-hidden="true">{{ data.import.grants[data.plan[data.prototype.planNum][1]].unit }}</div>
+            {% endif %}
+          </div>
+        </div>
+
+        <input type="hidden" name="grantNum" value="{{ grantNum }}" />
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        <p><a href="plan">Skip and configure later</a></p>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

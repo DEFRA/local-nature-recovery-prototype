@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Available grants/actions/components
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="land-use">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Available grants/actions/components
+      </h1>
+
+      <p>Find options, supplements and capital items to include in your Local Nature Recovery grant application</p>
+
+      <p>See <a href="#">information for agreement holders</a> for earlier versions. Check your <a href="#">evidence and record keeping requirements</a> before you apply.</p>
+
+    </div>
+  </div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
+
+    <h2 class="govuk-heading-l govuk-!-margin-top-6">Search and add grants/actions/components</h2>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div style="background-color: #f0f0f0; padding: 1.5em">
+      <h3 class="govuk-heading-m">Options</h3>
+      <p class="govuk-body">There are currently:
+        <span class="govuk-!-font-size-36 govuk-!-font-weight-bold govuk-!-margin-top-2 govuk-!-margin-bottom-2" style="display: block;">{{ optionCount }}</span>
+        <span class="govuk-body">options</span>
+      </p>
+      <a href="search-results?type=Option" role="button" draggable="false" class="govuk-button  govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">See all options</a>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div style="background-color: #f0f0f0; padding: 1.5em">
+      <h3 class="govuk-heading-m">Capital items</h3>
+      <p class="govuk-body">There are currently:
+        <span class="govuk-!-font-size-36 govuk-!-font-weight-bold govuk-!-margin-top-2 govuk-!-margin-bottom-2" style="display: block;">{{ capitalCount }}</span>
+        <span class="govuk-body">capital items</span>
+      </p>
+      <a href="search-results?type=Capital%20Item" role="button" draggable="false" class="govuk-button  govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">See all capital items</a>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div style="background-color: #f0f0f0; padding: 1.5em">
+      <h3 class="govuk-heading-m">Supplements</h3>
+      <p class="govuk-body">There are currently:
+        <span class="govuk-!-font-size-36 govuk-!-font-weight-bold govuk-!-margin-top-2 govuk-!-margin-bottom-2" style="display: block;">{{ supplementCount }}</span>
+        <span class="govuk-body">supplements</span>
+      </p>
+      <a href="search-results?type=Supplement" role="button" draggable="false" class="govuk-button  govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">See all supplements</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
