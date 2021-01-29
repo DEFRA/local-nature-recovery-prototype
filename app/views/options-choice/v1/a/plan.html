@@ -27,7 +27,7 @@
       <p class="govuk-body govuk-!-margin-bottom-7">You have configured {{ completedCount}} of {{ data.plan.length }} grants.</p>
 
       <a href="search-results" class="govuk-button govuk-button--secondary" data-module="govuk-button">Add another</a>
-      
+
       <ul class="app-task-list">
         <li>
           <h2 class="app-task-list__section govuk-!-margin-bottom-1">
@@ -228,7 +228,15 @@
             </tr>
 
             {% endif %}
-
+            <tr>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td scope="row" class="govuk-table__cell">&nbsp;</td>
+              <td scope="row" class="govuk-table__cell" style="width:50%">&nbsp;</td>
+              <td class="govuk-table__cell" style="text-align:right"><button class="govuk-button govuk-button--secondary" data-module="govuk-button">Download Plan</button></td>
+              <td class="govuk-table__cell">&nbsp;</td>
+            </tr>
             </tbody>
           </table>
         </li>
