@@ -91,7 +91,7 @@
             <div class="govuk-form-group">
               <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
                 <div class="govuk-checkboxes govuk-checkboxes--small">
-                  {{strGTInput | safe}}
+                  {{ strGTInput | safe}}
                 </div>
               </fieldset>
             </div>
@@ -110,12 +110,7 @@
             <div class="govuk-form-group">
               <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
                 <div class="govuk-checkboxes govuk-checkboxes--small">
-                    <div class="govuk-checkboxes__item">
-                        <input onchange="this.form.submit()" class="govuk-checkboxes__input" id="priorities" name="" type="checkbox" value="'">
-                        <label class="govuk-label govuk-checkboxes__label" for="priorities">
-                            Show only local priorities
-                        </label>
-                    </div>
+                  {{ strLPInput | safe}}
                 </div>
               </fieldset>
             </div>

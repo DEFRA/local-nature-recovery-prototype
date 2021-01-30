@@ -78,10 +78,12 @@ router.get('/options-choice/*/search-results', function (req, res) {
   // --- Get Filter Data --- //
   gtFilters = getTypesFilter(); // Grant Type
   luFilters = getLandUseFilter(); // Land Use
+  lpFilters = getLocalPriorityFilter(); // Local Priorities
   
   // Render Filter Checkbox
   strGTInput = renderCheckboxIncState(gtChecked, gtFilters, "f_grant_type");
   strLUInput = renderCheckboxIncState("f_land_use", luFilters, "f_land_use");
+  strLPInput = renderCheckboxIncState("f_local_p", lpFilters, "f_local_p");
 
   // create new or grab existing array
   let grantList = req.session.data['grantList'] || []
@@ -106,7 +108,8 @@ router.get('/options-choice/*/search-results', function (req, res) {
     'grantList': grantList,
     'type': type,
     'strGTInput': strGTInput,
-    'strLUInput': strLUInput
+    'strLUInput': strLUInput,
+    'strLPInput': strLPInput
   })
 })
 
@@ -127,14 +130,20 @@ router.post('/options-choice/*/search-results', function (req, res) {
   if(typeof(req.body.f_land_use) !== 'undefined' || null) {
     luChecked =req.body.f_land_use;
   }
+  var lpChecked = [] // // Local Priorities
+  if(typeof(req.body.f_local_p) !== 'undefined' || null) {
+    lpChecked =req.body.f_local_p;
+  }
 
   // --- Get Filter Data --- //
   gtFilters = getTypesFilter(); // Grant Type
   luFilters = getLandUseFilter(); // Land Use
+  lpFilters = getLocalPriorityFilter(); // Local Priorities
 
   // Display Filter Checkbox & Maintain State
   strGTInput = renderCheckboxIncState(gtChecked, gtFilters, "f_grant_type");
   strLUInput = renderCheckboxIncState(luChecked, luFilters, "f_land_use");
+  strLPInput = renderCheckboxIncState(lpChecked, lpFilters, "f_local_p");
 
   // (1/4). find grants for selected 'Land Use' filters and add to grantList  
   for(g = 0; g < grants.length; g++) {
@@ -192,7 +201,8 @@ router.post('/options-choice/*/search-results', function (req, res) {
     'grantList': grantList,
     'aFTypeChecked': gtChecked,
     'strGTInput': strGTInput,
-    'strLUInput': strLUInput
+    'strLUInput': strLUInput,
+    'strLPInput': strLPInput
   })
 })
 
@@ -366,6 +376,10 @@ function getTypesFilter(){
 function getLandUseFilter(){
   var aTypeFilters =['Flood risk', 'Grassland','Uplands','Water Quality','Priority habitats','Arable land', 'Pollinators and Wildlife'];
   return aTypeFilters;
+}
+function getLocalPriorityFilter(){
+  var aLocalPFilters =['Show only local priorities'];
+  return aLocalPFilters;
 }
 
 // render Filter Checkbox & Maintain State
