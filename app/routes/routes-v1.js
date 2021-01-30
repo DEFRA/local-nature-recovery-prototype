@@ -145,6 +145,8 @@ router.post('/options-choice/*/search-results', function (req, res) {
   strLUInput = renderCheckboxIncState(luChecked, luFilters, "f_land_use");
   strLPInput = renderCheckboxIncState(lpChecked, lpFilters, "f_local_p");
 
+
+
   // (1/4). find grants for selected 'Land Use' filters and add to grantList  
   for(g = 0; g < grants.length; g++) {
 
@@ -192,6 +194,16 @@ router.post('/options-choice/*/search-results', function (req, res) {
       grantList.push(i)
     }
   }
+
+    // Local Priority
+    for(i = 0; i < grants.length; i++) {
+      for(gt = 0; gt < lpChecked.length; gt++)
+      {
+        if (grants[i].priority.trim().toLowerCase() == 'true') {
+          grantList.push(i)
+        }
+      }
+    }
     
 
   // find the right version to render
