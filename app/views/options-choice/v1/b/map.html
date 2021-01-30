@@ -7,15 +7,19 @@
 {% block head %}
 {% include "includes/head.html" %}
 
-<!--<link rel="stylesheet" href="https://openlayers.org/en/v3.19.1/css/ol.css" type="text/css">-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css" type="text/css">
+<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
 <style>
   .map {
     height: 500px;
     width: 100%;
   }
 </style>
-<script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
+
+
 {% endblock %}
 
 
@@ -35,7 +39,7 @@
       <p>Find your land by entering a place name or postcode.</p>
 
       <section aria-labelledby="map" role="region">
-        <div class="map" id="map"></div>
+        <div id="mapid" style="width: 600px; height: 400px;"></div>
       </section>
 
       <a href="land-use" role="button" draggable="false" class="govuk-button govuk-!-margin-top-4"  data-module="govuk-button">Continue</a>
@@ -52,23 +56,45 @@
 <!-- Below is for visual and interaction reference only -->
 <!-- Will need to be converted to production code -->
 
-<script type="text/javascript">
+<script>
 
-  var layerOpacity = 1, selectedBdrWidth = 10, resolution;
+	var mymap = L.map('mapid').setView([52.308479, -2.219238], 6);
 
-  const map = new ol.Map({
-    // interactions: defaultInteractions().extend([new Drag()]),
-    layers: [
-      new ol.layer.Tile({
-        source: new ol.source.OSM()
-      }),
-    ],
-    target: 'map',
-    view: new ol.View({
-      center: ol.proj.fromLonLat([-1.98221629139491,53.7296721399487]),
-      zoom: 6,
-    }),
-  });
+	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		id: 'mapbox/streets-v11',
+		tileSize: 512,
+		zoomOffset: -1
+	}).addTo(mymap);
+
+	L.marker([53.514185, -2.109375]).addTo(mymap)
+		.bindPopup("<b>My Land</b><br />").openPopup();
+
+	L.circle([51.508, -0.11], 500, {
+		color: 'red',
+		fillColor: '#f03',
+		fillOpacity: 0.5
+	}).addTo(mymap).bindPopup("I am a circle.");
+
+	L.polygon([
+		[51.509, -0.08],
+		[51.503, -0.06],
+		[51.51, -0.047]
+	]).addTo(mymap).bindPopup("I am a polygon.");
+
+
+	var popup = L.popup();
+
+	function onMapClick(e) {
+		popup
+			.setLatLng(e.latlng)
+			.setContent("You clicked the map at " + e.latlng.toString())
+			.openOn(mymap);
+	}
+
+	mymap.on('click', onMapClick);
 
 </script>
 
