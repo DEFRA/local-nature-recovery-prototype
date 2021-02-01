@@ -28,10 +28,7 @@
 
       <ul class="app-task-list">
         <li>
-          <h2 class="app-task-list__section govuk-!-margin-bottom-1">
-            Options
-          </h2>
-          <p class="govuk-hint">Paid monthly</p>
+          
           <table class="govuk-table">
             <tbody class="govuk-table__body">
 
@@ -55,6 +52,11 @@
                 {% set optionSubtotal = optionSubtotal + optionTotal[optionCount] %}
                 {% set optionSubtotalMonth = optionSubtotal / 12 %}
 
+                <h2 class="app-task-list__section govuk-!-margin-bottom-1">
+                  Options
+                </h2>
+                <p class="govuk-hint">Paid monthly</p>
+                
                   <tr class="govuk-table__row">
                     <td scope="row" class="govuk-table__cell">
                       <form action="{{ thisPage }}" method="POST" role="form">
@@ -75,6 +77,12 @@
                       {% endif %}
                     </td>
                   </tr>
+
+                  <tr class="govuk-table__row">
+                    <td scope="row" class="govuk-table__cell">&nbsp;</td>
+                    <td scope="row" class="govuk-table__cell" colspan="2" style="text-align:right"><strong>Yearly payment &equals; {{ optionSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ optionSubtotalMonth | toMoney }}</strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                  </tr>
                 {% set optionCount = optionCount +1 %}
 
                 {% endif %}
@@ -82,11 +90,7 @@
               {%- endfor %}
 
 
-            <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">&nbsp;</td>
-              <td scope="row" class="govuk-table__cell" colspan="2" style="text-align:right"><strong>Yearly payment &equals; {{ optionSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ optionSubtotalMonth | toMoney }}</strong></td>
-              <td class="govuk-table__cell">&nbsp;</td>
-            </tr>
+          
 
             {% endif %}
 
@@ -96,10 +100,7 @@
         </li>
 
         <li>
-          <h2 class="app-task-list__section govuk-!-margin-bottom-1">
-           Capital items
-          </h2>
-          <p class="govuk-hint">One-off payment</p>
+         
 
           <table class="govuk-table">
             <tbody class="govuk-table__body">
@@ -123,6 +124,11 @@
               {% set capitalTotal = (capitalTotal.push(data.import.grants[data.plan[i][1]].payment * data.plan[i][3]), capitalTotal) %}
               {% set capitalSubtotal = capitalSubtotal + capitalTotal[capitalCount] %}
 
+              <h2 class="app-task-list__section govuk-!-margin-bottom-1">
+                Capital items
+               </h2>
+               <p class="govuk-hint">One-off payment</p>
+
               <tr class="govuk-table__row">
                 <td scope="row" class="govuk-table__cell">
                   <form action="{{ thisPage }}" method="POST" role="form">
@@ -142,6 +148,12 @@
                 </td>
               </tr>
 
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">&nbsp;</td>
+                <td scope="row" class="govuk-table__cell" colspan="2" style="text-align:right"><strong>One-off payment of {{ capitalSubtotal | toMoney }}</strong></td>
+                <td class="govuk-table__cell">&nbsp;</td>
+              </tr>
+
               {% set capitalCount = capitalCount + 1 %}
 
             {% endif %}
@@ -149,11 +161,7 @@
 
             {%- endfor %}
 
-            <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">&nbsp;</td>
-              <td scope="row" class="govuk-table__cell" colspan="2" style="text-align:right"><strong>One-off payment of {{ capitalSubtotal | toMoney }}</strong></td>
-              <td class="govuk-table__cell">&nbsp;</td>
-            </tr>
+           
 
             {% endif %}
 
@@ -162,9 +170,7 @@
         </li>
 
         <li>
-          <h2 class="app-task-list__section">
-            Supplements
-          </h2>
+         
 
           <table class="govuk-table">
             <tbody class="govuk-table__body">
@@ -174,7 +180,7 @@
               <td scope="row" class="govuk-table__cell" colspan="2">No results found</td>
             </tr>
             {% else %}
-
+            
             {% set supplementCount = 0 %}
             {% set supplementTotal = [] %}
             {% set supplementSubtotal = 0 %}
@@ -188,7 +194,10 @@
               {% set supplementTotal = (supplementTotal.push(data.import.grants[data.plan[i][1]].payment * data.plan[i][3]), supplementTotal) %}
               {% set supplementSubtotal = supplementSubtotal + supplementTotal[supplementCount] %}
 
-
+              <h2 class="app-task-list__section">
+                Supplements
+              </h2>
+              
             <tr class="govuk-table__row">
               <td scope="row" class="govuk-table__cell">
                 <form action="{{ thisPage }}" method="POST" role="form">
@@ -210,18 +219,12 @@
 
             {% set supplementCount = supplementCount + 1 %}
 
-            {% endif %}
-            {%- endfor %}
-
-            {% set supplementSubtotalMonth = supplementSubtotal / 12 %}
-
             <tr class="govuk-table__row">
               <td scope="row" class="govuk-table__cell">&nbsp;</td>
               <td scope="row" class="govuk-table__cell" colspan="2" style="text-align:right"><strong>Yearly payment &equals; {{ supplementSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ supplementSubtotalMonth | toMoney }}</strong></td>
               <td class="govuk-table__cell">&nbsp;</td>
             </tr>
 
-            {% endif %}
             <tr>
               <td>&nbsp;</td>
             </tr>
@@ -230,6 +233,16 @@
               <td scope="row" class="govuk-table__cell" colspan="2" style="text-align:right"><button class="govuk-button govuk-button--secondary" data-module="govuk-button">Download Plan</button></td>
               <td class="govuk-table__cell">&nbsp;</td>
             </tr>
+
+            {% endif %}
+            {%- endfor %}
+
+            {% set supplementSubtotalMonth = supplementSubtotal / 12 %}
+
+           
+
+            {% endif %}
+            
             </tbody>
           </table>
         </li>
