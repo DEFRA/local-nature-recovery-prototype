@@ -18,9 +18,9 @@
       </h1>
 
       {% if data.plan.length === completedCount %}
-      <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Application complete</h2>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Calculation complete</h2>
       {% else %}
-      <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Application incomplete</h2>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Calculation incomplete</h2>
       {% endif %}
       <p class="govuk-body govuk-!-margin-bottom-7">You have configured {{ completedCount}} of {{ data.plan.length }} grants.</p>
 
@@ -28,10 +28,7 @@
 
       <ul class="app-task-list">
         <li>
-          <h2 class="app-task-list__section govuk-!-margin-bottom-1">
-            Options
-          </h2>
-          <p class="govuk-hint">Paid monthly</p>
+          
           <table class="govuk-table">
             <tbody class="govuk-table__body">
 
@@ -55,13 +52,12 @@
                 {% set optionSubtotal = optionSubtotal + optionTotal[optionCount] %}
                 {% set optionSubtotalMonth = optionSubtotal / 12 %}
 
+                <h2 class="app-task-list__section govuk-!-margin-bottom-1">
+                  Options
+                </h2>
+                <p class="govuk-hint">Paid monthly</p>
+                
                   <tr class="govuk-table__row">
-                    <td scope="row" class="govuk-table__cell">
-                      <form action="{{ thisPage }}" method="POST" role="form">
-                        <input type="hidden" name="planNum" value="{{ i }}" />
-                        <button class="govuk-button" data-module="govuk-button">Delete</button>
-                      </form>
-                    </td>
                     <td scope="row" class="govuk-table__cell" style="width:50%">
                       <a href="configure?planNum={{ i }}">{{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}</a>
                     </td>
@@ -74,6 +70,18 @@
                       <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">Not configured</strong>
                       {% endif %}
                     </td>
+                    <td scope="row" class="govuk-table__cell">
+                      <form action="{{ thisPage }}" method="POST" role="form">
+                        <input type="hidden" name="planNum" value="{{ i }}" />
+                        <button class="govuk-button" data-module="govuk-button">Remove</button>
+                      </form>
+                    </td>
+                  </tr>
+
+                  <tr class="govuk-table__row">
+                    <td scope="row" class="govuk-table__cell" colspan="2" style="text-align:right"><strong>Yearly payment &equals; {{ optionSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ optionSubtotalMonth | toMoney }}</strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                    <td scope="row" class="govuk-table__cell">&nbsp;</td>
                   </tr>
                 {% set optionCount = optionCount +1 %}
 
@@ -82,11 +90,7 @@
               {%- endfor %}
 
 
-            <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">&nbsp;</td>
-              <td scope="row" class="govuk-table__cell" colspan="2" style="text-align:right"><strong>Yearly payment &equals; {{ optionSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ optionSubtotalMonth | toMoney }}</strong></td>
-              <td class="govuk-table__cell">&nbsp;</td>
-            </tr>
+          
 
             {% endif %}
 
@@ -96,10 +100,7 @@
         </li>
 
         <li>
-          <h2 class="app-task-list__section govuk-!-margin-bottom-1">
-           Capital items
-          </h2>
-          <p class="govuk-hint">One-off payment</p>
+         
 
           <table class="govuk-table">
             <tbody class="govuk-table__body">
@@ -123,13 +124,12 @@
               {% set capitalTotal = (capitalTotal.push(data.import.grants[data.plan[i][1]].payment * data.plan[i][3]), capitalTotal) %}
               {% set capitalSubtotal = capitalSubtotal + capitalTotal[capitalCount] %}
 
+              <h2 class="app-task-list__section govuk-!-margin-bottom-1">
+                Capital items
+               </h2>
+               <p class="govuk-hint">One-off payment</p>
+
               <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__cell">
-                  <form action="{{ thisPage }}" method="POST" role="form">
-                    <input type="hidden" name="planNum" value="{{ i }}" />
-                    <button class="govuk-button" data-module="govuk-button">Delete</button>
-                  </form>
-                </td>
                 <td scope="row" class="govuk-table__cell" style="width:50%"><a href="configure?planNum={{ i }}">{{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}</a></td>
                 <td class="govuk-table__cell" style="text-align:right">{{ data.import.grants[data.plan[i][1]].payment | toMoney }} &times {{ data.plan[i][3] or 0 }}{{ data.import.grants[data.plan[i][1]].unit }} &equals; {{ capitalTotal[capitalCount] | toMoney }}</td>
                 <td class="govuk-table__cell">
@@ -140,6 +140,19 @@
                   <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">Not complete</strong>
                   {% endif %}
                 </td>
+                <td scope="row" class="govuk-table__cell">
+                  <form action="{{ thisPage }}" method="POST" role="form">
+                    <input type="hidden" name="planNum" value="{{ i }}" />
+                    <button class="govuk-button" data-module="govuk-button">Remove</button>
+                  </form>
+                </td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                
+                <td scope="row" class="govuk-table__cell" colspan="2" style="text-align:right"><strong>One-off payment of {{ capitalSubtotal | toMoney }}</strong></td>
+                <td class="govuk-table__cell">&nbsp;</td>
+                <td scope="row" class="govuk-table__cell">&nbsp;</td>
               </tr>
 
               {% set capitalCount = capitalCount + 1 %}
@@ -149,11 +162,7 @@
 
             {%- endfor %}
 
-            <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">&nbsp;</td>
-              <td scope="row" class="govuk-table__cell" colspan="2" style="text-align:right"><strong>One-off payment of {{ capitalSubtotal | toMoney }}</strong></td>
-              <td class="govuk-table__cell">&nbsp;</td>
-            </tr>
+           
 
             {% endif %}
 
@@ -162,9 +171,7 @@
         </li>
 
         <li>
-          <h2 class="app-task-list__section">
-            Supplements
-          </h2>
+         
 
           <table class="govuk-table">
             <tbody class="govuk-table__body">
@@ -174,7 +181,7 @@
               <td scope="row" class="govuk-table__cell" colspan="2">No results found</td>
             </tr>
             {% else %}
-
+            
             {% set supplementCount = 0 %}
             {% set supplementTotal = [] %}
             {% set supplementSubtotal = 0 %}
@@ -188,14 +195,11 @@
               {% set supplementTotal = (supplementTotal.push(data.import.grants[data.plan[i][1]].payment * data.plan[i][3]), supplementTotal) %}
               {% set supplementSubtotal = supplementSubtotal + supplementTotal[supplementCount] %}
 
-
+              <h2 class="app-task-list__section">
+                Supplements
+              </h2>
+              
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">
-                <form action="{{ thisPage }}" method="POST" role="form">
-                  <input type="hidden" name="planNum" value="{{ i }}" />
-                  <button class="govuk-button" data-module="govuk-button">Delete</button>
-                </form>
-              </td>
               <td scope="row" class="govuk-table__cell" style="width:50%"><a href="configure?planNum={{ i }}">{{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}</a></td>
               <td class="govuk-table__cell" style="text-align:right">{{ data.import.grants[data.plan[i][1]].payment | toMoney }} &times {{ data.plan[i][3] or 0 }}{{ data.import.grants[data.plan[i][1]].unit }} &equals; {{ supplementTotal[supplementCount] | toMoney }}</td>
               <td class="govuk-table__cell">
@@ -206,30 +210,40 @@
                 <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">Not complete</strong>
                 {% endif %}
               </td>
+              <td scope="row" class="govuk-table__cell">
+                <form action="{{ thisPage }}" method="POST" role="form">
+                  <input type="hidden" name="planNum" value="{{ i }}" />
+                  <button class="govuk-button" data-module="govuk-button">Remove</button>
+                </form>
+              </td>
             </tr>
 
             {% set supplementCount = supplementCount + 1 %}
+
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell" colspan="2" style="text-align:right"><strong>Yearly payment &equals; {{ supplementSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ supplementSubtotalMonth | toMoney }}</strong></td>
+              <td class="govuk-table__cell">&nbsp;</td>
+              <td scope="row" class="govuk-table__cell">&nbsp;</td>
+            </tr>
+
+            <tr>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td scope="row" class="govuk-table__cell" colspan="2" style="text-align:right"><button class="govuk-button govuk-button--secondary" data-module="govuk-button">Download Plan</button></td>
+              <td class="govuk-table__cell">&nbsp;</td>
+              <td scope="row" class="govuk-table__cell">&nbsp;</td>
+            </tr>
 
             {% endif %}
             {%- endfor %}
 
             {% set supplementSubtotalMonth = supplementSubtotal / 12 %}
 
-            <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">&nbsp;</td>
-              <td scope="row" class="govuk-table__cell" colspan="2" style="text-align:right"><strong>Yearly payment &equals; {{ supplementSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ supplementSubtotalMonth | toMoney }}</strong></td>
-              <td class="govuk-table__cell">&nbsp;</td>
-            </tr>
+           
 
             {% endif %}
-            <tr>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td scope="row" class="govuk-table__cell">&nbsp;</td>
-              <td scope="row" class="govuk-table__cell" colspan="2" style="text-align:right"><button class="govuk-button govuk-button--secondary" data-module="govuk-button">Download Plan</button></td>
-              <td class="govuk-table__cell">&nbsp;</td>
-            </tr>
+            
             </tbody>
           </table>
         </li>
