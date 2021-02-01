@@ -196,11 +196,14 @@ router.post('/options-choice/*/search-results', function (req, res) {
   }
 
     // Local Priority
-    for(i = 0; i < grants.length; i++) {
-      for(gt = 0; gt < lpChecked.length; gt++)
+    // copy Array item to new Array if Local Priority
+    var grantListLocal = [];
+    for(g = 0; g < grants.length; g++) {
+      for(lp = 0; lp < lpChecked.length; lp++)
       {
-        if (grants[i].priority.trim().toLowerCase() == 'true') {
-          grantList.push(i)
+        if (grants[g].priority.trim().toLowerCase() == 'true') {
+          grantList.splice(grants[g],1);
+          grantListLocal.push(grants[g])
         }
       }
     }

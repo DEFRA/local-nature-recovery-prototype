@@ -56,7 +56,7 @@
       "calc": "multiply",
       "multiplier": "1",
       "label": "What is the size of your land in hectares (ha)?",
-      "priority": "",
+      "priority": "TRUE",
       "use": "Grassland, Uplands, Pollinators and wildlife ",
       "package": "Pollinators and Wildlife",
       "type": "Supplement",
