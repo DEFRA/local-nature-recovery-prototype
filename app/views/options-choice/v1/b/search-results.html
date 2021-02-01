@@ -139,7 +139,9 @@
 
           {% for i in range(0, grantList.length) -%}
           <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell"><a href="grant-details?grant={{ grantList[i] }}">{{ data.import.grants[grantList[i]].code }} {{ data.import.grants[grantList[i]].title }}</a></td>
+            <td scope="row" class="govuk-table__cell"><a href="grant-details?grant={{ grantList[i] }}">{{ data.import.grants[grantList[i]].code }} {{ data.import.grants[grantList[i]].title }}</a>
+            {% if data.import.grants[grantList[i]].priority %}<span class="govuk-tag--orange" style="font-size: 0.8em;">Local priority<span>{% endif %}
+            </td>
             <td class="govuk-table__cell">{{ data.import.grants[grantList[i]].type }}</td>
           </tr>
           {%- endfor %}
