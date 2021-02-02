@@ -17,22 +17,6 @@
       "url": "https://www.gov.uk/countryside-stewardship-grants/nectar-flower-mix-ab1"
     },
     {
-      "code": "AB12",
-      "title": "Supplementary winter feeding for farmland birds",
-      "payment": "632",
-      "measure": "tonne, tonnes",
-      "unit": "tonnes",
-      "calc": "multiply",
-      "multiplier": "1",
-      "label": "What is the weight in tonnes?",
-      "priority": "",
-      "use": "Arable land, Uplands",
-      "packages": "",
-      "type": "Option",
-      "summary": "This option will provide important food resources for farmland birds in late winter and early spring on arable land and mixed farms by supplementing grown winter bird food with spread seed, once the sown resources have been depleted and before natural food resources become available again in late spring.",
-      "url": "https://www.gov.uk/countryside-stewardship-grants/supplementary-winter-feeding-for-farmland-birds-ab12"
-    },
-    {
       "code": "GS17",
       "title": "Lenient grazing supplement",
       "payment": "44",
