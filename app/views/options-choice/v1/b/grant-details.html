@@ -20,11 +20,15 @@
         {{ data.import.grants[data.prototype.grantNum].title }}
       </h1>
 
+      {% if data.import.grants[data.prototype.grantNum].priority === 'TRUE' %}
+
       <div class="govuk-inset-text">
         <h2 class="govuk-heading-m">Local priority</h2>
         <p>Local Nature Recovery is competitive which means your application will be scored and then ranked.</p>
         <p>Applications including Local Priority items will be scored higher as they offer greater benefit to the environment.</p>
       </div>
+
+      {% endif %}
 
       <p>{{ data.import.grants[data.prototype.grantNum].summary }}</p>
 
@@ -66,7 +70,7 @@
   <div class="govuk-grid-column-two-thirds">
     <input type="hidden" name="grantNum" value="{{ data.prototype.grantNum }}">
 
-    <button type="submit" class="govuk-button" name="grantNum" value="3" style="margin-bottom: 3em">Add this grant to my plan</button>
+    <button type="submit" class="govuk-button" name="grantNums" value="{{ data.prototype.grantNum }}" style="margin-bottom: 3em">Add this grant to my plan</button>
   </div>
 
 </div>
