@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Blank page
+  Results
 {% endblock %}
 
 {% block beforeContent %}
@@ -75,17 +75,13 @@
   </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 <div class="govuk-grid-row">
 
   <form action="{{ thisPage }}" method="POST" role="form">
 
     <div class="govuk-grid-column-one-third">
-<!--      <h3 class="govuk-heading-s">Filters</h3>-->
+      <h3 class="govuk-heading-s govuk-visually-hidden">Filters</h3>
 
-     
-      
       <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
         <div class="govuk-accordion__section govuk-accordion__section--expanded">
           <div class="govuk-accordion__section-header">
@@ -97,12 +93,18 @@
           </div>
           <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
             <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-<!--                <div id="fType-hint" class="govuk-hint">-->
-<!--                  Select all that apply.-->
-<!--                </div>-->
+              <fieldset class="govuk-fieldset">
                 <div class="govuk-checkboxes govuk-checkboxes--small">
-                  {{strGTInput | safe}}
+
+                    {% for i in range(0, data.prototype.filterType.length) -%}
+                    <div class="govuk-checkboxes__item">
+                        <input onchange="this.form.submit()" {{ data.prototype.filterType[i][1] }} class="govuk-checkboxes__input" id="f_grant_type-{{i}}" name="f_grant_type" type="checkbox" value="{{ data.prototype.filterType[i][0] }}">
+                        <label class="govuk-label govuk-checkboxes__label" for="f_grant_type-{{i}}">
+                            {{ data.prototype.filterType[i][0] }}
+                        </label>
+                    </div>
+                    {%- endfor %}
+
                 </div>
               </fieldset>
             </div>
@@ -112,51 +114,113 @@
         <div class="govuk-accordion__section ">
           <div class="govuk-accordion__section-header">
             <h2 class="govuk-accordion__section-heading">
-              <span class="govuk-accordion__section-button" id="accordion-default-heading-1" style="font-weight: normal; font-size: 0.9em;">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-2" style="font-weight: normal; font-size: 0.9em;">
                 Land use
               </span>
             </h2>
           </div>
-          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
             <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-<!--                <div id="fType-hint" class="govuk-hint">-->
-<!--                  Select all that apply.-->
-<!--                </div>-->
+              <fieldset class="govuk-fieldset">
                 <div class="govuk-checkboxes govuk-checkboxes--small">
-                  {{strLUInput | safe}}
+
+                    {% for i in range(0, data.prototype.filterUse.length) -%}
+                    <div class="govuk-checkboxes__item">
+                        <input onchange="this.form.submit()" {{ data.prototype.filterUse[i][1] }} class="govuk-checkboxes__input" id="f_land_use-{{i}}" name="f_land_use" type="checkbox" value="{{ data.prototype.filterUse[i][0] }}">
+                        <label class="govuk-label govuk-checkboxes__label" for="f_land_use-{{i}}">
+                            {{ data.prototype.filterUse[i][0] }}
+                        </label>
+                    </div>
+                    {%- endfor %}
+
                 </div>
               </fieldset>
             </div>
           </div>
         </div>
 
+          <div class="govuk-accordion__section ">
+              <div class="govuk-accordion__section-header">
+                  <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-3" style="font-weight: normal; font-size: 0.9em;">
+                Environmental cause
+              </span>
+                  </h2>
+              </div>
+              <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+                  <div class="govuk-form-group">
+                      <fieldset class="govuk-fieldset">
+                          <div class="govuk-checkboxes govuk-checkboxes--small">
+
+                              {% for i in range(0, data.prototype.filterPackage.length) -%}
+                              <div class="govuk-checkboxes__item">
+                                  <input onchange="this.form.submit()" {{ data.prototype.filterPackage[i][1] }} class="govuk-checkboxes__input" id="f_package-{{i}}" name="f_package" type="checkbox" value="{{ data.prototype.filterPackage[i][0] }}">
+                                  <label class="govuk-label govuk-checkboxes__label" for="f_package-{{i}}">
+                                      {{ data.prototype.filterPackage[i][0] }}
+                                  </label>
+                              </div>
+                              {%- endfor %}
+
+                          </div>
+                      </fieldset>
+                  </div>
+              </div>
+          </div>
+
+          <div class="govuk-accordion__section">
+              <div class="govuk-accordion__section-header">
+                  <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-3" style="font-weight: normal; font-size: 0.9em;">
+                Local priority
+              </span>
+                  </h2>
+              </div>
+              <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+                  <div class="govuk-form-group">
+                      <fieldset class="govuk-fieldset">
+                          <div class="govuk-checkboxes govuk-checkboxes--small">
+
+                              {% for i in range(0, data.prototype.filterLocal.length) -%}
+                              <div class="govuk-checkboxes__item">
+                                  <input onchange="this.form.submit()" {{ data.prototype.filterLocal[i][1] }} class="govuk-checkboxes__input" id="f_local_p-{{i}}" name="f_local_p" type="checkbox" value="{{ data.prototype.filterLocal[i][0] }}">
+                                  <label class="govuk-label govuk-checkboxes__label" for="f_local_p-{{i}}">
+                                      {{ data.prototype.filterLocal[i][0] }}
+                                  </label>
+                              </div>
+                              {%- endfor %}
+
+                          </div>
+                      </fieldset>
+                  </div>
+              </div>
+          </div>
       </div>
     </div>
 
 
     <div class="govuk-grid-column-two-thirds">
+
       <table class="govuk-table">
         <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">{{ grantList.length }} grants</th>
           <th scope="col" class="govuk-table__header">Type</th>
-<!--          <th scope="col" class="govuk-table__header">Use</th>-->
         </tr>
         </thead>
         <tbody class="govuk-table__body">
 
         {% if grantList.length === 0 %}
-        <tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell" colspan="3">No results found</td>
-        </tr>
+
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell" colspan="3">No results found</td>
+            </tr>
+
         {% else %}
 
           {% for i in range(0, grantList.length) -%}
           <tr class="govuk-table__row">
             <td scope="row" class="govuk-table__cell"><a href="grant-details?grant={{ grantList[i] }}">{{ data.import.grants[grantList[i]].code }} {{ data.import.grants[grantList[i]].title }}</a></td>
             <td class="govuk-table__cell">{{ data.import.grants[grantList[i]].type }}</td>
-<!--            <td class="govuk-table__cell">{{ data.import.grants[grantList[i]].use }}</td>-->
           </tr>
           {%- endfor %}
 
@@ -164,8 +228,6 @@
 
         </tbody>
       </table>
-
-
     </div>
 
   </form>
