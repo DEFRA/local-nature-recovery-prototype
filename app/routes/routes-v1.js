@@ -67,7 +67,6 @@ router.get('/options-choice/*/search-results', function (req, res) {
   // lets grab the prototype object as a place to store the selected filters
   let prototype = req.session.data['prototype']
   // add all the values if they don't already exist
-
   prototype.filterType = [['Option', ''], ['Capital Item', ''], ['Supplement', '']]
   prototype.filterUse = [['Air quality', ''], ['Arable land', ''], ['Boundaries', ''], ['Coast', ''], ['Educational access', ''], ['Flood risk', ''], ['Grassland', ''], ['Historic environment', ''], ['Livestock management', ''], ['Organic land', ''], ['Priority habitats', ''], ['Trees (non-woodland)', ''], ['Uplands', ''], ['Vegetation control', ''], ['Water Quality', ''], ['Pollinators and Wildlife', ''], ['Woodland', '']]
   prototype.filterPackage = [['Pollinators and Wildlife', ''], ['Improving Water Quality', ''], ['Air Quality', ''], ['Water Quality', ''], ['Climate Change Mitigation and Adaptation', ''], ['Flood Mitigation and Coastal Risk', ''], ['Drought and Wildfire Mitigation', ''], ['Heritage', ''], ['Access and Engagement', '']]
@@ -81,8 +80,53 @@ router.get('/options-choice/*/search-results', function (req, res) {
   // grab the query parameter from url or form depending how we got here
   type = req.query.type
 
+  // if someone has come in from the land use page we need to take their answers and use them to filter the results
+
+  // set up array to hold the grant list (search results)
+  var grantList = []
+
+  if (req.session.data.landuse !== 'undefined' && !type) {
+    const landUse = req.session.data.landuse || []
+    // if only one thing is checked if doesn't come to us as an array so we need to convert it into one
+    if (Array.isArray(landUse)) {
+      uses = landUse
+    } else {
+      uses = landUse.split()
+    }
+    const activeUses = [] // lets store the checked options here
+    for (i = 0; i < prototype.filterUse.length; i++) {
+      if (uses.length === 0) {
+        prototype.filterUse[i][1] = ''
+      } else {
+        for (j = 0; j < uses.length; j++) {
+          if (uses[j] === prototype.filterUse[i][0]) {
+            prototype.filterUse[i][1] = 'checked'
+            activeUses.push(prototype.filterUse[i][0])
+            break
+          } else {
+            prototype.filterUse[i][1] = ''
+          }
+        }
+      }
+    }
+    // find grants for selected 'land use' filters and add to grantList
+    for (i = 0; i < grants.length; i++) {
+      var grants_use = grants[i].use.split(',').map(item => item.trim())
+      // build an array of the land use filters selected
+      var foundUse = findOne(grants_use, activeUses)
+      if (activeUses.length === 0) {
+        grantList.push(i)
+      } else {
+        if (foundUse) {
+          grantList.push(i)
+        }
+      }
+    }
+  }
+
   // let's check the appropriate filter
   if (type) {
+    grantList = []
     for (i = 0; i < prototype.filterType.length; i++) {
       console.log(prototype.filterType[i][0])
       if (prototype.filterType[i][0] === type) {
@@ -91,24 +135,42 @@ router.get('/options-choice/*/search-results', function (req, res) {
         prototype.filterType[i][1] = ''
       }
     }
-  }
-
-  // Lets build out our result set
-  // create new or grab existing array
-  let grantList = req.session.data['grantList'] || []
-
-  // find grants of each type and add index to the array
-  for(i = 0; i < grants.length; i++) {
-    if (grants[i].type === type) {
-      grantList.push(i)
+    for(i = 0; i < grants.length; i++) {
+      if (grants[i].type === type) {
+        grantList.push(i)
+      }
+    }
+    // if No GrantType selected, display all GrantTypes
+    if(type === 'undefined' || type ==null) {
+      for(i = 0; i < grants.length; i++) {
+        grantList.push(i)
+      }
     }
   }
 
-  // if No GrantType selected, display all GrantTypes
-  if(type === 'undefined' || type ==null) {
+  console.log("grantlist: " + grantList)
+
+  // if No filters are selected, display all grants
+  if (grantList.length === 0) {
     for(i = 0; i < grants.length; i++) {
       grantList.push(i)
     }
+  }
+
+  if (prototype.filterLocal[0][1] === 'checked') {
+    var finalList = []
+
+    for(i = 0; i < grantList.length; i++) {
+      if (grants[grantList[i]].priority) {
+        var type_local = grants[grantList[i]].priority.split(',').map(item => item.trim())
+        // build an array of the grant type filters selected
+        if (type_local[0] === 'TRUE') {
+          finalList.push(grantList[i])
+        }
+      }
+    }
+  } else {
+    finalList = Array.from(grantList);
   }
 
   // write back these values into the session data
@@ -117,9 +179,10 @@ router.get('/options-choice/*/search-results', function (req, res) {
   // find the right version to render
   let version = req.session.data['prototype'].version
   return res.render(version + '/search-results', {
-    'grantList': grantList
+    'grantList': finalList
   })
 })
+
 
 // apply filters to grant listing
 router.post('/options-choice/*/search-results', function (req, res) {
@@ -305,8 +368,6 @@ router.post('/options-choice/*/search-results', function (req, res) {
 
         }
       }
-
-
     } else {
       finalList = Array.from(grantListbytype);
     }

@@ -105,8 +105,6 @@
         </div>
 
 
-
-
         <div class="govuk-accordion__section govuk-accordion__section--expanded">
           <div class="govuk-accordion__section-header">
             <h2 class="govuk-accordion__section-heading">
@@ -190,7 +188,7 @@
             <td scope="row" class="govuk-table__cell"><a href="grant-details?grant={{ grantList[i] }}">{{ data.import.grants[grantList[i]].code }} {{ data.import.grants[grantList[i]].title }}</a>
             {% if data.import.grants[grantList[i]].priority %}<span class="govuk-tag--orange" style="font-size: 0.8em;">Local priority<span>{% endif %}
             </td>
-            <td class="govuk-table__cell">{{ data.import.grants[grantList[i]].type }}</td>
+            <td class="govuk-table__cell" style="width: 100px;">{{ data.import.grants[grantList[i]].type }}</td>
           </tr>
           {%- endfor %}
 
