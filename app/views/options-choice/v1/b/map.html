@@ -19,9 +19,12 @@ containerClasses: "govuk-width-container"
 
 <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+	<script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>  
 
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+	<link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />  
+	
 <style>
   .map {
     height: 500px;
@@ -77,20 +80,38 @@ containerClasses: "govuk-width-container"
 			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 		id: 'mapbox/streets-v11',
 		tileSize: 512,
-		zoomOffset: -1
+		zoomOffset: -1,
 	}).addTo(mymap);
 
-	var myMarker = L.marker([52.812827,  -1.642885], {draggable: true})
-		.addTo(mymap)
-		.on('dragend', function() {
-			var coord = String(myMarker.getLatLng()).split(',');
-			console.log(coord);
-			var lat = coord[0].split('(');
-			console.log(lat);
-			var lng = coord[1].split(')');
-			console.log(lng);
-			myMarker.bindPopup("Moved to: " + lat[1] + ", " + lng[0] + ".");
-		});
+	mymap.pm.addControls({  
+		position: 'topleft',  
+		drawCircle: false,  
+		drawPolyline:false,
+		drawCircle:false,
+		drawCircleMarker:false,
+		drawMarker:false,
+		drawPolygon: false,
+		cutPolygon: false,
+		removalMode:false
+	});  
+
+	mymap.on('pm:drawstart', e => {  
+		console.log(e);  
+	});  
+
+	//L.marker([52.812827,  -1.642885], { pmIgnore: false }).addTo(mymap);  
+	// var myMarker = L.marker([52.812827,  -1.642885], {draggable: true, pmIgnore: false})
+	// 	.addTo(mymap)
+	// 	.on('dragend', function() {
+	// 		var coord = String(myMarker.getLatLng()).split(',');
+	// 		console.log(coord);
+	// 		var lat = coord[0].split('(');
+	// 		console.log(lat);
+	// 		var lng = coord[1].split(')');
+	// 		console.log(lng);
+	// 		myMarker.bindPopup("Moved to: " + lat[1] + ", " + lng[0] + ".");
+	// 	});
+
 
 </script>
 
