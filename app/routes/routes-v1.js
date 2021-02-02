@@ -62,29 +62,32 @@ router.get('/options-choice/*/grants', function (req, res) {
 // Create array of search results
 router.get('/options-choice/*/search-results', function (req, res) {
 
-  // get the object
+  // get the objects
   var grants = req.session.data['import'].grants
+
+  // lets grab the prototype object as a place to store these
+  let prototype = req.session.data['prototype']
+  // add all the values if they don't already exist
+  if (!prototype.filterType) {
+    prototype.filterType = [['Option', ''], ['Capital Item', ''], ['Supplement', '']]
+    prototype.filterUse = [['Air quality', ''], ['Arable land', ''], ['Boundaries', ''], ['Coast', ''], ['Educational access', ''], ['Flood risk', ''], ['Grassland', ''], ['Historic environment', ''], ['Livestock management', ''], ['Organic land', ''], ['Priority habitats', ''], ['Trees (non-woodland)', ''], ['Uplands', ''], ['Vegetation control', ''], ['Water Quality', ''], ['Pollinators and Wildlife', ''], ['Woodland', '']]
+    prototype.filterPackage = [['Pollinators and wildlife', ''], ['Improving Water Quality', ''], ['Air Quality', ''], ['Water Quality', ''], ['Climate Change Mitigation and Adaptation', ''], ['Flood Mitigation and Coastal Risk', ''], ['Drought and Wildfire Mitigation', ''], ['Heritage', ''], ['Access and Engagement', '']]
+    prototype.filterLocal = [['Show only local priories', '']]
+  }
 
   // grab the query parameter from url or form depending how we got here
   var type = req.query.type
-  var gtChecked =[]; //gt filter from body, init
-  if( typeof(type) !== 'undefined') {
+  var gtChecked = []; //get filter from body, init
+  if (typeof (type) !== 'undefined') {
     gtChecked.push(type)
   }
-  if( typeof(req.body.fGrantType) !== 'undefined') {
+  if (typeof (req.body.fGrantType) !== 'undefined') {
     gtChecked = req.body.f_grant_type
   }
-  
-  // --- Get Filter Data --- //
-  gtFilters = getTypesFilter(); // Grant Type
-  luFilters = getLandUseFilter(); // Land Use
-  lpFilters = getLocalPriorityFilter(); // Local Priorities
-  
-  // Render Filter Checkbox
-  strGTInput = renderCheckboxIncState(gtChecked, gtFilters, "f_grant_type");
-  strLUInput = renderCheckboxIncState("f_land_use", luFilters, "f_land_use");
-  strLPInput = renderCheckboxIncState("f_local_p", lpFilters, "f_local_p");
 
+
+
+  // Lets build out our result set
   // create new or grab existing array
   let grantList = req.session.data['grantList'] || []
 
@@ -96,135 +99,234 @@ router.get('/options-choice/*/search-results', function (req, res) {
   }
 
   // if No GrantType selected, display all GrantTypes
-  if(type==='undefined' || type ==null) {
+  if(type === 'undefined' || type ==null) {
     for(i = 0; i < grants.length; i++) {
       grantList.push(i)
     }
   }
+
+  // write back these values into the session data
+  req.session.data['prototype'] = prototype
 
   // find the right version to render
   let version = req.session.data['prototype'].version
   return res.render(version + '/search-results', {
-    'grantList': grantList,
-    'type': type,
-    'strGTInput': strGTInput,
-    'strLUInput': strLUInput,
-    'strLPInput': strLPInput
+    'grantList': grantList
   })
 })
 
-// filter grant list
+
+
+// apply filters to grant listing
 router.post('/options-choice/*/search-results', function (req, res) {
+  // first grab our objects
+  let grants = req.session.data['import'].grants  // load all grants
+  let grantList = req.session.data['grantList'] || [] // create new grant list to display (or grab existing)
+  let prototype = req.session.data['prototype'] // pull back list of filters
 
-  // load all grants
-  var grants = req.session.data['import'].grants
-  // create new grant list to display (or grab existing)
-  let grantList = req.session.data['grantList'] || []
-  
-  // grab filters selected
-  var gtChecked = [] // Grant Type selection
-  if(typeof(req.body.f_grant_type) !== 'undefined' || null) {
-    gtChecked =req.body.f_grant_type;
+  // STEP 1 = set all the filters
+
+  // PACKAGES
+
+  // get the checked packages from the form submission, if nothing is checked create an empty array
+  const selectedPackages = req.body.f_package || []
+  // if only one thing is checked if doesn't come to us as an array so we need to convert it into one
+  if (Array.isArray(selectedPackages)) {
+    processPackages = selectedPackages
+  } else {
+    processPackages = selectedPackages.split()
   }
-  var luChecked = [] // Land Use selection
-  if(typeof(req.body.f_land_use) !== 'undefined' || null) {
-    luChecked =req.body.f_land_use;
-  }
-  var lpChecked = [] // // Local Priorities
-  if(typeof(req.body.f_local_p) !== 'undefined' || null) {
-    lpChecked =req.body.f_local_p;
-  }
-
-  // --- Get Filter Data --- //
-  gtFilters = getTypesFilter(); // Grant Type
-  luFilters = getLandUseFilter(); // Land Use
-  lpFilters = getLocalPriorityFilter(); // Local Priorities
-
-  // Display Filter Checkbox & Maintain State
-  strGTInput = renderCheckboxIncState(gtChecked, gtFilters, "f_grant_type");
-  strLUInput = renderCheckboxIncState(luChecked, luFilters, "f_land_use");
-  strLPInput = renderCheckboxIncState(lpChecked, lpFilters, "f_local_p");
-
-
-
-  // (1/4). find grants for selected 'Land Use' filters and add to grantList  
-  for(g = 0; g < grants.length; g++) {
-
-    var grants_use = grants[g].use.split(',').map(item => item.trim().toLowerCase());
-    var foundone = findOne(grants_use,luChecked);
-    if(foundone) {
-      luChecked.checked='checked' 
-      grantList.push(g)
+  const activePackages = [] // create an empty array to store a list of the selected packages
+  // loop through the filter object looking for a matches against the returned checked items
+  for (i = 0; i < prototype.filterPackage.length; i++) {
+    // if nothing in the form is checked - mark everything in the nested array as unchecked
+    if (processPackages.length === 0) {
+      prototype.filterPackage[i][1] = ''
+    } else { // find the filter and either set it to checked or unchecked
+      for (j = 0; j < processPackages.length; j++) {
+        if (processPackages[j] === prototype.filterPackage[i][0]) {
+          prototype.filterPackage[i][1] = 'checked'
+          // push to the array the selected values that we can loop through
+          activePackages.push(prototype.filterPackage[i][0])
+          break
+        } else {
+          prototype.filterPackage[i][1] = ''
+        }
+      }
     }
   }
+  console.log("Active packages: " + activePackages)
 
-  // (2/4). Remove all grants that are not part of selected GrantType
-  console.log('-----')
-  for(gl = 0; gl < grantList.length; gl++) {
-    console.log('gl:'+ grants[grantList[gl]].type.toLowerCase() + ' - '+grants[grantList[gl]].code +' - '+ grants[grantList[gl]].type.toLowerCase() +' - '+ grants[grantList[gl]].use)
+  // LAND USE - same as above
 
-    if(gtChecked.includes(grants[grantList[gl]].type.toLowerCase()))
-    {
-      // keep in GrantList
-      console.log('keeps');
+  const selectedUses = req.body.f_land_use || []
+  if (Array.isArray(selectedUses)) {
+    processUses = selectedUses
+  } else {
+    processUses = selectedUses.split()
+  }
+  const activeUses = []
+  for (i = 0; i < prototype.filterUse.length; i++) {
+    if (processUses.length === 0 ) {
+      prototype.filterUse[i][1] = ''
     } else {
-      // remove from GrantList
-      console.log('REM: '+ grants[grantList[gl]].type);
-      grantList.splice(gl,1);
-      gl=gl-1
-    }
-  }
-
-  // (3/4). if NO LandUse is selected then simply add all grants for GrantType Selected
-  if(luChecked.length<=0) {
-    // find grants of each type and add index to the array
-    for(i = 0; i < grants.length; i++) {
-      for(gt = 0; gt < gtChecked.length; gt++)
-      {
-        if (grants[i].type.trim().toLowerCase() == gtChecked[gt]) {
-          grantList.push(i)
+      for (j = 0; j < processUses.length; j++) {
+        if (processUses[j] === prototype.filterUse[i][0]) {
+          prototype.filterUse[i][1] = 'checked'
+          activeUses.push(prototype.filterUse[i][0])
+          break
+        } else {
+          prototype.filterUse[i][1] = ''
         }
       }
     }
   }
 
-  // (4/4). if No GrantType selected, display all GrantTypes
-  if(gtChecked.length ===0) {
-    for(i = 0; i < grants.length; i++) {
+  // GRANT TYPE - same as above
+
+  const selectedType = req.body.f_grant_type || []
+  if (Array.isArray(selectedType)) {
+    processType = selectedType
+  } else {
+    processType = selectedType.split()
+  }
+  const activeTypes = []
+  for (i = 0; i < prototype.filterType.length; i++) {
+    if (processType.length === 0 ) {
+      prototype.filterType[i][1] = ''
+    } else {
+      for (j = 0; j < processType.length; j++) {
+        if (processType[j] === prototype.filterType[i][0]) {
+          prototype.filterType[i][1] = 'checked'
+          activeTypes.push(prototype.filterType[i][0])
+          break
+        } else {
+          prototype.filterType[i][1] = ''
+        }
+      }
+    }
+  }
+
+  // LOCAL PRIORITY - same as above
+
+  const selectedLocal = req.body.f_local_p || []
+  if (Array.isArray(selectedLocal)) {
+    processLocal = selectedLocal
+  } else {
+    processLocal = selectedLocal.split()
+  }
+  const activeLocal = []
+  for (i = 0; i < prototype.filterLocal.length; i++) {
+    if (processLocal.length === 0 ) {
+      prototype.filterLocal[i][1] = ''
+    } else {
+      for (j = 0; j < processLocal.length; j++) {
+        if (processLocal[j] === prototype.filterLocal[i][0]) {
+          prototype.filterLocal[i][1] = 'checked'
+          activeLocal.push(prototype.filterLocal[i][0])
+          break
+        } else {
+          prototype.filterLocal[i][1] = ''
+        }
+      }
+    }
+  }
+
+  // STEP 2 = build out our lists
+
+  // find grants for selected 'package' filters and add to grantList
+  for(i = 0; i < grants.length; i++) {
+    var grants_package = grants[i].packages.split(',').map(item => item.trim())
+    // build an array of the land use filters selected
+    var foundPackage = findOne(grants_package, activePackages)
+    if (activePackages.length === 0) {
       grantList.push(i)
-    }
-  }
-
-    // Local Priority
-    // copy Array item to new Array if Local Priority
-    var grantListLocal = [];
-    for(g = 0; g < grants.length; g++) {
-      for(lp = 0; lp < lpChecked.length; lp++)
-      {
-        if (grants[g].priority.trim().toLowerCase() == 'true') {
-          grantList.splice(grants[g],1);
-          grantListLocal.push(grants[g])
-        }
+    } else {
+      if (foundPackage) {
+        grantList.push(i)
       }
     }
-    
+  }
+  console.log("list after packages: " + grantList)
 
-  // find the right version to render
-  let version = req.session.data['prototype'].version
+  // find grants for selected 'land use' filters and add to grantList
+  const grantListbyuse = []
+  for(i = 0; i < grantList.length; i++) {
+    var grants_use = grants[grantList[i]].use.split(',').map(item => item.trim())
+    // build an array of the land use filters selected
+    var foundUse = findOne(grants_use, activeUses)
+    if (activeUses.length === 0) {
+      grantListbyuse.push(i)
+    } else {
+      if (foundUse) {
+        grantListbyuse.push(i)
+      }
+    }
+  }
+  console.log("list after land use: " + grantList)
+
+  subFilteredList = grantListbyuse.filter(function(item, pos, self) {
+    return self.indexOf(item) == pos;
+  })
+
+  // find grants for selected 'grant types' filters and add to grantList
+  const grantListbytype = []
+  for(i = 0; i < subFilteredList.length; i++) {
+    var type_use = grants[subFilteredList[i]].type.split(',').map(item => item.trim())
+    // build an array of the grant type filters selected
+    var foundType = findOne(type_use, activeTypes)
+    if (activeTypes.length === 0) {
+      grantListbytype.push(i)
+    } else {
+      if (foundType) {
+        grantListbytype.push(i)
+      }
+    }
+  }
+  console.log("list after Types: " + grantListbytype)
+
+  // find grants for selected 'local priorities' filters and add to grantList
+  const finalList = []
+  for(i = 0; i < grantListbytype.length; i++) {
+    var type_local = grants[grantListbytype[i]].priority.split(',').map(item => item.trim())
+    console.log(prototype.filterLocal[0][1])
+    // build an array of the grant type filters selected
+    if (prototype.filterLocal[0][1]){
+      if (type_local[0] === 'TRUE') {
+        finalList.push(grantListbytype[i])
+      }
+    } else {
+      finalList.push(grantListbytype[i])
+    }
+  }
+  console.log("list after local priorities: " + finalList)
+
+  // write back these values into the session data
+  req.session.data['prototype'] = prototype
+
+  let version = prototype.version // find the right version to render
   return res.render(version +'/search-results', {
-    'fTypes': gtFilters,
-    'grantList': grantList,
-    'aFTypeChecked': gtChecked,
-    'strGTInput': strGTInput,
-    'strLUInput': strLUInput,
-    'strLPInput': strLPInput
+    'grantList': finalList
   })
 })
+
+
+/**
+ * @description determine if an array contains one or more items from another array.
+ * @param {array} haystack the array to search.
+ * @param {array} arr the array providing items to check for in the haystack.
+ * @return {boolean} true|false if haystack contains at least one item from arr.
+ */
+var findOne = function (haystack, arr) {
+  return arr.some(function (v) {
+    return haystack.indexOf(v) >= 0
+  })
+}
+
 
 // show the grant details page
 router.get('/options-choice/*/grant-details', function (req, res) {
   let prototype = req.session.data['prototype']
-  console.log('hello')
   // get the object
   var grants = req.session.data['import'].grants
 
@@ -235,8 +337,6 @@ router.get('/options-choice/*/grant-details', function (req, res) {
   let unit = grants[grantNum].measure
 
   unit = unit.split(',')
-
-  console.log(unit)
 
   // find the right version to render
   let version = req.session.data['prototype'].version
@@ -372,67 +472,19 @@ function dataImport(req, res, next) {
     console.log('loading in data file')
     // pull in JSON data file
     delete req.session.data['import']
-    let grantsFile = 'grants-full.json'
+    let grantsFile = 'grants.json'
     let path = 'app/data/'
     req.session.data['import'] = loadJSONFromFile(grantsFile, path)
+
+    // TODO - gather up the filter facets here - and find a way to avoid hard-coding them
+
   } else {
     console.log('data retrieved')
   }
   next()
 }
 
-// Get Data for Filters  ----------------------------------------------------
 
-// return Grant Types
-function getTypesFilter(){
-  var aTypeFilters =['Option', 'Capital Item','Supplement'];
-  return aTypeFilters;
-}
-function getLandUseFilter(){
-  var aTypeFilters =['Flood risk', 'Grassland','Uplands','Water Quality','Priority habitats','Arable land', 'Pollinators and Wildlife'];
-  return aTypeFilters;
-}
-function getLocalPriorityFilter(){
-  var aLocalPFilters =['Show only local priorities'];
-  return aLocalPFilters;
-}
-
-// render Filter Checkbox & Maintain State
-function renderCheckboxIncState(selected, filter, name) {
-  var strInput ='';
-  var checked='';
-  for(t=0; t < filter.length; t++) {
-    checked='';
-    for(s=0; s< selected.length; s++) {
-      if(filter[t].trim().toLowerCase() == selected[s].trim().toLowerCase())
-      {
-        checked='checked';
-        break;
-      }
-    }
-    strInput = strInput + ' \
-    <div class="govuk-checkboxes__item"> \
-    <input onchange="this.form.submit()" '+ checked +' class="govuk-checkboxes__input" id="'+ name.trim().toLowerCase() +'-'+ s +'" name="'+ name.trim().toLowerCase() +'[]" type="checkbox" value="'+ filter[t].trim().toLowerCase() +'"> \
-    <label class="govuk-label govuk-checkboxes__label" for="'+ name.trim().toLowerCase() +'-'+ t +'"> \
-      '+ filter[t] +' \
-    </label> \
-  </div> \
-    ';
-  }
-  return strInput;
-}
-
-/**
- * @description determine if an array contains one or more items from another array.
- * @param {array} haystack the array to search.
- * @param {array} arr the array providing items to check for in the haystack.
- * @return {boolean} true|false if haystack contains at least one item from arr.
- */
-var findOne = function (haystack, arr) {
-  return arr.some(function (v) {
-      return haystack.indexOf(v) >= 0;
-  });
-};
 
 
 // router.get('/*', dataImport)
