@@ -310,18 +310,13 @@ router.post('/options-choice/*/search-results', function (req, res) {
   })
 })
 
-
-/**
- * @description determine if an array contains one or more items from another array.
- * @param {array} haystack the array to search.
- * @param {array} arr the array providing items to check for in the haystack.
- * @return {boolean} true|false if haystack contains at least one item from arr.
- */
+// function to search for matches
 var findOne = function (haystack, arr) {
   return arr.some(function (v) {
     return haystack.indexOf(v) >= 0
   })
 }
+
 
 
 // show the grant details page
@@ -350,10 +345,10 @@ router.get('/options-choice/*/grant-details', function (req, res) {
 // Add item to plan
 router.post("/options-choice/*/grant-details", function (req, res) {
   let prototype = req.session.data['prototype']
-  grantNum = prototype.grantNum // pulls the value from the button
 
   // get the object
   var grants = req.session.data['import'].grants
+  var grantNum = prototype.grantNum
   var grantType = grants[grantNum].type
 
   let plan = req.session.data['plan'] || [] // set up if doesn't exist
@@ -373,6 +368,7 @@ router.post("/options-choice/*/grant-details", function (req, res) {
 router.get('/options-choice/*/configure', function (req, res) {
   let prototype = req.session.data['prototype']
   planNum = prototype.planNum
+  grantNum = prototype.grantNum // pulls the value from the button
 
   // grab the query parameter from url and override if it exists
   if (req.query.planNum) {
