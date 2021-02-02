@@ -102,10 +102,10 @@ Your Plan
             </td>
             <td class="govuk-table__cell" style="text-align:right">
               {% if data.plan[i][4] === true %}
-                {% set optionEndTotal = optionEndTotal + optionTotal[optionCount] %}
-                {{ data.import.grants[data.plan[i][1]].payment | toMoney }} &times {{ data.plan[i][3] or 0 }}{{ data.import.grants[data.plan[i][1]].unit }} &equals;  {{ optionTotal[optionCount] | toMoney }}
+              {% set optionEndTotal = optionEndTotal + optionTotal[optionCount] %}
+              {{ data.import.grants[data.plan[i][1]].payment | toMoney }} &times {{ data.plan[i][3] or 0 }}{{ data.import.grants[data.plan[i][1]].unit }} &equals;  {{ optionTotal[optionCount] | toMoney }}
               {% else %}
-                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">Not configured</strong>
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">Not configured</strong>
               {% endif %}
             </td>
 
@@ -131,9 +131,15 @@ Your Plan
               {% else %}
               Add an option
               {% endif %}
-              </a>
+            </a>
             </td>
-            <td class="govuk-table__cell" style="text-align:right"><strong>Yearly payment &equals; {{ optionSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ optionSubtotalMonth | toMoney }}</strong></td>
+            <td class="govuk-table__cell" style="text-align:right; vertical-align: middle;">
+              {% if optionCount %}
+              <strong>Yearly payment &equals; {{ optionSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ optionSubtotalMonth | toMoney }}</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">None added</strong>
+              {% endif %}
+            </td>
             <td class="govuk-table__cell">&nbsp;</td>
           </tr>
 
@@ -206,9 +212,9 @@ Your Plan
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="search-results?grant=Capital%20Item" class="govuk-button govuk-button--secondary" data-module="govuk-button" style="margin: 10px 0;">
               {% if capitalCount %}
-                Add another capital item
+              Add another capital item
               {% else %}
-                Add a capital item
+              Add a capital item
               {% endif %}
             </a>
 
@@ -216,10 +222,10 @@ Your Plan
             <td class="govuk-table__cell" style="text-align:right; vertical-align: middle;">
 
               {% if capitalCount %}
-                <strong>One-off payment of {{ capitalSubtotal | toMoney }}</strong></td>
-              {% else %}
+              <strong>One-off payment of {{ capitalSubtotal | toMoney }}</strong></td>
+            {% else %}
             <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">None added</strong>
-              {% endif %}
+            {% endif %}
 
             <td class="govuk-table__cell">&nbsp;</td>
           </tr>
@@ -298,7 +304,13 @@ Your Plan
               {% endif %}
             </a>
             </td>
-            <td class="govuk-table__cell" style="text-align:right"><strong>Yearly payment &equals; {{ supplementSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ supplementSubtotalMonth | toMoney }}</strong></td>
+            <td class="govuk-table__cell" style="text-align:right; vertical-align: middle;">
+              {% if supplementCount %}
+              <strong>Yearly payment &equals; {{ supplementSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ supplementSubtotalMonth | toMoney }}</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">None added</strong>
+              {% endif %}
+            </td>
             <td class="govuk-table__cell">&nbsp;</td>
           </tr>
 
