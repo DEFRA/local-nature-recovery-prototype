@@ -11,7 +11,7 @@
       "label": "What is the size of your land in hectares (ha)?",
       "priority": "TRUE",
       "use": "Arable land, Uplands, Water Quality, Pollinators and Wildlife",
-      "packages": "Pollinators and wildlife, Improving Water Quality",
+      "packages": "Pollinators and Wildlife, Improving Water Quality",
       "type": "Option",
       "summary": "This option provides areas of flowering plants to boost essential food sources for beneficial pollinators.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/nectar-flower-mix-ab1"
@@ -25,9 +25,8 @@
       "calc": "multiply",
       "multiplier": "1",
       "label": "What is the size of your land in hectares (ha)?",
-      "priority": "TRUE",
       "use": "Grassland, Uplands, Pollinators and Wildlife ",
-      "packages": "Pollinators and wildlife",
+      "packages": "Pollinators and Wildlife",
       "type": "Supplement",
       "summary": "This supplement provides the critical spring and summer invertebrate food needed by species such as yellowhammers.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/lenient-grazing-supplement-gs17"

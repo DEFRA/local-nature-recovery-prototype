@@ -64,32 +64,34 @@ router.get('/options-choice/*/search-results', function (req, res) {
 
   // get the objects
   var grants = req.session.data['import'].grants
-
-  // lets grab the prototype object as a place to store these
+  // lets grab the prototype object as a place to store the selected filters
   let prototype = req.session.data['prototype']
   // add all the values if they don't already exist
-  if (!prototype.filterType) {
-    prototype.filterType = [['Option', ''], ['Capital Item', ''], ['Supplement', '']]
-    prototype.filterUse = [['Air quality', ''], ['Arable land', ''], ['Boundaries', ''], ['Coast', ''], ['Educational access', ''], ['Flood risk', ''], ['Grassland', ''], ['Historic environment', ''], ['Livestock management', ''], ['Organic land', ''], ['Priority habitats', ''], ['Trees (non-woodland)', ''], ['Uplands', ''], ['Vegetation control', ''], ['Water Quality', ''], ['Pollinators and Wildlife', ''], ['Woodland', '']]
-    prototype.filterPackage = [['Pollinators and Wildlife', ''], ['Improving Water Quality', ''], ['Air Quality', ''], ['Water Quality', ''], ['Climate Change Mitigation and Adaptation', ''], ['Flood Mitigation and Coastal Risk', ''], ['Drought and Wildfire Mitigation', ''], ['Heritage', ''], ['Access and Engagement', '']]
-    if (prototype.version === 'options-choice/v1/b') { // TODO make this ignore the version number
-      prototype.filterLocal = [['Show only local priories', 'checked']]
-    } else {
-      prototype.filterLocal = [['Show only local priories', '']]
-    }
+
+  prototype.filterType = [['Option', ''], ['Capital Item', ''], ['Supplement', '']]
+  prototype.filterUse = [['Air quality', ''], ['Arable land', ''], ['Boundaries', ''], ['Coast', ''], ['Educational access', ''], ['Flood risk', ''], ['Grassland', ''], ['Historic environment', ''], ['Livestock management', ''], ['Organic land', ''], ['Priority habitats', ''], ['Trees (non-woodland)', ''], ['Uplands', ''], ['Vegetation control', ''], ['Water Quality', ''], ['Pollinators and Wildlife', ''], ['Woodland', '']]
+  prototype.filterPackage = [['Pollinators and Wildlife', ''], ['Improving Water Quality', ''], ['Air Quality', ''], ['Water Quality', ''], ['Climate Change Mitigation and Adaptation', ''], ['Flood Mitigation and Coastal Risk', ''], ['Drought and Wildfire Mitigation', ''], ['Heritage', ''], ['Access and Engagement', '']]
+  // for version B we want to start with the local priorities checked
+  if (prototype.version === 'options-choice/v1/b') { // TODO make this ignore the version number
+    prototype.filterLocal = [['Show only local priories', 'checked']]
+  } else {
+    prototype.filterLocal = [['Show only local priories', '']]
   }
 
   // grab the query parameter from url or form depending how we got here
-  var type = req.query.type
-  var gtChecked = []; //get filter from body, init
-  if (typeof (type) !== 'undefined') {
-    gtChecked.push(type)
-  }
-  if (typeof (req.body.fGrantType) !== 'undefined') {
-    gtChecked = req.body.f_grant_type
-  }
+  type = req.query.type
 
-
+  // let's check the appropriate filter
+  if (type) {
+    for (i = 0; i < prototype.filterType.length; i++) {
+      console.log(prototype.filterType[i][0])
+      if (prototype.filterType[i][0] === type) {
+        prototype.filterType[i][1] = 'checked'
+      } else {
+        prototype.filterType[i][1] = ''
+      }
+    }
+  }
 
   // Lets build out our result set
   // create new or grab existing array
@@ -118,8 +120,6 @@ router.get('/options-choice/*/search-results', function (req, res) {
     'grantList': grantList
   })
 })
-
-
 
 // apply filters to grant listing
 router.post('/options-choice/*/search-results', function (req, res) {
