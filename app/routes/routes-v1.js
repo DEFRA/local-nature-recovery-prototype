@@ -419,7 +419,8 @@ router.post("/options-choice/*/configure", function (req, res) {
 router.get('/options-choice/*/plan', function (req, res) {
 
   // get the object
-  let plan = req.session.data['plan']
+  let plan = req.session.data['plan'] || []
+
   grantNum = req.session.data['prototype'].grantNum
   planNum = req.session.data['prototype'].planNum
 
