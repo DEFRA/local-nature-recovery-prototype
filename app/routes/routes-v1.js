@@ -71,7 +71,7 @@ router.get('/options-choice/*/search-results', function (req, res) {
   if (!prototype.filterType) {
     prototype.filterType = [['Option', ''], ['Capital Item', ''], ['Supplement', '']]
     prototype.filterUse = [['Air quality', ''], ['Arable land', ''], ['Boundaries', ''], ['Coast', ''], ['Educational access', ''], ['Flood risk', ''], ['Grassland', ''], ['Historic environment', ''], ['Livestock management', ''], ['Organic land', ''], ['Priority habitats', ''], ['Trees (non-woodland)', ''], ['Uplands', ''], ['Vegetation control', ''], ['Water Quality', ''], ['Pollinators and Wildlife', ''], ['Woodland', '']]
-    prototype.filterPackage = [['Pollinators and wildlife', ''], ['Improving Water Quality', ''], ['Air Quality', ''], ['Water Quality', ''], ['Climate Change Mitigation and Adaptation', ''], ['Flood Mitigation and Coastal Risk', ''], ['Drought and Wildfire Mitigation', ''], ['Heritage', ''], ['Access and Engagement', '']]
+    prototype.filterPackage = [['Pollinators and Wildlife', ''], ['Improving Water Quality', ''], ['Air Quality', ''], ['Water Quality', ''], ['Climate Change Mitigation and Adaptation', ''], ['Flood Mitigation and Coastal Risk', ''], ['Drought and Wildfire Mitigation', ''], ['Heritage', ''], ['Access and Engagement', '']]
     prototype.filterLocal = [['Show only local priories', '']]
   }
 
@@ -286,19 +286,29 @@ router.post('/options-choice/*/search-results', function (req, res) {
   console.log("list after Types: " + grantListbytype)
 
   // find grants for selected 'local priorities' filters and add to grantList
-  const finalList = []
+
+  console.log("local picked: " + prototype.filterLocal[0][1])
+  var finalList = []
   for(i = 0; i < grantListbytype.length; i++) {
-    var type_local = grants[grantListbytype[i]].priority.split(',').map(item => item.trim())
-    console.log(prototype.filterLocal[0][1])
-    // build an array of the grant type filters selected
-    if (prototype.filterLocal[0][1]){
-      if (type_local[0] === 'TRUE') {
-        finalList.push(grantListbytype[i])
+    if (prototype.filterLocal[0][1]) { // if the filter is picked sort it or keep everything
+
+      if (grants[grantListbytype[i]].priority) {
+        var type_local = grants[grantListbytype[i]].priority.split(',').map(item => item.trim())
+        // build an array of the grant type filters selected
+
+        if (type_local[0] === 'TRUE') {
+          finalList.push(grantListbytype[i])
+
+        }
       }
+
+
     } else {
-      finalList.push(grantListbytype[i])
+      finalList = Array.from(grantListbytype);
     }
   }
+
+  // finalList = grantListbytype
   console.log("list after local priorities: " + finalList)
 
   // write back these values into the session data
@@ -468,7 +478,7 @@ function dataImport(req, res, next) {
     console.log('loading in data file')
     // pull in JSON data file
     delete req.session.data['import']
-    let grantsFile = 'grants.json'
+    let grantsFile = 'grants-full.json'
     let path = 'app/data/'
     req.session.data['import'] = loadJSONFromFile(grantsFile, path)
 
