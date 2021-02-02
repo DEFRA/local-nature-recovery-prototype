@@ -45,8 +45,22 @@
     homepageUrl: "/",
     serviceName: serviceName,
     serviceUrl: "/",
-    containerClasses: "govuk-width-container"
+    containerClasses: "govuk-width-container",
+    navigation: [
+    {
+      href: "grants",
+      text: "Grants",
+      active: true
+    },
+    {
+      href: "plan",
+      text: "View your plan",
+      active: true
+    }
+    ]
   }) }}
+
+
 {% endblock %}
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}

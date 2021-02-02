@@ -4,6 +4,16 @@
   Enter the postcode
 {% endblock %}
 
+{% block header %}
+{{ govukHeader({
+homepageUrl: "/",
+serviceName: serviceName,
+serviceUrl: "/",
+containerClasses: "govuk-width-container"
+}) }}
+{% endblock %}
+
+
 {% block beforeContent %}
   <a href="location" class="govuk-back-link">Go Back</a>
 {% endblock %}

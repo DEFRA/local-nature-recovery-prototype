@@ -4,6 +4,16 @@
   Information page
 {% endblock %}
 
+{% block header %}
+{{ govukHeader({
+homepageUrl: "/",
+serviceName: serviceName,
+serviceUrl: "/",
+containerClasses: "govuk-width-container"
+}) }}
+{% endblock %}
+
+
 {% block beforeContent %}
   <a class="govuk-back-link" href="start">Back</a>
 {% endblock %}
