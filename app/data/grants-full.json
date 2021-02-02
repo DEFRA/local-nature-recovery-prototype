@@ -1287,6 +1287,23 @@
       "url": "https://www.gov.uk/countryside-stewardship-grants/historic-and-archaeological-feature-protection-he1"
     },
     {
+      "code": "HE2",
+      "title": "Historic building restoration",
+      "payment": "1",
+      "measure": "cost, costs",
+      "unit": "£",
+      "calc": "multiply",
+      "multiplier": "0.8",
+      "label": "What is the actual cost?",
+      "priority": "TRUE",
+      "hint": "We will pay up to 80% of actual costs",
+      "use": "Educational access, Historic environment, Uplands",
+      "packages": "Heritage, Access and Engagement",
+      "type": "Capital Item",
+      "summary": "It is for conserving and lengthening the life of rural buildings that contribute to the character and enjoyment of the landscape and are of historic interest. The work will prevent further decay to the fabric of historic buildings and benefit their long-term survival.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/historic-building-restoration-he2#further-information"
+    },
+    {
       "code": "HE3",
       "title": "Removal of eyesore",
       "payment": "290",
