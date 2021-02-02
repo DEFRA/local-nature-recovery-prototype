@@ -85,7 +85,7 @@ containerClasses: "govuk-width-container"
 
 	mymap.pm.addControls({  
 		position: 'topleft',  
-		drawCircle: true,  
+		drawCircle: false,  
 		drawPolyline:false,
 		drawCircle:false,
 		drawCircleMarker:false,
@@ -93,6 +93,10 @@ containerClasses: "govuk-width-container"
 		drawPolygon: false,
 		cutPolygon: false,
 		removalMode:false
+	});  
+
+	mymap.on('pm:drawstart', e => {  
+		console.log(e);  
 	});  
 
 	//L.marker([52.812827,  -1.642885], { pmIgnore: false }).addTo(mymap);  
