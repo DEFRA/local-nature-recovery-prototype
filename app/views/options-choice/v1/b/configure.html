@@ -19,7 +19,7 @@ Configure your grant
 
         <h1 class="govuk-label-wrapper govuk-!-margin-bottom-6">
           <label class="govuk-label govuk-label--xl" for="units">
-            <span class="govuk-caption-xl">{{ data.import.grants[data.plan[data.prototype.planNum][1]].title }}</span>
+            <span class="govuk-caption-xl">{{ data.import.grants[data.plan[data.prototype.planNum][1]].code }} {{ data.import.grants[data.plan[data.prototype.planNum][1]].title }}</span>
             {% if data.import.grants[data.plan[data.prototype.planNum][1]].label %}
             {{ data.import.grants[data.plan[data.prototype.planNum][1]].label }}
             {% else %}

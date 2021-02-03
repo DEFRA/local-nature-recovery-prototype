@@ -17,7 +17,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        {{ data.import.grants[data.prototype.grantNum].title }}
+        {{ data.import.grants[data.plan[data.prototype.planNum][1]].code }} {{ data.import.grants[data.prototype.grantNum].title }}
       </h1>
 
       <p>{{ data.import.grants[data.prototype.grantNum].summary }}</p>

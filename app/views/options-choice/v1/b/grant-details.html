@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-{{ data.import.grants[data.prototype.grantNum].title }}
+{{ data.import.grants[data.prototype.grantNum].code }} {{ data.import.grants[data.prototype.grantNum].title }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -17,7 +17,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        {{ data.import.grants[data.prototype.grantNum].title }}
+        {{ data.import.grants[data.prototype.grantNum].code }}  {{ data.import.grants[data.prototype.grantNum].title }}
       </h1>
 
       {% if data.import.grants[data.prototype.grantNum].priority === 'TRUE' %}
