@@ -91,7 +91,7 @@ Your Plan
           {% for i in range(0, data.plan.length) -%}
           {% if data.plan[i][2] === 'Option' %}
 
-          {% set optionTotal = (optionTotal.push(data.import.grants[data.plan[i][1]].payment * data.plan[i][3]), optionTotal) %}
+          {% set optionTotal = (optionTotal.push(data.import.grants[data.plan[i][1]].payment * data.plan[i][3] * data.import.grants[data.plan[i][1]].multiplier), optionTotal) %}
           {% set optionSubtotal = optionSubtotal + optionTotal[optionCount] %}
           {% set optionSubtotalMonth = optionSubtotal / 12 %}
 
@@ -176,7 +176,7 @@ Your Plan
           {% for i in range(0, data.plan.length) -%}
           {% if data.plan[i][2] === 'Capital Item' %}
 
-          {% set capitalTotal = (capitalTotal.push(data.import.grants[data.plan[i][1]].payment * data.plan[i][3]), capitalTotal) %}
+          {% set capitalTotal = (capitalTotal.push(data.import.grants[data.plan[i][1]].payment * data.plan[i][3] * data.import.grants[data.plan[i][1]].multiplier), capitalTotal) %}
           {% set capitalSubtotal = capitalSubtotal + capitalTotal[capitalCount] %}
 
           <tr class="govuk-table__row">
@@ -262,7 +262,7 @@ Your Plan
           {% for i in range(0, data.plan.length) -%}
           {% if data.plan[i][2] === 'Supplement' %}
 
-          {% set supplementTotal = (supplementTotal.push(data.import.grants[data.plan[i][1]].payment * data.plan[i][3]), supplementTotal) %}
+          {% set supplementTotal = (supplementTotal.push(data.import.grants[data.plan[i][1]].payment * data.plan[i][3] * data.import.grants[data.plan[i][1]].multiplier), supplementTotal) %}
           {% set supplementSubtotal = supplementSubtotal + supplementTotal[supplementCount] %}
           {% set supplementSubtotalMonth = supplementSubtotal / 12 %}
 
