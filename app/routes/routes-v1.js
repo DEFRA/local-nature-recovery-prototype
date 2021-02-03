@@ -32,6 +32,12 @@ router.post('/options-choice/*/land-use', function (req, res) {
 
 //Gather up totals for the boxes on the grants page
 router.get('/options-choice/*/grants', function (req, res) {
+
+  // check for data
+  if (!req.session.data['import']) {
+    res.redirect('/error')
+  }
+
   // count how many grants of each type
   var grants = req.session.data['import'].grants // get the object
 
@@ -61,6 +67,11 @@ router.get('/options-choice/*/grants', function (req, res) {
 
 // Create array of search results
 router.get('/options-choice/*/search-results', function (req, res) {
+
+  // check for data
+  if (!req.session.data['import']) {
+    res.redirect('/error')
+  }
 
   // get the objects
   var grants = req.session.data['import'].grants
@@ -396,6 +407,12 @@ var findOne = function (haystack, arr) {
 
 // show the grant details page
 router.get('/options-choice/*/grant-details', function (req, res) {
+
+  // check for data
+  if (!req.session.data['import']) {
+    res.redirect('/error')
+  }
+
   let prototype = req.session.data['prototype']
   // get the object
   var grants = req.session.data['import'].grants
@@ -441,6 +458,12 @@ router.post("/options-choice/*/grant-details", function (req, res) {
 
 // show the grant details page
 router.get('/options-choice/*/configure', function (req, res) {
+
+  // check for data
+  if (!req.session.data['import']) {
+    res.redirect('/error')
+  }
+
   let prototype = req.session.data['prototype']
   planNum = prototype.planNum
   grantNum = prototype.grantNum // pulls the value from the button
@@ -479,6 +502,11 @@ router.post("/options-choice/*/configure", function (req, res) {
 // Create array of search results
 router.get('/options-choice/*/plan', function (req, res) {
 
+  // check for data
+  if (!req.session.data['import']) {
+    res.redirect('/error')
+  }
+
   // get the object
   let plan = req.session.data['plan'] || []
 
@@ -505,30 +533,29 @@ router.get('/options-choice/*/plan', function (req, res) {
 
 // delete item from plan 
 router.post('/options-choice/*/plan', function (req, res) {
-   // get the object
-   let plan = req.session.data['plan']
-   grantNum = req.session.data['prototype'].grantNum
-   planNum = req.session.data['prototype'].planNum
- 
-   // start the counters on 0
-   var completedCount = 0
- 
-   for(i = 0; i < plan.length; i++) {
-     if (plan[i][4] === true) {
-       completedCount++
-     }
-   }
+  // get the object
+  let plan = req.session.data['plan']
+  grantNum = req.session.data['prototype'].grantNum
+  planNum = req.session.data['prototype'].planNum
+  // start the counters on 0
+  var completedCount = 0
 
-   // remove from plan
-   plan.splice(req.body.planNum, 1);
- 
-   // find the right version to render
-   let version = req.session.data['prototype'].version
-   return res.render(version + '/plan', {
-     'grantNum': grantNum,
-     'planNum': planNum,
-     'completedCount': completedCount
-   })
+  for(i = 0; i < plan.length; i++) {
+   if (plan[i][4] === true) {
+     completedCount++
+   }
+  }
+
+  // remove from plan
+  plan.splice(req.body.planNum, 1)
+
+  // find the right version to render
+  let version = req.session.data['prototype'].version
+  return res.render(version + '/plan', {
+   'grantNum': grantNum,
+   'planNum': planNum,
+   'completedCount': completedCount
+  })
 })
 
 // Load JSON data from file ----------------------------------------------------
@@ -556,10 +583,6 @@ function dataImport(req, res, next) {
   next()
 }
 
-
-
-
-// router.get('/*', dataImport)
 router.get('/', dataImport) // the homepage will delete the session data and re-import it
 
 module.exports = router

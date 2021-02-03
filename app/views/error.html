@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Error - No data found
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+homepageUrl: "/",
+serviceName: serviceName,
+serviceUrl: "/",
+containerClasses: "govuk-width-container"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        No prototype data found
+      </h1>
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          This prototype requires a data import to work properly
+        </strong>
+      </div>
+
+      <p>Go back to the index page to automatically import the data file.</p>
+
+      <a href="/" role="button" draggable="false" class="govuk-button"  data-module="govuk-button">Go to index page</a>
+
+    </div>
+  </div>
+
+
+{% endblock %}
