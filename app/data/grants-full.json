@@ -259,6 +259,7 @@
       "payment": "1",
       "measure": "cost, costs",
       "calc": "multiply",
+      "multiplier": "1",
       "label": "What is the cost?",
       "priority": "TRUE",
       "hint": "We pay up to 100% of actual costs",
