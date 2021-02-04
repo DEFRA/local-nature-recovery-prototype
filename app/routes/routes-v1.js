@@ -466,7 +466,7 @@ router.post("/options-choice/*/grant-details", function (req, res) {
 
   let plan = req.session.data['plan'] || [] // set up if doesn't exist
   let planNum = plan.length
-  let grantItem = [planNum, grantNum,grantType,0,false] // build an array of the plan items
+  let grantItem = [planNum, grantNum,grantType,'0',false] // build an array of the plan items
 
   prototype.planNum = planNum
   plan.push(grantItem) // add to the array
