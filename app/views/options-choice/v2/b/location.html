@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Where is your land?
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+homepageUrl: "/",
+serviceName: serviceName,
+serviceUrl: "/",
+containerClasses: "govuk-width-container"
+}) }}
+{% endblock %}
+
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="start">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="{{ thisPage }}" method="post" class="form">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                Where is your land?
+              </h1>
+            </legend>
+
+            <p>Choose from one of the options below.</p>
+
+            <div class="govuk-radios govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="map" name="location" type="radio" value="map">
+                <label class="govuk-label govuk-radios__label" for="map">
+                  Pick on a map (most accurate)
+                </label>
+              </div>
+
+              <div class="govuk-radios__divider">or</div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="postcode" name="location" type="radio" value="postcode">
+                <label class="govuk-label govuk-radios__label" for="postcode">
+                  use a postcode
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="cph" name="location" type="radio" value="cph">
+                <label class="govuk-label govuk-radios__label" for="cph">
+                  use a County Parish Holding number (CPH)
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="sbi" name="location" type="radio" value="sbi">
+                <label class="govuk-label govuk-radios__label" for="sbi">
+                  use a Single Business Identifier (SBI)
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

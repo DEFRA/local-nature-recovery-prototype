@@ -8,7 +8,7 @@ Defra - Local Nature Recovery prototypes
 {% block header %}
 {{ govukHeader({
 homepageUrl: "/",
-serviceName: "Local Nature Recovery prototypes",
+serviceName: "Defra Future Farming",
 serviceUrl: "/",
 containerClasses: "govuk-width-container"
 }) }}
@@ -16,37 +16,74 @@ containerClasses: "govuk-width-container"
 
 {% block content %}
 
+<style type="text/css">
+
+    .unstyle-button {
+        display: inline-block;
+        background: none!important;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        padding: 0!important;
+        top: 4px;
+        box-sizing: none;
+        font-family: "GDS Transport", Arial, sans-serif;
+        font-size: 18px;
+        color: #1d70b8;
+        text-decoration: underline;
+        box-shadow: none;
+        cursor: pointer;
+    }
+    .unstyle-button:hover {
+        color: #003078;
+        text-decoration: underline;
+    }
+
+</style>
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-l">Local Nature Recovery prototypes</h1>
 
-    <h2 class="govuk-heading-m">Option choice architecture</h2>
+    <h2 class="govuk-heading-m">Option choice architecture - Research - Round 1 &nbsp; <strong class="govuk-tag govuk-tag--purple govuk-!-margin-top-0 govuk-!-margin-bottom-2" style="font-size: 11px;">In user research</strong></h2>
     <p>Choice architecture is the design of different ways in which choices can be presented to users, and the impact of that presentation on user decision-making. In the context of Environmental Land Management, this means the way in which we present the actions which we will pay for to potential applicants.</p>
 
   </div>
 </div>
+<form action="{{ thisPage }}" method="POST" role="form">
 
-<div class="govuk-grid-row">
-
-  <form action="{{ thisPage }}" method="POST" role="form">
+    <div class="govuk-grid-row">
 
       <div class="govuk-grid-column-one-third">
-        <strong class="govuk-tag govuk-tag--orange govuk-!-margin-top-0 govuk-!-margin-bottom-2" style="font-size: 11px;">In design</strong>
-        <h3 class="govuk-heading-s">Version A</h3>
+        <h3 class="govuk-heading-s">Design A</h3>
         <p class="govuk-body">Show land owner full list and allow filtering</p>
-        <button type="submit" class="govuk-button" name="version" value="options-choice/v1/a"><strong>See version A</strong></button>
+        <button type="submit" class="govuk-button" name="version" value="options-choice/v1/a"><strong>See design A</strong></button>
       </div>
 
       <div class="govuk-grid-column-one-third">
-        <strong class="govuk-tag govuk-tag--orange govuk-!-margin-top-0 govuk-!-margin-bottom-2" style="font-size: 11px;">In design</strong>
-        <h3 class="govuk-heading-s">Version B</h3>
+        <h3 class="govuk-heading-s">Design B</h3>
         <p class="govuk-body">Options are pre-filtered and prioritised based on triage questions</p>
-        <button type="submit" class="govuk-button" name="version" value="options-choice/v1/b"><strong>See version B</strong></button>
+        <button type="submit" class="govuk-button" name="version" value="options-choice/v1/b"><strong>See design B</strong></button>
       </div>
 
-    </form>
-  </div>
-</div>
+    </div>
+
+    <div class="govuk-grid-row">
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Other versions
+                </span>
+            </summary>
+            <div class="govuk-details__text">
+                <h2 class="govuk-heading-m">Round 2 designs &nbsp; <strong class="govuk-tag govuk-tag--red govuk-!-margin-top-0 govuk-!-margin-bottom-2" style="font-size: 11px;">In design</strong></h2>
+
+                <button class="govuk-button unstyle-button" name="version" value="options-choice/v2/a">Design A</button> | <button class="govuk-button unstyle-button" name="version" value="options-choice/v2/b">Design B</button>
+            </div>
+        </details>
+    </div>
+</form>
 
 {% endblock %}

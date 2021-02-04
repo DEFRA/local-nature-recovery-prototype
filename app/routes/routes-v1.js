@@ -562,9 +562,9 @@ router.post('/options-choice/*/plan', function (req, res) {
   var completedCount = 0
 
   for(i = 0; i < plan.length; i++) {
-   if (plan[i][4] === true) {
-     completedCount++
-   }
+    if (plan[i][4] === true) {
+      completedCount++
+    }
   }
 
   // remove from plan
@@ -573,9 +573,9 @@ router.post('/options-choice/*/plan', function (req, res) {
   // find the right version to render
   let version = req.session.data['prototype'].version
   return res.render(version + '/plan', {
-   'grantNum': grantNum,
-   'planNum': planNum,
-   'completedCount': completedCount
+    'grantNum': grantNum,
+    'planNum': planNum,
+    'completedCount': completedCount
   })
 })
 
@@ -592,7 +592,7 @@ function dataImport(req, res, next) {
     console.log('loading in data file')
     // pull in JSON data file
     delete req.session.data['import']
-    let grantsFile = 'grants-full-ur4.json'
+    let grantsFile = 'grants-full-priorities.json'
     let path = 'app/data/'
     req.session.data['import'] = loadJSONFromFile(grantsFile, path)
 

@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Drop a pin on your land
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+homepageUrl: "/",
+serviceName: serviceName,
+serviceUrl: "/",
+containerClasses: "govuk-width-container"
+}) }}
+{% endblock %}
+
+
+{% block head %}
+{% include "includes/head.html" %}
+
+<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+	<script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>  
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+	<link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />  
+	
+<style>
+  .map {
+    height: 500px;
+    width: 100%;
+  }
+</style>
+
+
+{% endblock %}
+
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="location">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Drop a pin on your land
+<!--        <p>(You will need to repeat this process if you have more than one holding).</p>-->
+      </h1>
+
+<!--      <p>Find your land by entering a place name or postcode.</p>-->
+
+      <section aria-labelledby="map" role="region">
+        <div id="mapid" style="width: 600px; height: 600px;"></div>
+      </section>
+
+      <a href="land-use" role="button" draggable="false" class="govuk-button govuk-!-margin-top-4"  data-module="govuk-button">Continue</a>
+
+    </div>
+  </div>
+
+
+{% endblock %}
+
+{% block pageScripts %}
+
+<!-- Open layers -->
+<!-- Below is for visual and interaction reference only -->
+<!-- Will need to be converted to production code -->
+
+<script>
+
+	 var mymap = L.map('mapid').setView([52.308479, -2.219238], 6);
+
+	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		id: 'mapbox/streets-v11',
+		tileSize: 512,
+		zoomOffset: -1,
+	}).addTo(mymap);
+
+	// mymap.pm.addControls({  
+	// 	position: 'topleft',  
+	// 	drawCircle: false,  
+	// 	drawPolyline:false,
+	// 	drawCircle:false,
+	// 	drawCircleMarker:false,
+	// 	drawMarker:false,
+	// 	drawPolygon: false,
+	// 	cutPolygon: false,
+	// 	removalMode:false
+	// });  
+
+	// mymap.on('pm:drawstart', e => {  
+	// 	console.log(e);  
+	// });  
+	
+	//var myMarker = L.marker([52.812827,  -1.642885], {draggable: true, pmIgnore: false})
+
+	// L.marker([52.812827,  -1.642885], { pmIgnore: false }).addTo(mymap);  
+	
+	var myMarker = L.marker([52.812827,  -1.642885], {draggable: true})
+		.addTo(mymap)
+		.on('dragend', function() {
+			var coord = String(myMarker.getLatLng()).split(',');
+			console.log(coord);
+			var lat = coord[0].split('(');
+			console.log(lat);
+			var lng = coord[1].split(')');
+			console.log(lng);
+			myMarker.bindPopup("Moved to: " + lat[1] + ", " + lng[0] + ".");
+		});
+
+
+</script>
+
+<!-- / Visual and interaction reference -->
+<!-- / Open layers -->
+{% endblock %}
