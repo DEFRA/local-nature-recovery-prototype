@@ -176,7 +176,7 @@
       "title": "Supplementary winter feeding for farmland birds",
       "payment": "632",
       "measure": "tonne, tonnes",
-      "unit": "tonnes",
+      "unit": "t",
       "calc": "multiply",
       "multiplier": "1",
       "label": "What is the weight in tonnes?",
