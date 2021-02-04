@@ -167,33 +167,33 @@
               </div>
           </div>
 
-<!--          <div class="govuk-accordion__section">-->
-<!--              <div class="govuk-accordion__section-header">-->
-<!--                  <h2 class="govuk-accordion__section-heading">-->
-<!--              <span class="govuk-accordion__section-button" id="accordion-default-heading-3" style="font-weight: normal; font-size: 0.9em;">-->
-<!--                Local priority-->
-<!--              </span>-->
-<!--                  </h2>-->
-<!--              </div>-->
-<!--              <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">-->
-<!--                  <div class="govuk-form-group">-->
-<!--                      <fieldset class="govuk-fieldset">-->
-<!--                          <div class="govuk-checkboxes govuk-checkboxes&#45;&#45;small">-->
+          <div class="govuk-accordion__section">
+              <div class="govuk-accordion__section-header">
+                  <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-3" style="font-weight: normal; font-size: 0.9em;">
+                Local priority
+              </span>
+                  </h2>
+              </div>
+              <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+                  <div class="govuk-form-group">
+                      <fieldset class="govuk-fieldset">
+                          <div class="govuk-checkboxes govuk-checkboxes--small">
 
-<!--                              {% for i in range(0, data.prototype.filterLocal.length) -%}-->
-<!--                              <div class="govuk-checkboxes__item">-->
-<!--                                  <input onchange="this.form.submit()" {{ data.prototype.filterLocal[i][1] }} class="govuk-checkboxes__input" id="f_local_p-{{i}}" name="f_local_p" type="checkbox" value="{{ data.prototype.filterLocal[i][0] }}">-->
-<!--                                  <label class="govuk-label govuk-checkboxes__label" for="f_local_p-{{i}}">-->
-<!--                                      {{ data.prototype.filterLocal[i][0] }}-->
-<!--                                  </label>-->
-<!--                              </div>-->
-<!--                              {%- endfor %}-->
+                              {% for i in range(0, data.prototype.filterLocal.length) -%}
+                              <div class="govuk-checkboxes__item">
+                                  <input onchange="this.form.submit()" {{ data.prototype.filterLocal[i][1] }} class="govuk-checkboxes__input" id="f_local_p-{{i}}" name="f_local_p" type="checkbox" value="{{ data.prototype.filterLocal[i][0] }}">
+                                  <label class="govuk-label govuk-checkboxes__label" for="f_local_p-{{i}}">
+                                      {{ data.prototype.filterLocal[i][0] }}
+                                  </label>
+                              </div>
+                              {%- endfor %}
 
-<!--                          </div>-->
-<!--                      </fieldset>-->
-<!--                  </div>-->
-<!--              </div>-->
-<!--          </div>-->
+                          </div>
+                      </fieldset>
+                  </div>
+              </div>
+          </div>
       </div>
     </div>
 
@@ -212,7 +212,14 @@
         {% if grantList.length === 0 %}
 
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell" colspan="3">No results found</td>
+              <td scope="row" class="govuk-table__cell" colspan="3">
+                  <div class="no-results govuk-!-font-size-19 govuk-!-margin-top-4"> <p class="govuk-body govuk-!-font-weight-bold">There are no matching results.</p>
+                      <p class="govuk-body">Improve your search results by:</p>
+                      <ul class="govuk-list govuk-list--bullet">
+                          <li>using fewer filters</li>
+                      </ul>
+                  </div>
+              </td>
             </tr>
 
         {% else %}

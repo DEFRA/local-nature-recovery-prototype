@@ -178,7 +178,14 @@
         {% if grantList.length === 0 %}
 
         <tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell" colspan="3">No results found</td>
+          <td scope="row" class="govuk-table__cell" colspan="3">
+            <div class="no-results govuk-!-font-size-19 govuk-!-margin-top-4"> <p class="govuk-body govuk-!-font-weight-bold">There are no matching results.</p>
+              <p class="govuk-body">Improve your search results by:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>using fewer filters</li>
+              </ul>
+            </div>
+          </td>
         </tr>
 
         {% else %}
