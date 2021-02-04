@@ -175,13 +175,13 @@ router.get('/options-choice/*/search-results', function (req, res) {
       if (grants[grantList[i]].priority) {
         var type_local = grants[grantList[i]].priority.split(',').map(item => item.trim())
         // build an array of the grant type filters selected
-        if (type_local[0] === 'TRUE') {
+        if (type_local[0] !== 'undefined') {
           finalList.push(grantList[i])
         }
       }
     }
   } else {
-    finalList = Array.from(grantList);
+    finalList = Array.from(grantList)
   }
 
   // write back these values into the session data
@@ -233,7 +233,7 @@ router.post('/options-choice/*/search-results', function (req, res) {
       }
     }
   }
-  console.log("Active packages: " + activePackages)
+  console.log("\nActive packages: " + activePackages)
 
   // LAND USE - same as above
 
@@ -259,6 +259,7 @@ router.post('/options-choice/*/search-results', function (req, res) {
       }
     }
   }
+  console.log("Active land use: " + activeUses)
 
   // GRANT TYPE - same as above
 
@@ -284,6 +285,7 @@ router.post('/options-choice/*/search-results', function (req, res) {
       }
     }
   }
+  console.log("Active types: " + activeTypes)
 
   // LOCAL PRIORITY - same as above
 
@@ -309,63 +311,85 @@ router.post('/options-choice/*/search-results', function (req, res) {
       }
     }
   }
+  console.log("Active local: " + activeLocal + "\n")
+
+
 
   // STEP 2 = build out our lists
 
-  // find grants for selected 'package' filters and add to grantList
-  for(i = 0; i < grants.length; i++) {
-    var grants_package = grants[i].packages.split(',').map(item => item.trim())
-    // build an array of the land use filters selected
-    var foundPackage = findOne(grants_package, activePackages)
-    if (activePackages.length === 0) {
-      grantList.push(i)
-    } else {
-      if (foundPackage) {
-        grantList.push(i)
+  // find grants for selected 'package' filters and add to the grant list
+  // first create an array to hold the list
+  const grantListbypackage = []
+  // loop through the entire grants list and find the ones that match the
+
+  // if nothing is selected we add the full list
+  if (activePackages.length === 0) {
+    for(i = 0; i < grants.length; i++) {
+      // avoid issues if we check if the empty first
+      grantListbypackage.push(i)
+    }
+  }
+  else {
+    for(i = 0; i < grants.length; i++) {
+      // avoid issues if we check if the empty first
+      if (grants[i].packages) {
+        // we grab the values from each grant
+        var grants_package = grants[i].packages.split(',').map(item => item.trim())
+        // we them pass all of them past the selected filters to see if they match
+        var foundPackage = findOne(grants_package, activePackages)
+        // if we get at any of the filters matching we store this grant item in the new array
+        if (activePackages.length === 0) {
+          grantListbypackage.push(i)
+        } else {
+          if (foundPackage) {
+            grantListbypackage.push(i)
+          }
+        }
       }
     }
   }
-  console.log("list after packages: " + grantList)
+  console.log("list after packages: " + grantListbypackage)
 
   // find grants for selected 'land use' filters and add to grantList
   const grantListbyuse = []
-  for(i = 0; i < grantList.length; i++) {
-    var grants_use = grants[grantList[i]].use.split(',').map(item => item.trim())
-    // build an array of the land use filters selected
-    var foundUse = findOne(grants_use, activeUses)
-    if (activeUses.length === 0) {
-      grantListbyuse.push(i)
-    } else {
-      if (foundUse) {
-        grantListbyuse.push(i)
+  // we start by looping through the list filtered by package
+  for(i = 0; i < grantListbypackage.length; i++) {
+    if (grants[grantListbypackage[i]].use) {
+      var grants_use = grants[grantListbypackage[i]].use.split(',').map(item => item.trim())
+      // build an array of the land use filters selected
+      var foundUse = findOne(grants_use, activeUses)
+      if (activeUses.length === 0) {
+        grantListbyuse.push(grantListbypackage[i])
+      } else {
+        if (foundUse) {
+          grantListbyuse.push(grantListbypackage[i])
+        }
       }
     }
   }
-  console.log("list after land use: " + grantList)
+  console.log("list after land use: " + grantListbyuse)
 
-  subFilteredList = grantListbyuse.filter(function(item, pos, self) {
-    return self.indexOf(item) == pos;
-  })
+  // subFilteredList = grantListbyuse.filter(function(item, pos, self) {
+  //   return self.indexOf(item) == pos;
+  // })
 
   // find grants for selected 'grant types' filters and add to grantList
   const grantListbytype = []
-  for(i = 0; i < subFilteredList.length; i++) {
-    var type_use = grants[subFilteredList[i]].type.split(',').map(item => item.trim())
+  for(i = 0; i < grantListbyuse.length; i++) {
+    var type_use = grants[grantListbyuse[i]].type.split(',').map(item => item.trim())
     // build an array of the grant type filters selected
     var foundType = findOne(type_use, activeTypes)
     if (activeTypes.length === 0) {
-      grantListbytype.push(i)
+      grantListbytype.push(grantListbyuse[i])
     } else {
       if (foundType) {
-        grantListbytype.push(i)
+        grantListbytype.push(grantListbyuse[i])
       }
     }
   }
   console.log("list after Types: " + grantListbytype)
 
   // find grants for selected 'local priorities' filters and add to grantList
-
-  console.log("local picked: " + prototype.filterLocal[0][1])
   var finalList = []
   for(i = 0; i < grantListbytype.length; i++) {
     if (prototype.filterLocal[0][1]) { // if the filter is picked sort it or keep everything
@@ -374,18 +398,17 @@ router.post('/options-choice/*/search-results', function (req, res) {
         var type_local = grants[grantListbytype[i]].priority.split(',').map(item => item.trim())
         // build an array of the grant type filters selected
 
-        if (type_local[0] === 'TRUE') {
+        if (type_local[0] !== 'undefined') {
           finalList.push(grantListbytype[i])
 
         }
       }
     } else {
-      finalList = Array.from(grantListbytype);
+      finalList = Array.from(grantListbytype)
     }
   }
+  console.log("list after priorities: " + finalList)
 
-  // finalList = grantListbytype
-  console.log("list after local priorities: " + finalList)
 
   // write back these values into the session data
   req.session.data['prototype'] = prototype
@@ -396,14 +419,12 @@ router.post('/options-choice/*/search-results', function (req, res) {
   })
 })
 
-// function to search for matches
+// function to search arrays for matches against other arrays
 var findOne = function (haystack, arr) {
   return arr.some(function (v) {
     return haystack.indexOf(v) >= 0
   })
 }
-
-
 
 // show the grant details page
 router.get('/options-choice/*/grant-details', function (req, res) {
@@ -571,7 +592,7 @@ function dataImport(req, res, next) {
     console.log('loading in data file')
     // pull in JSON data file
     delete req.session.data['import']
-    let grantsFile = 'grants-full-ur4.json'
+    let grantsFile = 'grants-full-priorities.json'
     let path = 'app/data/'
     req.session.data['import'] = loadJSONFromFile(grantsFile, path)
 
