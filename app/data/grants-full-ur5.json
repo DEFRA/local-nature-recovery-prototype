@@ -57,6 +57,7 @@
       "multiplier": "1",
       "label": "How many plots?",
       "priority": "Farmland birds",
+      "use": "Arable land, Uplands, Pollinators and wildlife",
       "packages": "Pollinators and Wildlife",
       "type": "Option",
       "summary": "This option provides skylarks with suitable access to nesting habitats in winter cereal crops throughout their breeding season.",
