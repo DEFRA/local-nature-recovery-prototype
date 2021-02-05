@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your local priorities
+{% endblock %}
+
+{% block beforeContent %}
+  <a href="land-use" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<style type="text/css">
+
+    .govuk-accordion__controls {
+        display: none;
+    }
+    .js-enabled .govuk-accordion__section-header:hover {
+        border-top-color: transparent !important;
+        box-shadow: none !important;
+    }
+    .js-enabled .govuk-accordion__section-header:hover {
+        border-top: 1px solid #b1b4b6 !important;
+        box-shadow: none !important;
+    }
+    .govuk-accordion__section-button {
+        text-indent: 36px !important;
+    }
+    .govuk-accordion__icon {
+      right: auto !important;
+      left: -3px !important;
+    }
+    .govuk-accordion__icon::before,
+    .govuk-accordion__icon::after {
+        border: none !important;
+        top: 10px !important;
+        width: 30px !important;
+        height: 40px !important;
+        background-color: transparent !important;
+        background-image: url(/public/images/arrow-up.svg) !important;
+    }
+    .js-enabled .govuk-accordion__icon::after {
+        background-image: url(/public/images/arrow-down.svg) !important;
+        background-color: white !important;
+    }
+    .js-enabled .govuk-accordion__section-button:focus {
+        background: transparent;
+        outline: none;
+        box-shadow: none;
+        color: inherit;
+    }
+    .js-enabled .govuk-accordion__section-button:hover {
+        text-decoration: underline;
+    }
+    .govuk-accordion>div:nth-child(2)>div,
+    .govuk-accordion>div:nth-child(2)>div:hover{
+        border-top: none !important;
+    }
+    .js-enabled .govuk-accordion__section-content {
+        padding-top: 0 !important;
+    }
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Your local priorities
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <form action="{{ thisPage }}" method="POST" role="form">
+
+    <div class="govuk-grid-column-full">
+      <p>Based on your location and land use these are the highest scoring management options and capital items.</p>
+
+
+      {% for j in range(0, 3) -%}
+      <h2 class="govuk-heading-l govuk-!-margin-bottom-2">{{ data.import.priorities[j].name }}</h2>
+      <p>{{ data.import.priorities[j].summary }}</p>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Grant</th>
+          <th scope="col" class="govuk-table__header" style="width: 150px;">Type</th>
+          <th scope="col" class="govuk-table__header" style="width: 150px;">Value</th>
+        </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+        {% if grantList.length === 0 %}
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" colspan="3">
+            <div class="no-results govuk-!-font-size-19 govuk-!-margin-top-4"> <p class="govuk-body govuk-!-font-weight-bold">There are no matching results.</p>
+              <p class="govuk-body">Improve your search results by:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>using fewer filters</li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+
+        {% else %}
+
+
+
+
+            {% for i in range(0, grantList.length) -%}
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell"><a href="grant-details?grant={{ grantList[i] }}">{{ data.import.grants[grantList[i]].code }} {{ data.import.grants[grantList[i]].title }}</a>
+              </td>
+              <td class="govuk-table__cell" style="width: 100px;">{{ data.import.grants[grantList[i]].type }}</td>
+              <td class="govuk-table__cell" style="width: 100px;">{{ data.import.grants[grantList[i]].payment | toMoney }} per {{ data.import.grants[grantList[i]].unit }}</td>
+            </tr>
+            {%- endfor %}
+
+        {% endif %}
+
+        </tbody>
+      </table>
+
+      {%- endfor %}
+
+    </div>
+
+  </form>
+</div>
+
+
+{% endblock %}
