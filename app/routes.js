@@ -11,5 +11,6 @@ router.post("/", function (req, res) {
 
 // Call in routes file from routes folder to keep routes.js cleaner
 router.use('/', require('./routes/routes-v1.js'))
+router.use('/', require('./routes/routes-v2.js'))
 
 module.exports = router
