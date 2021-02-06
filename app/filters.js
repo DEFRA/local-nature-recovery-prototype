@@ -54,16 +54,6 @@ module.exports = function (env) {
     return commaFormatter(str)
   }
 
-  filters.toMoney2 = function(str) {
-    val = commaFormatter(str)
-
-    console.log('val :'+ val)
-    if(val=='£NaN'){
-      //return '';
-    }
-    return val
-  }
-
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
   ------------------------------------------------------------------ */
