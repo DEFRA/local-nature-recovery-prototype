@@ -156,18 +156,27 @@ router.get('/options-choice/*/local-priorities', function (req, res) {
   }
   console.log("Our priorities list: " + priorityList)
 
+
   // lets loop through the list of priorities and look for matches against our shortlist
   for(i = 0; i < priorities.length; i++) {
     // we need to match the priority category name against each row in our priorityList
-    let priortyIndex = [0,1,2,3]
 
+    //create an array to hold each line item that matches
+    let priortyIndex = []
 
+    // loop through our resultset and match the category name again any of the priorities for that item
+    for(j = 0; j < priorityList.length; j++) {
+
+      if (priorityList[j][1].includes(priorities[i].name)) {
+        priortyIndex.push(priorityList[j][0])
+        console.log("found one: " + priorities[i].name)
+      }
+      console.log("Found these in " + priorities[i].name + ": " + priortyIndex + "\n")
+    }
 
     let priortyGrouping = [priorities[i].name, priortyIndex] // build an array of the plan items
     finalPriorityList.push(priortyGrouping)
   }
-
-
 
   // console.log("Final priority list: " + finalPriorityList)
   // write back these values into the session data
