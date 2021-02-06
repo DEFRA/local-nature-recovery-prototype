@@ -99,8 +99,6 @@ router.get('/options-choice/*/local-priorities', function (req, res) {
     }
   }
 
-  console.log("grantlist: " + grantList)
-
   // if No filters are selected, display all grants
   if (grantList.length === 0) {
     for(i = 0; i < grants.length; i++) {
@@ -125,39 +123,61 @@ router.get('/options-choice/*/local-priorities', function (req, res) {
   }
 
   // we have our final list - now we need to divide it into multiple categories
-  console.log(req.session.data['import'])
+  // console.log(req.session.data['import'])
   var data = req.session.data['import']
-  console.log(jsonQuery('grants[*priority=Farmland birds]', {data: data}).key)
+  // console.log(jsonQuery('grants[*priority=Farmland birds]', {data: data}).key)
+
+  // we need to take the data we need and re
 
   var priorities = req.session.data['import'].priorities
 
-  // lets loop through the list of priorities
-  for(i = 0; i < priorities.length; i++) {
-    console.log(priorities[i].name)
-  }
+  // we could generate a nested array to hold all the priority items - nunjucts could easily use that to render the page
+  // something like [ ['waders',[45,47,67]], ['Wet grassland', [2,4]], ['Farmland birds', []] ]
+  const priorityList = [] // lets store the priority items here
+  const finalPriorityList = [] // this is the array we'll pass back to nunjucts
 
-  // we could generate a nested array to hold all the priority items
-
-  const activePriorities = [] // lets store the checked options here
+  // first lets get the rows with items marked as priority using our prefiltered list
+  const generatedPriorities = [] // lets store the priority items here
   for(i = 0; i < finalList.length; i++) {
-    var prioritiesSet = grants[finalList[i]].priority.split(',').map(item => item.trim())
-    // build an array of the land use filters selected
-    var foundPriorities = findOne(prioritiesSet, activePriorities)
+
+    if (grants[finalList[i]].priority) { // json doesn't store blank items so it's easy to see if anything exists
+      generatedPriorities.push(finalList[i])
+    }
   }
-  console.log("Found priorities: " + foundPriorities)
+  // we get an array of the grant items with something in the priority column
+  console.log("Found these priority items: " + generatedPriorities + "\n")
+
+  // lets go into each grant item and pull out the priority names into a nested array
+  for(i = 0; i < generatedPriorities.length; i++) {
+    var priortyItems = grants[generatedPriorities[i]].priority.split(',').map(item => item.trim())
+    // build an array of the grant type filters selected
+    let priorty = [generatedPriorities[i], priortyItems] // build an array of the plan items
+    priorityList.push(priorty)
+  }
+  console.log("Our priorities list: " + priorityList)
+
+  // lets loop through the list of priorities and look for matches against our shortlist
+  for(i = 0; i < priorities.length; i++) {
+    // we need to match the priority category name against each row in our priorityList
+    let priortyIndex = [0,1,2,3]
 
 
 
+    let priortyGrouping = [priorities[i].name, priortyIndex] // build an array of the plan items
+    finalPriorityList.push(priortyGrouping)
+  }
 
 
 
+  // console.log("Final priority list: " + finalPriorityList)
   // write back these values into the session data
   req.session.data['prototype'] = prototype
 
   // find the right version to render
   let version = req.session.data['prototype'].version
   return res.render(version + '/local-priorities', {
-    'grantList': finalList
+    'grantList': finalList,
+    'finalPriorityList': finalPriorityList
   })
 })
 

@@ -4,6 +4,32 @@
   Your local priorities
 {% endblock %}
 
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    containerClasses: "govuk-width-container",
+    navigation: [
+      {
+        href: "local-priorities",
+        text: "Your priorities",
+        active: true
+      },
+      {
+        href: "search-results",
+        text: "Search grants",
+        active: true
+      },
+      {
+        href: "plan",
+        text: "View your plan",
+        active: true
+      }
+    ]
+  }) }}
+{% endblock %}
+
 {% block beforeContent %}
   <a href="land-use" class="govuk-back-link">Back</a>
 
@@ -77,52 +103,42 @@
     <div class="govuk-grid-column-full">
       <p>Based on your location and land use these are the highest scoring management options and capital items.</p>
 
+      {# loop through all the priority categories  #}
+      {% for j in range(0, finalPriorityList.length) -%}
 
-      {% for j in range(0, 3) -%}
-      <h2 class="govuk-heading-l govuk-!-margin-bottom-2">{{ data.import.priorities[j].name }}</h2>
-      <p>{{ data.import.priorities[j].summary }}</p>
+        {# only render the category if it has items inside it #}
+        {% if finalPriorityList[j][1].length%}
 
-      <table class="govuk-table">
-        <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Grant</th>
-          <th scope="col" class="govuk-table__header" style="width: 150px;">Type</th>
-          <th scope="col" class="govuk-table__header" style="width: 150px;">Value</th>
-        </tr>
-        </thead>
-        <tbody class="govuk-table__body">
+          <h2 class="govuk-heading-l govuk-!-margin-bottom-2">{{ finalPriorityList[j][0] }}</h2>
+          <p>{{ data.import.priorities[j].summary }}</p>
 
-        {% if grantList.length === 0 %}
+          <table class="govuk-table">
 
-        <tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell" colspan="3">
-            <div class="no-results govuk-!-font-size-19 govuk-!-margin-top-4"> <p class="govuk-body govuk-!-font-weight-bold">There are no matching results.</p>
-              <p class="govuk-body">Improve your search results by:</p>
-              <ul class="govuk-list govuk-list--bullet">
-                <li>using fewer filters</li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-
-        {% else %}
-
-
-
-
-            {% for i in range(0, grantList.length) -%}
+            <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell"><a href="grant-details?grant={{ grantList[i] }}">{{ data.import.grants[grantList[i]].code }} {{ data.import.grants[grantList[i]].title }}</a>
-              </td>
-              <td class="govuk-table__cell" style="width: 100px;">{{ data.import.grants[grantList[i]].type }}</td>
-              <td class="govuk-table__cell" style="width: 100px;">{{ data.import.grants[grantList[i]].payment | toMoney }} per {{ data.import.grants[grantList[i]].unit }}</td>
+              <th scope="col" class="govuk-table__header">Grant</th>
+              <th scope="col" class="govuk-table__header" style="width: 150px;">Type</th>
+              <th scope="col" class="govuk-table__header" style="width: 150px;">Value</th>
             </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+
+            {# loop through each of the items in the priority group #}
+            {% for i in range(0, finalPriorityList[j][1].length) -%}
+
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell"><a href="grant-details?grant={{ finalPriorityList[j][1][i] }}">{{ data.import.grants[finalPriorityList[j][1][i]].code }} {{ data.import.grants[finalPriorityList[j][1][i]].title }}</a>
+              </td>
+              <td class="govuk-table__cell" style="width: 100px;">{{ data.import.grants[finalPriorityList[j][1][i]].type }}</td>
+              <td class="govuk-table__cell" style="width: 100px;">{{ data.import.grants[finalPriorityList[j][1][i]].payment | toMoney }} per {{ data.import.grants[finalPriorityList[j][1][i]].unit }}</td>
+            </tr>
+            
             {%- endfor %}
 
-        {% endif %}
+          </tbody>
+        </table>
 
-        </tbody>
-      </table>
+        {% endif %}
 
       {%- endfor %}
 
