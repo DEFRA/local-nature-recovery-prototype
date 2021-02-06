@@ -1,7 +1,33 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Your Plan
+  Your Plan
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    containerClasses: "govuk-width-container",
+    navigation: [
+      {
+        href: "local-priorities",
+        text: "Your priorities",
+        active: true
+      },
+      {
+        href: "search-results",
+        text: "Search grants",
+        active: true
+      },
+      {
+        href: "plan",
+        text: "View your plan",
+        active: true
+      }
+    ]
+  }) }}
 {% endblock %}
 
 {% block beforeContent %}
