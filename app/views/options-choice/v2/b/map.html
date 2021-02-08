@@ -81,17 +81,17 @@ containerClasses: "govuk-width-container"
 		zoomOffset: -1,
 	}).addTo(mymap);
 
-	// mymap.pm.addControls({  
-	// 	position: 'topleft',  
-	// 	drawCircle: false,  
-	// 	drawPolyline:false,
-	// 	drawCircle:false,
-	// 	drawCircleMarker:false,
-	// 	drawMarker:false,
-	// 	drawPolygon: false,
-	// 	cutPolygon: false,
-	// 	removalMode:false
-	// });  
+	mymap.pm.addControls({  
+		position: 'topleft',  
+		drawCircle: false,  
+		drawPolyline:false,
+		drawCircle:false,
+		drawCircleMarker:false,
+		drawMarker:false,
+		drawPolygon: false,
+		cutPolygon: false,
+		removalMode:false
+	});  
 
 	// mymap.on('pm:drawstart', e => {  
 	// 	console.log(e);  
@@ -101,17 +101,17 @@ containerClasses: "govuk-width-container"
 
 	// L.marker([52.812827,  -1.642885], { pmIgnore: false }).addTo(mymap);  
 	
-	var myMarker = L.marker([52.812827,  -1.642885], {draggable: true})
-		.addTo(mymap)
-		.on('dragend', function() {
-			var coord = String(myMarker.getLatLng()).split(',');
-			console.log(coord);
-			var lat = coord[0].split('(');
-			console.log(lat);
-			var lng = coord[1].split(')');
-			console.log(lng);
-			myMarker.bindPopup("Moved to: " + lat[1] + ", " + lng[0] + ".");
-		});
+	// var myMarker = L.marker([52.812827,  -1.642885], {draggable: true})
+	// 	.addTo(mymap)
+	// 	.on('dragend', function() {
+	// 		var coord = String(myMarker.getLatLng()).split(',');
+	// 		console.log(coord);
+	// 		var lat = coord[0].split('(');
+	// 		console.log(lat);
+	// 		var lng = coord[1].split(')');
+	// 		console.log(lng);
+	// 		myMarker.bindPopup("Moved to: " + lat[1] + ", " + lng[0] + ".");
+	// 	});
 
 
 </script>
