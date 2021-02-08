@@ -2,6 +2,9 @@ const express = require('express')
 const router = express.Router()
 const fs = require('fs-extra') // needed to import the json data
 
+const { JSDOM } = require("jsdom")
+const axios = require('axios')
+
 var nunjucks  = require('nunjucks')
 var env = nunjucks.configure()
 
@@ -457,10 +460,29 @@ router.get('/options-choice/*/grant-details', function (req, res) {
   // find the right version to render
   let version = req.session.data['prototype'].version
   req.session.data['prototype'] = prototype // write back these values into the session data
-  return res.render(version + '/grant-details', {
-    'unit': unit[0]
-  })
+  
+  const scrapeGov = async () => {
+    try {
+      const { data } = await axios.get("https://www.gov.uk/countryside-stewardship-grants/creation-of-wood-pasture-wd6");
+      //const dom = new JSDOM(data, { runScripts: "dangerously", resources: "usable"});
+      const dom = new JSDOM(data);
+      const { document } = dom.window;
+      const content = document.querySelector(".gem-c-govspeak").innerHTML;
+      
+      return res.render(version + '/grant-details', {
+        'unit': unit[0],
+        'testtext': content
+      })
+
+      //return firstPost;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  scrapeGov();
 })
+
 
 
 // Add item to plan
