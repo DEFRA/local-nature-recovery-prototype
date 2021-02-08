@@ -25,9 +25,17 @@ router.post('/options-choice/*/location', function (req, res) {
 // land use checkboxes
 router.post('/options-choice/*/land-use', function (req, res) {
 
+  let prototype = req.session.data['prototype']
+
   const location = req.session.data['location']
 
-  res.redirect('search-results')
+  let version = req.session.data['prototype'].version
+
+  if (prototype.version === 'options-choice/v2/b') { // TODO make this ignore the version number
+    res.redirect('local-priorities')
+  } else {
+    res.redirect('search-results')
+  }
 })
 
 //Gather up totals for the boxes on the grants page
