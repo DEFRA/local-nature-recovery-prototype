@@ -20,6 +20,19 @@ containerClasses: "govuk-width-container"
 
 {% block content %}
 
+{# lets hide the environmental benefit options here #}
+<style type="text/css">
+  .govuk-checkboxes .govuk-checkboxes__item:nth-child(1),
+  .govuk-checkboxes .govuk-checkboxes__item:nth-child(6),
+  .govuk-checkboxes .govuk-checkboxes__item:nth-child(11),
+  .govuk-checkboxes .govuk-checkboxes__item:nth-child(12),
+  .govuk-checkboxes .govuk-checkboxes__item:nth-child(15),
+  .govuk-checkboxes .govuk-checkboxes__item:nth-child(16) {
+    display: none;
+  }
+
+</style>
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
