@@ -36,36 +36,37 @@ containerClasses: "govuk-width-container"
 
             <p>Select one option.</p>
 
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sbi" name="location" type="radio" value="sbi">
+              <label class="govuk-label govuk-radios__label" for="sbi">
+                use a Single Business Identifier (SBI)
+              </label>
+            </div>
+
+              <div class="govuk-radios__divider">or</div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="cph" name="location" type="radio" value="cph">
+              <label class="govuk-label govuk-radios__label" for="cph">
+                use a County Parish Holding number (CPH)
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="postcode" name="location" type="radio" value="postcode">
+              <label class="govuk-label govuk-radios__label" for="postcode">
+                use a postcode
+              </label>
+            </div>
+
             <div class="govuk-radios govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="map" name="location" type="radio" value="map">
                 <label class="govuk-label govuk-radios__label" for="map">
-                  Pick on a map (most accurate)
+                  draw on a map
                 </label>
               </div>
 
-              <div class="govuk-radios__divider">or</div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="postcode" name="location" type="radio" value="postcode">
-                <label class="govuk-label govuk-radios__label" for="postcode">
-                  use a postcode
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="cph" name="location" type="radio" value="cph">
-                <label class="govuk-label govuk-radios__label" for="cph">
-                  use a County Parish Holding number (CPH)
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="sbi" name="location" type="radio" value="sbi">
-                <label class="govuk-label govuk-radios__label" for="sbi">
-                  use a Single Business Identifier (SBI)
-                </label>
-              </div>
             </div>
           </fieldset>
         </div>
