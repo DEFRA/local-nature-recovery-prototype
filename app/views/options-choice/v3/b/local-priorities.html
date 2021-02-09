@@ -1,0 +1,152 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your local priorities
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    containerClasses: "govuk-width-container",
+    navigation: [
+      {
+        href: "local-priorities",
+        text: "Your priorities",
+        active: true
+      },
+      {
+        href: "search-results",
+        text: "Search all grants",
+        active: true
+      },
+      {
+        href: "plan",
+        text: "View your plan",
+        active: true
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a href="land-use" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<style type="text/css">
+
+    .govuk-accordion__controls {
+        display: none;
+    }
+    .js-enabled .govuk-accordion__section-header:hover {
+        border-top-color: transparent !important;
+        box-shadow: none !important;
+    }
+    .js-enabled .govuk-accordion__section-header:hover {
+        border-top: 1px solid #b1b4b6 !important;
+        box-shadow: none !important;
+    }
+    .govuk-accordion__section-button {
+        text-indent: 36px !important;
+    }
+    .govuk-accordion__icon {
+      right: auto !important;
+      left: -3px !important;
+    }
+    .govuk-accordion__icon::before,
+    .govuk-accordion__icon::after {
+        border: none !important;
+        top: 10px !important;
+        width: 30px !important;
+        height: 40px !important;
+        background-color: transparent !important;
+        background-image: url(/public/images/arrow-up.svg) !important;
+    }
+    .js-enabled .govuk-accordion__icon::after {
+        background-image: url(/public/images/arrow-down.svg) !important;
+        background-color: white !important;
+    }
+    .js-enabled .govuk-accordion__section-button:focus {
+        background: transparent;
+        outline: none;
+        box-shadow: none;
+        color: inherit;
+    }
+    .js-enabled .govuk-accordion__section-button:hover {
+        text-decoration: underline;
+    }
+    .govuk-accordion>div:nth-child(2)>div,
+    .govuk-accordion>div:nth-child(2)>div:hover{
+        border-top: none !important;
+    }
+    .js-enabled .govuk-accordion__section-content {
+        padding-top: 0 !important;
+    }
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Your local priorities
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <form action="{{ thisPage }}" method="POST" role="form">
+
+    <div class="govuk-grid-column-full">
+      <p>Based on your location and land use these are the highest scoring management options and capital items.</p>
+      <p><a href="land-use">Change your land use</a></p>
+
+      {# loop through all the priority categories  #}
+      {% for j in range(0, finalPriorityList.length) -%}
+
+        {# only render the category if it has items inside it #}
+        {% if finalPriorityList[j][1].length%}
+
+          <h2 class="govuk-heading-l govuk-!-margin-bottom-2">{{ finalPriorityList[j][0] }}</h2>
+          <p>{{ data.import.priorities[j].summary }}</p>
+
+          <table class="govuk-table">
+
+            <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Grant</th>
+              <th scope="col" class="govuk-table__header" style="width: 150px;">Type</th>
+              <th scope="col" class="govuk-table__header" style="width: 150px;">Value</th>
+            </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+
+            {# loop through each of the items in the priority group #}
+            {% for i in range(0, finalPriorityList[j][1].length) -%}
+
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell"><a href="grant-details?grant={{ finalPriorityList[j][1][i] }}">{{ data.import.grants[finalPriorityList[j][1][i]].code }} {{ data.import.grants[finalPriorityList[j][1][i]].title }}</a>
+              </td>
+              <td class="govuk-table__cell" style="width: 100px;">{{ data.import.grants[finalPriorityList[j][1][i]].type }}</td>
+              <td class="govuk-table__cell" style="width: 100px;">{{ data.import.grants[finalPriorityList[j][1][i]].payment | toMoney }} per {{ data.import.grants[finalPriorityList[j][1][i]].measure }}</td>
+            </tr>
+
+            {%- endfor %}
+
+          </tbody>
+        </table>
+
+        {% endif %}
+
+      {%- endfor %}
+
+    </div>
+
+  </form>
+</div>
+
+
+{% endblock %}

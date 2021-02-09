@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Configure your grant
+{% endblock %}
+
+{% block beforeContent %}
+  <a href="javascript:history.back()" class="govuk-back-link">Go Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="{{ thisPage }}" method="POST" role="form">
+
+        <div class="govuk-form-group">
+
+          <h1 class="govuk-label-wrapper govuk-!-margin-bottom-6">
+            <label class="govuk-label govuk-label--xl" for="units">
+              <span class="govuk-caption-xl">{{ data.import.grants[data.plan[data.prototype.planNum][1]].code }} {{ data.import.grants[data.plan[data.prototype.planNum][1]].title }}</span>
+              {% if data.import.grants[data.plan[data.prototype.planNum][1]].label %}
+              {{ data.import.grants[data.plan[data.prototype.planNum][1]].label }}
+              {% else %}
+              What is the size of your land in hectares (ha)
+              {% endif %}
+            </label>
+          </h1>
+
+          {% if data.import.grants[data.plan[data.prototype.planNum][1]].hint %}
+            <div id="event-name-hint" class="govuk-hint">
+              {{ data.import.grants[data.plan[data.prototype.planNum][1]].hint }}
+            </div>
+          {% endif %}
+
+          <div class="govuk-input__wrapper">
+
+            {% if data.plan[data.prototype.planNum][3] === '0' %}
+            {% set placeholder = '' %}
+            {% else %}
+            {% set placeholder = data.plan[data.prototype.planNum][3] %}
+            {% endif %}
+
+            <input class="govuk-input govuk-input--width-5" id="units" name="units" type="text" spellcheck="false" pattern="[0-9]*" inputmode="numeric" value="{{ placeholder }}">
+
+            {% if data.import.grants[data.plan[data.prototype.planNum][1]].unit %}
+              <div class="govuk-input__suffix" aria-hidden="true">{{ data.import.grants[data.plan[data.prototype.planNum][1]].unit }}</div>
+            {% endif %}
+          </div>
+        </div>
+
+        <input type="hidden" name="grantNum" value="{{ grantNum }}" />
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        <p><a href="plan">Skip and configure later</a></p>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

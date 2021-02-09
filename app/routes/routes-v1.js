@@ -31,7 +31,7 @@ router.post('/options-choice/*/land-use', function (req, res) {
 
   let version = req.session.data['prototype'].version
 
-  if (prototype.version === 'options-choice/v2/b') { // TODO make this ignore the version number
+  if (prototype.version === 'options-choice/v2/b' || prototype.version === 'options-choice/v3/b') { // TODO make this ignore the version number
     res.redirect('local-priorities')
   } else {
     res.redirect('search-results')
