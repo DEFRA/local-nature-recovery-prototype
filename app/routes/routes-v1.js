@@ -463,15 +463,16 @@ router.get('/options-choice/*/grant-details', function (req, res) {
   
   const scrapeGov = async () => {
     try {
-      const { data } = await axios.get("https://www.gov.uk/countryside-stewardship-grants/creation-of-wood-pasture-wd6");
+      // const { data } = await axios.get("https://www.gov.uk/countryside-stewardship-grants/creation-of-wood-pasture-wd6");
+      const { data } = await axios.get(grants[grantNum].url);
       //const dom = new JSDOM(data, { runScripts: "dangerously", resources: "usable"});
       const dom = new JSDOM(data);
       const { document } = dom.window;
-      const content = document.querySelector(".gem-c-govspeak").innerHTML;
+      const scrappedContent = document.querySelector(".gem-c-govspeak").innerHTML;
       
       return res.render(version + '/grant-details', {
         'unit': unit[0],
-        'testtext': content
+        'govtext': scrappedContent
       })
 
       //return firstPost;

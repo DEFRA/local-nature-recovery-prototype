@@ -8,6 +8,8 @@
   <a href="javascript:history.back()" class="govuk-back-link">Back</a>
 {% endblock %}
 
+
+
 {% block content %}
 
 <form action="{{ thisPage }}" method="POST" role="form">
@@ -22,9 +24,26 @@
 
       <p>{{ data.import.grants[data.prototype.grantNum].summary }}</p>
 
+      
 
-      {{ testtext | safe }}
-      <p><a href="{{ data.import.grants[data.prototype.grantNum].url }}" target="_blank">Find out about eligibility and requirements for {{ data.import.grants[data.prototype.grantNum].title }}. (Opens in a new window)</a>.</p>
+      <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                Find out about eligibility and requirements for {{ data.import.grants[data.prototype.grantNum].title }}
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+            <div class="gem-c-govspeak">
+              {{ govtext | safe }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <p><a href="{{ data.import.grants[data.prototype.grantNum].url }}" target="_blank">Find out about eligibility and requirements for {{ data.import.grants[data.prototype.grantNum].title }}. (Opens in a new window)</a>.</p> -->
 
     </div>
 
@@ -93,3 +112,6 @@
 </div>
 
 {% endblock %}
+<style>
+
+</style>
