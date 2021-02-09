@@ -165,7 +165,7 @@
       "unit": "ha",
       "calc": "multiply",
       "multiplier": "1",
-      "label": "What is the size of your land in hectares (ha)?",
+      "label": "How many hectares (ha) would you like to dedicate to this?",
       "use": "Arable land, Uplands, Pollinators and wildlife",
       "packages": "Pollinators and Wildlife",
       "type": "Option",
