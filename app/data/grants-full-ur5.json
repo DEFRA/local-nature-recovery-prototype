@@ -3664,6 +3664,11 @@
       "name": "Landscape character",
       "summary": "To contribute to the maintenance and restoration of features that will enhance the pattern and scale of the landscape and add to the area’s ‘sense of place’. In particular stone-faced banks, earthbanks, stone walls,  hedgerow trees and permanent grassland.",
       "ranking": "16"
+    },
+    {
+      "name": "Other",
+      "summary": " ",
+      "ranking": "17"
     }
   ]
 }
