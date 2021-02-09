@@ -1237,7 +1237,6 @@
       "unit": "£",
       "calc": "multiply",
       "multiplier": "1",
-      "priority": "Historic environment, Access and engagement, Landscape character",
       "priority": "Historic environment, Landscape character",
       "hint": "We will pay up to 100% of actual costs",
       "use": "Educational access, Historic environment, Uplands",
