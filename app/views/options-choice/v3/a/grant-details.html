@@ -10,6 +10,67 @@
 
 {% block content %}
 
+<style type="text/css">
+  .govuk-accordion__controls {
+    display: none;
+  }
+
+  .govuk-accordion__icon {
+    display: none;
+  }
+  
+  .gem-c-govspeak {
+    color: #0b0c0c;
+    font-family: "nta",arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.1428571429;
+  }
+  
+  .gem-c-govspeak h2:first-child, .gem-c-govspeak h3:first-child, .gem-c-govspeak h4:first-child, .gem-c-govspeak p:first-child {
+    margin-top: 0;
+  }
+  
+  @media (min-width: 48.0625em)
+  .gem-c-govspeak h2 {
+    margin-top: 45px;
+    margin-bottom: 0;
+  }
+  @media (min-width: 40.0625em)
+  .gem-c-govspeak h2 {
+    font-size: 27px;
+    line-height: 1.1111111111;
+  }
+  .gem-c-govspeak h2 {
+    font-family: "nta",arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.1111111111;
+    margin-top: 30px;
+    margin-bottom: 0;
+  }
+  
+  .gem-c-govspeak .call-to-action {
+    margin: 2em 0;
+    background-color: #f3f2f1;
+    padding: 2em;
+  }
+  
+  .gem-c-govspeak ol, .gem-c-govspeak ul, .gem-c-govspeak p {
+    font-size: 19px;
+    line-height: 1.3157894737;
+  }
+  
+  #accordion-default-heading-1 {
+    font-size: 14pt;
+    font-weight: normal;
+  }
+  </style>
+
 <form action="{{ thisPage }}" method="POST" role="form">
 
   <div class="govuk-grid-row">
@@ -22,9 +83,25 @@
 
       <p>{{ data.import.grants[data.prototype.grantNum].summary }}</p>
 
-
-      <p><a href="{{ data.import.grants[data.prototype.grantNum].url }}" target="_blank">Find out about eligibility and requirements for {{ data.import.grants[data.prototype.grantNum].title }}. (Opens in a new window)</a>.</p>
-
+      <div class="gem-c-govspeak">
+        <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+          <div class="govuk-accordion__section ">
+            <div class="govuk-accordion__section-header">
+              <h2 class="govuk-accordion__section-heading">
+                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                  <a href="#">Find out about eligibility and requirements for {{ data.import.grants[data.prototype.grantNum].title }}</a>
+                </span>
+              </h2>
+            </div>
+            <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+              <div class="gem-c-govspeak">
+                {{ govtext | safe }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
     </div>
 
     <div class="govuk-grid-column-one-third">
