@@ -8,8 +8,9 @@
   <a href="javascript:history.back()" class="govuk-back-link">Back</a>
 {% endblock %}
 
-<style type="text/css">
+{% block content %}
 
+<style type="text/css">
   .govuk-accordion__controls {
     display: none;
   }
@@ -65,8 +66,6 @@
   }
   
   </style>
-
-{% block content %}
 
 <form action="{{ thisPage }}" method="POST" role="form">
 
