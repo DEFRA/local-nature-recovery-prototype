@@ -7,4 +7,10 @@ if (window.console && window.console.info) {
 
 $(document).ready(function () {
   window.GOVUKFrontend.initAll()
+
+  // toggle summeries for grant types
+  $('#summaryToggle').on('click', function (e) {
+    e.preventDefault();
+    $('.grantSummary').toggle();  
+  });
 })
