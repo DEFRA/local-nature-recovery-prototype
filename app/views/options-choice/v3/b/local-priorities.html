@@ -103,6 +103,7 @@
     <div class="govuk-grid-column-full">
       <p>Based on your location and land use these are the highest scoring management options and capital items.</p>
       <p><a href="land-use">Change your land use</a></p>
+      <p><a id="summaryToggle" href="#">Click here to show summaries</a></p>
 
       {# loop through all the priority categories  #}
       {% for j in range(0, finalPriorityList.length) -%}
@@ -128,7 +129,9 @@
             {% for i in range(0, finalPriorityList[j][1].length) -%}
 
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell"><a href="grant-details?grant={{ finalPriorityList[j][1][i] }}">{{ data.import.grants[finalPriorityList[j][1][i]].code }} {{ data.import.grants[finalPriorityList[j][1][i]].title }}</a>
+              <td scope="row" class="govuk-table__cell">
+                <a href="grant-details?grant={{ finalPriorityList[j][1][i] }}">{{ data.import.grants[finalPriorityList[j][1][i]].code }} {{ data.import.grants[finalPriorityList[j][1][i]].title }}</a>
+                <div class="grantSummary" style="display: none;margin-top: 20px;margin-bottom: 20px;">{{ data.import.grants[grantList[i]].summary }}</div>
               </td>
               <td class="govuk-table__cell" style="width: 100px;">{{ data.import.grants[finalPriorityList[j][1][i]].type }}</td>
               <td class="govuk-table__cell" style="width: 100px;">{{ data.import.grants[finalPriorityList[j][1][i]].payment | toMoney }} per {{ data.import.grants[finalPriorityList[j][1][i]].measure }}</td>
