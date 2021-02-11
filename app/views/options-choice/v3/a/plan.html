@@ -63,7 +63,8 @@ Your Plan
     {% else %}
     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Calculation incomplete</h2>
     {% endif %}
-    <p class="govuk-body govuk-!-margin-bottom-7">You have configured {{ completedCount}} of {{ data.plan.length }} grants.</p>
+    <p class="govuk-body govuk-!-margin-bottom-7">You have configured {{ completedCount}} of {{ data.plan.length }} grants and could be eligible for the following payments. 
+</p>
 
     <ul class="app-task-list">
       <li>
@@ -319,7 +320,7 @@ Your Plan
           </tbody>
         </table>
       </li>
-
+<h2 style="display: inline;font-size: 1.2632em;">What to do next</h2>
       <li>
         <a href="#" class="govuk-button" data-module="govuk-button">Download your plan as a PDF</a><br>
         <a href="#" class="govuk-button govuk-button--secondary" data-module="govuk-button">Download your plan as a CSV</a>
