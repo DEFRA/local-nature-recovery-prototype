@@ -23,8 +23,6 @@ containerClasses: "govuk-width-container"
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="land-use" method="get" role="form">
-
         <div class="govuk-form-group">
           <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="sbi">
             Is This Your Land?
@@ -41,13 +39,17 @@ containerClasses: "govuk-width-container"
 
           [Image of Map here]
         </div>
-
-        <button class="govuk-button" data-module="govuk-button">Yes</button>
-        <button class="govuk-button" data-module="govuk-button">No</button>
+        <form action="land-use" method="get" role="form">
+          <button class="govuk-button" data-module="govuk-button">Yes</button>
+        </form>
+        
+        <form action="map" method="get" role="form">
+          <button class="govuk-button" data-module="govuk-button">No</button>
+        </form>
 
 <!--        <p><a href="plan">Skip and configure later</a></p>-->
 
-      </form>
+     
 
     </div>
   </div>
