@@ -81,7 +81,7 @@
         {{ data.import.grants[data.prototype.grantNum].code }} {{ data.import.grants[data.prototype.grantNum].title }}
       </h1>
 
-      <p>{{ data.import.grants[data.prototype.grantNum].summary }}</p>
+      <p>{{ data.import.grants[data.prototype.grantNum].summary | nl2br | safe }}</p>
 
       <div class="gem-c-govspeak">
         <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">

@@ -27,7 +27,8 @@
         box-shadow: none !important;
     }
     .govuk-accordion__section-button {
-        text-indent: 36px !important;
+        /*text-indent: 36px !important;*/
+        margin-left: 36px!important;
     }
     .govuk-accordion__icon {
       right: auto !important;
@@ -229,7 +230,7 @@
           <tr class="govuk-table__row">
             <td scope="row" class="govuk-table__cell">
               <a href="grant-details?grant={{ grantList[i] }}">{{ data.import.grants[grantList[i]].code }} {{ data.import.grants[grantList[i]].title }}</a>
-              <div class="grantSummary" style="display: none;margin-top: 20px;margin-bottom: 20px;">{{ data.import.grants[grantList[i]].summary }}</div>
+              <div class="grantSummary" style="display: none;margin-top: 20px;margin-bottom: 20px;">{{ data.import.grants[grantList[i]].summary | nl2br | safe}}</div>
             </td>
             <td class="govuk-table__cell" style="width: 100px;">{{ data.import.grants[grantList[i]].type }}</td>
           </tr>
