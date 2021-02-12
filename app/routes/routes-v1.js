@@ -84,6 +84,12 @@ router.get('/options-choice/*/search-results', function (req, res) {
     res.redirect('/error')
   }
 
+  res.locals.currentURL = req.originalUrl
+  res.locals.prevURL = req.get('Referrer')
+
+  prevURL = res.locals.prevURL
+  console.log('previous page is: ' + res.locals.prevURL + " and current page is " + req.url + " " + res.locals.currentURL )
+
   // get the objects
   var grants = req.session.data['import'].grants
   // lets grab the prototype object as a place to store the selected filters
@@ -201,7 +207,8 @@ router.get('/options-choice/*/search-results', function (req, res) {
   // find the right version to render
   let version = req.session.data['prototype'].version
   return res.render(version + '/search-results', {
-    'grantList': finalList
+    'grantList': finalList,
+    'prevURL': prevURL
   })
 })
 
