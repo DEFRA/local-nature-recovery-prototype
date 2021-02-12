@@ -39,61 +39,98 @@
 
 <style type="text/css">
 
-    .govuk-accordion__controls {
-        display: none;
-    }
-    .js-enabled .govuk-accordion__section-header:hover {
-        border-top-color: transparent !important;
-        box-shadow: none !important;
-    }
-    .js-enabled .govuk-accordion__section-header:hover {
-        border-top: 1px solid #b1b4b6 !important;
-        box-shadow: none !important;
-    }
-    .govuk-accordion__section-button {
-      /*text-indent: 36px !important;*/
-      margin-left: 36px!important;
-    }
-    .govuk-accordion__icon {
-      right: auto !important;
-      left: -3px !important;
-    }
-    .govuk-accordion__icon::before,
-    .govuk-accordion__icon::after {
-        border: none !important;
-        top: 10px !important;
-        width: 30px !important;
-        height: 40px !important;
-        background-color: transparent !important;
-        background-image: url(/public/images/arrow-up.svg) !important;
-    }
-    .js-enabled .govuk-accordion__icon::after {
-        background-image: url(/public/images/arrow-down.svg) !important;
-        background-color: white !important;
-    }
-    .js-enabled .govuk-accordion__section-button:focus {
-        background: transparent;
-        outline: none;
-        box-shadow: none;
-        color: inherit;
-    }
-    .js-enabled .govuk-accordion__section-button:hover {
-        text-decoration: underline;
-    }
-    .govuk-accordion>div:nth-child(2)>div,
-    .govuk-accordion>div:nth-child(2)>div:hover{
-        border-top: none !important;
-    }
-    .js-enabled .govuk-accordion__section-content {
-        padding-top: 0 !important;
-    }
+  .govuk-accordion__controls {
+    display: none;
+  }
+  .js-enabled .govuk-accordion__section-header:hover {
+    border-top-color: transparent !important;
+    box-shadow: none !important;
+  }
+  .js-enabled .govuk-accordion__section-header:hover {
+    border-top: 1px solid #b1b4b6 !important;
+    box-shadow: none !important;
+  }
+  .govuk-accordion__section-button {
+    /*text-indent: 36px !important;*/
+    margin-left: 36px!important;
+  }
+
+  .govuk-accordion__section-button .govuk-accordion__icon {
+    right: auto !important;
+    left: -3px !important;
+  }
+  .govuk-accordion__section-button .govuk-accordion__icon::before,
+  .govuk-accordion__section-button .govuk-accordion__icon::after {
+    border: none !important;
+    top: 10px !important;
+    width: 30px !important;
+    height: 40px !important;
+    background-color: transparent !important;
+    background-image: url(/public/images/arrow-up.svg) !important;
+  }
+  .js-enabled .govuk-accordion__section-button .govuk-accordion__icon::after {
+    background-image: url(/public/images/arrow-down.svg) !important;
+    background-color: white !important;
+  }
+  .js-enabled .govuk-accordion__section-button:focus {
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+    color: inherit;
+  }
+  .js-enabled .govuk-accordion__section-button:hover {
+    text-decoration: underline;
+  }
+  .govuk-accordion>div:nth-child(2)>div,
+  .govuk-accordion>div:nth-child(2)>div:hover{
+    border-top: none !important;
+  }
+  .js-enabled .govuk-accordion__section-content {
+    padding-top: 0 !important;
+  }
+
+  .govuk-grid-column-two-thirds {
+    position: relative;
+  }
+
+  #summaryToggle {
+    /*float: right;*/
+    position: absolute;
+    right: 15px;
+    top: -30px;
+  }
+
+  #summaryToggle .govuk-accordion__icon {
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    width: 12px;
+    height: 12px;
+    margin-top: -6px;
+  }
+  #summaryToggle .govuk-accordion__icon.hidden::after {
+    height: 0% !important;
+  }
+  #summaryToggle .govuk-accordion__icon::before,
+  #summaryToggle .govuk-accordion__icon::after {
+    border: 1px solid transparent !important;
+    /*width: 25%!important;*/
+    /*height: 25%!important;*/
+  }
+  #summaryToggle .govuk-accordion__icon:after {
+    height: 100% !important;
+  }
+
 </style>
 
 <div class="govuk-grid-row">
+
   <div class="govuk-grid-column-two-thirds">
+
     <h1 class="govuk-heading-xl">
       Results
     </h1>
+
   </div>
 </div>
 
@@ -108,33 +145,6 @@
         <div class="govuk-accordion__section govuk-accordion__section--expanded">
           <div class="govuk-accordion__section-header">
             <h2 class="govuk-accordion__section-heading">
-                <span class="govuk-accordion__section-button" id="accordion-default-heading-2" style="font-weight: normal; font-size: 0.9em;">
-                  Local priorities
-                </span>
-            </h2>
-          </div>
-          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
-            <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-                <div class="govuk-checkboxes govuk-checkboxes--small">
-                  {% for i in range(0, data.prototype.filterLocal.length) -%}
-                  <div class="govuk-checkboxes__item">
-                    <input onchange="this.form.submit()" {{ data.prototype.filterLocal[i][1] }} class="govuk-checkboxes__input" id="f_local_p-{{i}}" name="f_local_p" type="checkbox" value="{{ data.prototype.filterLocal[i][0] }}">
-                    <label class="govuk-label govuk-checkboxes__label" for="f_local_p-{{i}}">
-                      {{ data.prototype.filterLocal[i][0] }}
-                    </label>
-                  </div>
-                  {%- endfor %}
-                </div>
-              </fieldset>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="govuk-accordion__section govuk-accordion__section--expanded">
-          <div class="govuk-accordion__section-header">
-            <h2 class="govuk-accordion__section-heading">
               <span class="govuk-accordion__section-button" id="accordion-default-heading-1" style="font-weight: normal; font-size: 0.9em;">
                 Grant type
               </span>
@@ -142,8 +152,9 @@
           </div>
           <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
             <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+              <fieldset class="govuk-fieldset">
                 <div class="govuk-checkboxes govuk-checkboxes--small">
+
                   {% for i in range(0, data.prototype.filterType.length) -%}
                   <div class="govuk-checkboxes__item">
                     <input onchange="this.form.submit()" {{ data.prototype.filterType[i][1] }} class="govuk-checkboxes__input" id="f_grant_type-{{i}}" name="f_grant_type" type="checkbox" value="{{ data.prototype.filterType[i][0] }}">
@@ -152,18 +163,46 @@
                     </label>
                   </div>
                   {%- endfor %}
+
                 </div>
               </fieldset>
             </div>
           </div>
         </div>
 
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-2" style="font-weight: normal; font-size: 0.9em;">
+                Land use / Environmental outcome
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <div class="govuk-checkboxes govuk-checkboxes--small">
+
+                  {% for i in range(0, data.prototype.filterUse.length) -%}
+                  <div class="govuk-checkboxes__item">
+                    <input onchange="this.form.submit()" {{ data.prototype.filterUse[i][1] }} class="govuk-checkboxes__input" id="f_land_use-{{i}}" name="f_land_use" type="checkbox" value="{{ data.prototype.filterUse[i][0] }}">
+                    <label class="govuk-label govuk-checkboxes__label" for="f_land_use-{{i}}">
+                      {{ data.prototype.filterUse[i][0] }}
+                    </label>
+                  </div>
+                  {%- endfor %}
+
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
 
         <div class="govuk-accordion__section ">
           <div class="govuk-accordion__section-header">
             <h2 class="govuk-accordion__section-heading">
               <span class="govuk-accordion__section-button" id="accordion-default-heading-3" style="font-weight: normal; font-size: 0.9em;">
-                Environmental cause
+                Environmental benefit
               </span>
             </h2>
           </div>
@@ -187,12 +226,40 @@
           </div>
         </div>
 
+        <!--          <div class="govuk-accordion__section">-->
+        <!--              <div class="govuk-accordion__section-header">-->
+        <!--                  <h2 class="govuk-accordion__section-heading">-->
+        <!--              <span class="govuk-accordion__section-button" id="accordion-default-heading-3" style="font-weight: normal; font-size: 0.9em;">-->
+        <!--                Local priority-->
+        <!--              </span>-->
+        <!--                  </h2>-->
+        <!--              </div>-->
+        <!--              <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">-->
+        <!--                  <div class="govuk-form-group">-->
+        <!--                      <fieldset class="govuk-fieldset">-->
+        <!--                          <div class="govuk-checkboxes govuk-checkboxes&#45;&#45;small">-->
+
+        <!--                              {% for i in range(0, data.prototype.filterLocal.length) -%}-->
+        <!--                              <div class="govuk-checkboxes__item">-->
+        <!--                                  <input onchange="this.form.submit()" {{ data.prototype.filterLocal[i][1] }} class="govuk-checkboxes__input" id="f_local_p-{{i}}" name="f_local_p" type="checkbox" value="{{ data.prototype.filterLocal[i][0] }}">-->
+        <!--                                  <label class="govuk-label govuk-checkboxes__label" for="f_local_p-{{i}}">-->
+        <!--                                      {{ data.prototype.filterLocal[i][0] }}-->
+        <!--                                  </label>-->
+        <!--                              </div>-->
+        <!--                              {%- endfor %}-->
+
+        <!--                          </div>-->
+        <!--                      </fieldset>-->
+        <!--                  </div>-->
+        <!--              </div>-->
+        <!--          </div>-->
       </div>
     </div>
 
 
     <div class="govuk-grid-column-two-thirds">
-      <p>You may be eligible for the following grants.</p>
+      <!--      <p>You may be eligible for the following grants.</p> -->
+      <div id="summaryToggle" class=""><a href="#">Show grant details</a><span class="govuk-accordion__icon"></span></div>
       <table class="govuk-table">
         <thead class="govuk-table__head">
         <tr class="govuk-table__row">
@@ -217,20 +284,24 @@
 
         {% else %}
 
-          {% for i in range(0, grantList.length) -%}
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell"><a href="grant-details?grant={{ grantList[i] }}">{{ data.import.grants[grantList[i]].code }} {{ data.import.grants[grantList[i]].title }}</a>
-            {% if data.import.grants[grantList[i]].priority %}<span class="govuk-tag--orange" style="font-size: 0.8em;">Local priority<span>{% endif %}
-            </td>
-            <td class="govuk-table__cell" style="width: 100px;">{{ data.import.grants[grantList[i]].type }}</td>
-          </tr>
-          {%- endfor %}
+        {% for i in range(0, grantList.length) -%}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">
+            <h2 class="govuk-heading-m govuk-!-margin-top-2 govuk-!-margin-bottom-2"><a href="grant-details?grant={{ grantList[i] }}">{{ data.import.grants[grantList[i]].code }} {{ data.import.grants[grantList[i]].title }}</a></h2>
+            <div class="grantSummary" class="govuk-!-margin-bottom-4" style="display: none;">
+              <p>{{ data.import.grants[grantList[i]].summary | nl2br | safe}}</p>
+              <p><strong>Funding: </strong> {{ data.import.grants[grantList[i]].payment | toMoney }} per {{ data.import.grants[grantList[i]].measure }}</p>
+            </div>
+          </td>
+          <td class="govuk-table__cell" style="width: 100px;">{{ data.import.grants[grantList[i]].type }}</td>
+        </tr>
+
+        {%- endfor %}
 
         {% endif %}
 
         </tbody>
       </table>
-
     </div>
 
   </form>
