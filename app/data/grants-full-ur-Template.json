@@ -1,12 +1,4 @@
 {
-  "variables": [
-    {
-      "map": "Crossley all.png",
-      "long": "52.812827",
-      "lat": "-1.642885",
-      "u": "Han"
-    }
-  ],
   "grants": [
     {
       "code": "AB1",
@@ -58,7 +50,7 @@
       "code": "AB4",
       "title": "Skylark plots",
       "payment": "9",
-      "measure": "plot",
+      "measure": "plot, plots",
       "calc": "multiply",
       "multiplier": "1",
       "label": "How many plots would you like to dedicate to this? (Minimum of 2 plots per hectare)",
@@ -442,7 +434,6 @@
       "label": "How many metres would you like to apply for?",
       "use": "Boundaries, Priority habitats, Uplands",
       "type": "Capital Item",
-      "priority": "Farmland Birds, Wild Pollinators, Climate change, Landscape characte",
       "summary": "If successful there will be lengths of hedgerow rejuvenated with new growth to form a continuous hedge.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/hedgerow-laying-bn5"
     },
@@ -457,7 +448,6 @@
       "label": "How many metres would you like to apply for?",
       "use": "Boundaries, Priority habitats, Uplands",
       "type": "Capital Item",
-      "priority": "Farmland Birds, Wild Pollinators, Climate change, Landscape character",
       "summary": "If successful there will be lengths of hedgerow rejuvenated with new growth to form a continuous hedge",
       "url": "https://www.gov.uk/countryside-stewardship-grants/hedgerow-coppicing-bn6"
     },
@@ -473,7 +463,6 @@
       "use": "Boundaries, Priority habitats, Uplands, Water quality",
       "packages": "Pollinators and Wildlife, Improving Water Quality",
       "type": "Capital Item",
-      "priority": "Farmland Birds, Wild Pollinators, Water quality, Flood risk management, Climate change, Landscape character ",
       "summary": "If successful there will be lengths of hedgerow with gaps planted up to create a continuous length of hedge.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/hedgerow-gapping-up-bn7"
     },
@@ -502,7 +491,6 @@
       "label": "How many metres would you like to apply for?",
       "use": "Boundaries, Priority habitats, Uplands",
       "type": "Capital Item",
-      "priority": "Other",
       "summary": "If successful, lengths of restored hedgerow which required substantial pre-work or were located on difficult sites will be restored.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/hedgerow-supplement-substantial-pre-work-bn9"
     },
@@ -725,7 +713,6 @@
       "use": "Grassland, Livestock management, Priority habitats, Uplands, Water quality, Woodland",
       "packages": "Improving Water Quality, Climate Change Mitigation and Adaptation",
       "type": "Capital Item",
-      "priority": "Other",
       "summary": "If successful this item will help control livestock and protect environmental features. It will also help to manage habitats.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/fencing-fg1"
     },
@@ -756,7 +743,6 @@
       "use": "Grassland, Livestock management, Priority habitats, Uplands, Water quality",
       "packages": "Improving Water Quality",
       "type": "Capital Item",
-      "priority": "Other",
       "summary": "If successful this item will help control livestock and protect environmental features. It will also help to manage habitats.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/permanent-electric-fencing-fg3"
     },
@@ -1232,7 +1218,6 @@
       "use": "Educational access, Historic environment, Uplands",
       "packages": "Climate Change Mitigation and Adaptation, Heritage, Access and Engagement",
       "type": "Capital Item",
-      "priority": "Historic environment",
       "summary": "It is for physical works that directly relate to conserving or protecting historic environment features in the landscape. This will help the long-term survival of historic and archaeological features.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/historic-and-archaeological-feature-protection-he1"
     },
@@ -2793,7 +2778,6 @@
       "label": "How many trees would you like to plant?",
       "use": "Boundaries, Trees (non-woodland), Uplands",
       "type": "Capital Item",
-      "priority": "Farmland Birds, Wild Pollinators, Climate change, Landscape character",
       "summary": "If successful there will be a newly planted standard hedgerow tree.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/planting-standard-hedgerow-tree-te1"
     },
@@ -2834,7 +2818,6 @@
       "use": "Trees (non-woodland), Uplands, Woodland",
       "packages": "Air Quality, Climate Change Mitigation and Adaptation",
       "type": "Capital Item",
-      "priority": "Flood risk management, Climate change, Ancient and native woodland, Woodland improvement, Woodland creation",
       "summary": "It will help create a range of environmental and social benefits; supports wildlife, particularly when new woodland links habitats or creates a protective buffer; reduces the risk of floods, improve water quality and prevents soil erosion; is resilient and can adapt to climate change; enhances the landscape.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/supply-and-plant-tree-te4"
     },
@@ -2848,7 +2831,6 @@
       "label": "How many tree shelters would you like to apply for?",
       "use": "Trees (non-woodland), Uplands, Woodland",
       "type": "Capital Item",
-      "priority": "Other",
       "summary": "It provides tree shelters to protect young, establishing trees from damage by browsing animals.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/supplement-for-use-of-individual-tree-shelters-te5"
     },
@@ -2862,7 +2844,6 @@
       "label": "How many tree guards would you like to apply for?",
       "use": "Trees (non-woodland), Uplands",
       "type": "Capital Item",
-      "priority": "Other",
       "summary": "If successful this item will protect trees from damage caused by grazing animals and wild animals.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/tree-guard-tube-and-mesh-te6"
     },
@@ -2876,7 +2857,6 @@
       "label": "How many tree guards would you like to apply for?",
       "use": "Priority habitats, Trees (non-woodland), Uplands",
       "type": "Capital Item",
-      "priority": "Other",
       "summary": "If successful this item will protect trees from damage caused by grazing animals and wild animals.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/tree-guard-wood-post-and-rail-te7"
     },
@@ -2890,7 +2870,6 @@
       "label": "How many tree guards would you like to apply for?",
       "use": "Priority habitats, Trees (non-woodland), Uplands",
       "type": "Capital Item",
-      "priority": "Other",
       "summary": "If successful this item will protect trees from damage caused by grazing animals and wild animals.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/tree-guard-wood-post-and-wire-te8"
     },
@@ -3268,7 +3247,6 @@
       "use": "Flood risk, Grassland, Priority habitats, Uplands",
       "packages": "Flood Mitigation and Coastal Risk",
       "type": "Capital Item",
-      "priority": "Waders, Wet grassland",
       "summary": "It restores the wildlife value of overgrown or neglected ditches and helps to establish raised water levels for restoring or creating habitats.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/ditch-dyke-and-rhine-restoration-wn3"
     },
@@ -3638,6 +3616,13 @@
       "name": "Other",
       "summary": " ",
       "ranking": "17"
+    }
+  ],
+  "variables": [
+    {
+      "map": "Crossley all.png",
+      "long": "52.812827",
+      "lat": "-1.642885"
     }
   ]
 }
