@@ -49,7 +49,7 @@
       "code": "AB4",
       "title": "Skylark plots",
       "payment": "9",
-      "measure": "plot, plots",
+      "measure": "plot",
       "calc": "multiply",
       "multiplier": "1",
       "label": "How many plots would you like to dedicate to this? (Minimum of 2 plots per hectare)",
