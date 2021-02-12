@@ -1,4 +1,12 @@
 {
+  "variables": [
+    {
+      "map": "Crossley all.png",
+      "long": "52.812827",
+      "lat": "-1.642885",
+      "u": "Han"
+    }
+  ],
   "grants": [
     {
       "code": "AB1",

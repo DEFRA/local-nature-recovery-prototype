@@ -623,7 +623,7 @@ function dataImport(req, res, next) {
     console.log('loading in data file')
     // pull in JSON data file
     delete req.session.data['import']
-    let grantsFile = 'grants-full-ur7.json'
+    let grantsFile = 'grants-full-ur9.json'
     let path = 'app/data/'
     req.session.data['import'] = loadJSONFromFile(grantsFile, path)
 
