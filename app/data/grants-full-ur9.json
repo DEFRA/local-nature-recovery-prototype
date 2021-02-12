@@ -442,7 +442,7 @@
       "label": "How many metres would you like to apply for?",
       "use": "Boundaries, Priority habitats, Uplands",
       "type": "Capital Item",
-      "priority": "Farmland Birds, Wild Pollinators, Climate change, Landscape characte",
+      "priority": "Farmland Birds, Wild Pollinators, Climate change, Landscape character",
       "summary": "If successful there will be lengths of hedgerow rejuvenated with new growth to form a continuous hedge.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/hedgerow-laying-bn5"
     },
@@ -473,7 +473,7 @@
       "use": "Boundaries, Priority habitats, Uplands, Water quality",
       "packages": "Pollinators and Wildlife, Improving Water Quality",
       "type": "Capital Item",
-      "priority": "Farmland Birds, Wild Pollinators, Water quality, Flood risk management, Climate change, Landscape character ",
+      "priority": "Farmland Birds, Wild Pollinators, Water quality, Flood risk management, Climate change, Landscape character",
       "summary": "If successful there will be lengths of hedgerow with gaps planted up to create a continuous length of hedge.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/hedgerow-gapping-up-bn7"
     },
@@ -1232,7 +1232,7 @@
       "use": "Educational access, Historic environment, Uplands",
       "packages": "Climate Change Mitigation and Adaptation, Heritage, Access and Engagement",
       "type": "Capital Item",
-      "priority": "Historic environment",
+      "priority": "Historic environment, Landscape character",
       "summary": "It is for physical works that directly relate to conserving or protecting historic environment features in the landscape. This will help the long-term survival of historic and archaeological features.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/historic-and-archaeological-feature-protection-he1"
     },
@@ -1320,6 +1320,7 @@
       "calc": "multiply",
       "multiplier": "1",
       "label": "How many hectares (ha) would you like to apply for? ",
+      "priority": "Historic environment",
       "use": "Grassland, Historic environment, Uplands",
       "packages": "Heritage",
       "type": "Option",
