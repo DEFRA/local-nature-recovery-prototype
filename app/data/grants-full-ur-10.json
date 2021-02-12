@@ -4,7 +4,7 @@
       "map": "Crossley all.png",
       "long": "52.812827",
       "lat": "-1.642885",
-      "u": ""
+      "u": "Har"
     }
   ],
   "grants": [
@@ -20,6 +20,7 @@
       "use": "Arable land, Uplands, Water Quality, Pollinators and Wildlife",
       "packages": "Pollinators and Wildlife, Improving Water Quality",
       "type": "Option",
+      "priority": "Farmland Birds, Wild Pollinators, Arable field margins",
       "summary": "This option provides areas of flowering plants to boost essential food sources for beneficial pollinators.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/nectar-flower-mix-ab1"
     },
@@ -35,6 +36,7 @@
       "use": "Arable land, Uplands",
       "packages": "Pollinators and Wildlife, Air Quality",
       "type": "Option",
+      "priority": "Farmland Birds, ",
       "summary": "This option creates a winter food source for seed-eating birds, which feed on spilt grain and the seeds of broad-leaved weeds. It also creates a foraging habitat for brown hare.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/basic-overwinter-stubble-ab2"
     },
@@ -50,6 +52,7 @@
       "use": "Arable land, Uplands, Water quality, Pollinators and wildlife",
       "packages": "Pollinators and Wildlife, Improving Water Quality",
       "type": "Option",
+      "priority": "Farmland Birds, Wild Pollinators",
       "summary": "This option provides nesting and foraging habitats for insects (including those that feed on crop pests), bumblebees, small mammals and some farmland birds",
       "url": "https://www.gov.uk/countryside-stewardship-grants/beetle-banks-ab3"
     },
@@ -64,6 +67,7 @@
       "use": "Arable land, Uplands, Pollinators and wildlife",
       "packages": "Pollinators and Wildlife",
       "type": "Option",
+      "priority": "Farmland Birds",
       "summary": "This option provides skylarks with suitable access to nesting habitats in winter cereal crops throughout their breeding season.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/skylark-plots-ab4"
     },
@@ -79,6 +83,7 @@
       "use": "Arable land, Uplands, Water quality, Pollinators and wildlife",
       "packages": "Pollinators and Wildlife, Improving Water Quality",
       "type": "Option",
+      "priority": "Farmland Birds",
       "summary": "This option provides nesting sites for lapwing on arable land. The plots can also benefit other declining farmland birds, brown hare and some important arable plants.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/nesting-plots-for-lapwing-and-stone-curlew-ab5"
     },
@@ -94,6 +99,7 @@
       "use": "Arable land, Uplands, Pollinators and wildlife",
       "packages": "Pollinators and Wildlife, Air Quality",
       "type": "Option",
+      "priority": "Farmland Birds, Wild Pollinators",
       "summary": "This option provides important winter food sources for seed-eating birds, spring and summer foraging and nesting habitat for other farmland birds and undisturbed habitat for other farmland wildlife including many pollinators.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/enhanced-overwinter-stubble-ab6"
     },
@@ -124,6 +130,7 @@
       "use": "Arable land, Uplands, Pollinators and wildlife",
       "packages": "Pollinators and Wildlife",
       "type": "Option",
+      "priority": "Farmland Birds, Wild Pollinators, Arable field margins",
       "summary": "This option creates flower-rich grass margins or plots that provide important habitat and foraging sites for invertebrates (including wild pollinators) and birds.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/flower-rich-margins-and-plots-ab8"
     },
@@ -139,6 +146,7 @@
       "use": "Arable land, Uplands, Pollinators and wildlife",
       "packages": "Pollinators and Wildlife",
       "type": "Option",
+      "priority": "Farmland Birds",
       "summary": "This option provides important food resources for farmland birds, especially in autumn and winter.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/winter-bird-food-ab9"
     },
@@ -153,6 +161,7 @@
       "label": "How many hectares (ha) would you like to dedicate to this? ",
       "use": "Arable land, Uplands",
       "type": "Option",
+      "priority": "Farmland Birds, Wild Pollinators",
       "summary": "This option will provide an important food source for farmland birds throughout the year; insects in the summer and both grain and seeding arable plants in winter.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/unharvested-cereal-headland-ab10"
     },
@@ -183,6 +192,7 @@
       "hint": "We pay £632 per tonne for every 2 hectares (ha) of winter bird food.",
       "use": "Arable land, Uplands",
       "type": "Option",
+      "priority": "Farmland Birds",
       "summary": "This option will provide important food resources for farmland birds in late winter and early spring on arable land and mixed farms by supplementing grown winter bird food with spread seed, once the sown resources have been depleted and before natural food resources become available again in late spring.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/supplementary-winter-feeding-for-farmland-birds-ab12"
     },
@@ -198,6 +208,7 @@
       "use": "Arable land, Uplands",
       "packages": "Pollinators and Wildlife",
       "type": "Option",
+      "priority": "Farmland Birds",
       "summary": "This option provides foraging sites for seed-eating birds in pastoral areas where broad-leaved plants can persist in the crop and set seed.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/brassica-fodder-crop-ab13"
     },
@@ -212,6 +223,7 @@
       "label": "How many hectares (ha) would you like to dedicate to this? ",
       "use": "Arable land, Uplands",
       "type": "Option",
+      "priority": "Farmland Birds, Wild Pollinators",
       "summary": "This option will deliver an open-structured cereal crop to provide summer foraging sites for declining and localised farmland birds and habitat for brown hare, rare arable plants and pollinator species, such as bees and beneficial insects.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/harvested-low-input-cereal-ab14"
     },
@@ -242,6 +254,7 @@
       "use": "Arable land, Uplands, Pollinators and wildlife",
       "packages": "Pollinators and Wildlife",
       "type": "Option",
+      "priority": "Farmland Birds, Wild Pollinators, ",
       "summary": "This option will provide important food resources for farmland birds and a range of nectar feeding insects, including butterflies and bumblebees on arable land and mixed farms.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/autumn-sown-bumblebird-mix-ab16"
     },
@@ -256,6 +269,7 @@
       "use": "Educational access, Uplands",
       "packages": "Access and Engagement",
       "type": "Capital Item",
+      "priority": "Access and engagement",
       "summary": "If successful there will be greater public accessibility of the countryside or enhanced educational visits.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/access-capital-items-ac1"
     },
@@ -271,6 +285,7 @@
       "use": "Educational access, Uplands",
       "packages": "Access and Engagement",
       "type": "Capital Item",
+      "priority": "Access and engagement",
       "summary": "This allows one member from the agreement holding to go to a training course and become accredited at carrying out enhanced educational experiences.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/countryside-educational-access-visits-accreditation-ac2"
     },
@@ -285,6 +300,7 @@
       "label": "How many hectares (ha) would you like to dedicate to this? ",
       "use": "Arable land, Trees (non-woodland), Uplands",
       "type": "Option",
+      "priority": "Wild Pollinators, Landscape character",
       "summary": "If successful there will be trees protected from agricultural operations and kept as important features in the local landscape. Tree roots will be protected from damage by cultivations with a grass fertiliser free buffer. Undisturbed standing and fallen deadwood will act as an invertebrate habitat.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/protection-of-in-field-trees-on-arable-land-be1"
     },
@@ -299,6 +315,7 @@
       "label": "How many hectares (ha) would you like to dedicate to this? ",
       "use": "Grassland, Trees (non-woodland), Uplands",
       "type": "Option",
+      "priority": "Wild Pollinators, Landscape character",
       "summary": "If successful there will be trees protected from agricultural operations and kept as important features in the local landscape. Tree roots will be protected from damage by cultivations and a grass fertiliser free buffer. Undisturbed standing and fallen deadwood will act as an invertebrate habitat.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/protection-of-in-field-trees-on-intensive-grassland-be2"
     },
@@ -315,6 +332,7 @@
       "use": "Boundaries, Priority habitats, Uplands, Pollinators and wildlife",
       "packages": "Pollinators and Wildlife",
       "type": "Option",
+      "priority": "Farmland Birds, Wild Pollinators, Climate change, Landscape character",
       "summary": "This option increases the availability of blossom for invertebrates. By allowing fruit and berries to ripen it creates food for over-wintering birds. This option will also improve the structure and longevity of hedgerows.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/management-of-hedgerows-be3"
     },
@@ -439,6 +457,7 @@
       "label": "How many metres would you like to apply for?",
       "use": "Boundaries, Priority habitats, Uplands",
       "type": "Capital Item",
+      "priority": "Farmland Birds, Wild Pollinators, Climate change, Landscape character",
       "summary": "If successful there will be lengths of hedgerow rejuvenated with new growth to form a continuous hedge.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/hedgerow-laying-bn5"
     },
@@ -453,6 +472,7 @@
       "label": "How many metres would you like to apply for?",
       "use": "Boundaries, Priority habitats, Uplands",
       "type": "Capital Item",
+      "priority": "Farmland Birds, Wild Pollinators, Climate change, Landscape character",
       "summary": "If successful there will be lengths of hedgerow rejuvenated with new growth to form a continuous hedge",
       "url": "https://www.gov.uk/countryside-stewardship-grants/hedgerow-coppicing-bn6"
     },
@@ -468,6 +488,7 @@
       "use": "Boundaries, Priority habitats, Uplands, Water quality",
       "packages": "Pollinators and Wildlife, Improving Water Quality",
       "type": "Capital Item",
+      "priority": "Farmland Birds, Wild Pollinators, Water quality, Flood risk management, Climate change, Landscape character",
       "summary": "If successful there will be lengths of hedgerow with gaps planted up to create a continuous length of hedge.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/hedgerow-gapping-up-bn7"
     },
@@ -496,6 +517,7 @@
       "label": "How many metres would you like to apply for?",
       "use": "Boundaries, Priority habitats, Uplands",
       "type": "Capital Item",
+      "priority": "Landscape character",
       "summary": "If successful, lengths of restored hedgerow which required substantial pre-work or were located on difficult sites will be restored.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/hedgerow-supplement-substantial-pre-work-bn9"
     },
@@ -510,6 +532,7 @@
       "label": "How many metres would you like to apply for?",
       "use": "Boundaries, Priority habitats, Uplands",
       "type": "Capital Item",
+      "priority": "Landscape character",
       "summary": "If successful there will be lengths of hedgerow rejuvenated with new growth to form a continuous hedge.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/hedgerow-supplement-top-binding-and-staking-bn10"
     },
@@ -524,6 +547,7 @@
       "label": "How many metres would you like to apply for?",
       "use": "Boundaries, Priority habitats, Uplands",
       "type": "Capital Item",
+      "priority": "Farmland Birds, Wild Pollinators, Water quality, Flood risk management, Climate change, Landscape character",
       "summary": "If successful there will be new lengths of hedgerow planted with locally occurring native species.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/planting-new-hedges-bn11"
     },
@@ -701,6 +725,7 @@
       "use": "Educational access, Uplands",
       "packages": "Access and Engagement",
       "type": "Option",
+      "priority": "Access and engagement",
       "summary": "This options lets school pupils visit the farm for educational experiences and allows for care farming visits.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/educational-access-ed1"
     },
@@ -973,6 +998,7 @@
       "use": "Grassland, Uplands, Water quality, Pollinators and wildlife",
       "packages": "Pollinators and Wildlife, Improving Water Quality",
       "type": "Option",
+      "priority": "Wild Pollinators",
       "summary": "This option creates a year-round habitat and food for a range of wildlife. If successful there will be tall grass tussocks with abundant flowering plants during the summer and dead seed heads throughout the winter.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/take-field-corners-out-of-management-gs1"
     },
@@ -1221,6 +1247,7 @@
       "use": "Educational access, Historic environment, Uplands",
       "packages": "Climate Change Mitigation and Adaptation, Heritage, Access and Engagement",
       "type": "Capital Item",
+      "priority": "Historic environment, Landscape character",
       "summary": "It is for physical works that directly relate to conserving or protecting historic environment features in the landscape. This will help the long-term survival of historic and archaeological features.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/historic-and-archaeological-feature-protection-he1"
     },
@@ -1281,6 +1308,7 @@
       "use": "Arable land, Historic environment, Uplands, Water quality",
       "packages": "Improving Water Quality, Heritage",
       "type": "Option",
+      "priority": "Historic environment, Water quality, Landscape character",
       "summary": "This option will protect historic and archaeological features from damaging cultivation practices. Depending on land use and location this option may also reduce diffuse pollution and reduce soil erosion",
       "url": "https://www.gov.uk/countryside-stewardship-grants/take-historic-and-archaeological-features-out-of-cultivation-hs2"
     },
@@ -1296,6 +1324,7 @@
       "use": "Arable land, Historic environment, Uplands",
       "packages": "Heritage",
       "type": "Option",
+      "priority": "Historic environment, Climate change",
       "summary": "This option will reduce damage to historic and archaeological features under cultivation by using non-inversion (minimum tillage) machinery and shallower cultivation depths.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/reduced-depth-non-inversion-cultivation-on-historic-and-archaeological-features-hs3"
     },
@@ -1386,6 +1415,7 @@
       "use": "Arable land, Historic environment, Uplands",
       "packages": "Heritage",
       "type": "Option",
+      "priority": "Historic environment, Water quality",
       "summary": "This option reduces the risk of damage to historic and archaeological features on arable land, particularly where subtle earthwork remains survive.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/restricted-depth-crop-establishment-to-protect-archaeology-under-an-arable-rotation-hs9"
     },
@@ -2274,6 +2304,7 @@
       "use": "Flood risk, Uplands, Water quality",
       "packages": "Improving Water Quality, Flood Mitigation and Coastal Risk",
       "type": "Capital Item",
+      "priority": "Water quality, Flood risk management",
       "summary": "It will support the purchase of equipment that can loosen soil that has compacted in wheeled tramlines. This will help reduce surface runoff, risk of soil erosion damage and water pollution.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/equipment-to-disrupt-tramlines-in-arable-areas-rp31"
     },
@@ -2543,6 +2574,7 @@
       "use": "Arable land, Uplands, Water quality",
       "packages": "Improving Water Quality",
       "type": "Option",
+      "priority": "Water quality, Flood risk management, Climate change, Arable field margins",
       "summary": "This option will establish a permanent grass buffer strip that may provide new habitat, protect existing landscape features, and improve water quality.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/4m-to-6m-buffer-strip-on-cultivated-land-sw1"
     },
@@ -2588,6 +2620,7 @@
       "use": "Arable land, Uplands, Water quality",
       "packages": "Improving Water Quality, Air Quality",
       "type": "Option",
+      "priority": "Water quality, Flood risk management, Arable field margins, Riparian habitats",
       "summary": "This option will establish a permanent grass buffer. This will help reduce the risk of potential pollutants, such as sediment, pesticides and nutrients (mainly phosphate), being transported to watercourses in surface water runoff. It may also provide habitat for wildlife, and form links between other habitats.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/12m-to-24m-watercourse-buffer-strip-on-cultivated-land-sw4"
     },
@@ -2618,6 +2651,7 @@
       "use": "Arable land, Uplands, Water quality",
       "packages": "Improving Water Quality, Air Quality",
       "type": "Option",
+      "priority": "Water quality, Flood risk management",
       "summary": "This option will establish cover crops to reduce nitrate leaching on land that would normally be left bare or down to stubbles during winter. It may also reduce the risk of potential pollutants, such as sediment and nutrients, being carried to neighbouring watercourses.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/winter-cover-crops-sw6"
     },
@@ -2633,6 +2667,7 @@
       "use": "Arable land, Uplands, Water quality",
       "packages": "Improving Water Quality, Air Quality",
       "type": "Option",
+      "priority": "Water quality, Flood risk management",
       "summary": "This option will establish a dense grass sward in arable fields that are at risk of soil erosion or surface runoff. This will stabilise the soil, reduce nutrient losses, and buffer sensitive habitats such as, designated aquatic habitats. It will also reduce surface runoff, which may help to reduce the risk of flooding.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/arable-reversion-to-grassland-with-low-fertiliser-input-sw7"
     },
@@ -2693,6 +2728,7 @@
       "use": "Flood risk, Grassland, Uplands, Water quality",
       "packages": "Improving Water Quality, Flood Mitigation and Coastal Risk, Drought and Wildfire Mitigation",
       "type": "Option",
+      "priority": "Water quality, Flood risk management, Climate change, Riparian habitats, Landscape character",
       "summary": "This option will prevent livestock access to the watercourse and provide a buffer strip. This will help reduce bankside erosion and the transport of pollutants to the watercourse. It will also provide habitat for wildlife and form links between other habitats. It may also as the scrub develops help to shade and cool the watercourse.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/riparian-management-strip-sw11"
     },
@@ -2708,6 +2744,7 @@
       "use": "Flood risk, Priority habitats, Uplands",
       "packages": "Climate Change Mitigation and Adaptation, Flood Mitigation and Coastal Risk, Drought and Wildfire Mitigation",
       "type": "Option",
+      "priority": "Other",
       "summary": "It will help water flow in a winding course across floodplains, flooding temporarily to restore river and wetland habitats. This will also reduce the risk of high energy flows and soil erosion, and allow water to drain freely back into the river channel.\n\nIf successful there will be:\n\nnew areas of river and wetland habitats appearing, such as new channels, temporary ponds in old channels and wet grassland\ngradual erosion and movement of the river bed and river banks\ndeposits of gravel, sand and silt appearing in the river channel and on the floodplain after a flood",
       "url": "https://www.gov.uk/countryside-stewardship-grants/making-space-for-water-sw12"
     },
@@ -2781,6 +2818,7 @@
       "label": "How many trees would you like to plant?",
       "use": "Boundaries, Trees (non-woodland), Uplands",
       "type": "Capital Item",
+      "priority": "Farmland Birds, Wild Pollinators, Climate change, Landscape character",
       "summary": "If successful there will be a newly planted standard hedgerow tree.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/planting-standard-hedgerow-tree-te1"
     },
@@ -2821,6 +2859,7 @@
       "use": "Trees (non-woodland), Uplands, Woodland",
       "packages": "Air Quality, Climate Change Mitigation and Adaptation",
       "type": "Capital Item",
+      "priority": "Flood risk management, Climate change, Woodland improvement, Woodland creation, Landscape character",
       "summary": "It will help create a range of environmental and social benefits; supports wildlife, particularly when new woodland links habitats or creates a protective buffer; reduces the risk of floods, improve water quality and prevents soil erosion; is resilient and can adapt to climate change; enhances the landscape.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/supply-and-plant-tree-te4"
     },
@@ -2847,6 +2886,7 @@
       "label": "How many tree guards would you like to apply for?",
       "use": "Trees (non-woodland), Uplands",
       "type": "Capital Item",
+      "priority": "Other",
       "summary": "If successful this item will protect trees from damage caused by grazing animals and wild animals.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/tree-guard-tube-and-mesh-te6"
     },
@@ -2860,6 +2900,7 @@
       "label": "How many tree guards would you like to apply for?",
       "use": "Priority habitats, Trees (non-woodland), Uplands",
       "type": "Capital Item",
+      "priority": "Other",
       "summary": "If successful this item will protect trees from damage caused by grazing animals and wild animals.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/tree-guard-wood-post-and-rail-te7"
     },
@@ -2873,6 +2914,7 @@
       "label": "How many tree guards would you like to apply for?",
       "use": "Priority habitats, Trees (non-woodland), Uplands",
       "type": "Capital Item",
+      "priority": "Other",
       "summary": "If successful this item will protect trees from damage caused by grazing animals and wild animals.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/tree-guard-wood-post-and-wire-te8"
     },
@@ -2899,6 +2941,7 @@
       "label": "How many trees would you like to coppice?",
       "use": "Trees (non-woodland), Uplands",
       "type": "Capital Item",
+      "priority": "Landscape character",
       "summary": "Bankside habitat will benefit by restorative coppicing of overgrown trees, either by coppicing to ground level and allowing the cut stool to regrow or by singling of an overgrown coppice stool where a single stem is selected and allowed to grow on to a mature tree.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/coppicing-bankside-trees-te10"
     },
@@ -2938,6 +2981,7 @@
       "label": "How many trees would you like to apply for? ",
       "use": "Priority habitats, Trees (non-woodland), Uplands",
       "type": "Capital Item",
+      "priority": "Farmland Birds, Woodland improvement",
       "summary": "It promotes continuity in the provision of dead wood habitat to benefit rare or specialised wildlife where there is a generational gap between existing veteran trees and their successors.\n\nIf successful there will be deliberate ‘damage’ or ageing of younger trees in association with veteran trees where there is a generation gap in the recruitment of future veterans. This will mimic the natural damage caused for example by lightning strikes, branch failure and woodpecker holes, speeding up of the process of producing valuable wood decay habitats otherwise only found in very old trees.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/creation-of-dead-wood-habitat-on-trees-te13"
     },
@@ -3048,6 +3092,7 @@
       "label": "How many boxes would you like to apply for?",
       "use": "Uplands, Pollinators and wildlife",
       "type": "Capital Item",
+      "priority": "Farmland Birds, Wild Pollinators",
       "summary": "This item provides artificial nesting, roosting and hibernation sites for specific mammals, birds and invertebrates.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/small-wildlife-box-wb1"
     },
@@ -3061,6 +3106,7 @@
       "label": "How many boxes would you like to apply for?",
       "use": "Uplands, Pollinators and wildlife",
       "type": "Capital Item",
+      "priority": "Farmland Birds",
       "summary": "This item provides artificial nesting, roosting and hibernation sites for specific mammals and birds. This includes tree sparrow and targeted bat species.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/medium-wildlife-box-wb2"
     },
@@ -3074,6 +3120,7 @@
       "label": "How many boxes would you like to apply for?",
       "use": "Uplands, Pollinators and wildlife",
       "type": "Capital Item",
+      "priority": "Farmland Birds",
       "summary": "This item provides artificial nesting and roosting sites for large birds, in particular barn owls and kestrels.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/large-wildlife-box-wb3"
     },
@@ -3089,6 +3136,7 @@
       "use": "Uplands, Water quality, Woodland",
       "packages": "Improving Water Quality, Climate Change Mitigation and Adaptation",
       "type": "Option",
+      "priority": "Woodland creation",
       "summary": "It will help create woodland that:\n\nsupports wildlife, by linking habitats together or providing a protective buffer between them\nreduces the risk of floods, improves water quality and prevents soil erosion\nis resilient and can adapt to climate change\nenhances the landscape",
       "url": "https://www.gov.uk/countryside-stewardship-grants/woodland-creation-maintenance-payments-wd1"
     },
@@ -3104,6 +3152,7 @@
       "use": "Uplands, Woodland",
       "packages": "Climate Change Mitigation and Adaptation",
       "type": "Option",
+      "priority": "Other",
       "summary": "It will improve the biodiversity of woodland and/or make it more resilient to climate change.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/woodland-improvement-wd2"
     },
@@ -3118,6 +3167,7 @@
       "label": "How many hectares (ha) would you like to dedicate to this? ",
       "use": "Arable land, Uplands, Woodland",
       "type": "Option",
+      "priority": "Wild Pollinators, Water quality, Climate change, Arable field margins, Landscape character",
       "summary": "This option allows a scrub and grass mosaic to develop on the strip of land adjacent to woodland. If successful a scrub and grass mosaic will have developed through natural regeneration between the arable land and existing woodland. New woodland edge habitat will have been created resulting in an increase in birds, invertebrates, small mammals and other wildlife.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/woodland-edges-on-arable-land-wd3"
     },
@@ -3177,6 +3227,7 @@
       "label": "How many hectares (ha) would you like to dedicate to this? ",
       "use": "Priority habitats, Uplands",
       "type": "Option",
+      "priority": "Wild Pollinators, Water quality, Flood risk management",
       "summary": "This option enhances habitats for a wide range of wildlife and improves the quality of the woodland edge. It also helps prevent soil erosion and holds back water to reduce downstream flood risks.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/management-of-successional-areas-and-scrub-wd7"
     },
@@ -3192,6 +3243,7 @@
       "use": "Flood risk, Priority habitats, Uplands",
       "packages": "Flood Mitigation and Coastal Risk, Drought and Wildfire Mitigation",
       "type": "Option",
+      "priority": "Wild Pollinators, Water quality, Flood risk management",
       "summary": "It regenerates a succession of scrub. This enhances habitats for specific target species and improves the quality of the woodland edge.\n\nEstablishing scrub growth also restricts soil erosion and holds back water to reduce downstream flood risks.\n\nIf successful there will be:\n\nmore scrub growing close to grassland, woodland and other habitats\nbirds and invertebrates using the scrub\nless soil erosion in scrub areas\nreduced flooding in scrub areas",
       "url": "https://www.gov.uk/countryside-stewardship-grants/creation-of-successional-areas-and-scrub-wd8"
     },
@@ -3250,6 +3302,7 @@
       "use": "Flood risk, Grassland, Priority habitats, Uplands",
       "packages": "Flood Mitigation and Coastal Risk",
       "type": "Capital Item",
+      "priority": "Water quality, Flood risk management, Riparian habitats, Landscape character",
       "summary": "It restores the wildlife value of overgrown or neglected ditches and helps to establish raised water levels for restoring or creating habitats.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/ditch-dyke-and-rhine-restoration-wn3"
     },
@@ -3280,6 +3333,7 @@
       "use": "Priority habitats, Uplands",
       "packages": "Drought and Wildfire Mitigation",
       "type": "Capital Item",
+      "priority": "Landscape character",
       "summary": "This item will create networks or complexes of at least 3 ponds and restore the wildlife value of ponds that have become degraded.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/pond-management-first-100-sq-m-wn5"
     },
@@ -3295,6 +3349,7 @@
       "use": "Priority habitats, Uplands",
       "packages": "Drought and Wildfire Mitigation",
       "type": "Capital Item",
+      "priority": "Landscape character",
       "summary": "This item will create networks or complexes of at least 3 ponds and restore the wildlife value of ponds that have become degraded.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/pond-management-areas-more-than-100-sq-m-wn6"
     },
@@ -3368,6 +3423,7 @@
       "use": "Grassland, Uplands, Water quality, Pollinators and wildlife",
       "packages": "Pollinators and Wildlife, Improving Water Quality",
       "type": "Option",
+      "priority": "Wild Pollinators, Water quality, Landscape character",
       "summary": "This option will protect ponds and high value ditches from nutrient leaching and runoff. This will maintain and enhance water quality and wildlife.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/buffering-in-field-ponds-and-ditches-in-improved-grassland-wt1"
     },
@@ -3383,6 +3439,7 @@
       "use": "Arable land, Uplands, Water quality, Pollinators and wildlife",
       "packages": "Pollinators and Wildlife, Improving Water Quality",
       "type": "Option",
+      "priority": "Wild Pollinators, Water quality, Landscape character",
       "summary": "This option will protect ponds and high value ditches from nutrient leaching and runoff. This will maintain and enhance water quality and wildlife.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/buffering-in-field-ponds-and-ditches-on-arable-land-wt2"
     },
@@ -3399,6 +3456,7 @@
       "use": "Flood risk, Priority habitats, Uplands",
       "packages": "Flood Mitigation and Coastal Risk, Drought and Wildfire Mitigation",
       "type": "Option",
+      "priority": "Riparian habitats, Landscape character",
       "summary": "It will manage ditches of high environmental value that support target species of plants, birds, mammals and invertebrates. It will also manage ditches that are essential to carrying out the wet grassland and wetland options.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/management-of-ditches-of-high-environmental-value-wt3"
     },
@@ -3413,6 +3471,7 @@
       "use": "Priority habitats, Uplands",
       "packages": "Climate Change Mitigation and Adaptation",
       "type": "Option",
+      "priority": "Riparian habitats, Landscape character",
       "summary": "It will protect and enhance small ponds of high wildlife value.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/pond-management-first-100-sq-m-wt4"
     },
@@ -3427,6 +3486,7 @@
       "use": "Priority habitats, Uplands",
       "packages": "Climate Change Mitigation and Adaptation",
       "type": "Option",
+      "priority": "Riparian habitats, Landscape character",
       "summary": "It will protect and enhance larger ponds of high wildlife value.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/pond-management-areas-more-than-100-sq-m-wt5"
     },
