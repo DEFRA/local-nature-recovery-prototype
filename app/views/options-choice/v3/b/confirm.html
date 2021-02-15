@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+You have added {{ data.import.grants[data.prototype.grantNum].code }} {{ data.import.grants[data.prototype.grantNum].title }} to your plan
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+homepageUrl: "/",
+serviceName: serviceName,
+serviceUrl: "/",
+classes: "app-light-header",
+containerClasses: "govuk-width-container",
+navigation: []
+}) }}
+
+<div class="moj-primary-navigation">
+
+  <div class="moj-primary-navigation__container">
+
+    <div class="moj-primary-navigation__nav">
+
+      <nav class="moj-primary-navigation" aria-label="Primary navigation">
+
+        <ul class="moj-primary-navigation__list">
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="grants">Home</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="local-priorities">Your priorities</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="search-results">Search all grants</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="plan">Your plan</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href=""></a>
+          </li>
+        </ul>
+
+      </nav>
+
+    </div>
+    <div class="moj-primary-navigation__search">
+
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block beforeContent %}
+  <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+      {% set html %}
+      <p class="govuk-notification-banner__heading">
+        You have added {{ data.import.grants[data.prototype.grantNum].code }}  {{ data.import.grants[data.prototype.grantNum].title }} to your plan
+        <a class="govuk-notification-banner__link" href="plan">View plan</a>.
+      </p>
+      {% endset %}
+
+      {{ govukNotificationBanner({
+      html: html,
+      titleHtml: 'Success',
+      classes: 'govuk-!-margin-top-0'
+      }) }}
+
+
+
+    <h2 class="govuk-heading-m">There are 8 related options to {{ data.import.grants[data.prototype.grantNum].code }}  {{ data.import.grants[data.prototype.grantNum].title }}</h2>
+    <hr>
+
+    <table class="govuk-table">
+      <tbody class="govuk-table__body>
+
+    {% for i in range(40, 48) -%}
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">{{ data.import.grants[i].code }} {{ data.import.grants[i].title }}</td>
+      <td class="govuk-table__cell"><a href="grant-details?grant={{ i }}">view</a></td>
+    </tr>
+    {%- endfor %}
+
+    </tbody>
+    </table>
+
+  </div>
+
+</div>
+
+{% endblock %}

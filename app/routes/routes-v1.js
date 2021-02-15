@@ -555,7 +555,13 @@ router.post("/options-choice/*/configure", function (req, res) {
 
   req.session.data['plan'] = plan
 
-  res.redirect('plan')
+  if (prototype.version === 'options-choice/v3/b') { // TODO make this ignore the version number
+    res.redirect('confirm')
+  } else {
+    res.redirect('plan')
+  }
+
+
 })
 
 // Create array of search results
