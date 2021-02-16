@@ -79,18 +79,16 @@ navigation: []
       classes: 'govuk-!-margin-top-0'
       }) }}
 
-
-
-    <h2 class="govuk-heading-m">There are 8 related options to {{ data.import.grants[data.prototype.grantNum].code }}  {{ data.import.grants[data.prototype.grantNum].title }}</h2>
+    <h2 class="govuk-heading-m">There are {{ relatedList.length }} available grants related to {{ data.import.grants[data.prototype.grantNum].code }}  {{ data.import.grants[data.prototype.grantNum].title }}</h2>
     <hr>
 
     <table class="govuk-table">
       <tbody class="govuk-table__body">
 
-    {% for i in range(40, 48) -%}
+    {% for i in range(0, relatedList.length) -%}
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">{{ data.import.grants[i].code }} {{ data.import.grants[i].title }}</td>
-      <td class="govuk-table__cell"><a href="grant-details?grant={{ i }}">view</a></td>
+      <td class="govuk-table__cell">{{ data.import.grants[relatedList[i]].code }} {{ data.import.grants[relatedList[i]].title }}</td>
+      <td class="govuk-table__cell"><a href="grant-details?grant={{ relatedList[i] }}">view</a></td>
     </tr>
     {%- endfor %}
 

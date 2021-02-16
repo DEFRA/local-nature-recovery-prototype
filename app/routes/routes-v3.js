@@ -22,10 +22,11 @@ router.get('/options-choice/*/confirm', function (req, res) {
   let prototype = req.session.data['prototype']
   // add all the values if they don't already exist
 
+  grantNum = prototype.grantNum // pulls the value from the button
 
   // we could generate a simple array to hold all the related items - nunjucts could easily use that to render the page
   // something like [5,47,67]
-  const relatedList = [] // lets store the related items here
+  const relatedList = [0,1,2,3,4,5,7,8,9,11,12,13,15] // lets store the related items here
 
 
   // write back these values into the session data
@@ -37,6 +38,8 @@ router.get('/options-choice/*/confirm', function (req, res) {
     'relatedList': relatedList
   })
 })
+
+
 
 // function to search arrays for matches against other arrays
 var findOne = function (haystack, arr) {
