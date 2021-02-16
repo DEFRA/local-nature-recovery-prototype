@@ -5,12 +5,44 @@ var nunjucks  = require('nunjucks')
 var env = nunjucks.configure()
 
 router.post('/options-choice/*/sbi-number', function (req, res) {
-    res.redirect('sbi-land-confirm')
+  res.redirect('sbi-land-confirm')
 })
 
-// router.post('/options-choice/*/sbi-land-confirm', function (req, res) {
-//     console.log('inside sbi-number route');
-//     //res.redirect('sbi-land-confirm')
-// })
+
+// Create array of search results
+router.get('/options-choice/*/confirm', function (req, res) {
+  // check for data
+  if (!req.session.data['import']) {
+    res.redirect('/error')
+  }
+
+  // get the objects
+  var grants = req.session.data['import'].grants
+  // lets grab the prototype object as a place to store the selected filters
+  let prototype = req.session.data['prototype']
+  // add all the values if they don't already exist
+
+
+  // we could generate a simple array to hold all the related items - nunjucts could easily use that to render the page
+  // something like [5,47,67]
+  const relatedList = [] // lets store the related items here
+
+
+  // write back these values into the session data
+  req.session.data['prototype'] = prototype
+
+  // find the right version to render
+  let version = req.session.data['prototype'].version
+  return res.render(version + '/confirm', {
+    'relatedList': relatedList
+  })
+})
+
+// function to search arrays for matches against other arrays
+var findOne = function (haystack, arr) {
+  return arr.some(function (v) {
+    return haystack.indexOf(v) >= 0
+  })
+}
 
 module.exports = router
