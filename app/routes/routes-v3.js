@@ -8,7 +8,6 @@ router.post('/options-choice/*/sbi-number', function (req, res) {
   res.redirect('sbi-land-confirm')
 })
 
-
 // Create array of search results
 router.get('/options-choice/*/confirm', function (req, res) {
   // check for data
@@ -26,8 +25,13 @@ router.get('/options-choice/*/confirm', function (req, res) {
 
   // we could generate a simple array to hold all the related items - nunjucts could easily use that to render the page
   // something like [5,47,67]
-  const relatedList = [0,1,2,3,4,5,7,8,9,11,12,13,15] // lets store the related items here
+  const relatedList = [] // lets store the related items here
 
+
+  // if nothing relates create a fallback for the prototype to display
+  if (relatedList.length === 0) {
+    relatedList.push(0, 1, 2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15)
+  }
 
   // write back these values into the session data
   req.session.data['prototype'] = prototype
@@ -38,8 +42,6 @@ router.get('/options-choice/*/confirm', function (req, res) {
     'relatedList': relatedList
   })
 })
-
-
 
 // function to search arrays for matches against other arrays
 var findOne = function (haystack, arr) {
