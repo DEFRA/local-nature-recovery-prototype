@@ -30,7 +30,7 @@ navigation: []
           </li>
 
           <li class="moj-primary-navigation__item">
-            <a class="moj-primary-navigation__link" href="local-priorities">Your priorities</a>
+            <a class="moj-primary-navigation__link" href="local-priorities">Your local priorities</a>
           </li>
 
           <li class="moj-primary-navigation__item">
@@ -250,33 +250,33 @@ navigation: []
           </div>
         </div>
 
-        <!--          <div class="govuk-accordion__section">-->
-        <!--              <div class="govuk-accordion__section-header">-->
-        <!--                  <h2 class="govuk-accordion__section-heading">-->
-        <!--              <span class="govuk-accordion__section-button" id="accordion-default-heading-3" style="font-weight: normal; font-size: 0.9em;">-->
-        <!--                Local priority-->
-        <!--              </span>-->
-        <!--                  </h2>-->
-        <!--              </div>-->
-        <!--              <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">-->
-        <!--                  <div class="govuk-form-group">-->
-        <!--                      <fieldset class="govuk-fieldset">-->
-        <!--                          <div class="govuk-checkboxes govuk-checkboxes&#45;&#45;small">-->
+        <div class="govuk-accordion__section">
+            <div class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-3" style="font-weight: normal; font-size: 0.9em;">
+              Local priority
+            </span>
+                </h2>
+            </div>
+            <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                        <div class="govuk-checkboxes govuk-checkboxes--small">
 
-        <!--                              {% for i in range(0, data.prototype.filterLocal.length) -%}-->
-        <!--                              <div class="govuk-checkboxes__item">-->
-        <!--                                  <input onchange="this.form.submit()" {{ data.prototype.filterLocal[i][1] }} class="govuk-checkboxes__input" id="f_local_p-{{i}}" name="f_local_p" type="checkbox" value="{{ data.prototype.filterLocal[i][0] }}">-->
-        <!--                                  <label class="govuk-label govuk-checkboxes__label" for="f_local_p-{{i}}">-->
-        <!--                                      {{ data.prototype.filterLocal[i][0] }}-->
-        <!--                                  </label>-->
-        <!--                              </div>-->
-        <!--                              {%- endfor %}-->
+                            {% for i in range(0, data.prototype.filterLocal.length) -%}
+                            <div class="govuk-checkboxes__item">
+                                <input onchange="this.form.submit()" {{ data.prototype.filterLocal[i][1] }} class="govuk-checkboxes__input" id="f_local_p-{{i}}" name="f_local_p" type="checkbox" value="{{ data.prototype.filterLocal[i][0] }}">
+                                <label class="govuk-label govuk-checkboxes__label" for="f_local_p-{{i}}">
+                                    {{ data.prototype.filterLocal[i][0] }}
+                                </label>
+                            </div>
+                            {%- endfor %}
 
-        <!--                          </div>-->
-        <!--                      </fieldset>-->
-        <!--                  </div>-->
-        <!--              </div>-->
-        <!--          </div>-->
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
       </div>
     </div>
 
@@ -311,7 +311,11 @@ navigation: []
         {% for i in range(0, grantList.length) -%}
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">
-            <h2 class="govuk-heading-m govuk-!-margin-top-2 govuk-!-margin-bottom-2"><a href="grant-details?grant={{ grantList[i] }}">{{ data.import.grants[grantList[i]].code }} {{ data.import.grants[grantList[i]].title }}</a></h2>
+            <h2 class="govuk-heading-m govuk-!-margin-top-2 govuk-!-margin-bottom-2" style="display: inline-block">
+              <a href="grant-details?grant={{ grantList[i] }}">{{ data.import.grants[grantList[i]].code }} {{ data.import.grants[grantList[i]].title }}</a>
+
+            </h2>
+            {% if data.import.grants[grantList[i]].priority %}<span class="govuk-tag--orange" style="font-size: 0.8em;">Local priority</span>{% endif %}
             <div class="grantSummary" class="govuk-!-margin-bottom-4" style="display: none;">
               <p>{{ data.import.grants[grantList[i]].summary | nl2br | safe}}</p>
               <p><strong>Funding: </strong> {{ data.import.grants[grantList[i]].payment | toMoney }} per {{ data.import.grants[grantList[i]].measure }}</p>
