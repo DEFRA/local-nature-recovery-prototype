@@ -60,9 +60,40 @@ navigation: []
 
 {% block content %}
 
+<style type="text/css">
+  .govuk-grid-column-full {
+    position: relative;
+  }
+  #summaryToggle {
+    /*float: right;*/
+    position: absolute;
+    right: 15px;
+    top: -30px;
+  }
+  #summaryToggle .govuk-accordion__icon {
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    width: 12px;
+    height: 12px;
+    margin-top: -6px;
+  }
+  #summaryToggle .govuk-accordion__icon.hidden::after {
+    height: 0% !important;
+  }
+  #summaryToggle .govuk-accordion__icon::before,
+  #summaryToggle .govuk-accordion__icon::after {
+    border: 1px solid transparent !important;
+  }
+  #summaryToggle .govuk-accordion__icon:after {
+    height: 100% !important;
+  }
+</style>
+
   <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
+
 
       {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
@@ -79,16 +110,41 @@ navigation: []
       classes: 'govuk-!-margin-top-0'
       }) }}
 
-    <h2 class="govuk-heading-m">There are {{ relatedList.length }} available grants related to {{ data.import.grants[data.prototype.grantNum].code }}  {{ data.import.grants[data.prototype.grantNum].title }}</h2>
-    <hr>
+    </div>
+
+  </div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full" style="position: relative">
+
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-6">There are {{ relatedList.length }} available grants related to {{ data.import.grants[data.prototype.grantNum].code }}  {{ data.import.grants[data.prototype.grantNum].title }}</h2>
+
+    <div class="govuk-!-padding-top-10" style="position: relative;">
+      <div id="summaryToggle" class=""><a href="#">Show grant details</a><span class="govuk-accordion__icon"></span></div>
+    </div>
 
     <table class="govuk-table">
+
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Grant name</th>
+        <th scope="col" class="govuk-table__header" style="width: 150px;">Type</th>
+      </tr>
+      </thead>
+
       <tbody class="govuk-table__body">
 
     {% for i in range(0, relatedList.length) -%}
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">{{ data.import.grants[relatedList[i]].code }} {{ data.import.grants[relatedList[i]].title }}</td>
-      <td class="govuk-table__cell"><a href="grant-details?grant={{ relatedList[i] }}">view</a></td>
+      <td class="govuk-table__cell">
+        <a href="grant-details?grant={{ relatedList[i] }}">{{ data.import.grants[relatedList[i]].code }} {{ data.import.grants[relatedList[i]].title }}</a>
+        {% if data.import.grants[relatedList[i]].priority %}<span class="govuk-tag--orange" style="font-size: 0.8em;">Local priority</span>{% endif %}
+        <div class="grantSummary govuk-!-margin-4" style="display: none;margin-top: 20px;margin-bottom: 20px;">{{ data.import.grants[relatedList[i]].summary | nl2br | safe }}</div>
+        <div class="grantSummary govuk-!-margin-4" style="display: none;margin-top: 20px;margin-bottom: 20px;"><strong>Funding: </strong>{{ data.import.grants[relatedList[i]].payment | toMoney }} per {{ data.import.grants[relatedList[i]].measure }}</div>
+        <div class="grantSummary govuk-!-margin-4" style="display: none;margin-top: 20px;margin-bottom: 20px;"><strong>Related environmental benefits: </strong>{{ data.import.grants[relatedList[i]].packages }}</div>
+      </td>
+      <td class="govuk-table__cell">{{ data.import.grants[relatedList[i]].type }}</td>
     </tr>
     {%- endfor %}
 
