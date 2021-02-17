@@ -125,7 +125,7 @@ navigation: []
         {{ data.import.grants[data.prototype.grantNum].code }}  {{ data.import.grants[data.prototype.grantNum].title }}
       </h1>
 
-      {% if data.import.grants[data.prototype.grantNum].priority === 'TRUE' %}
+      {% if data.import.grants[data.prototype.grantNum].priority %}
 
       <div class="govuk-inset-text">
         <h2 class="govuk-heading-m">Local priority</h2>
