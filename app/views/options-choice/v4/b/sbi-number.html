@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Enter the SBI number
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+homepageUrl: "/",
+serviceName: serviceName,
+serviceUrl: "/",
+containerClasses: "govuk-width-container"
+}) }}
+{% endblock %}
+
+
+{% block beforeContent %}
+  <a href="location" class="govuk-back-link">Go Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="{{ thisPage }}" method="post" role="form">
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="sbi">
+            Enter your Single Business Identifier (SBI) number
+          </label>
+<!--          <p>(You will need to repeat this process if you have more than one holding). </p>-->
+          </h1>
+
+          <div id="sbi-hint" class="govuk-hint">
+            <p>
+              The SBI is a unique nine digit number (eg 123456789). Find it by logging into the Rural Payments portal and looking at the Business Details section. 
+            </p>
+<!--            If you have more than one number, enter the most central one.-->
+          </div>
+
+          <input class="govuk-input govuk-input--width-10" id="sbi" name="sbi" type="text" spellcheck="false" aria-describedby="sbi-hint" value="{{ data['postcode']}}">
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+<!--        <p><a href="plan">Skip and configure later</a></p>-->
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -36,6 +36,8 @@ router.post('/options-choice/*/land-use', function (req, res) {
 
   if (prototype.version === 'options-choice/v2/b' || prototype.version === 'options-choice/v3/b') { // TODO make this ignore the version number
     res.redirect('local-priorities')
+  } else if (prototype.version === 'options-choice/v4/b') {
+    res.redirect('grants')
   } else {
     res.redirect('search-results')
   }
@@ -555,7 +557,7 @@ router.post("/options-choice/*/configure", function (req, res) {
 
   req.session.data['plan'] = plan
 
-  if (prototype.version === 'options-choice/v3/b') { // TODO make this ignore the version number
+  if (prototype.version === 'options-choice/v3/b' || prototype.version === 'options-choice/v4/b') { // TODO make this ignore the version number
     res.redirect('confirm')
   } else {
     res.redirect('plan')

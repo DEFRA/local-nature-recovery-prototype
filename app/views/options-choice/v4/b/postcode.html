@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Enter the postcode
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+homepageUrl: "/",
+serviceName: serviceName,
+serviceUrl: "/",
+containerClasses: "govuk-width-container"
+}) }}
+{% endblock %}
+
+
+{% block beforeContent %}
+  <a href="location" class="govuk-back-link">Go Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="land-use" method="get"  role="form">
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="postcode">
+            Enter the postcode of your land
+<!--            <p>(You will need to repeat this process if you have more than one holding).</p>-->
+          </label>
+          </h1>
+
+          <div id="postcode-hint" class="govuk-hint">
+            If you have more than one holding, enter the most central one.
+          </div>
+
+          <input class="govuk-input govuk-input--width-5" id="postcode" name="postcode" type="text" spellcheck="false" aria-describedby="postcode-hint" value="{{ data['postcode']}} ">
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+<!--        <p><a href="plan">Skip and configure later</a></p>-->
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

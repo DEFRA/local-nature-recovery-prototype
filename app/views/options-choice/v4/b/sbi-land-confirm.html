@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Enter the SBI number
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+homepageUrl: "/",
+serviceName: serviceName,
+serviceUrl: "/",
+containerClasses: "govuk-width-container"
+}) }}
+{% endblock %}
+
+
+{% block beforeContent %}
+  <a href="sbi-number" class="govuk-back-link">Go Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="land-use" method="get" role="form">
+        <h1 class="govuk-heading-xl">Confirm the location of your land</h1>
+        <p>Your SBI number: {{ data['sbi'] or '123456789' }} returned the following location. <br>
+            Please check on the map that it is correct.</p>
+
+        <div class="govuk-!-margin-bottom-4" style="border: solid 3px black;">
+            <img class="img" src="/public/images/{{ data.import.variables[0].map }}" alt="Map of holdings" style="width: 100%; display: inine-block;"/>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Confirm and continue</button>
+
+        <p><a href="map">This is not my land, find it on a map instead</a></p>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

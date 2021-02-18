@@ -1,0 +1,211 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ data.import.grants[data.prototype.grantNum].title }}
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+homepageUrl: "/",
+serviceName: serviceName,
+serviceUrl: "/",
+classes: "app-light-header",
+containerClasses: "govuk-width-container",
+navigation: []
+}) }}
+
+<div class="moj-primary-navigation">
+
+  <div class="moj-primary-navigation__container">
+
+    <div class="moj-primary-navigation__nav">
+
+      <nav class="moj-primary-navigation" aria-label="Primary navigation">
+
+        <ul class="moj-primary-navigation__list">
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="grants">Home</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="search-results">Search all grants</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="plan">Your plan</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href=""></a>
+          </li>
+        </ul>
+
+      </nav>
+
+    </div>
+    <div class="moj-primary-navigation__search">
+
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block beforeContent %}
+  <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<style type="text/css">
+  .gem-c-govspeak {
+    color: #0b0c0c;
+    font-family: "nta",arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.1428571429;
+  }
+
+  .gem-c-govspeak h2:first-child, .gem-c-govspeak h3:first-child, .gem-c-govspeak h4:first-child, .gem-c-govspeak p:first-child {
+    margin-top: 0;
+  }
+
+  @media (min-width: 48.0625em)
+    .gem-c-govspeak h2 {
+      margin-top: 45px;
+      margin-bottom: 0;
+    }
+    @media (min-width: 40.0625em)
+      .gem-c-govspeak h2 {
+        font-size: 27px;
+        line-height: 1.1111111111;
+      }
+      .gem-c-govspeak h2 {
+        font-family: "nta",arial,sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 1.1111111111;
+        margin-top: 30px;
+        margin-bottom: 0;
+      }
+
+      .gem-c-govspeak .call-to-action {
+        margin: 2em 0;
+        background-color: #f3f2f1;
+        padding: 2em;
+      }
+
+      .gem-c-govspeak ol, .gem-c-govspeak ul, .gem-c-govspeak p {
+        font-size: 19px;
+        line-height: 1.3157894737;
+      }
+
+      .govuk-accordion__controls {
+        display: none;
+      }
+  </style>
+
+<form action="{{ thisPage }}" method="POST" role="form">
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {{ data.import.grants[data.prototype.grantNum].code }} {{ data.import.grants[data.prototype.grantNum].title }}
+      </h1>
+
+      <p>{{ data.import.grants[data.prototype.grantNum].summary | nl2br | safe }}</p>
+
+      <div class="gem-c-govspeak">
+        <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+          <div class="govuk-accordion__section ">
+            <div class="govuk-accordion__section-header">
+              <h2 class="govuk-accordion__section-heading">
+                <span class="govuk-accordion__section-button" id="accordion-default-heading-1{{ data.prototype.grantNum }}" aria-controls="accordion-default-content-1{{ data.prototype.grantNum }}">
+                  <a href="#">Read eligibility and requirements</a>
+                </span>
+              </h2>
+            </div>
+            <div id="accordion-default-content-1{{ data.prototype.grantNum }}" class="govuk-accordion__section-content accordion-default-heading" aria-labelledby="accordion-default-heading-{{ data.prototype.grantNum }}">
+              <div class="gem-c-govspeak">
+                {{ govtext | safe }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <div style="background-color: #f0f0f0; padding: 1.5em 1.5em 0.01em; margin-bottom: 1em">
+
+        <h3 class="govuk-heading-m">Grant details</h3>
+
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">Grant type</td>
+            <td class="govuk-table__cell">{{ data.import.grants[data.prototype.grantNum].type }}</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">Land use</td>
+            <td class="govuk-table__cell">{{ data.import.grants[data.prototype.grantNum].use }}</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="border-bottom: none;">Funding</td>
+            <td class="govuk-table__cell" style="border-bottom: none;">{{ data.import.grants[data.prototype.grantNum].payment | toMoney }} per {{ unit }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+<!--    <input type="hidden" name="grantNum" value="{{ data.prototype.grantNum }}">-->
+
+    <button type="submit" class="govuk-button" name="grantNum" value="{{ data.prototype.grantNum }}" style="margin-bottom: 3em">Add this grant to my plan</button>
+  </div>
+
+</div>
+
+</form>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-s">4 related options</h2>
+    <hr>
+
+    <table class="govuk-table">
+      <tbody class="govuk-table__body">
+
+    {% for i in range(0, 4) -%}
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">{{ data.import.grants[i].code }} {{ data.import.grants[i].title }}</td>
+      <td class="govuk-table__cell"><a href="grant-details?grant={{ i }}">view</a></td>
+    </tr>
+    {%- endfor %}
+
+    </tbody>
+    </table>
+
+  </div>
+
+</div>
+
+{% endblock %}

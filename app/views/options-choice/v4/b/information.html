@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Information page
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+homepageUrl: "/",
+serviceName: serviceName,
+serviceUrl: "/",
+classes: "app-light-header",
+containerClasses: "govuk-width-container",
+navigation: []
+}) }}
+
+<div class="moj-primary-navigation">
+
+  <div class="moj-primary-navigation__container">
+
+    <div class="moj-primary-navigation__nav">
+
+      <nav class="moj-primary-navigation" aria-label="Primary navigation">
+
+        <ul class="moj-primary-navigation__list">
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="grants">Home</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="local-priorities">Your local priorities</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="plan">Your plan</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="search-results">Search all grants</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+    <div class="moj-primary-navigation__search">
+
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="start">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        What is Local Nature Recovery for?
+      </h1>
+
+      <p>Part of the Environmental Land Management scheme, Local Nature Recovery will introduce a new approach to paying for public goods with:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>more choice and control for farmers</li>
+        <li>a greater focus on outcomes and the main practices that support them</li>
+        <li>a fairer, more supportive and effective approach to land management</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">What is included?</h2>
+
+      <p>We will pay for delivery of land management actions that contribute to:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>clean air</li>
+        <li>clean and plentiful water</li>
+        <li>thriving plants and wildlife</li>
+        <li>reduction in and protection from environmental hazards</li>
+        <li>mitigation of and adaptation to climate change</li>
+        <li>enhanced beauty, heritage and engagement with the environment</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">How does the Local Nature Recovery scheme work?</h2>
+
+      <p>Local Nature Recovery will pay for actions that deliver environmental benefits.</p>
+
+      <p>You can add separate options to your application that offer improvements such as in overall air quality or wildlife habitation.</p>
+
+      <p>Local Nature Recovery is a competitive process. This means that applications containing components marked as 'Local Priority' are more likely to be successful than other, lower priority bids. </p>
+
+      <h2 class="govuk-heading-m">How will you pay for public goods?</h2>
+
+      <p>The way we pay for public goods will be different with less prescription, more choice and greater flexibility.</p>
+
+      <p>The length of the agreements will be flexible according to individual circumstances and the local nature benefits you want to deliver.</p>
+
+      <h2 class="govuk-heading-m">How much could I earn?</h2>
+
+      <p>Use our Local Nature Recovery calculator to find out:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li class="">whether you're eligible</li>
+        <li>how much you could earn</li>
+        <li>where to apply</li>
+      </ul>
+
+
+      <a href="location" role="button" draggable="false" class="govuk-button"  data-module="govuk-button">Continue</a>
+
+    </div>
+  </div>
+
+
+{% endblock %}

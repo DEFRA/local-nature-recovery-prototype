@@ -1,0 +1,396 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your Plan
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+homepageUrl: "/",
+serviceName: serviceName,
+serviceUrl: "/",
+classes: "app-light-header",
+containerClasses: "govuk-width-container",
+navigation: []
+}) }}
+
+<div class="moj-primary-navigation">
+
+  <div class="moj-primary-navigation__container">
+
+    <div class="moj-primary-navigation__nav">
+
+      <nav class="moj-primary-navigation" aria-label="Primary navigation">
+
+        <ul class="moj-primary-navigation__list">
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="grants">Home</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="local-priorities">Your local priorities</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" aria-current="page" href="plan">Your plan</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="search-results">Search all grants</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+    <div class="moj-primary-navigation__search">
+
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="configure?planNum={{ planNum }}">Back</a>
+{% endblock %}
+
+
+{% block content %}
+
+<style type="text/css">
+
+  .unstyle-button {
+    display: inline-block;
+    background: none!important;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    padding: 0!important;
+    top: 4px;
+    box-sizing: none;
+    font-family: "GDS Transport", Arial, sans-serif;
+    font-size: 18px;
+    color: #1d70b8;
+    text-decoration: underline;
+    box-shadow: none;
+    cursor: pointer;
+  }
+  .unstyle-button:hover {
+    color: #003078;
+    text-decoration: underline;
+  }
+
+  .govuk-table__cell {
+    vertical-align: bottom;
+  }
+
+  .app-task-list__tag {
+    font-size: 0.7em;
+    margin-bottom: 5px;
+  }
+
+  @media (min-width: 40.0625em) {
+    .govuk-table {
+      margin-bottom: 60px;
+    }
+  }
+
+
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      Your plan
+    </h1>
+
+    {% if data.plan.length === completedCount %}
+    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Calculation complete</h2>
+    {% else %}
+    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Calculation incomplete</h2>
+    {% endif %}
+    <p class="govuk-body govuk-!-margin-bottom-7">You have configured {{ completedCount}} of {{ data.plan.length }} grants and could be eligible for the following payments. 
+</p>
+
+    <ul class="app-task-list">
+      <li>
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+
+          {% if grantList.length === 0 %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" colspan="3">No results found</td>
+          </tr>
+          {% else %}
+
+          {% set optionCount = 0 %}
+          {% set optionTotal = [] %}
+          {% set optionSubtotal = 0 %}
+          {% set optionSubtotalMonth = 0 %}
+
+          {% set optionEndTotal = 0 %}
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" ><h2 style="display: inline;font-size: 1.2632em;">Options</h2> <span style="font-weight: normal;">(Paid monthly)</span></th>
+            <th scope="col" class="govuk-table__header" style="text-align:right">Payment</th>
+            <th scope="col" class="govuk-table__header" style="width:230px;">&nbsp;</th>
+          </tr>
+
+          {% for i in range(0, data.plan.length) -%}
+          {% if data.plan[i][2] === 'Option' %}
+
+          {% set optionTotal = (optionTotal.push(data.import.grants[data.plan[i][1]].payment * data.plan[i][3] * data.import.grants[data.plan[i][1]].multiplier), optionTotal) %}
+          {% set optionSubtotal = optionSubtotal + optionTotal[optionCount] %}
+          {% set optionSubtotalMonth = optionSubtotal / 12 %}
+
+          <tr class="govuk-table__row">
+
+            <td scope="row" class="govuk-table__cell">
+              {{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}
+            </td>
+            <td class="govuk-table__cell" style="text-align:right">
+              {% if data.plan[i][4] === true %}
+              {% set optionEndTotal = optionEndTotal + optionTotal[optionCount] %}
+              {{ data.import.grants[data.plan[i][1]].payment | toMoney }} &times {{ data.plan[i][3] or 0 }}{{ data.import.grants[data.plan[i][1]].unit }} &equals;  {{ optionTotal[optionCount] | toMoney }}
+              {% else %}
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">Not configured</strong>
+              {% endif %}
+            </td>
+
+            <td scope="row" class="govuk-table__cell" style="text-align:right">
+
+              <a href="grant-details?grant={{data.plan[i][1]}}" style="display: inline-block;padding-bottom: 5px;">View</a> | <a href="configure?planNum={{ i }}">Change</a> |
+              <form action="{{ thisPage }}" method="POST" role="form" style="display: inline-block; margin-bottom: -5px; padding: 0; ">
+                <input type="hidden" name="planNum" value="{{ i }}" />
+                <button class="govuk-button unstyle-button" data-module="govuk-button">Remove</button>
+              </form>
+            </td>
+          </tr>
+          {% set optionCount = optionCount +1 %}
+
+          {% endif %}
+
+          {%- endfor %}
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="search-results?type=Option" class="govuk-button govuk-button--secondary" data-module="govuk-button" style="margin: 10px 0;">
+              {% if optionCount %}
+              Add another option
+              {% else %}
+              Add an option
+              {% endif %}
+            </a>
+            </td>
+            <td class="govuk-table__cell" style="text-align:right; vertical-align: middle;">
+              {% if optionCount %}
+              <strong>Yearly payment &equals; {{ optionSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ optionSubtotalMonth | toMoney }}</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">None added</strong>
+              {% endif %}
+            </td>
+            <td class="govuk-table__cell">&nbsp;</td>
+          </tr>
+
+          {% endif %}
+
+          </tbody>
+        </table>
+
+      </li>
+
+      <li>
+
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+
+          {% if grantList.length === 0 %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" colspan="2">No results found</td>
+          </tr>
+          {% else %}
+
+          {% set capitalCount = 0 %}
+          {% set capitalTotal = [] %}
+          {% set capitalSubtotal = 0 %}
+          {% set capitalSubtotalMonth = 0 %}
+
+          {% set capitalEndTotal = 0 %}
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" ><h2 style="display: inline;font-size: 1.2632em;">Capital items</h2> <span style="font-weight: normal;">(One-off payments)</span></th>
+            <th scope="col" class="govuk-table__header" style="text-align:right">Payment</th>
+            <th scope="col" class="govuk-table__header" style="width:230px;">&nbsp;</th>
+          </tr>
+
+          {% for i in range(0, data.plan.length) -%}
+          {% if data.plan[i][2] === 'Capital Item' %}
+
+          {% set capitalTotal = (capitalTotal.push(data.import.grants[data.plan[i][1]].payment * data.plan[i][3] * data.import.grants[data.plan[i][1]].multiplier), capitalTotal) %}
+          {% set capitalSubtotal = capitalSubtotal + capitalTotal[capitalCount] %}
+
+          <tr class="govuk-table__row">
+
+            <td scope="row" class="govuk-table__cell">
+              {{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}
+            </td>
+            <td class="govuk-table__cell" style="text-align:right">
+              {% if data.plan[i][4] === true %}
+              {% set capitalEndTotal = capitalEndTotal + capitalTotal[capitalCount] %}
+              {{ data.import.grants[data.plan[i][1]].payment | toMoney }} &times {{ data.plan[i][3] or 0 }}{{ data.import.grants[data.plan[i][1]].unit }} &equals;  {{ capitalTotal[capitalCount] | toMoney }}
+              {% else %}
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">Not configured</strong>
+              {% endif %}
+            </td>
+
+            <td scope="row" class="govuk-table__cell" style="text-align:right">
+
+              <a href="grant-details?grant={{data.plan[i][1]}}" style="display: inline-block;padding-bottom: 5px;">View</a> | <a href="configure?planNum={{ i }}">Change</a> |
+              <form action="{{ thisPage }}" method="POST" role="form" style="display: inline-block; margin-bottom: -5px; padding: 0; ">
+                <input type="hidden" name="planNum" value="{{ i }}" />
+                <button class="govuk-button unstyle-button" data-module="govuk-button">Remove</button>
+              </form>
+            </td>
+          </tr>
+
+          {% set capitalCount = capitalCount + 1 %}
+
+          {% endif %}
+
+          {%- endfor %}
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="search-results?type=Capital%20Item" class="govuk-button govuk-button--secondary" data-module="govuk-button" style="margin: 10px 0;">
+              {% if capitalCount %}
+              Add another capital item
+              {% else %}
+              Add a capital item
+              {% endif %}
+            </a>
+
+            </td>
+            <td class="govuk-table__cell" style="text-align:right; vertical-align: middle;">
+
+              {% if capitalCount %}
+              <strong>One-off payment of {{ capitalSubtotal | toMoney }}</strong></td>
+            {% else %}
+            <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">None added</strong>
+            {% endif %}
+
+            <td class="govuk-table__cell">&nbsp;</td>
+          </tr>
+
+          {% endif %}
+
+          </tbody>
+        </table>
+      </li>
+
+      <li>
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+
+          {% if grantList.length === 0 %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" colspan="2">No results found</td>
+          </tr>
+          {% else %}
+
+          {% set supplementCount = 0 %}
+          {% set supplementTotal = [] %}
+          {% set supplementSubtotal = 0 %}
+          {% set supplementSubtotalMonth = 0 %}
+
+          {% set supplementEndTotal = 0 %}
+
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" ><h2 style="display: inline;font-size: 1.2632em;">Supplements</h2> <span style="font-weight: normal;">(Paid monthly)</span></th>
+            <th scope="col" class="govuk-table__header" style="text-align:right">Payment</th>
+            <th scope="col" class="govuk-table__header" style="width:230px;">&nbsp;</th>
+          </tr>
+
+          {% for i in range(0, data.plan.length) -%}
+          {% if data.plan[i][2] === 'Supplement' %}
+
+          {% set supplementTotal = (supplementTotal.push(data.import.grants[data.plan[i][1]].payment * data.plan[i][3] * data.import.grants[data.plan[i][1]].multiplier), supplementTotal) %}
+          {% set supplementSubtotal = supplementSubtotal + supplementTotal[supplementCount] %}
+          {% set supplementSubtotalMonth = supplementSubtotal / 12 %}
+
+          <tr class="govuk-table__row">
+
+            <td scope="row" class="govuk-table__cell">
+              {{ data.import.grants[data.plan[i][1]].code }} {{ data.import.grants[data.plan[i][1]].title }}
+            </td>
+            <td class="govuk-table__cell" style="text-align:right">
+              {% if data.plan[i][4] === true %}
+              {% set supplementEndTotal = supplementEndTotal + supplementTotal[optionCount] %}
+              {{ data.import.grants[data.plan[i][1]].payment | toMoney }} &times {{ data.plan[i][3] or 0 }}{{ data.import.grants[data.plan[i][1]].unit }} &equals;  {{ supplementTotal[supplementCount] | toMoney }}
+              {% else %}
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">Not configured</strong>
+              {% endif %}
+            </td>
+
+            <td scope="row" class="govuk-table__cell" style="text-align:right">
+
+              <a href="grant-details?grant={{data.plan[i][1]}}" style="display: inline-block;padding-bottom: 5px;">View</a> | <a href="configure?planNum={{ i }}">Change</a> |
+              <form action="{{ thisPage }}" method="POST" role="form" style="display: inline-block; margin-bottom: -5px; padding: 0; ">
+                <input type="hidden" name="planNum" value="{{ i }}" />
+                <button class="govuk-button unstyle-button" data-module="govuk-button">Remove</button>
+              </form>
+            </td>
+          </tr>
+
+          {% set supplementCount = supplementCount + 1 %}
+
+          {% endif %}
+          {%- endfor %}
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="search-results?type=Supplement" class="govuk-button govuk-button--secondary" data-module="govuk-button" style="margin: 10px 0;">
+              {% if supplementCount %}
+              Add another supplement
+              {% else %}
+              Add a supplement
+              {% endif %}
+            </a>
+            </td>
+            <td class="govuk-table__cell" style="text-align:right; vertical-align: middle;">
+              {% if supplementCount %}
+              <strong>Yearly payment &equals; {{ supplementSubtotal | toMoney }}</strong><br><strong>12 Monthly payments of {{ supplementSubtotalMonth | toMoney }}</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">None added</strong>
+              {% endif %}
+            </td>
+            <td class="govuk-table__cell">&nbsp;</td>
+          </tr>
+
+          {% endif %}
+
+          </tbody>
+        </table>
+      </li>
+
+      <li>
+        <h3 class="govuk-heading-m">What to do next</h3>
+
+        <div class="govuk-button-group">
+          <button class="govuk-button" data-module="govuk-button">
+            Download your plan as a PDF
+          </button>
+
+          <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Download your plan as a CSV
+          </button>
+        </div>
+
+        <p>Downloading your plan in a Portable Document Format (PDF) will allow you to print and share it.</p>
+
+        <p>Downloading your plan as CSV will allow you to import it into the online application service when launched.</p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}
+
