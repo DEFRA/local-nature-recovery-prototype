@@ -116,10 +116,16 @@ navigation: []
 
 <div class="govuk-grid-row">
 
-  <div class="govuk-grid-column-full" style="position: relative">
+  <div class="govuk-grid-column-two-thirds" style="position: relative">
 
     <h2 class="govuk-heading-m govuk-!-margin-bottom-6">There are {{ relatedList.length }} available grants related to {{ data.import.grants[data.prototype.grantNum].code }}  {{ data.import.grants[data.prototype.grantNum].title }}</h2>
 
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full" style="position: relative">
     <div class="govuk-!-padding-top-10" style="position: relative;">
       <div id="summaryToggle" class=""><a href="#">Show grant details</a><span class="govuk-accordion__icon"></span></div>
     </div>

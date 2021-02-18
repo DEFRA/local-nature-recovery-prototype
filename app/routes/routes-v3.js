@@ -9,7 +9,7 @@ router.post('/options-choice/*/sbi-number', function (req, res) {
 })
 
 // Create array of search results
-router.get('/options-choice/*/confirm', function (req, res) {
+router.get('/options-choice/v3/*/confirm', function (req, res) {
   // check for data
   if (!req.session.data['import']) {
     res.redirect('/error')
@@ -26,7 +26,6 @@ router.get('/options-choice/*/confirm', function (req, res) {
   // we could generate a simple array to hold all the related items - nunjucts could easily use that to render the page
   // something like [5,47,67]
   const relatedList = [] // lets store the related items here
-  const finalRelatedList = [] // lets store the filtered related items here
 
   if (grants[grantNum].packages) {
     var packages = grants[grantNum].packages.split(',').map(item => item.trim())
@@ -43,19 +42,6 @@ router.get('/options-choice/*/confirm', function (req, res) {
         }
       }
     }
-
-    const activeUses = prototype.filterUse // lets store the checked options here
-
-    console.log(activeUses)
-
-    // for (i = 0; i < relatedList.length; i++) {
-    //   var grants_use = grants[i].use.split(',').map(item => item.trim())
-    //   // build an array of the land use filters selected
-    //   var foundUse = findOne(grants_use, uses)
-    //   if (foundUse) {
-    //     finalRelatedList.push(i)
-    //   }
-    // }
   }
 
   // if nothing relates create a fallback for the prototype to display
@@ -69,8 +55,7 @@ router.get('/options-choice/*/confirm', function (req, res) {
   // find the right version to render
   let version = req.session.data['prototype'].version
   return res.render(version + '/confirm', {
-    'relatedList': relatedList,
-    'finalRelatedList': finalRelatedList
+    'relatedList': relatedList
   })
 })
 
