@@ -308,20 +308,6 @@
   }
 </style>
 
-<script>
-
-// const occupations = [
-//     "Actor, entertainer or presenter",
-//     "Actuary, economist or statistician",
-//     "Other"
-//   ];
-
-//const occupations = [];  
-
-//var myVar = {{ exptext }}
-//console.log('myVar: '+ myVar)
-
-</script>
 
 <script>
   const occupations =[];
@@ -333,17 +319,6 @@
     occupations.push('{{ data.import.grants[grantList[i]].code }} {{ data.import.grants[grantList[i]].title }}');
   </script>
 {%- endfor %}
-
-<script>
-  //console.log(occupations);
-</script>
-
-<script ype='text/javascript'>
-  //var varGrants = '{{ data.import.grants | dump }}';
-  //for (g = 0; g < varGrants.length; g++) {
-    //console.log(varGrants);
-  //}
-</script>
 
 
 <div class="govuk-grid-row">
@@ -368,7 +343,7 @@
                 <div class="govuk-checkboxes govuk-checkboxes--small">
 
                   <div id="occupation-container"></div>
-                  <button class="govuk-button" type="submit" data-module="govuk-button">
+                  <button class="govuk-button" type="submit" data-module="govuk-button" onclick="alert('filter grants')">
                     Submit
                   </button>
 
