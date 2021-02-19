@@ -316,22 +316,35 @@
 //     "Other"
 //   ];
 
-const occupations = [];  
+//const occupations = [];  
 
 //var myVar = {{ exptext }}
 //console.log('myVar: '+ myVar)
 
 </script>
 
-{% if (exptext)  %}
-  <script ype='text/javascript'>
-     myVar = 'my inline js var'
-     console.log('myVar :'+ myVar);
+<script>
+  const occupations =[];
+</script>
 
-     ExpText = JSON.parse('<%- JSON.stringify(exptext) %>');
-     console.log(ExpText)
+{% for i in range(0, grantList.length) -%}
+  <script>
+    myvar = '{{ data.import.grants[grantList[i]].code }}'
+    occupations.push('{{ data.import.grants[grantList[i]].code }} {{ data.import.grants[grantList[i]].title }}');
   </script>
-{% endif %}
+{%- endfor %}
+
+<script>
+  //console.log(occupations);
+</script>
+
+<script ype='text/javascript'>
+  //var varGrants = '{{ data.import.grants | dump }}';
+  //for (g = 0; g < varGrants.length; g++) {
+    //console.log(varGrants);
+  //}
+</script>
+
 
 <div class="govuk-grid-row">
 
@@ -356,7 +369,7 @@ const occupations = [];
 
                   <div id="occupation-container"></div>
                   <button class="govuk-button" type="submit" data-module="govuk-button">
-                    Continue
+                    Submit
                   </button>
 
                 </div>

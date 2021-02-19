@@ -211,7 +211,7 @@ router.get('/options-choice/*/search-results', function (req, res) {
   return res.render(version + '/search-results', {
     'grantList': finalList,
     'prevURL': prevURL,
-    'exptext': 'text from expressjs'
+    'expjs': 'text from expressjs'
   })
 })
 
