@@ -33,6 +33,21 @@ $(document).ready(function () {
     $('.grantSummary').hide()
     $('#summaryToggle').html('<a href="#">Show grant details</a><span class="govuk-accordion__icon"></span>')
   }
+  
+  accessibleAutocomplete({
+    autoselect: true,
+    element: document.querySelector('#occupation-container'),
+    id: 'occupation',
+    name: 'occupation-autocomplete',
+    source: occupations,
+    defaultValue: '',
+    displayMenu: 'overlay',
+    minLength: 2,
+    tNoResults: function() {
+      return "Other"
+    }
+  });
+
 });
 
 function setCookie(c_name, value, exdays) {

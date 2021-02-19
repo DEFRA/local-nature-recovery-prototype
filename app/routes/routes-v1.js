@@ -210,10 +210,10 @@ router.get('/options-choice/*/search-results', function (req, res) {
   let version = req.session.data['prototype'].version
   return res.render(version + '/search-results', {
     'grantList': finalList,
-    'prevURL': prevURL
+    'prevURL': prevURL,
+    'exptext': 'text from expressjs'
   })
 })
-
 
 // apply filters to grant listing
 router.post('/options-choice/*/search-results', function (req, res) {
