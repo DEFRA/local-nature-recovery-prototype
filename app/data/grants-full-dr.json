@@ -3651,9 +3651,10 @@
     ],
     "variables": [
         {
-            "map": "Crossley all.png",
+            "map": "ur11.png",
             "long": "52.812827",
-            "lat": "-1.642885"
+            "lat": "-1.642885",
+            "u": "Hor"
         }
     ]
-}
+    }
