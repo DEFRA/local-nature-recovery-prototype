@@ -101,7 +101,6 @@ navigation: []
       <p class="govuk-notification-banner__heading">
         You have added {{ data.import.grants[data.prototype.grantNum].code }}  {{ data.import.grants[data.prototype.grantNum].title }} to your plan.
         <a class="govuk-notification-banner__link" href="plan">View your plan</a>
-      </p>
       {% endset %}
 
       {{ govukNotificationBanner({
@@ -113,6 +112,15 @@ navigation: []
     </div>
 
   </div>
+
+  {% if relationshipType %}
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-6">{{ relationshipType }}</h2>
+  {% endif %}
+
+  {% for r in range(0, relationship.length) -%}
+    <p><a href="grant-details?grant={{ relationship[r].index }}">{{ relationship[r].code }} {{ relationship[r].title }}</a></p>
+  {%- endfor %}
+  </p>
 
 <div class="govuk-grid-row">
 
