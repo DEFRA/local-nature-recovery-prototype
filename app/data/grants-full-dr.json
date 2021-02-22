@@ -2498,6 +2498,8 @@
             "multiplier": "1",
             "label": "How many hectares (ha) would you like to dedicate to this? ",
             "use": "Livestock management, Priority habitats",
+            "relationship": "CT6 ,GS15 ,GS16 ,SP2,SP3,SP4 ,SP8,SP9 ,WD9 ,WT12",
+            "relationshipType": "r",
             "type": "Supplement",
             "summary": "It is for the introduction of conservation grazing on the Isles of Scilly on land that is not currently grazed by cattle.\n\nIf successful there will be:\n\na more varied sward structure that will increase wildlife diversity\nbetter control of scrub, bracken and coarse vegetation\nbetter grazing of wet areas and difficult sites such as steep slopes",
             "url": "https://www.gov.uk/countryside-stewardship-grants/introduction-of-cattle-grazing-on-the-isles-of-scilly-sp7"
@@ -2512,6 +2514,8 @@
             "multiplier": "1",
             "label": "How many hectares (ha) would you like to dedicate to this? ",
             "use": "Flood risk, Livestock management, Priority habitats, Uplands",
+            "relationship": "CT6 ,GS15 ,GS16 ,GS17 ,SP2 ,SP3 ,SP4 ,SP5 ,SP7 ,SP9 ,WD9 ,WT12",
+            "relationshipType": "r",
             "type": "Supplement",
             "summary": "It is for the conservation of genetic diversity in native breeds at risk.\n\nThe number of NBAR stock on the farm will increase or be maintained as agreed. This makes sure that the breeds will not become extinct in England.",
             "url": "https://www.gov.uk/countryside-stewardship-grants/native-breeds-at-risk-supplement-sp8"
@@ -3019,6 +3023,8 @@
             "multiplier": "1",
             "label": "How many hectares (ha) would you like to dedicate to this? ",
             "use": "Priority habitats, Uplands",
+            "relationship": "SP4 ,SP5,SP6 -,SP9 ,UP6",
+            "relationshipType": "r",
             "type": "Supplement",
             "summary": "It is for carrying out an appropriate programme of vegetation management to contribute to restoration and improvement in functionality of priority habitats such as dry heath, wet heath and blanket bog where significant changes to current management are required.\n\nIf successful there will be a significant change to burning and/or cutting management so that it is carried out to promote restoration of habitats. These changes will have created more diverse vegetation or opportunities for colonisation by key species such as Sphagnum. There will also be positive impacts on water quality, reduced erosion and enhanced carbon storage.",
             "url": "https://www.gov.uk/countryside-stewardship-grants/management-of-moorland-vegetation-supplement-up4"
@@ -3033,6 +3039,8 @@
             "multiplier": "1",
             "label": "How many hectares (ha) would you like to dedicate to this? ",
             "use": "Priority habitats, Uplands",
+            "relationship": "SP4,SP5,SP6 ,SP9 ,SP10,UP3 ,UP6",
+            "relationshipType": "r",
             "type": "Supplement",
             "summary": "It will maintain and restore vegetation mosaics, wetland habitats and associated wildlife.\n\nIf successful there will be:\n\nimproved hydrology of moorland habitats\nbenefits to upland flora and fauna, eg increased sphagnum moss growth\nbenefits to historic features\nstrengthened landscape character\nimproved breeding habitat for invertebrates, a food source for grouse and wader chicks",
             "url": "https://www.gov.uk/countryside-stewardship-grants/moorland-re-wetting-supplement-up5"
@@ -3047,6 +3055,8 @@
             "multiplier": "1",
             "label": "How many hectares (ha) would you like to dedicate to this? ",
             "use": "Priority habitats, Uplands",
+            "relationship": "SP3,SP4 ,SP5 ,SP6,SP9,UP4,UP5",
+            "relationshipType": "r",
             "type": "Supplement",
             "summary": "It will improve habitat and feature conditions.\n\nIf successful there will be:\n\nincreased rates of heather regeneration\nimproved rates of flowering of rare species such as spring gentian\na regeneration of scrub such as juniper\nimproved downstream water quality\nimprovements in the condition and visibility of archaeological sites and other historic features",
             "url": "https://www.gov.uk/countryside-stewardship-grants/upland-livestock-exclusion-supplement-up6"
@@ -3218,6 +3228,7 @@
             "multiplier": "1",
             "label": "How many hectares (ha) would you like to dedicate to this? ",
             "use": "Flood risk, Priority habitats, Uplands",
+            "relationship": "WD7 ,WD8",
             "type": "Supplement",
             "summary": "This supplement will help scrub to develop through natural regeneration.",
             "url": "https://www.gov.uk/countryside-stewardship-grants/livestock-exclusion-supplement-scrub-and-successional-areas-wd9"
@@ -3528,6 +3539,8 @@
             "multiplier": "1",
             "label": "How many hectares (ha) would you like to dedicate to this? ",
             "use": "Priority habitats, Uplands",
+            "relationship": "WT6,WT7 ,WT8,WT9 ,WT10",
+            "relationshipType": "d",
             "type": "Supplement",
             "summary": "It supports the appropriate cutting management of wetland habitats.",
             "url": "https://www.gov.uk/countryside-stewardship-grants/wetland-cutting-supplement-wt11"
@@ -3542,6 +3555,8 @@
             "multiplier": "1",
             "label": "How many hectares (ha) would you like to dedicate to this? ",
             "use": "Priority habitats, Uplands",
+            "relationship": "WT6,WT7,WT8,WT9 ,WT10",
+            "relationshipType": "d",
             "type": "Supplement",
             "summary": "It supports the appropriate grazing management of wetland habitats.",
             "url": "https://www.gov.uk/countryside-stewardship-grants/wetland-grazing-supplement-wt12"
