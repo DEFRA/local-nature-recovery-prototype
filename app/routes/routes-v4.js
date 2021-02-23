@@ -114,5 +114,25 @@ var findOne = function (haystack, arr) {
 }
 
 
+// land use checkboxes
+router.post('/options-choice/*/search', function (req, res) {
+  var grants = req.session.data['import'].grants
+
+  let grant = req.session.data.grantAutocomplete
+  // get the grant code from the returned value
+  grant2 = grant.substring(0,4).trim()
+  // compare it to all the grants to find a match
+  
+  for (i = 0; i < grants.length; i++) {
+    var grants_code = grants[i].code.trim()
+    // build an array of the land use filters selected
+    if (grant2 === grants_code) {
+      console.log("VICTORY")
+      grantNum = i
+    }
+  }
+  res.redirect('grant-details?grant=' + grantNum)
+})
+
 
 module.exports = router

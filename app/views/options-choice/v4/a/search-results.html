@@ -63,92 +63,6 @@
 
 
 {% block content %}
-  
-<style type="text/css">
-
-    .govuk-accordion__controls {
-        display: none;
-    }
-    .js-enabled .govuk-accordion__section-header:hover {
-        border-top-color: transparent !important;
-        box-shadow: none !important;
-    }
-    .js-enabled .govuk-accordion__section-header:hover {
-        border-top: 1px solid #b1b4b6 !important;
-        box-shadow: none !important;
-    }
-    .govuk-accordion__section-button {
-        /*text-indent: 36px !important;*/
-        margin-left: 36px!important;
-    }
-
-    .govuk-accordion__section-button .govuk-accordion__icon {
-        right: auto !important;
-        left: -3px !important;
-    }
-    .govuk-accordion__section-button .govuk-accordion__icon::before,
-    .govuk-accordion__section-button .govuk-accordion__icon::after {
-        border: none !important;
-        top: 10px !important;
-        width: 30px !important;
-        height: 40px !important;
-        background-color: transparent !important;
-        background-image: url(/public/images/arrow-up.svg) !important;
-    }
-    .js-enabled .govuk-accordion__section-button .govuk-accordion__icon::after {
-        background-image: url(/public/images/arrow-down.svg) !important;
-        background-color: white !important;
-    }
-    .js-enabled .govuk-accordion__section-button:focus {
-        background: transparent;
-        outline: none;
-        box-shadow: none;
-        color: inherit;
-    }
-    .js-enabled .govuk-accordion__section-button:hover {
-        text-decoration: underline;
-    }
-    .govuk-accordion>div:nth-child(2)>div,
-    .govuk-accordion>div:nth-child(2)>div:hover{
-        border-top: none !important;
-    }
-    .js-enabled .govuk-accordion__section-content {
-        padding-top: 0 !important;
-    }
-
-    .govuk-grid-column-two-thirds {
-        position: relative;
-    }
-
-    #summaryToggle {
-        /*float: right;*/
-        position: absolute;
-        right: 15px;
-        top: -30px;
-    }
-
-    #summaryToggle .govuk-accordion__icon {
-        position: absolute;
-        top: 50%;
-        left: -20px;
-        width: 12px;
-        height: 12px;
-        margin-top: -6px;
-    }
-    #summaryToggle .govuk-accordion__icon.hidden::after {
-        height: 0% !important;
-    }
-    #summaryToggle .govuk-accordion__icon::before,
-    #summaryToggle .govuk-accordion__icon::after {
-        border: 1px solid transparent !important;
-        /*width: 25%!important;*/
-        /*height: 25%!important;*/
-    }
-    #summaryToggle .govuk-accordion__icon:after {
-        height: 100% !important;
-    }
-
-</style>
 
 <div class="govuk-grid-row">
 
@@ -161,197 +75,36 @@
   </div>
 </div>
 
-<style>
-  .autocomplete__wrapper {
-    position: relative;
-    max-width: 35em;
-    margin-bottom: 20px;
-    font-family: "GDS Transport",Arial,sans-serif;
-  }
-
-  @media (min-width: 40.0625em) {
-    .autocomplete__wrapper {
-      margin-bottom: 30px;
-    }
-  }
-
-  .autocomplete__hint, .autocomplete__input {
-    -webkit-appearance: none;
-    border: 2px solid #0b0c0c;
-    border-radius: 0;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    margin-bottom: 0;
-    width: 100%;
-  }
-
-  .autocomplete__input {
-    background-color: transparent;
-    position: relative;
-  }
-
-  .autocomplete__hint {
-    color: #b1b4b6;
-    position: absolute;
-  }
-
-  .autocomplete__input--default {
-    padding: 5px;
-  }
-
-  .autocomplete__input--focused {
-    outline: 3px solid #fd0;
-    outline-offset: 0;
-    box-shadow: inset 0 0 0 2px;
-  }
-
-  .autocomplete__input--show-all-values {
-    padding: 5px 34px 5px 5px;
-    cursor: pointer;
-  }
-
-  .autocomplete__dropdown-arrow-down {
-    z-index: -1;
-    display: inline-block;
-    position: absolute;
-    right: 8px;
-    width: 24px;
-    height: 24px;
-    top: 10px;
-  }
-
-  .autocomplete__menu {
-    background-color: #fff;
-    border: 2px solid #0b0c0c;
-    border-top: 0;
-    color: #0b0c0c;
-    margin: 0;
-    max-height: 342px;
-    overflow-x: hidden;
-    padding: 0;
-    width: 100%;
-    width: calc(100% - 4px);
-  }
-
-  .autocomplete__menu--visible {
-    display: block;
-  }
-
-  .autocomplete__menu--hidden {
-    display: none;
-  }
-
-  .autocomplete__menu--overlay {
-    box-shadow: rgba(0, 0, 0, 0.256863) 0 2px 6px;
-    left: 0;
-    position: absolute;
-    top: 100%;
-    z-index: 100;
-  }
-
-  .autocomplete__menu--inline {
-    position: relative;
-  }
-
-  .autocomplete__option {
-    border-bottom: solid #b1b4b6;
-    border-width: 1px 0;
-    cursor: pointer;
-    display: block;
-    position: relative;
-  }
-
-  .autocomplete__option > * {
-    pointer-events: none;
-  }
-
-  .autocomplete__option:first-of-type {
-    border-top-width: 0;
-  }
-
-  .autocomplete__option:last-of-type {
-    border-bottom-width: 0;
-  }
-
-  .autocomplete__option--odd {
-    background-color: #fafafa;
-  }
-
-  .autocomplete__option--focused, .autocomplete__option:hover {
-    background-color: #1d70b8;
-    border-color: #1d70b8;
-    color: #fff;
-    outline: 0;
-  }
-
-  .autocomplete__option--no-results {
-    background-color: #fafafa;
-    color: #646b6f;
-    cursor: not-allowed;
-  }
-
-  .autocomplete__hint, .autocomplete__input, .autocomplete__option {
-    font-size: 16px;
-    line-height: 1.25;
-  }
-
-  .autocomplete__hint, .autocomplete__option {
-    padding: 5px;
-  }
-
-  @media (min-width: 641px) {
-    .autocomplete__hint, .autocomplete__input, .autocomplete__option {
-      font-size: 19px;
-      line-height: 1.31579;
-    }
-  }
-</style>
-
-
-<script>
-  const occupations =[];
-</script>
-
-{% for i in range(0, grantList.length) -%}
-  <script>
-    myvar = '{{ data.import.grants[grantList[i]].code }}'
-    occupations.push('{{ data.import.grants[grantList[i]].code }} {{ data.import.grants[grantList[i]].title }}');
-  </script>
-{%- endfor %}
-
 
 <div class="govuk-grid-row">
 
-  <form action="{{ thisPage }}" method="POST" role="form">
-    
-    <div class="govuk-grid-column-one-third">
-      <h3 class="govuk-heading-s govuk-visually-hidden">Filters</h3>
+  <div class="govuk-grid-column-one-third">
 
-      <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
-        <div class="govuk-accordion__section govuk-accordion__section--expanded">
-          <div class="govuk-accordion__section-header">
-            <h2 class="govuk-accordion__section-heading">
-              <span class="govuk-accordion__section-button" id="accordion-default-heading-1" style="font-weight: normal; font-size: 0.9em;">
-                Search
-              </span>
-            </h2>
-          </div>
-          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
-            <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset">
-                <div class="govuk-checkboxes govuk-checkboxes--small">
+    <form action="search" method="POST" role="form">
 
-                  <div id="occupation-container"></div>
-                  <button class="govuk-button" type="submit" data-module="govuk-button" onclick="alert('filter grants')">
-                    Search
-                  </button>
+      <div class="gem-c-search  gem-c-search--on-white gem-c-search--separate-label" data-module="gem-toggle-input-class-on-focus">
+        <label for="finder-keyword-search" class="gem-c-search__label">
+          Search <span class="govuk-visually-hidden">Countryside Stewardship grants</span>
 
-                </div>
-              </fieldset>
-            </div>
+        </label>
+        <div class="gem-c-search__item-wrapper">
+          <div id="finder-keyword-search"></div>
+
+          <div class="gem-c-search__item gem-c-search__submit-wrapper">
+            <button type="submit" class="gem-c-search__submit">Search</button>
           </div>
         </div>
+      </div>
+
+    </form>
+
+
+    <h3 class="govuk-heading-s govuk-visually-hidden">Filters</h3>
+
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+
+      <form action="{{ thisPage }}" method="POST" role="form">
+
 
         <div class="govuk-accordion__section govuk-accordion__section--expanded">
           <div class="govuk-accordion__section-header">
@@ -464,8 +217,11 @@
 <!--                  </div>-->
 <!--              </div>-->
 <!--          </div>-->
+
+          </div>
+        </form>
       </div>
-    </div>
+
 
 
     <div class="govuk-grid-column-two-thirds">
@@ -514,10 +270,324 @@
         </tbody>
       </table>
     </div>
-
-  </form>
 </div>
 
+<style type="text/css">
+
+  .govuk-accordion__controls {
+      display: none;
+  }
+  .js-enabled .govuk-accordion__section-header:hover {
+      border-top-color: transparent !important;
+      box-shadow: none !important;
+  }
+  .js-enabled .govuk-accordion__section-header:hover {
+      border-top: 1px solid #b1b4b6 !important;
+      box-shadow: none !important;
+  }
+  .govuk-accordion__section-button {
+      /*text-indent: 36px !important;*/
+      margin-left: 36px!important;
+  }
+
+  .govuk-accordion__section-button .govuk-accordion__icon {
+      right: auto !important;
+      left: -3px !important;
+  }
+  .govuk-accordion__section-button .govuk-accordion__icon::before,
+  .govuk-accordion__section-button .govuk-accordion__icon::after {
+      border: none !important;
+      top: 10px !important;
+      width: 30px !important;
+      height: 40px !important;
+      background-color: transparent !important;
+      background-image: url(/public/images/arrow-up.svg) !important;
+  }
+  .js-enabled .govuk-accordion__section-button .govuk-accordion__icon::after {
+      background-image: url(/public/images/arrow-down.svg) !important;
+      background-color: white !important;
+  }
+  .js-enabled .govuk-accordion__section-button:focus {
+      background: transparent;
+      outline: none;
+      box-shadow: none;
+      color: inherit;
+  }
+  .js-enabled .govuk-accordion__section-button:hover {
+      text-decoration: underline;
+  }
+  .govuk-accordion>div:nth-child(2)>div,
+  .govuk-accordion>div:nth-child(2)>div:hover{
+      border-top: none !important;
+  }
+  .js-enabled .govuk-accordion__section-content {
+      padding-top: 0 !important;
+  }
+
+  .govuk-grid-column-two-thirds {
+      position: relative;
+  }
+
+  #summaryToggle {
+      /*float: right;*/
+      position: absolute;
+      right: 15px;
+      top: -30px;
+  }
+
+  #summaryToggle .govuk-accordion__icon {
+      position: absolute;
+      top: 50%;
+      left: -20px;
+      width: 12px;
+      height: 12px;
+      margin-top: -6px;
+  }
+  #summaryToggle .govuk-accordion__icon.hidden::after {
+      height: 0% !important;
+  }
+  #summaryToggle .govuk-accordion__icon::before,
+  #summaryToggle .govuk-accordion__icon::after {
+      border: 1px solid transparent !important;
+      /*width: 25%!important;*/
+      /*height: 25%!important;*/
+  }
+  #summaryToggle .govuk-accordion__icon:after {
+      height: 100% !important;
+  }
+
+  .autocomplete__wrapper {
+      position: relative;
+      max-width: 35em;
+      margin-bottom: 20px;
+      font-family: "GDS Transport",Arial,sans-serif;
+  }
+
+  @media (min-width: 40.0625em) {
+      .autocomplete__wrapper {
+          margin-bottom: 30px;
+      }
+  }
+
+  .autocomplete__hint, .autocomplete__input {
+      -webkit-appearance: none;
+      border: 2px solid #0b0c0c;
+      border-right-width: 0;
+      border-radius: 0;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      padding-bottom: 2px;
+      width: 100%;
+  }
+
+  .autocomplete__input {
+      background-color: transparent;
+      position: relative;
+  }
+
+  .autocomplete__hint {
+      color: #b1b4b6;
+      position: absolute;
+  }
+
+  .autocomplete__input--default {
+      padding: 6px 5px 5px;
+  }
+
+  .autocomplete__input--focused {
+      outline: 3px solid #fd0;
+      outline-offset: 0;
+      box-shadow: inset 0 0 0 2px;
+  }
+
+  .autocomplete__input--show-all-values {
+      padding: 5px 34px 5px 5px;
+      cursor: pointer;
+  }
+
+  .autocomplete__dropdown-arrow-down {
+      z-index: -1;
+      display: inline-block;
+      position: absolute;
+      right: 8px;
+      width: 24px;
+      height: 24px;
+      top: 10px;
+  }
+
+  .autocomplete__menu {
+      background-color: #fff;
+      border: 2px solid #0b0c0c;
+      border-top: 0;
+      color: #0b0c0c;
+      margin: 0;
+      max-height: 342px;
+      overflow-x: hidden;
+      padding: 0;
+      width: 100%;
+      width: calc(100% - 4px);
+  }
+
+  .autocomplete__menu--visible {
+      display: block;
+  }
+
+  .autocomplete__menu--hidden {
+      display: none;
+  }
+
+  .autocomplete__menu--overlay {
+      box-shadow: rgba(0, 0, 0, 0.256863) 0 2px 6px;
+      left: 0;
+      position: absolute;
+      top: 100%;
+      z-index: 100;
+  }
+
+  .autocomplete__menu--inline {
+      position: relative;
+  }
+
+  .autocomplete__option {
+      border-bottom: solid #b1b4b6;
+      border-width: 1px 0;
+      cursor: pointer;
+      display: block;
+      position: relative;
+  }
+
+  .autocomplete__option > * {
+      pointer-events: none;
+  }
+
+  .autocomplete__option:first-of-type {
+      border-top-width: 0;
+  }
+
+  .autocomplete__option:last-of-type {
+      border-bottom-width: 0;
+  }
+
+  .autocomplete__option--odd {
+      background-color: #fafafa;
+  }
+
+  .autocomplete__option--focused, .autocomplete__option:hover {
+      background-color: #1d70b8;
+      border-color: #1d70b8;
+      color: #fff;
+      outline: 0;
+  }
+
+  .autocomplete__option--no-results {
+      background-color: #fafafa;
+      color: #646b6f;
+      cursor: not-allowed;
+  }
+
+  .autocomplete__hint, .autocomplete__input, .autocomplete__option {
+      font-size: 16px;
+      line-height: 1.25;
+  }
+
+  .autocomplete__hint, .autocomplete__option {
+      padding: 5px;
+  }
+
+  @media (min-width: 641px) {
+      .autocomplete__hint, .autocomplete__input, .autocomplete__option {
+          font-size: 19px;
+          line-height: 1.31579;
+      }
+  }
+
+  .gem-c-search__item {
+      position: relative;
+      display: table-cell;
+      vertical-align: top;
+      padding-top: 2px;
+  }
+
+  .gem-c-search__submit-wrapper {
+      width: 1%;
+  }
+
+  .gem-c-search__submit {
+      border: 0;
+      cursor: pointer;
+      border-radius: 0;
+      position: relative;
+      padding: 0;
+      width: 40px;
+      height: 40px;
+      background-image: url(/public/images/search-button.png);
+      background-repeat: no-repeat;
+      text-indent: -5000px;
+      overflow: hidden;
+      background-color: #1d70b8;
+      color: #fff;
+      background-size: 52.5px auto;
+      background-position: 115% 50%;
+  }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+      .gem-c-search__submit {
+          background-size: 52.5px auto;
+          background-position: 115% 50%;
+      }
+  }
+
+  .gem-c-search__input[type="search"] {
+      height: 2.1052631579em;
+      padding: .3157894737em;
+      border-right-width: 0;
+  }
+
+  .gem-c-search__label {
+      font-family: "nta",arial,sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 2.5;
+      display: block;
+      background: #fff;
+      color: #0b0c0c;
+  }
+
+  #finder-keyword-search {
+      position: relative;
+      display: table-cell;
+      vertical-align: top;
+  }
+
+</style>
+
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+
+<script>
+  const occupations = [];
+</script>
+
+{% for i in range(0, grantList.length) -%}
+<script>
+  occupations.push('{{ data.import.grants[grantList[i]].code }} {{ data.import.grants[grantList[i]].title }}');
+</script>
+{%- endfor %}
+
+<script type="text/javascript">
+  accessibleAutocomplete({
+    autoselect: true,
+    element: document.querySelector('#finder-keyword-search'),
+    id: 'grant-search',
+    name: 'grantAutocomplete',
+    source: occupations,
+    defaultValue: '',
+    displayMenu: 'overlay',
+    minLength: 2
+  })
+
+</script>
 
 {% endblock %}
 
