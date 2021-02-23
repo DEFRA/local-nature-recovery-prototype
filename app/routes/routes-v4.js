@@ -122,7 +122,7 @@ router.post('/options-choice/*/search', function (req, res) {
   // get the grant code from the returned value
   grant2 = grant.substring(0,4).trim()
   // compare it to all the grants to find a match
-  
+
   for (i = 0; i < grants.length; i++) {
     var grants_code = grants[i].code.trim()
     // build an array of the land use filters selected
