@@ -138,6 +138,12 @@ router.get('/options-choice/*/grants', function (req, res) {
 
   // find the right version to render
   let version = req.session.data['prototype'].version
+
+  // write priorty list to local storage
+  prototype.priorityList = priorityList
+
+  // push back values
+  req.session.data['prototype'] = prototype
   return res.render(version + '/grants', {
     'optionCount': optionCount, // pass the totals to the view
     'capitalCount': capitalCount,
