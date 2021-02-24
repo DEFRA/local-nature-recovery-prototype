@@ -64,19 +64,51 @@ navigation: []
   .govuk-grid-column-full {
     position: relative;
   }
-  #summaryToggle {
-    /*float: right;*/
-    position: absolute;
-    right: 15px;
-    top: -30px;
+  #summaryToggle,
+  #summaryToggle2 {
+      /*float: right;*/
+      position: absolute;
+      right: 15px;
+      top: -30px;
   }
-  #summaryToggle .govuk-accordion__icon {
-    position: absolute;
-    top: 50%;
-    left: -20px;
-    width: 12px;
-    height: 12px;
-    margin-top: -6px;
+
+  #summaryToggle2 {
+      border: 1px solid #ccc;
+      background: #f1f1f1;
+      display: block;
+      top: -60px;
+  }
+
+  #summaryToggle2 a {
+      padding: 0.7em 1em 0.7em 3em;
+      display: block;
+  }
+
+  #summaryToggle2 .govuk-accordion__icon2,
+  #summaryToggle2 .govuk-accordion__icon2.checked {
+      position: absolute;
+      top: 35%;
+      left: 10px;
+      width: 25px;
+      height: 25px;
+      margin-top: -6px;
+      content: "";
+      background-image: url(/public/images/checkbox-unticked.png);
+      cursor: pointer;
+  }
+
+  #summaryToggle2 .govuk-accordion__icon2.checked {
+      background-image: url(/public/images/checkbox-ticked.png);
+  }
+
+  #summaryToggle .govuk-accordion__icon,
+  #summaryToggle2 .govuk-accordion__icon {
+      position: absolute;
+      top: 50%;
+      left: -20px;
+      width: 12px;
+      height: 12px;
+      margin-top: -6px;
   }
   #summaryToggle .govuk-accordion__icon.hidden::after {
     height: 0% !important;
@@ -130,7 +162,8 @@ navigation: []
   <div class="govuk-grid-column-full govuk-!-margin-bottom-6" style="position: relative">
 
     <div class="govuk-!-padding-top-10" style="position: relative;">
-      <div id="summaryToggle" class=""><a href="#">Show grant details</a><span class="govuk-accordion__icon"></span></div>
+<!--      <div id="summaryToggle" class=""><a href="#">Show grant details</a><span class="govuk-accordion__icon"></span></div>-->
+      <div id="summaryToggle2" class=""><a href="#">Display summaries and payments</a><span class="govuk-accordion__icon2"></span></div>
     </div>
 
     <table class="govuk-table">
@@ -184,7 +217,8 @@ navigation: []
 
     {% if not relationshipType %}
     <div class="govuk-!-padding-top-10" style="position: relative;">
-      <div id="summaryToggle" class=""><a href="#">Show grant details</a><span class="govuk-accordion__icon"></span></div>
+<!--      <div id="summaryToggle" class=""><a href="#">Show grant details</a><span class="govuk-accordion__icon"></span></div>-->
+      <div id="summaryToggle2" class=""><a href="#">Display summaries and payments</a><span class="govuk-accordion__icon2"></span></div>
     </div>
     {% endif %}
 
