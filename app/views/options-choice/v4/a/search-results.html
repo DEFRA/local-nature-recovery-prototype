@@ -84,7 +84,7 @@
 
       <div class="gem-c-search  gem-c-search--on-white gem-c-search--separate-label" data-module="gem-toggle-input-class-on-focus">
         <label for="finder-keyword-search" class="gem-c-search__label">
-          Search <span class="govuk-visually-hidden">Countryside Stewardship grants</span>
+          Quick find
 
         </label>
         <div class="gem-c-search__item-wrapper">
@@ -569,9 +569,11 @@
   const occupations = [];
 </script>
 
-{% for i in range(0, grantList.length) -%}
+{% set grants = data.import.grants %}
+
+{% for i in range(0, grants.length) -%}
 <script>
-  occupations.push('{{ data.import.grants[grantList[i]].code }} {{ data.import.grants[grantList[i]].title }}');
+    occupations.push('{{ data.import.grants[i].code }} {{ data.import.grants[i].title }}');
 </script>
 {%- endfor %}
 
