@@ -167,7 +167,9 @@ router.get('/options-choice/*/search-results', function (req, res) {
   let prototype = req.session.data['prototype']
   // add all the values if they don't already exist
   prototype.filterType = [['Option', ''], ['Capital Item', ''], ['Supplement', '']]
-  prototype.filterUse = [['Air quality', ''], ['Arable land', ''], ['Boundaries', ''], ['Coast', ''], ['Educational access', ''], ['Flood risk', ''], ['Grassland', ''], ['Historic environment', ''], ['Livestock management', ''], ['Organic land', ''], ['Pollinators and Wildlife', ''], ['Priority habitats', ''], ['Trees (non-woodland)', ''], ['Uplands', ''], ['Vegetation control', ''], ['Water quality', ''], ['Woodland', '']]
+  if (!prototype.filterUse) {
+    prototype.filterUse = [['Air quality', ''], ['Arable land', ''], ['Boundaries', ''], ['Coast', ''], ['Educational access', ''], ['Flood risk', ''], ['Grassland', ''], ['Historic environment', ''], ['Livestock management', ''], ['Organic land', ''], ['Pollinators and Wildlife', ''], ['Priority habitats', ''], ['Trees (non-woodland)', ''], ['Uplands', ''], ['Vegetation control', ''], ['Water quality', ''], ['Woodland', '']]
+  }
   prototype.filterPackage = [['Pollinators and Wildlife', ''], ['Improving Water Quality', ''], ['Air Quality', ''], ['Water Quality', ''], ['Climate Change Mitigation and Adaptation', ''], ['Flood Mitigation and Coastal Risk', ''], ['Drought and Wildfire Mitigation', ''], ['Heritage', ''], ['Access and Engagement', '']]
   // for version B we want to start with the local priorities checked
   if (prototype.version === 'options-choice/v1/b') { // TODO make this ignore the version number
@@ -529,6 +531,7 @@ router.get('/options-choice/*/grant-details', function (req, res) {
 
   // grab the query parameter from url
   var grantNum = req.query.grant
+  var priorityFlag = req.query.priority
   prototype.grantNum = grantNum
 
   let unit = grants[grantNum].measure
@@ -541,25 +544,26 @@ router.get('/options-choice/*/grant-details', function (req, res) {
   
   const scrapeGov = async () => {
     try {
-      // const { data } = await axios.get("https://www.gov.uk/countryside-stewardship-grants/creation-of-wood-pasture-wd6");
-      const { data } = await axios.get(grants[grantNum].url);
-      //const dom = new JSDOM(data, { runScripts: "dangerously", resources: "usable"});
-      const dom = new JSDOM(data);
-      const { document } = dom.window;
-      const scrappedContent = document.querySelector(".gem-c-govspeak").innerHTML;
+      // const { data } = await axios.get("https://www.gov.uk/countryside-stewardship-grants/creation-of-wood-pasture-wd6")
+      const { data } = await axios.get(grants[grantNum].url)
+      //const dom = new JSDOM(data, { runScripts: "dangerously", resources: "usable"})
+      const dom = new JSDOM(data)
+      const { document } = dom.window
+      const scrappedContent = document.querySelector(".gem-c-govspeak").innerHTML
       
       return res.render(version + '/grant-details', {
         'unit': unit[0],
-        'govtext': scrappedContent
+        'govtext': scrappedContent,
+        'priorityFlag': priorityFlag
       })
 
       //return firstPost;
     } catch (error) {
-      throw error;
+      throw error
     }
-  };
+  }
 
-  scrapeGov();
+  scrapeGov()
 })
 
 
@@ -603,14 +607,14 @@ router.get('/options-choice/*/configure', function (req, res) {
     var planNum = req.query.planNum
   }
   prototype.planNum = planNum
-
+  priorityFlag = req.session.data.priorityFlag
   // find the right version to render
   let version = req.session.data['prototype'].version
   req.session.data['prototype'] = prototype // write back these values into the session data
   return res.render(version + '/configure', {
-    'grantNum': grantNum
+    'grantNum': grantNum,
+    'priorityFlag': priorityFlag
   })
-
 })
 
 // configure item
@@ -631,8 +635,6 @@ router.post("/options-choice/*/configure", function (req, res) {
   } else {
     res.redirect('plan')
   }
-
-
 })
 
 // Create array of search results

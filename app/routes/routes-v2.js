@@ -19,7 +19,9 @@ router.get('/options-choice/*/local-priorities', function (req, res) {
   let prototype = req.session.data['prototype']
   // add all the values if they don't already exist
   prototype.filterType = [['Option', ''], ['Capital Item', ''], ['Supplement', '']]
-  prototype.filterUse = [['Air quality', ''], ['Arable land', ''], ['Boundaries', ''], ['Coast', ''], ['Educational access', ''], ['Flood risk', ''], ['Grassland', ''], ['Historic environment', ''], ['Livestock management', ''], ['Organic land', ''], ['Pollinators and Wildlife', ''], ['Priority habitats', ''], ['Trees (non-woodland)', ''], ['Uplands', ''], ['Vegetation control', ''], ['Water quality', ''], ['Woodland', '']]
+  if (!prototype.filterUse) {
+    prototype.filterUse = [['Air quality', ''], ['Arable land', ''], ['Boundaries', ''], ['Coast', ''], ['Educational access', ''], ['Flood risk', ''], ['Grassland', ''], ['Historic environment', ''], ['Livestock management', ''], ['Organic land', ''], ['Pollinators and Wildlife', ''], ['Priority habitats', ''], ['Trees (non-woodland)', ''], ['Uplands', ''], ['Vegetation control', ''], ['Water quality', ''], ['Woodland', '']]
+  }
   prototype.filterPackage = [['Pollinators and Wildlife', ''], ['Improving Water Quality', ''], ['Air Quality', ''], ['Water Quality', ''], ['Climate Change Mitigation and Adaptation', ''], ['Flood Mitigation and Coastal Risk', ''], ['Drought and Wildfire Mitigation', ''], ['Heritage', ''], ['Access and Engagement', '']]
   // for version B we want to start with the local priorities checked
   if (prototype.version === 'options-choice/v2/b' || prototype.version === 'options-choice/v4/b') { // TODO make this ignore the version number
