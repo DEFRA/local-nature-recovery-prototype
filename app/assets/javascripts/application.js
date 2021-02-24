@@ -22,16 +22,32 @@ $(document).ready(function () {
 
     setCookie('showSummary', closed, 365)
   });
+  $('#summaryToggle2').click(function () {
+    // The click handler will decide whether the toggle should "show"/"hide" and set the cookie.
+    var closed = $('.grantSummary').is(':hidden')
+    if (closed) {
+      $('.grantSummary').show()
+      $('#summaryToggle2').html('<a href="#">Display summaries and payments</a><span class="govuk-accordion__icon2 checked"></span>')
+    }
+    else {
+      $('.grantSummary').hide()
+      $('#summaryToggle2').html('<a href="#">Display summaries and payments</a><span class="govuk-accordion__icon2"></span>')
+    }
+
+    setCookie('showSummary', closed, 365)
+  });
 
   // The initial load event will try and pull the cookie to see if the toggle is "open"
   var openToggle = getCookie('showSummary')
   if (openToggle === 'true') {
     $('.grantSummary').show()
     $('#summaryToggle').html('<a href="#">Hide grant details</a><span class="govuk-accordion__icon hidden"></span>')
+    $('#summaryToggle2').html('<a href="#">Display summaries and payments</a><span class="govuk-accordion__icon2 checked"></span>')
   }
   else {
     $('.grantSummary').hide()
     $('#summaryToggle').html('<a href="#">Show grant details</a><span class="govuk-accordion__icon"></span>')
+    $('#summaryToggle2').html('<a href="#">Display summaries and payments</a><span class="govuk-accordion__icon2"></span>')
   }
 
 });
