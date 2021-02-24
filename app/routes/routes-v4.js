@@ -19,7 +19,7 @@ router.get('/options-choice/v4/*/confirm', function (req, res) {
 
   grantNum = prototype.grantNum // pulls the value from the button
 
-  var item = grants[grantNum];
+  var item = grants[grantNum]
   
   // we could generate a simple array to hold all the related items - nunjucts could easily use that to render the page
   // something like [5,47,67]
@@ -27,27 +27,21 @@ router.get('/options-choice/v4/*/confirm', function (req, res) {
   const finalRelatedList = [] // lets store the filtered related items here
 
   /* Relationship */
-  var relationship=[];
+  var relationship=[]
   if(item.hasOwnProperty('relationship')){
     // split into array
-    var relationshipGrants = item.relationship.split(',').map(item => item.trim()); 
-    var relationshipType = item.relationshipType; // r OR d
-    if(relationshipType=='r')
-    {
-      relationshipType = 'The following are related';
-    } else {
-      relationshipType = 'The following are dependencies'
-    }
+    var relationshipGrants = item.relationship.split(',').map(item => item.trim())
+    var relationshipType = item.relationshipType // r OR d
     
     // loop array and grab the grantname from the main grants list
     for (rg =0; rg < relationshipGrants.length; rg++ ) {
-      var rgCode = relationshipGrants[rg];
+      var rgCode = relationshipGrants[rg]
 
       //loop master grantlist and get grant name
       for(g=0; g < grants.length; g++) {
         if(grants[g].code == rgCode) {
-          console.log('get name:'+ rgCode);
-          relationship.push({'code' : rgCode, 'title' : grants[g].title, 'index' : g});
+          console.log('get name:'+ rgCode)
+          relationship.push({ 'code' : rgCode, 'title' : grants[g].title, 'index' : g })
         }
       }
     }

@@ -29,10 +29,30 @@ router.post('/options-choice/*/location', function (req, res) {
 router.post('/options-choice/*/land-use', function (req, res) {
 
   let prototype = req.session.data['prototype']
+  let landUse = req.session.data.landuse
 
-  const location = req.session.data['location']
+  prototype.filterUse = [['Air quality', ''], ['Arable land', ''], ['Boundaries', ''], ['Coast', ''], ['Educational access', ''], ['Flood risk', ''], ['Grassland', ''], ['Historic environment', ''], ['Livestock management', ''], ['Organic land', ''], ['Pollinators and Wildlife', ''], ['Priority habitats', ''], ['Trees (non-woodland)', ''], ['Uplands', ''], ['Vegetation control', ''], ['Water quality', ''], ['Woodland', '']]
 
-  let version = req.session.data['prototype'].version
+  // lets store the selected land use options so we can use it on the next page
+  const activeUses = [] // lets store the checked options here
+  for (i = 0; i < prototype.filterUse.length; i++) {
+    if (landUse.length === 0) {
+      filterUse[i][1] = ''
+    } else {
+      for (j = 0; j < landUse.length; j++) {
+        if (landUse[j] === prototype.filterUse[i][0]) {
+          prototype.filterUse[i][1] = 'checked'
+          activeUses.push(prototype.filterUse[i][0])
+          break
+        } else {
+          prototype.filterUse[i][1] = ''
+        }
+      }
+    }
+  }
+
+  // write back these values into the session data
+  req.session.data['prototype'] = prototype
 
   if (prototype.version === 'options-choice/v2/b' || prototype.version === 'options-choice/v3/b') { // TODO make this ignore the version number
     res.redirect('local-priorities')
@@ -51,30 +71,79 @@ router.get('/options-choice/*/grants', function (req, res) {
     res.redirect('/error')
   }
 
-  // count how many grants of each type
+  // lets grab the prototype object as a place to store the selected filters
+  let prototype = req.session.data['prototype']
   var grants = req.session.data['import'].grants // get the object
+  var grantList = []
 
+
+  // count how many grants of each type
   // start the counters on 0
   var optionCount = 0
   var capitalCount = 0
   var supplementCount = 0
+  var priorityCount = 0
 
-  for(i = 0; i < grants.length; i++) {
-    if (grants[i].type === 'Option') {
+  // we need to prefilter by land use
+  const activeUses =[] // lets retrieve the selected land use options
+
+  if (prototype.version === 'options-choice/v4/b') {
+    for (j = 0; j < prototype.filterUse.length; j++) {
+      if (prototype.filterUse[j][1] === 'checked') {
+        activeUses.push(prototype.filterUse[j][0])
+      }
+    }
+    console.log("active uses: " + activeUses)
+  }
+
+  // find grants for selected 'land use' filters and add to grantList
+  for (i = 0; i < grants.length; i++) {
+    var grants_use = grants[i].use.split(',').map(item => item.trim())
+    // build an array of the land use filters selected
+    var foundUse = findOne(grants_use, activeUses)
+    if (activeUses.length === 0) {
+      grantList.push(i)
+    } else {
+      if (foundUse) {
+        grantList.push(i)
+      }
+    }
+  }
+
+  // count how many priorities we have
+  var priorityList = []
+  for(i = 0; i < grantList.length; i++) {
+    if (grants[grantList[i]].priority) {
+      var type_local = grants[grantList[i]].priority.split(',').map(item => item.trim())
+      // build an array of the grant type filters selected
+      if (type_local[0] !== 'undefined') {
+        priorityList.push(grantList[i])
+      }
+    }
+  }
+  priorityCount = priorityList.length
+
+  // count the grants
+  for(i = 0; i < grantList.length; i++) {
+    if (grants[grantList[i]].type === 'Option') {
       optionCount++
-    } else if (grants[i].type === 'Capital Item') {
+    } else if (grants[grantList[i]].type === 'Capital Item') {
       capitalCount++
-    } else if (grants[i].type === 'Supplement') {
+    } else if (grants[grantList[i]].type === 'Supplement') {
       supplementCount++
     }
   }
+  // total up the counts for v4
+  var grantCount = optionCount + capitalCount + supplementCount
 
   // find the right version to render
   let version = req.session.data['prototype'].version
   return res.render(version + '/grants', {
     'optionCount': optionCount, // pass the totals to the view
     'capitalCount': capitalCount,
-    'supplementCount': supplementCount
+    'supplementCount': supplementCount,
+    'grantCount': grantCount,
+    'priorityCount': priorityCount
   })
 })
 
@@ -98,7 +167,7 @@ router.get('/options-choice/*/search-results', function (req, res) {
   let prototype = req.session.data['prototype']
   // add all the values if they don't already exist
   prototype.filterType = [['Option', ''], ['Capital Item', ''], ['Supplement', '']]
-  prototype.filterUse = [['Air quality', ''], ['Arable land', ''], ['Boundaries', ''], ['Coast', ''], ['Educational access', ''], ['Flood risk', ''], ['Grassland', ''], ['Historic environment', ''], ['Livestock management', ''], ['Organic land', ''], ['Pollinators and Wildlife', ''], ['Priority habitats', ''], ['Trees (non-woodland)', ''], ['Uplands', ''], ['Vegetation control', ''], ['Water Quality', ''], ['Woodland', '']]
+  prototype.filterUse = [['Air quality', ''], ['Arable land', ''], ['Boundaries', ''], ['Coast', ''], ['Educational access', ''], ['Flood risk', ''], ['Grassland', ''], ['Historic environment', ''], ['Livestock management', ''], ['Organic land', ''], ['Pollinators and Wildlife', ''], ['Priority habitats', ''], ['Trees (non-woodland)', ''], ['Uplands', ''], ['Vegetation control', ''], ['Water quality', ''], ['Woodland', '']]
   prototype.filterPackage = [['Pollinators and Wildlife', ''], ['Improving Water Quality', ''], ['Air Quality', ''], ['Water Quality', ''], ['Climate Change Mitigation and Adaptation', ''], ['Flood Mitigation and Coastal Risk', ''], ['Drought and Wildfire Mitigation', ''], ['Heritage', ''], ['Access and Engagement', '']]
   // for version B we want to start with the local priorities checked
   if (prototype.version === 'options-choice/v1/b') { // TODO make this ignore the version number
