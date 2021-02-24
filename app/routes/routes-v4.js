@@ -4,6 +4,18 @@ var jsonQuery = require('json-query')
 var nunjucks  = require('nunjucks')
 var env = nunjucks.configure()
 
+router.get('/options-choice/v4/*/sbi-land-confirm', function (req, res) {
+  if (req.query.postcode) {
+    var postcode = req.query.postcode
+  }
+  let version = req.session.data['prototype'].version
+  return res.render(version + '/sbi-land-confirm', {
+    'postcode': postcode
+  })
+})
+// grab the query parameter from url and override if it exists
+
+
 // Create array of search results
 router.get('/options-choice/v4/*/confirm', function (req, res) {
   // check for data

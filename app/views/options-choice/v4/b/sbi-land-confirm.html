@@ -39,8 +39,14 @@ containerClasses: "govuk-width-container"
 
       <form action="land-use" method="get" role="form">
         <h1 class="govuk-heading-xl">Confirm the location of your land</h1>
+
+        {% if postcode %}
+        <p>Your Postcode: {{ postcode or 'AB12 4RG' }} returned the following location. <br>
+          Please check on the map that it is correct.</p>
+        {% else %}
         <p>Your SBI number: {{ data['sbi'] or '123456789' }} returned the following location. <br>
             Please check on the map that it is correct.</p>
+        {% endif %}
 
 <!--        <div class="govuk-!-margin-bottom-4" style="border: solid 3px black;">-->
 <!--            <img class="img" src="/public/images/{{ data.import.variables[0].map }}" alt="Map of holdings" style="width: 100%; display: inine-block;"/>-->
