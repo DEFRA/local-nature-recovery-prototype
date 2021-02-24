@@ -64,25 +64,48 @@ router.get('/options-choice/v4/*/confirm', function (req, res) {
         }
       }
     }
-
-    const activeUses = prototype.filterUse // lets store the checked options here
-
-    console.log(activeUses)
-
-    // for (i = 0; i < relatedList.length; i++) {
-    //   var grants_use = grants[i].use.split(',').map(item => item.trim())
-    //   // build an array of the land use filters selected
-    //   var foundUse = findOne(grants_use, uses)
-    //   if (foundUse) {
-    //     finalRelatedList.push(i)
-    //   }
-    // }
   }
 
   // if nothing relates create a fallback for the prototype to display
   if (relatedList.length === 0) {
     relatedList.push(0, 1, 2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15)
   }
+
+  const activeUses =[] // lets retrieve the selected land use options
+
+  if (prototype.version === 'options-choice/v4/b') {
+    for (j = 0; j < prototype.filterUse.length; j++) {
+      if (prototype.filterUse[j][1] === 'checked') {
+        activeUses.push(prototype.filterUse[j][0])
+      }
+    }
+    console.log("active uses: " + activeUses)
+  }
+
+  const relatedFilteredList =[]
+  // find grants for selected 'land use' filters and add to grantList
+  for (i = 0; i < relatedList.length; i++) {
+    var grants_use = grants[relatedList[i]].use.split(',').map(item => item.trim())
+    // build an array of the land use filters selected
+    var foundUse = findOne(grants_use, activeUses)
+    if (activeUses.length === 0) {
+      relatedFilteredList.push(i)
+    } else {
+      if (foundUse) {
+        relatedFilteredList.push(i)
+      }
+    }
+  }
+
+  if (prototype.version === 'options-choice/v4/b') {
+    var first = "role";
+    for (i = 0; i < relatedList.length; i++) {
+      relatedFilteredList.sort(function (x, y) {
+        return x == first ? -1 : y == first ? 1 : 0
+      })
+    }
+  }
+
 
   // write back these values into the session data
   req.session.data['prototype'] = prototype
@@ -92,8 +115,9 @@ router.get('/options-choice/v4/*/confirm', function (req, res) {
   return res.render(version + '/confirm', {
     'relatedList': relatedList,
     'finalRelatedList': finalRelatedList,
-    'relationship' : relationship,
-    'relationshipType' : relationshipType
+    'relationship': relationship,
+    'relationshipType': relationshipType,
+    'relatedFilteredList': relatedFilteredList
   })
 })
  

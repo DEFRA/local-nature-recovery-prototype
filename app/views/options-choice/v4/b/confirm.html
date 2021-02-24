@@ -165,6 +165,10 @@ navigation: []
 
 {% endif %}
 
+{% if relatedFilteredList %}
+{% set relatedList = relatedFilteredList %}
+{% endif %}
+
 <div class="govuk-grid-row">
 
   <div class="govuk-grid-column-two-thirds" style="position: relative">
@@ -194,6 +198,8 @@ navigation: []
       </thead>
 
       <tbody class="govuk-table__body">
+
+
 
     {% for i in range(0, relatedList.length) -%}
     <tr class="govuk-table__row">
