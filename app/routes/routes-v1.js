@@ -702,6 +702,19 @@ router.post('/options-choice/*/plan', function (req, res) {
   })
 })
 
+// change json file
+
+router.post("/datafile", function(req,res) {
+  // grab the value from the form and use it to build the file name
+  let grantsFile = req.session.data.selectedData
+  req.session.data.selectedFile = 'grants-full-ur'+ grantsFile +'.json'
+  console.log('setting data file as: grants-full-ur' + grantsFile + '.json')
+
+  // reload index page
+  res.redirect("/")
+})
+
+
 // Load JSON data from file ----------------------------------------------------
 
 // funtion to load in data files
@@ -710,6 +723,7 @@ function loadJSONFromFile(fileName, path = 'app/data/') {
   return JSON.parse(jsonFile) // Return JSON as object
 }
 
+<<<<<<< HEAD
 function dataImport(req, res, next) {
   if (!req.session.data['import']) {
     console.log('loading in data file')
@@ -718,15 +732,38 @@ function dataImport(req, res, next) {
     let grantsFile = 'grants-full-ur16.json'
     let path = 'app/data/'
     req.session.data['import'] = loadJSONFromFile(grantsFile, path)
+=======
+router.get('/', function (req, res) {
+  // pull in the prototype data object and see if it contains a datafile reference
+  let prototype = {} || req.session.data['prototype'] // set up if doesn't exist
+>>>>>>> datafile-select
 
-    // TODO - gather up the filter facets here - and find a way to avoid hard-coding them
+  console.log('loading in data file')
+  // pull in JSON data file
+  // delete req.session.data['import']
 
+  if (req.session.data.selectedFile) {
+    var grantsFile = req.session.data.selectedFile
+    console.log("data found")
   } else {
-    console.log('data retrieved')
+    console.log("data not found")
+    var grantsFile = 'grants-full-ur15.json'
   }
-  next()
-}
 
-router.get('/', dataImport) // the homepage will delete the session data and re-import it
+  // push the value back and store it
+  prototype.datafile = grantsFile
+  req.session.data['prototype'] = prototype // write back these values into the session data
+
+  let path = 'app/data/'
+  req.session.data['import'] = loadJSONFromFile(grantsFile, path)
+
+  return res.render('index', {
+    'grantsFile': grantsFile
+  })
+})
+
+
+
+// router.get('/', dataImport) // the homepage will delete the session data and re-import it
 
 module.exports = router

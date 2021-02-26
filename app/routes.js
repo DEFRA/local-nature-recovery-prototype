@@ -1,8 +1,12 @@
 const express = require('express')
 const router = express.Router()
 
+const path = require("path")
+const fs = require('fs-extra')
+
 // Route from the index page - this allows us to store which version was chosen
 router.post("/", function (req, res) {
+
   let prototype = {} || req.session.data['prototype'] // set up if doesn't exist
   prototype.version = req.session.data.version // pulls the value from the button
   req.session.data['prototype'] = prototype // write back these values into the session data

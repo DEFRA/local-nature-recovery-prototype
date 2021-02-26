@@ -97,7 +97,38 @@ containerClasses: "govuk-width-container"
 
             </div>
         </details>
+
+</form>
+
+<form action="datafile" method="POST" role="form">
+
+  <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Using data file: {% if data['selectedData'] %}
+            UR{{ data['selectedData'] }}
+          {% else %}
+            {{ data['dataFiles'][0][1] }}
+          {% endif %}
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="selectedData">
+          Switch data file to:
+        </label>
+        <select class="govuk-select" id="selectedData" name="selectedData" onchange="if(this.value != '0') this.form.submit()" >
+          <option value="0">Select a data file</option>
+          {% for i in range(0, data['dataFiles'].length) -%}
+            <option value="{{ data['dataFiles'].length - i }}">{{ data['dataFiles'][i][1] }} - {{ data['dataFiles'][i][2] }}</option>
+          {%- endfor %}
+        </select>
+      </div>
     </div>
+
+    </div>
+  </details>
+
 </form>
 
 {% endblock %}
