@@ -4,22 +4,6 @@ const router = express.Router()
 const path = require("path")
 const fs = require('fs-extra')
 
-// get all data files
-function getDataFiles() {
-  const directoryPath = path.join(__dirname, "data");
-
-  fs.readdir(directoryPath, function(err, files) {
-    if (err) {
-      console.log("Error getting directory information.")
-    } else {
-      files.forEach(function(file) {
-        console.log(file)
-      })
-    }
-  })
-}
-
-
 // Route from the index page - this allows us to store which version was chosen
 router.post("/", function (req, res) {
 
@@ -35,6 +19,4 @@ router.use('/', require('./routes/routes-v2.js'))
 router.use('/', require('./routes/routes-v3.js'))
 router.use('/', require('./routes/routes-v4.js'))
 
-
 module.exports = router
-
