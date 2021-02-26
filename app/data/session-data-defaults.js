@@ -20,9 +20,10 @@ Example usage:
 module.exports = {
   // add our data files here
   'dataFiles': [
-    ['grants-full-ur15.json', 'UR15', 'Arable farmer'],
-    ['grants-full-ur14.json', 'UR14', 'Arable farmer'],
-    ['grants-full-ur13.json', 'UR13', 'Arable farmer'],
+    ['grants-full-ur16.json', 'UR16', 'arable - combinable crops'],
+    ['grants-full-ur15.json', 'UR15', 'mixed with both arable -combinable crops, permanent pasture'],
+    ['grants-full-ur14.json', 'UR14', '265 acres, permanent pasture and semi-natural ancient woodland'],
+    ['grants-full-ur13.json', 'UR13', 'small arable farm'],
     ['grants-full-ur12.json', 'UR12', 'Arable farmer'],
     ['grants-full-ur11.json', 'UR11', 'Arable farmer'],
     ['grants-full-ur10.json', 'UR10', 'Arable farmer'],
