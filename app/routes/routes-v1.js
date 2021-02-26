@@ -547,7 +547,7 @@ router.get('/options-choice/*/grant-details', function (req, res) {
   // find the right version to render
   let version = req.session.data['prototype'].version
   req.session.data['prototype'] = prototype // write back these values into the session data
-  
+
   const scrapeGov = async () => {
     try {
       // const { data } = await axios.get("https://www.gov.uk/countryside-stewardship-grants/creation-of-wood-pasture-wd6")
@@ -556,7 +556,7 @@ router.get('/options-choice/*/grant-details', function (req, res) {
       const dom = new JSDOM(data)
       const { document } = dom.window
       const scrappedContent = document.querySelector(".gem-c-govspeak").innerHTML
-      
+
       return res.render(version + '/grant-details', {
         'unit': unit[0],
         'govtext': scrappedContent,
@@ -675,7 +675,7 @@ router.get('/options-choice/*/plan', function (req, res) {
   })
 })
 
-// delete item from plan 
+// delete item from plan
 router.post('/options-choice/*/plan', function (req, res) {
   // get the object
   let plan = req.session.data['plan']
@@ -723,20 +723,9 @@ function loadJSONFromFile(fileName, path = 'app/data/') {
   return JSON.parse(jsonFile) // Return JSON as object
 }
 
-<<<<<<< HEAD
-function dataImport(req, res, next) {
-  if (!req.session.data['import']) {
-    console.log('loading in data file')
-    // pull in JSON data file
-    delete req.session.data['import']
-    let grantsFile = 'grants-full-ur16.json'
-    let path = 'app/data/'
-    req.session.data['import'] = loadJSONFromFile(grantsFile, path)
-=======
 router.get('/', function (req, res) {
   // pull in the prototype data object and see if it contains a datafile reference
   let prototype = {} || req.session.data['prototype'] // set up if doesn't exist
->>>>>>> datafile-select
 
   console.log('loading in data file')
   // pull in JSON data file
@@ -761,9 +750,5 @@ router.get('/', function (req, res) {
     'grantsFile': grantsFile
   })
 })
-
-
-
-// router.get('/', dataImport) // the homepage will delete the session data and re-import it
 
 module.exports = router
