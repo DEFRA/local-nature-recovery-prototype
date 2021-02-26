@@ -3677,5 +3677,100 @@
       "summary": "It will help create new areas of fen priority habitat on land with low wildlife value, particularly around existing wetland habitats.\r\n\r\nIf successful this option will create predominantly open fen vegetation, with occasional scrub. There may be small open water features along ditch lines, water tracks and ponded areas. High water levels will be sustained by a natural, unpolluted water supply which will support a diverse range of target fen species.",
       "url": "https://www.gov.uk/countryside-stewardship-grants/creation-of-fen-wt9"
     }
+  ],
+  "priorities": [
+    {
+      "name": "Waders",
+      "summary": "Enhancement of habitats that support important populations of waders, in particular lapwing.",
+      "ranking": "1"
+    },
+    {
+      "name": "Wet grassland",
+      "summary": "Management and enhancement of wet grassland to benefit water quality, flood risk management and biodiversity",
+      "ranking": "2"
+    },
+    {
+      "name": "Farmland birds",
+      "summary": "To provide the essential resources (especially year-round food, shelter and nesting places) that birds need to survive and reproduce.",
+      "ranking": "3"
+    },
+    {
+      "name": "Wild pollinators",
+      "summary": "To provide the essential resources (especially food, shelter and nesting places) that wild pollinators and other farm wildlife need to survive and reproduce.",
+      "ranking": "4"
+    },
+    {
+      "name": "Woodland birds",
+      "summary": "Options and capital works that maintain or enhance conditions for woodland birds.",
+      "ranking": "5"
+    },
+    {
+      "name": "Water quality",
+      "summary": "To help improve water quality by controlling the source or the movement of potential pollutants. In particular to address issues with phosphates and pesticides in rivers and surface water.",
+      "ranking": "6"
+    },
+    {
+      "name": "Flood risk management",
+      "summary": "To help improve flood risk management with options that reduce the amount and rate of surface water run-off, reduce soil erosion or slow the movement of floodwaters on floodplains",
+      "ranking": "7"
+    },
+    {
+      "name": "Climate change",
+      "summary": "Land management options and capital works which support the management of vulnerable features and habitats, to support the resilience of biodiversity, water and other scheme priorities to the impacts of climate change. Including providing shade for water courses and improving carbon sequestration and storage.",
+      "ranking": "8"
+    },
+    {
+      "name": "Ancient and native woodland",
+      "summary": "To buffer and link existing woodlands and other habitats to benefit biodiversity, flood risk and climate change",
+      "ranking": "9"
+    },
+    {
+      "name": "Arable field margins",
+      "summary": "Management and enhancement of a range of features around the margins of arable land to benefit biodiversity and water quality.",
+      "ranking": "10"
+    },
+    {
+      "name": "Riparian habitats",
+      "summary": "Management and enhancement of a range of habitats and features on land adjacent to rivers and other water courses.",
+      "ranking": "11"
+    },
+    {
+      "name": "Woodland improvement",
+      "summary": "To improve existing woodland to benefit biodiversity, flood risk and climate change",
+      "ranking": "12"
+    },
+    {
+      "name": "Woodland creation",
+      "summary": "To increase the amount of tree cover to benefit biodiversity, flood risk and climate change",
+      "ranking": "13"
+    },
+    {
+      "name": "Historic environment",
+      "summary": "To ensure the long-term survival of historic environment features and protect them against damage and decay. In particular some of the biggest land management issues in this area are from scrub, tree and plant growth, including bracken.",
+      "ranking": "14"
+    },
+    {
+      "name": "Access and engagement",
+      "summary": "To encourage greater levels of engagement with a wide range of the population, including the provision of educational access visits.",
+      "ranking": "15"
+    },
+    {
+      "name": "Landscape character",
+      "summary": "To contribute to the maintenance and restoration of features that will enhance the pattern and scale of the landscape and add to the area’s ‘sense of place’. In particular stone-faced banks, earthbanks, stone walls,  hedgerow trees and permanent grassland.",
+      "ranking": "16"
+    },
+    {
+      "name": "Other",
+      "summary": " ",
+      "ranking": "17"
+    }
+  ],
+  "variables": [
+    {
+      "map": "ur10.png",
+      "long": "52.812827",
+      "lat": "-1.642885",
+      "u": "Har"
+    }
   ]
 }
