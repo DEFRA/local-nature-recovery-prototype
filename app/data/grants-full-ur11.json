@@ -1,12 +1,4 @@
 {
-  "variables": [
-    {
-      "map": "ur11.png",
-      "long": "52.812827",
-      "lat": "-1.642885",
-      "u": "Hor"
-    }
-  ],
   "grants": [
     {
       "code": "AB1",
@@ -3702,6 +3694,14 @@
       "name": "Other",
       "summary": " ",
       "ranking": "17"
+    }
+  ],
+  "variables": [
+    {
+      "map": "ur11.png",
+      "long": "52.812827",
+      "lat": "-1.642885",
+      "u": "Hor"
     }
   ]
 }

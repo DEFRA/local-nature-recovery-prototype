@@ -1,12 +1,4 @@
 {
-  "variables": [
-    {
-      "map": "ur14.png",
-      "long": "53.35392",
-      "lat": "-0.83232",
-      "u": "Brad"
-    }
-  ],
   "grants": [
     {
       "code": "AB1",
@@ -3718,9 +3710,17 @@
       "ranking": "16"
     },
     {
-      "name": "Other testttt",
+      "name": "Other",
       "summary": " ",
       "ranking": "17"
+    }
+  ],
+  "variables": [
+    {
+      "map": "ur14.png",
+      "long": "53.35392",
+      "lat": "-0.83232",
+      "u": "Brad"
     }
   ]
 }
