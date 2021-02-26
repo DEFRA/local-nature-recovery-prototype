@@ -46,8 +46,7 @@ containerClasses: "govuk-width-container"
   <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-l">Local Nature Recovery prototypes</h1>
-    
-    <h3><a href="/selectdatafile">Set Data File</a></h3>
+    <p>{{ data.prototype.datafile }}</p>
 
     <h2 class="govuk-heading-m">Option choice architecture - Research - Round 4 &nbsp; <strong class="govuk-tag govuk-tag--red govuk-!-margin-top-0 govuk-!-margin-bottom-2" style="font-size: 11px;">In design</strong></h2>
     <p>Choice architecture is the design of different ways in which choices can be presented to users, and the impact of that presentation on user decision-making. In the context of Environmental Land Management, this means the way in which we present the actions which we will pay for to potential applicants.</p>
@@ -99,7 +98,36 @@ containerClasses: "govuk-width-container"
 
             </div>
         </details>
+
+</form>
+
+<form action="datafile" method="POST" role="form">
+
+  <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Using data file: {{ data.prototype.datafile }}
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+
+      <div class="govuk-form-group">
+        <p>Current data file: {{ data.prototype.datafile }}</p>
+        <label class="govuk-label" for="selectedData">
+          Switch data file to:
+        </label>
+        <select class="govuk-select" id="selectedData" name="selectedData" onchange="if(this.value != '0') this.form.submit()" >
+          <option value="0">Select a data file</option>
+          {% for i in range(0, data['dataFiles'].length) -%}
+            <option value="{{ data['dataFiles'][i][0] }}">{{ data['dataFiles'][i][1] }} - {{ data['dataFiles'][i][2] }}</option>
+          {%- endfor %}
+        </select>
+      </div>
     </div>
+
+    </div>
+  </details>
+
 </form>
 
 {% endblock %}
