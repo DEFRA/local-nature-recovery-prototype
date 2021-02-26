@@ -729,4 +729,16 @@ function dataImport(req, res, next) {
 
 router.get('/', dataImport) // the homepage will delete the session data and re-import it
 
+router.get("/selectdatafile", function(req,res) {
+  console.log('here we would select datafile');
+  res.redirect('datafile')
+})
+
+router.post("/datafile", function(req,res) {
+  console.log('... datafile posted ...');
+  res.redirect("/")
+})
+
+
+
 module.exports = router

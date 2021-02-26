@@ -1,0 +1,58 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Defra - Local Nature Recovery prototypes
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+homepageUrl: "/",
+serviceName: "Defra Future Farming",
+serviceUrl: "/",
+containerClasses: "govuk-width-container"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<style type="text/css">
+
+    .unstyle-button {
+        display: inline-block;
+        background: none!important;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        padding: 0!important;
+        top: 4px;
+        box-sizing: none;
+        font-family: "GDS Transport", Arial, sans-serif;
+        font-size: 18px;
+        color: #1d70b8;
+        text-decoration: underline;
+        box-shadow: none;
+        cursor: pointer;
+    }
+    .unstyle-button:hover {
+        color: #003078;
+        text-decoration: underline;
+    }
+
+</style>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">Data file now set</h1>
+
+   
+  </div>
+</div>
+
+<form action="setdatafile" method="POST" role="form">   
+    <button type="submit" class="govuk-button" name="" value="setdatafile"><strong>Redirect to Index</strong></button>
+</form>
+
+{% endblock %}

@@ -29,11 +29,12 @@ router.post("/", function (req, res) {
   res.redirect('/' + prototype.version + '/start') // go to the start page
 })
 
-
 // Call in routes file from routes folder to keep routes.js cleaner
 router.use('/', require('./routes/routes-v1.js'))
 router.use('/', require('./routes/routes-v2.js'))
 router.use('/', require('./routes/routes-v3.js'))
 router.use('/', require('./routes/routes-v4.js'))
 
+
 module.exports = router
+
